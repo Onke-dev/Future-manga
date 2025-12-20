@@ -46,22 +46,22 @@
                         </button>
                     </li>
                 </ul>
-                <button class="burger_btn" type="button">
+                <button class="burger_btn" type="button" data-menu-open>
                     <svg class="burger_icon" width="40" height="40">
                         <use class="icon_menu" href="./images/icon.svg#icon-menu-toggle"></use>
                     </svg>
                 </button>
             </nav>
-            <div class="mob-menu">
+            <div class="mob-menu" data-menu>
                 <div class="container mob-menu-container">
-                    <button class="close-btn" type="button">
+                    <button class="close-btn" type="button" data-menu-close>
                         <svg class="btn_icon" width="40" height="40">
                             <use href="./images/icon.svg#icon-menu-close"></use>
                         </svg>
                     </button>
                     <ul class="mob-list_pages">
                         <li class="mob-header_item">
-                            <a class="mob-item" href="#">Home</a>
+                            <a class="mob-item" href="home.html">Home</a>
                         </li>
                         <li class="mob-header_item">
                             <a class="mob-item" href="#">Manga</a>
@@ -80,8 +80,8 @@
                         <li class="mob-header_item">
                             <a class="mob-item" href="#">Account</a>
                         </li>
-                        <li class="mob-header_item">
-                            <svg class="function_icon" width="20" height="20">
+                        <li class="mob-header_item" id="eye-open">
+                            <svg class="blindness" width="20" height="20">
                                 <use href="./images/icon.svg#icon-Eye"></use>
                             </svg>
                             <a class="mob-item" href="#">For people with visual impairments</a>
@@ -99,6 +99,7 @@
     <footer>
 
     </footer>
+    <script src="./js/menu.js"></script>
 </body>
 
 </html>

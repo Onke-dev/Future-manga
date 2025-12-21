@@ -7,7 +7,7 @@
 body {
     font-family: var(--font-family);
     background-color: #ddd;
-    background-image: url("/images/noise.jpg");
+    background-image: url("/Home/images/background/noise.jpg");
     background-repeat: repeat;
     margin: 0;
 }
@@ -32,7 +32,8 @@ ul {
 
 img {
     display: block;
-    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
@@ -52,10 +53,14 @@ img {
     flex-direction: row;
     justify-content: space-between;
     padding: 15px 0 15px 0;
+    align-items: center;
 }
 
-
 .logo {
+    text-decoration: none;
+}
+
+.logo-name {
 
     font-family: var(--font-family);
     font-weight: 400;
@@ -65,6 +70,7 @@ img {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .list_pages {

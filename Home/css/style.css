@@ -1,3 +1,4 @@
+/* #region global styles */
 :root {
     --font-family: "Junge", sans-serif;
     --second-family: "Inter", sans-serif;
@@ -36,12 +37,32 @@ img {
     height: auto;
 }
 
+/* #endregion global styles */
+
+/* #region container */
+
 .container {
     max-width: 320px;
     padding: 0 15px;
     margin: 0 auto;
 }
 
+@media screen and (min-width: 769px) {
+    .container {
+        max-width: 769px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+}
+
+/* #endregion container */
+
+/* #region header styles */
 .main_header {
     height: 70px;
     background-color: #818181;
@@ -204,6 +225,9 @@ img {
 
 }
 
+/* #endregion header styles */
+
+/* #region main styles */
 .content-manga {
     padding-top: 70px;
     padding-bottom: 20px;
@@ -269,10 +293,9 @@ img {
     color: #f5f5f5;
 }
 
+/* #endregion main styles */
 
-
-
-
+/* #region footer styles */
 .footer-main {
     background-color: rgba(152, 158, 169, 0.76);
     padding: 40px 0px;
@@ -343,3 +366,6 @@ img {
     left: 8px; */
     
 }
+
+/* #endregion footer styles */
+

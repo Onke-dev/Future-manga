@@ -525,13 +525,40 @@ img {
     /* #endregion main styles */
 
     /* #region footer styles */
-    .content-footer {
+
+    .footer-main {
+        padding: 30px 0 34px 0;
+    }
+    
+    .footer-list {
         flex-direction: row;
-        
+        align-items: center;
     }
 
-    .info-footer {}
+    .footer-item {
+        align-items: flex-start;
+        gap: 17px;
+    }
 
+    #social {
+        align-items: center;
+        padding-left: 111px;
+    }
+
+    .info-footer {
+        margin-top: 0;
+    }
+
+    .title-social {
+        margin-top: 0;
+        text-align: center;
+    }   
+    
+    .social-list {
+        margin: 0;
+        flex-direction: row;
+        gap: 16px;
+    }
     
     /* #endregion footer styles */
 }

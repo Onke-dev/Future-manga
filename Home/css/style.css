@@ -311,6 +311,18 @@ img {
     align-items: center;
 }
 
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .info-footer {
     font-family: var(--font-family);
     font-weight: 400;
@@ -506,9 +518,20 @@ img {
     .manga-item {
         flex-basis: calc((100% - 62px) / 3);
         min-height: 305px;
-        max-width: 180px;
+        
         flex-grow: 1;        
         
     }
     /* #endregion main styles */
+
+    /* #region footer styles */
+    .content-footer {
+        flex-direction: row;
+        
+    }
+
+    .info-footer {}
+
+    
+    /* #endregion footer styles */
 }

@@ -13,42 +13,48 @@
     <header class="main_header">
         <div class="container">
             <nav class="nav-list">
-                <a class="logo" href="/Home/html/home.html">
+                <a class="logo" id="logo-head" href="/Home/html/home.html">
                     <span class="logo-name">Future</span>
                 </a>
-                <ul class="list_pages">
-                    <li class="header_item">
-                        <a href="">Home</a>
-                    </li>
-                    <li class="header_item">
-                        <a href="">Manga</a>
-                    </li>
-                    <li class="header_item">
-                        <a href="">About us</a>
-                    </li>
-                </ul>
-                <ul class="list_functions">
-                    <li class="function_header">
-                        <input class="search" name="search-name" type="text" placeholder="Search">
-                        <svg class="function_icon" width="24" height="24">
-                            <use href="/Home/images/svg/icon.svg#icon-magnifier"></use>
-                        </svg>
-                    </li>
-                    <li class="function_header">
-                        <a href="#">
-                            <svg class="function_icon" width="58" height="58">
-                                <use href="/Home/images/svg/icon.svg#icon-User"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="function_header">
-                        <button class="eyes" href="#">
-                            <svg class="function_icon" width="58" height="58">
-                                <use href="/Home/images/svg/icon.svg#icon-Eye"></use>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
+                <div class="pages">
+                    <ul class="list_pages">
+                        <li class="header_item">
+                            <a class="item" href="#">Home</a>
+                        </li>
+                        <li class="header_item">
+                            <a class="item" href="#">Manga</a>
+                        </li>
+                        <li class="header_item">
+                            <a class="item" href="#">About us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="functions">
+                    <ul class="list_functions">
+                        <li class="function_header">
+                            <div class="wrap-search">
+                                <input class="search" name="search-name" type="text" placeholder="Search">
+                                <svg class="magnifying-glass" width="24" height="24">
+                                    <use href="/Home/images/svg/icon.svg#icon-magnifier"></use>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="function_header">
+                            <a class="account-user" href="#">
+                                <svg class="icon-user" width="40" height="40">
+                                    <use href="/Home/images/svg/icon.svg#icon-User"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="function_header">
+                            <button class="eyes" href="#">
+                                <svg class="icon-eye" width="40" height="40">
+                                    <use href="/Home/images/svg/icon.svg#icon-Eye"></use>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
                 <button class="burger_btn" type="button" data-menu-open>
                     <svg class="burger_icon" width="40" height="40">
                         <use class="icon_menu" href="/Home/images/svg/icon.svg#icon-menu-toggle"></use>

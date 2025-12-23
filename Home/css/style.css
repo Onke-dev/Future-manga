@@ -387,7 +387,7 @@ img {
 @media screen and (min-width: 769px) {
     /* #region header styles */
     .main_header {
-        height: 90px;
+        height: 86px;
     }
 
     #logo-head {

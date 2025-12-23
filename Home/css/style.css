@@ -515,7 +515,7 @@ img {
     .content-main {
         max-width: 602px;
     }
-    
+
     .content-manga {
         flex-direction: row;
         flex-wrap: wrap;
@@ -644,4 +644,30 @@ img {
         padding-bottom: 91px;
     }
     /* #endregion main styles */
+
+    /* #region footer styles */
+    .footer-main {
+        padding: 44px 0 66px 0;
+    }
+    .footer-list {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #social {
+        padding-left: 238px;
+        
+    }
+
+
+    .info-footer {
+        max-width: 328px;
+    }
+
+    .social-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    /* #endregion footer styles */
 }

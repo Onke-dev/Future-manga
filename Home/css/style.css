@@ -55,7 +55,8 @@ img {
 
 @media screen and (min-width: 1440px) {
     .container {
-        max-width: 1140px;
+        max-width: 1440px;
+        padding: 0 50px;
     }
 
 }
@@ -395,16 +396,12 @@ img {
         padding: 25px 0;
     }
 
-    #logo-head {
-        margin-right: 28px;
-    }
-
     .list_pages {
         display: flex;
         flex-direction: row;
         column-gap: 20px;
         align-items: center;
-        margin-right: 11px;
+        /* margin-right: 11px; */
     }
 
     .header_item {
@@ -499,12 +496,16 @@ img {
         background-color: transparent;
         fill: none;
         stroke: #F3F3F3;
+        width: 40px;
+        height: 40px;
     }
 
     .eyes {
         background-color: transparent;
         fill: none;
         stroke: #FFFFFF;
+        width: 40px;
+        height: 40px;
     }
 
     /* #endregion header styles */
@@ -569,4 +570,49 @@ img {
     }
 
     /* #endregion footer styles */
+}
+
+@media screen and (min-width: 1440px) {
+
+    /* #region header styles */
+    .main_header {
+        height: 108px;
+    }
+
+
+    .logo-name {
+        font-size: 48px;
+    }
+
+    .header_item {
+        padding: 8px 32px;
+    }
+
+    .list_pages {
+        column-gap: 50px;
+    }
+
+    .list_functions {
+        column-gap: 30px;
+    }
+
+    .search {
+        min-width: 362px;
+        padding: 17px 32px 17px 14px;
+    }
+
+
+    .account-user,
+    .icon-user {
+        width: 58px;
+        height: 58px;
+    }
+
+    .eyes,
+    .icon-eye {
+        width: 58px;
+        height: 58px;
+    }
+
+    /* #endregion header styles */
 }

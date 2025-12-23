@@ -511,6 +511,11 @@ img {
     /* #endregion header styles */
 
     /* #region main styles */
+
+    .content-main {
+        max-width: 602px;
+    }
+    
     .content-manga {
         flex-direction: row;
         flex-wrap: wrap;
@@ -525,7 +530,7 @@ img {
     .manga-item {
         flex-basis: calc((100% - 62px) / 3);
         min-height: 305px;
-
+        
         flex-grow: 1;
 
     }
@@ -615,4 +620,28 @@ img {
     }
 
     /* #endregion header styles */
+
+    /* #region main styles */
+
+    .content-manga {
+        column-gap: 60px;
+        row-gap: 22px;
+        padding: 91px 0 28px 0;
+        
+    }
+
+    .content-main {
+        max-width: 900px;
+    }
+
+    .manga-item {
+        flex-basis: calc((100% - 180px) / 4);
+        
+    }
+
+
+    .pagination-container {
+        padding-bottom: 91px;
+    }
+    /* #endregion main styles */
 }

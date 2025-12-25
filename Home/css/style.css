@@ -187,13 +187,14 @@ img {
 
 .wrap {
     position: relative;
+    max-width: 268px;
+
 }
 
 .search_mob {
 
     border-radius: 30px;
-    width: 268px;
-    height: 40px;
+    
     background-color: rgba(146, 141, 141, 0.8);
     padding: 8px 46px 8px 22px;
 
@@ -217,7 +218,7 @@ img {
 .icon_search {
     position: absolute;
     top: 50%;
-    right: 0px;
+    right: 22px;
     fill: #ffffff;
     transform: translateY(-50%);
 }

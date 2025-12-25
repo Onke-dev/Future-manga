@@ -5,12 +5,22 @@
     --third-family: "Roboto", sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: var(--font-family);
     background-color: #ddd;
     background-image: url("/Home/images/background/noise.jpg");
     background-repeat: repeat;
     margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1,
@@ -229,6 +239,13 @@ img {
 /* #endregion header styles */
 
 /* #region main styles */
+
+.main_content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .content-manga {
     align-items: center;
     padding-top: 70px;
@@ -305,6 +322,8 @@ img {
     padding: 40px 0px;
     height: auto;
     width: 100%;
+
+    flex-shrink: 0;
 }
 
 .content-footer {
@@ -530,7 +549,7 @@ img {
     .manga-item {
         flex-basis: calc((100% - 62px) / 3);
         min-height: 305px;
-        
+
         flex-grow: 1;
 
     }
@@ -623,11 +642,13 @@ img {
 
     /* #region main styles */
 
+    .main_content {}
+
     .content-manga {
         column-gap: 60px;
         row-gap: 22px;
         padding: 91px 0 28px 0;
-        
+
     }
 
     .content-main {
@@ -636,19 +657,21 @@ img {
 
     .manga-item {
         flex-basis: calc((100% - 180px) / 4);
-        
+
     }
 
 
     .pagination-container {
         padding-bottom: 91px;
     }
+
     /* #endregion main styles */
 
     /* #region footer styles */
     .footer-main {
         padding: 44px 0 66px 0;
     }
+
     .footer-list {
         align-items: center;
         justify-content: space-between;
@@ -656,7 +679,7 @@ img {
 
     #social {
         padding-left: 238px;
-        
+
     }
 
 
@@ -669,5 +692,6 @@ img {
         flex-direction: column;
         justify-content: center;
     }
+
     /* #endregion footer styles */
 }

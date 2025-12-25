@@ -90,6 +90,17 @@ img {
 
 .logo {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.logo:focus-visible {
+    border: 1px solid #000000;
+    outline: none;
+}
+
+.logo:focus:not(:focus-visible) {
+    border: none;
+    outline: none;
 }
 
 .logo-name {
@@ -104,6 +115,7 @@ img {
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
+
 
 .list_pages {
     display: none;
@@ -204,6 +216,12 @@ img {
     line-height: 150%;
     letter-spacing: 0.03em;
     color: #fef7ff;
+}
+
+.search_mob:hover,
+.search_mob:focus {
+    border: none;
+    outline: none;    
 }
 
 .search_mob::placeholder {
@@ -308,6 +326,12 @@ img {
     font-size: 16px;
     line-height: 100%;
     color: #000000;
+    cursor: pointer;
+
+}
+
+.pag-btn {
+
 }
 
 .pag-btn.active {
@@ -434,6 +458,15 @@ img {
         align-items: center;
         display: flex;
         justify-content: center;
+        cursor: pointer;
+    }
+
+    .header_item:hover,
+    .header_item:focus {
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(236, 233, 233, 0.425);
+        outline: none;
+        color: #000;
     }
 
     .item {
@@ -447,7 +480,19 @@ img {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        
     }
+
+    .item:focus {
+        border: 1px solid #000000;
+        outline: none;
+    }
+
+    .item:focus:not(:focus-visible) {
+        border: none;
+        outline: none;
+    }
+
 
     .list_functions {
         display: flex;
@@ -481,6 +526,22 @@ img {
         line-height: 1.50;
         letter-spacing: 0.03em;
         color: #fef7ff;
+        cursor: pointer;
+    }
+
+    .search:hover {
+        border: none;
+        outline: none;
+    }
+
+    .search:focus {
+        border: 1px solid #ffffff;
+        outline: none;
+    }
+
+    .search:active {
+        border: none;
+        outline: none;
     }
 
     .search::placeholder {
@@ -515,9 +576,32 @@ img {
     .account-user {
         background-color: transparent;
         fill: none;
+        stroke-width: 2px;
         stroke: #F3F3F3;
         width: 40px;
         height: 40px;
+        cursor: pointer;
+        transition: stroke 200ms cubic-bezier(.48, .92, .74, .14);
+    }
+
+    .account-user:hover {
+        background-color: transparent;
+        stroke: #cd35f8;
+    }
+
+    .account-user:focus-visible {
+        border: 1px solid #000000;
+        outline: none;
+    }
+
+    .account-user:focus:not(:focus-visible) {
+        border: none;
+        outline: none;
+    }
+
+    .account-user:active {
+        background-color: transparent;
+        stroke: #000000;
     }
 
     .eyes {
@@ -526,6 +610,26 @@ img {
         stroke: #FFFFFF;
         width: 40px;
         height: 40px;
+        cursor: pointer;
+        transition: stroke 200ms cubic-bezier(.48, .92, .74, .14);
+    }
+
+    .eyes:hover {
+        background-color: transparent;
+        stroke: #00ff4c;
+    }
+    .eyes:focus-visible {
+        background-color: transparent;
+        stroke: #FFFFFF;
+        border: 1px solid #000000;
+        outline: none;
+    }
+
+
+    .eyes:active {
+        background-color: transparent;
+        stroke: #000000;
+        transition: stroke 250ms cubic-bezier(.48, .92, .74, .14);
     }
 
     /* #endregion header styles */

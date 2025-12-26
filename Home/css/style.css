@@ -206,7 +206,7 @@ img {
 .search_mob {
 
     border-radius: 30px;
-    
+
     background-color: rgba(146, 141, 141, 0.8);
     padding: 8px 46px 8px 22px;
 
@@ -221,7 +221,7 @@ img {
 .search_mob:hover,
 .search_mob:focus {
     border: none;
-    outline: none;    
+    outline: none;
 }
 
 .search_mob::placeholder {
@@ -253,6 +253,34 @@ img {
     stroke: #ffffff;
     fill: transparent;
 
+}
+
+.lg_func#language-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    
+    /* text-align: center;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background: transparent; */
+}
+
+.lg_func {
+    border-radius: 20px;
+    padding: 8px 26px 8px 26px;
+    max-width: 159px;
+    background-color: #928d8d;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 117%;
+    color: #fff;
 }
 
 /* #endregion header styles */
@@ -330,9 +358,7 @@ img {
 
 }
 
-.pag-btn {
 
-}
 
 .pag-btn.active {
     background-color: #2C2C2C;
@@ -480,7 +506,7 @@ img {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        
+
     }
 
     .item:focus {
@@ -618,6 +644,7 @@ img {
         background-color: transparent;
         stroke: #00ff4c;
     }
+
     .eyes:focus-visible {
         background-color: transparent;
         stroke: #FFFFFF;
@@ -747,7 +774,7 @@ img {
 
     /* #region main styles */
 
-    
+
 
     .content-manga {
         column-gap: 60px;

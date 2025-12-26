@@ -198,17 +198,21 @@ img {
     text-decoration: none;
 }
 
+.search-item {
+    width: 268px;
+
+}
 
 .wrap {
     position: relative;
-    max-width: 268px;
+    width: 268px;
 
 }
 
 .search_mob {
 
     border-radius: 30px;
-
+    width: 200px;
     background-color: rgba(146, 141, 141, 0.8);
     padding: 8px 46px 8px 22px;
 

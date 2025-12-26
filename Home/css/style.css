@@ -285,6 +285,11 @@ img {
     cursor: pointer;
 }
 
+.lg_func:focus {
+    border: none;
+    outline: none;
+}
+
 .item-lg {
     background-color: #000000;
     text-decoration: none;

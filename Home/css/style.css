@@ -488,6 +488,7 @@ img {
 
 .social-icon:active {
     background-color: #ffffff;
+    transition: background-color 350ms cubic-bezier(.48, .92, .74, .14);
 
 }
 
@@ -500,6 +501,7 @@ img {
 
 .icon:active {
     fill: #000000;
+    transition: fill 350ms cubic-bezier(.48, .92, .74, .14);
 }
 
 /* #endregion footer styles */

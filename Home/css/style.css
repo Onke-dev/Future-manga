@@ -373,6 +373,7 @@ img {
     max-width: 180px;
 
     display: block;
+    cursor: pointer;
 }
 
 .pagination-container {
@@ -706,7 +707,7 @@ img {
         cursor: pointer;
     }
 
-    .item-lg {}
+    /* .item-lg {} */
 
     .icon-locale {
         position: absolute;

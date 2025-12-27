@@ -798,7 +798,7 @@ img {
     }
 
     .list_pages {
-        column-gap: 50px;
+        column-gap: 30px;
     }
 
     .header_item {
@@ -829,10 +829,13 @@ img {
     }
 
     .search {
-        min-width: 362px;
-        padding: 17px 32px 17px 14px;
+        min-width: 316px;
+        padding: 17px 40px 17px 14px;
     }
 
+    .magnifying-glass {
+        right: 16px;
+    }
 
     .account-user,
     .icon-user {
@@ -860,6 +863,22 @@ img {
     .eyes:hover {
         background-color: transparent;
         stroke: #00ff4c;
+    }
+
+    .wrap-lg {
+        width: 90px;
+    }
+
+    .lg_func {
+        padding: 18px 22px;
+        width: 90px;
+        font-size: 16px;
+        line-height: 88%;
+    }
+
+
+    .icon-locale {
+        right: 28px;
     }
 
     /* #endregion header styles */

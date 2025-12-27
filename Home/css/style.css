@@ -23,6 +23,15 @@ body {
     min-height: 100vh;
 }
 
+body.is-open {
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+
+    touch-action: none;
+}
+
 h1,
 h2,
 h3,
@@ -152,6 +161,13 @@ img {
     visibility: visible;
     pointer-events: auto;
     transition: 250ms cubic-bezier(.48, .92, .74, .14), visibility 250ms cubic-bezier(.48, .92, .74, .14);
+}
+
+
+.mob-menu.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .mob-menu-container {

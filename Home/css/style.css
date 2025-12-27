@@ -486,12 +486,20 @@ img {
     /* position: relative; */
 }
 
+.social-icon:active {
+    background-color: #ffffff;
+
+}
+
 .icon {
     fill: #ffffff;
     /* position: absolute;
     top: 8px;
     left: 8px; */
+}
 
+.icon:active {
+    fill: #000000;
 }
 
 /* #endregion footer styles */

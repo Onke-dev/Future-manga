@@ -700,7 +700,7 @@ img {
 
         font-family: var(--font-family);
         font-weight: 400;
-        font-size: 12px;
+        font-size: 16px;
         line-height: 117%;
         color: #fff;
         cursor: pointer;
@@ -711,7 +711,7 @@ img {
     .icon-locale {
         position: absolute;
         top: 50%;
-        right: 16px;
+        right: 12px;
         fill: #ffffff;
         transform: translateY(-50%);
     }

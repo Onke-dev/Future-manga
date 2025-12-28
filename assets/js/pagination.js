@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Solo Leveling",
             img1x: "./assets/image/covers/solo-leveling-1x.jpg",
             img2x: "./assets/image/covers/solo-leveling-2x.jpg",
-            link: "./Solo-leveling/html/page-manga-1.html"
+            link: "./manga/Solo-leveling/page-manga-1.html"
         },
         {
             key: "manga-2-title",

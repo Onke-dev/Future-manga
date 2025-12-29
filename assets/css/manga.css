@@ -328,6 +328,12 @@ img {
 
 /* #endregion header styles */
 
+/* #region main styles */
+    
+ .content-main {
+    padding: 20px 0 55px 0;
+ }
+/* #endregion main styles */
 
 /* #region footer styles */
 .footer-main {

@@ -329,10 +329,34 @@ img {
 /* #endregion header styles */
 
 /* #region main styles */
-    
- .content-main {
-    padding: 20px 0 55px 0;
+
+ .geolocatio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding-top: 20px;
+    padding-bottom: 18px;
  }
+
+ .list-geo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+ }
+
+.home::after {
+    content: '/';
+    color: #000000;
+}
+
+ .location {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: #494949;
+}
 /* #endregion main styles */
 
 /* #region footer styles */

@@ -534,11 +534,54 @@ img {
     height: 100%;
     padding: 15px;
     background-color: rgba(88, 95, 97, 0.86);
-}
-
-.list-chapters {
     display: flex;
     flex-direction: column;
+}
+
+.item-chapter {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    align-items: center;
+    position: relative;
+}
+
+/* .item-chapter::after {
+    content: "";
+    position: relative;
+    height: 1px;
+    border-radius: 20px;
+    width: 185px;
+    background-color: #ffbe0c;
+} */
+
+.reverse {
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+.btn_reverse {
+    border-radius: 10px;
+    padding: 17px 22px;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
+.chapter_link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
+.chapter_date {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    color: #fff;
 }
 
 /* #endregion main styles */

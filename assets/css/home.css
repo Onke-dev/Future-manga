@@ -95,7 +95,7 @@ img {
 .nav-list {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     padding: 15px 0;
     align-items: center;
 }
@@ -103,6 +103,7 @@ img {
 .logo {
     text-decoration: none;
     cursor: pointer;
+    margin-right: 35px;
 }
 
 .logo:focus-visible {
@@ -521,6 +522,10 @@ img {
         padding: 25px 0;
     }
 
+    .pages {
+        margin-right: 15px;
+    }
+
     .list_pages {
         display: flex;
         flex-direction: row;
@@ -533,7 +538,7 @@ img {
         background-color: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 8px;
-        padding: 0 10px;
+        padding: 0 5px;
         min-height: 40px;
 
         align-items: center;

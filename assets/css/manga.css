@@ -372,13 +372,17 @@ img {
     border-radius: 20px;
 }
 
+.info-manga {
+    padding-bottom: 44px;
+}
+
 .list-info-manga {
     display: flex;
     flex-direction: column;
     gap: 12px;
     border: 1px solid #000;
     border-radius: 25px;
-    width: 230px;
+    max-width: 196px;
     max-height: 100%;
     padding: 18px 16px;
 
@@ -480,6 +484,61 @@ img {
     font-size: 16px;
     line-height: 100%;
     color: #fff;
+}
+
+.summary {
+    background: rgba(192, 192, 194, 0.65);
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    border-radius: 10px;
+    width: 208px;
+    height: 100%;
+    padding: 20px 10px;
+}
+
+.title-summary {
+    padding-bottom: 15px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    color: #fff;
+}
+
+.paragraph-summary {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #fff;
+}
+
+.chapters {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 43px;
+    padding-bottom: 88px;
+}
+
+.chapter-title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    color: #000;
+    padding-bottom: 15px;
+}
+
+.list-chapters{
+    border-radius: 30px;
+    width: 200px;
+    height: 100%;
+    padding: 15px;
+    background-color: rgba(88, 95, 97, 0.86);
+}
+
+.list-chapters {
+    display: flex;
+    flex-direction: column;
 }
 
 /* #endregion main styles */

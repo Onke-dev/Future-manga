@@ -145,32 +145,37 @@
             <!-- #endregion sec1 styles -->
 
             <!-- #region sec2 styles -->
-            <section class="cover">
-                <img class="img-cover" src="../../manga/Solo-leveling/image/solo-leveling-cover-1x.jpg"
+            <section class="info-manga">
+                <img class="img-cover cover" src="../../manga/Solo-leveling/image/solo-leveling-cover-1x.jpg"
                     srcset="../../manga/Solo-leveling/image/solo-leveling-cover-1x.jpg 1x, ../../manga/Solo-leveling/image/solo-leveling-cover-2x.jpg 2x"
                     width="200" height="286" alt="Cover of Solo Leveling" />
-            </section>
-            <!-- #endregion sec2 styles -->
-
-            <!-- #region sec3 styles -->
-            <section class="info-manga">
                 <ul class="list-info-manga">
                     <li class="item-manga title">
                         <h2 class="title-manga" data-key="title_manga">Name: Solo Leveling</h2>
                     </li>
                     <li class="item-manga item-info">
-                        <button class="rate" type="button">
-                            <svg class="star" width="32" height="32">
-                                <use href="../../assets/icon/icon.svg#icon-star"></use>
-                            </svg>
-                        </button>
-                        <p class="count-rate" data-key="count_rate">4.8(50K)</p>
-                    </li>
-                    <li class="item-manga item-info">
-                        <svg class="icon-views" width="32" height="32">
-                            <use href="../../assets/icon/icon.svg#icon-eye"></use>
-                        </svg>
-                        <span class="number-of-views" data-key="number_views">15M</span>
+                        <dl class="wrapInfo">
+                            <dt class="wrapIcon">
+                                <button class="rate" type="button">
+                                    <svg class="star" width="32" height="32">
+                                        <use href="../../assets/icon/icon.svg#icon-star"></use>
+                                    </svg>
+                                </button>
+                            </dt>
+                            <dd class="number">
+                                <p class="count-rate" data-key="count_rate">4.8(50K)</p>
+                            </dd>
+                        </dl>
+                        <dl class="wrapInfo">
+                            <dt class="wrapIcon">
+                                <svg class="icon-views" width="32" height="32">
+                                    <use href="../../assets/icon/icon.svg#icon-eye"></use>
+                                </svg>
+                            </dt>
+                            <dd class="number">
+                                <span class="number-of-views" data-key="number_views">15M</span>
+                            </dd>
+                        </dl>
                     </li>
                     <li class="item-manga">
                         <dl class="author">
@@ -187,19 +192,19 @@
                         </dl>
                     </li>
                     <li class="item-manga">
-                        <a class="btn_read" href="#" data-key="readFirst">Read last</a>
-                    </li>
-                    <li class="item-manga">
-                        <a class="btn_read" href="#" data-key="readLast">Read first</a>
+                        <div class="wrapBtn">
+                            <a class="btn_read" href="#" data-key="readLast">Read last</a>
+                            <a class="btn_read" href="#" data-key="readFirst">Read first</a>
+                        </div>
                     </li>
                     <li class="item-manga add">
                         <button class="btn_add" type="button" data-key="addManga">Add</button>
                     </li>
                 </ul>
             </section>
-            <!-- #endregion sec3 styles -->
+            <!-- #endregion sec2 styles -->
 
-            <!-- #region sec4 styles -->
+            <!-- #region sec3 styles -->
             <section class="summary">
                 <h2 class="title-summary" data-key="summary">SUMMARY:</h2>
                 <p class="paragraph-summary" data-key="paragraph1">
@@ -220,9 +225,9 @@
                     system, on the rise and Solo Leveling!
                 </p>
             </section>
-            <!-- #endregion sec4 styles -->
+            <!-- #endregion sec3 styles -->
 
-            <!-- #region sec5 styles -->
+            <!-- #region sec4 styles -->
             <section class="chapters">
                 <h3 class="chapter-title" data-key="chapterTitle">Chapters:</h3>
                 <div class="wrap_reverse">
@@ -309,7 +314,7 @@
                     </li>
                 </ul>
             </section>
-            <!-- #endregion sec5 styles -->
+            <!-- #endregion sec4 styles -->
         </div>
     </main>
     <!-- #endregion main styles -->

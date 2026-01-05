@@ -566,7 +566,7 @@ img {
 .list-chapters::-webkit-scrollbar-thumb {
     background-color: #fff;
     border-radius: 10px;
-    /* Создаем невидимую границу, которая отодвинет ползунок от края */
+    
     border: 3px solid transparent;
     background-clip: padding-box;
 }
@@ -947,6 +947,27 @@ img {
     }
 
     /* #endregion header styles */
+
+    /* #region main styles */
+    .geolocatio {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        padding: 13px 0 30px 0;
+    }
+
+    .list-geo {
+        position: absolute;
+        top: 13px;
+        left: 104px;
+        padding-bottom: 30px;
+    }
+
+    .location {
+        font-size: 18px;
+    }
+
+    /* #region main styles */
 
 
     /* #region footer styles */

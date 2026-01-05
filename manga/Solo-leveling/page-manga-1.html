@@ -158,17 +158,17 @@
                     <li class="item-manga title">
                         <h2 class="title-manga">Name: Solo Leveling</h2>
                     </li>
-                    <li class="item-manga">
+                    <li class="item-manga item-info">
                         <button class="rate" type="button">
                             <svg class="star" width="32" height="32">
-                                <use href="./assets/icon/icon.svg#icon-linkedin"></use>
+                                <use href="/assets/icon/icon.svg#icon-star"></use>
                             </svg>
                         </button>
                         <p class="count-rate">4.8(50тис.)</p>
                     </li>
-                    <li class="item-manga">
+                    <li class="item-manga item-info">
                         <svg class="icon-views" width="32" height="32">
-                            <use href="./assets/icon/icon.svg#icon-eye"></use>
+                            <use href="/assets/icon/icon.svg#icon-eye"></use>
                         </svg>
                         <span class="number-of-views">15 млн.</span>
                     </li>
@@ -225,37 +225,87 @@
             <!-- #region sec5 styles -->
             <section class="chapters">
                 <h3 class="chapter-title">Chapters:</h3>
+                <div class="wrap_reverse">
+                    <button class="btn_reverse" type="button">Reverse Order</button>
+                </div>
                 <ul class="list-chapters">
-                    <li class="item-chapter reverse">
-                        <button class="btn_reverse" type="button">Reverse Order</button>
+                    <li class="item-chapter">
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 12</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                     <li class="item-chapter">
-                        <a class="chapter_link" href="#">Chapter 1</a>
-                        <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 11</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                     <li class="item-chapter">
-                        <a class="chapter_link" href="#">Chapter 1</a>
-                        <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 10</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                     <li class="item-chapter">
-                        <a class="chapter_link" href="#">Chapter 1</a>
-                        <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 9</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                     <li class="item-chapter">
-                        <a class="chapter_link" href="#">Chapter 1</a>
-                        <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 8</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                     <li class="item-chapter">
-                        <a class="chapter_link" href="#">Chapter 1</a>
-                        <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 7</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                     <li class="item-chapter">
-                        <a class="chapter_link" href="#">Chapter 1</a>
-                        <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 6</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                     <li class="item-chapter">
-                        <a class="chapter_link" href="#">Chapter 1</a>
-                        <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 5</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
+                    </li>
+                    <li class="item-chapter">
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 4</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
+                    </li>
+                    <li class="item-chapter">
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 3</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
+                    </li>
+                    <li class="item-chapter">
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 2</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
+                    </li>
+                    <li class="item-chapter">
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 1</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
+                    </li>
+                    <li class="item-chapter">
+                        <div class="wrap_item">
+                            <a class="chapter_link" href="#">Chapter 0</a>
+                            <time class="chapter_date" datetime="2025-12-14">Dec. 14.12.25</time>
+                        </div>
                     </li>
                 </ul>
             </section>
@@ -313,9 +363,11 @@
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
-    <script src="/assets/js/menu.js"></script>
-    <script src="/assets/js/translate.js"></script>
-    <script src="/assets/js/pagination.js"></script>
+    <script type="module" src="/assets/js/menu.js"></script>
+    <script type="module" src="/assets/js/reverse.js"></script>
+    <script type="module" src="/assets/js/translate.js"></script>
+    <script type="module" src="/assets/js/pagination.js"></script>
+    
     <!-- #endregion Scripts -->
 </body>
 

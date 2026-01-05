@@ -14,7 +14,8 @@ body {
 body {
     font-family: var(--font-family);
     background-color: #ddd;
-    background-image: url("../image/background/noise.jpg");    background-repeat: repeat;
+    background-image: url("../image/background/noise.jpg");
+    background-repeat: repeat;
     margin: 0;
 
     display: flex;
@@ -102,7 +103,7 @@ img {
 .logo {
     text-decoration: none;
     cursor: pointer;
-    
+
 }
 
 .logo:focus-visible {
@@ -344,21 +345,21 @@ img {
 
     padding-top: 20px;
     padding-bottom: 18px;
- }
+}
 
 .list-geo {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 8px;
- }
+}
 
 .home::after {
     content: '/';
     color: #000000;
 }
 
- .location {
+.location {
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 14px;
@@ -391,7 +392,7 @@ img {
     background: rgba(192, 192, 194, 0.4);
 }
 
-.item-manga{
+.item-manga {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -401,6 +402,10 @@ img {
     font-size: 14px;
     color: #fff;
     align-items: center;
+}
+
+.item-info {
+    column-gap: 11px;
 }
 
 .title {
@@ -419,21 +424,26 @@ img {
 .rate {
     width: 32px;
     height: 32px;
-    /* padding-left: 11px; */
+    background-color: transparent;
 }
 
 .star {
     fill: #000000;
 }
 
+.author {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
 
-.autor {
+.author {
     display: flex;
     flex-direction: row;
     column-gap: 5px;
 }
 
-.name-autor {
+.name-author {
     margin: 0;
 }
 
@@ -444,7 +454,7 @@ img {
     width: 200px;
     flex-wrap: wrap;
     align-items: center;
-    
+
 }
 
 .genre {
@@ -452,7 +462,8 @@ img {
     cursor: pointer;
 }
 
-.first::after, .twice::after {
+.first::after,
+.twice::after {
     content: ",";
 }
 
@@ -461,7 +472,7 @@ img {
     padding: 7px 22px;
     border-radius: 30px;
     background-color: #000;
-    
+
 
     font-family: var(--second-family);
     font-weight: 400;
@@ -529,37 +540,69 @@ img {
     padding-bottom: 15px;
 }
 
-.list-chapters{
+.wrap_reverse {
+    padding-bottom: 25px;
+}
+
+.list-chapters {
     border-radius: 30px;
     width: 200px;
-    height: 100%;
+    max-height: 350px;
     padding: 15px;
     background-color: rgba(88, 95, 97, 0.86);
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+
+}
+
+.list-chapters::-webkit-scrollbar {
+    width: 15px;
+}
+
+.list-chapters::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 10px;
+    /* Создаем невидимую границу, которая отодвинет ползунок от края */
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+.list-chapters::-webkit-scrollbar-track {
+    margin: 20px 0;
 }
 
 .item-chapter {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    padding-bottom: 20px;
+
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity cubic-bezier(.12, .57, .96, .69);
+}
+
+.item-chapter.is-hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: none;
+    
+}
+
+.wrap_item {
+    display: flex;
     column-gap: 5px;
     align-items: center;
-    position: relative;
-}
-
-/* .item-chapter::after {
-    content: "";
-    position: relative;
-    height: 1px;
-    border-radius: 20px;
     width: 185px;
-    background-color: #ffbe0c;
-} */
-
-.reverse {
-    justify-content: center;
-    padding-bottom: 25px;
+    border-bottom: 1px solid #ffbe0c;
+    padding-bottom: 10px;
 }
+
+
 
 .btn_reverse {
     border-radius: 10px;
@@ -1046,7 +1089,7 @@ img {
 
     /* #endregion header styles */
 
-    
+
 
     /* #region footer styles */
     .footer-main {

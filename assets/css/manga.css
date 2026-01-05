@@ -94,7 +94,7 @@ img {
 .nav-list {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     padding: 15px 0;
     align-items: center;
 }
@@ -102,7 +102,7 @@ img {
 .logo {
     text-decoration: none;
     cursor: pointer;
-    margin-right: 35px;
+    
 }
 
 .logo:focus-visible {
@@ -694,6 +694,11 @@ img {
 
     .nav-list {
         padding: 25px 0;
+        justify-content: center;
+    }
+
+    .logo-head {
+        margin-right: 35px;
     }
 
     .pages {

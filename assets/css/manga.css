@@ -552,7 +552,7 @@ img {
     background-color: rgba(88, 95, 97, 0.86);
     display: flex;
     flex-direction: column;
-
+    row-gap: 20px;
     overflow: hidden;
     overflow-y: auto;
     position: relative;
@@ -579,7 +579,6 @@ img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 20px;
 
     opacity: 1;
     transform: translateY(0);

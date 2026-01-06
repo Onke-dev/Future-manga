@@ -95,7 +95,7 @@ img {
 .nav-list {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     padding: 15px 0;
     align-items: center;
 }
@@ -103,7 +103,7 @@ img {
 .logo {
     text-decoration: none;
     cursor: pointer;
-    margin-right: 35px;
+
 }
 
 .logo:focus-visible {
@@ -327,7 +327,6 @@ img {
 }
 
 
-
 /* #endregion header styles */
 
 /* #region main styles */
@@ -520,6 +519,11 @@ img {
 
     .nav-list {
         padding: 25px 0;
+        justify-content: center;
+    }
+
+    .logo-head {
+        margin-right: 15px;
     }
 
     .pages {
@@ -588,7 +592,7 @@ img {
     .search {
         background-color: rgba(146, 141, 141, 0.8);
         border-radius: 30px;
-        width: 130px;
+        max-width: 84px;
 
         padding: 8px 32px 8px 14px;
 
@@ -715,7 +719,6 @@ img {
         cursor: pointer;
     }
 
-    /* .item-lg {} */
 
     .icon-locale {
         position: absolute;

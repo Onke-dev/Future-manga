@@ -78,7 +78,7 @@ img {
 @media screen and (min-width: 1440px) {
     .container {
         max-width: 1440px;
-        padding: 0 50px;
+        padding: 0 25px;
     }
 
 }
@@ -804,9 +804,16 @@ img {
         height: 108px;
     }
 
+    .logo-head {
+        margin-right: 80px;
+    }
 
     .logo-name {
         font-size: 48px;
+    }
+
+    .pages {
+        margin-right: 30px;
     }
 
     .list_pages {

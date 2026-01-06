@@ -336,6 +336,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .geolocatio {
@@ -379,6 +380,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .list-info-manga {
@@ -545,6 +547,10 @@ img {
     padding: 20px 10px;
 }
 
+.wrapSummary {
+
+}
+
 .title-summary {
     padding-bottom: 15px;
     font-family: var(--second-family);
@@ -567,7 +573,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     padding-top: 43px;
-    padding-bottom: 88px;
+    padding-bottom: 80px;
 }
 
 .chapter-title {
@@ -601,6 +607,15 @@ img {
     width: 15px;
 }
 
+.list-chapters::-webkit-scrollbar-button:vertical:start:decrement,
+.list-chapters::-webkit-scrollbar-button:vertical:end:increment {
+    display: block;
+    height: 20px;
+    
+    background-color: transparent;
+    
+}
+
 .list-chapters::-webkit-scrollbar-thumb {
     background-color: #fff;
     border-radius: 10px;
@@ -609,9 +624,9 @@ img {
     background-clip: padding-box;
 }
 
-.list-chapters::-webkit-scrollbar-track {
-    margin: 20px 0;
-}
+/* .list-chapters::-webkit-scrollbar-track {
+    margin: 5px 0;
+} */
 
 .item-chapter {
     display: flex;
@@ -823,8 +838,6 @@ img {
         -webkit-text-fill-color: transparent;
     }
 
-
-
     .list_functions {
         display: flex;
         flex-direction: row;
@@ -914,10 +927,6 @@ img {
         cursor: pointer;
         transition: stroke 200ms cubic-bezier(.48, .92, .74, .14);
     }
-
-
-
-
 
     .account-user:focus:not(:focus-visible) {
         border: none;
@@ -1054,7 +1063,44 @@ img {
     }
 
 
-    
+    .summary {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 571px;
+    }
+
+    .title-summary {
+        padding-bottom: 13px;
+    }
+
+    .paragraph-summary {
+        text-align: justify;
+    }
+
+    .chapters {
+        padding-top: 13px;
+        padding-bottom: 82px;
+    }
+
+
+    .chapter-title {
+        padding-bottom: 20px;
+    }
+
+    .chapter-title {
+        padding-bottom: 18px;
+    }
+
+    .list-chapters {
+        width: 573px;
+        column-gap: 113px;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .item-chapter {
+        flex-basis: calc((100% - 113px) / 2);
+    }
     /* #region main styles */
 
 

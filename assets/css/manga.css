@@ -70,13 +70,20 @@ img {
 }
 
 .containerWrap {
-    max-width: 1210px;
+    max-width: 230px;
     margin: 0 auto;
 }
+
 
 @media screen and (min-width: 769px) {
     .container {
         max-width: 769px;
+    }
+
+    .containerWrap {
+        max-width: 603px;
+        margin: 0 auto;
+        
     }
 }
 
@@ -84,6 +91,11 @@ img {
     .container {
         max-width: 1390px;
         padding: 0 25px;
+    }
+
+    .containerWrap {
+        max-width: 1210px;
+        margin: 0 auto;
     }
 
 }
@@ -343,6 +355,7 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .list-geo {
@@ -993,15 +1006,11 @@ img {
 
     /* #region main styles */
     .geolocatio {
+        padding-top: 13px;
         display: block;
         width: 100%;
         position: relative;
-    }
-
-    .list-geo {
-        position: absolute;
-        top: 13px;
-        left: 104px;
+        padding-left: 21px;
     }
 
     .location {
@@ -1009,7 +1018,7 @@ img {
     }
 
     .info-manga {
-        padding-top: 65px;
+        padding-top: 30px;
         padding-bottom: 35px;
     }
 
@@ -1078,6 +1087,7 @@ img {
     .chapters {
         padding-top: 13px;
         padding-bottom: 82px;
+        max-width: 603px;
     }
 
 
@@ -1261,7 +1271,7 @@ img {
     }
 
     .infoMangaWrap {
-
+        justify-content: normal;
     }
 
     .list-info-manga {

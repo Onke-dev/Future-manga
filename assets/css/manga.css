@@ -1100,10 +1100,11 @@ img {
     }
 
     .list-chapters {
-        width: 573px;
+        width: 563px;
         column-gap: 113px;
         flex-wrap: wrap;
         flex-direction: row;
+        padding: 32px 20px;
     }
 
     .item-chapter {
@@ -1260,14 +1261,19 @@ img {
 
     /* #region main styles */
 
+    .geolocatio {
+        padding-top: 20px;
+        padding-left: 97px;
+    }
+
     .list-geo {
         top: 20px;
         left: 237px;
     }
 
     .info-manga {
-        padding-top: 70px;
-        justify-content: normal;
+        padding-top: 28px;
+        
     }
 
     .infoMangaWrap {
@@ -1282,7 +1288,23 @@ img {
 
     .summary {
         margin: 0 auto;
-        width: 1129px;
+        width: 1103px;
+        padding: 20px 28px;
+    }
+
+
+    .chapters {
+        max-width: 1160px;
+    }
+    
+    .list-chapters {
+        width: 1110px;
+        column-gap: 86px;
+        padding: 25px;
+    }
+
+    .item-chapter {
+        flex-basis: calc((100% - 258px) / 4);
     }
     /* #endregion main styles */
 

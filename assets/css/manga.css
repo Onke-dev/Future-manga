@@ -69,6 +69,11 @@ img {
     margin: 0 auto;
 }
 
+.containerWrap {
+    max-width: 1210px;
+    margin: 0 auto;
+}
+
 @media screen and (min-width: 769px) {
     .container {
         max-width: 769px;
@@ -82,6 +87,8 @@ img {
     }
 
 }
+
+
 
 /* #endregion container */
 
@@ -331,13 +338,6 @@ img {
 /* #endregion header styles */
 
 /* #region main styles */
-
-.content-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
 
 .geolocatio {
     display: flex;
@@ -995,10 +995,9 @@ img {
 
     /* #region main styles */
     .geolocatio {
-        display: inline-block;
+        display: block;
         width: 100%;
         position: relative;
-        /* padding: 13px 0px 0px 0px; */
     }
 
     .list-geo {
@@ -1101,7 +1100,7 @@ img {
     .item-chapter {
         flex-basis: calc((100% - 113px) / 2);
     }
-    /* #region main styles */
+    /* #endregion main styles */
 
 
     /* #region footer styles */
@@ -1252,19 +1251,22 @@ img {
 
     /* #region main styles */
 
-    /* .geolocatio {
-        padding: 20px 0px 0px 0px;
-    } */
-
     .list-geo {
         top: 20px;
         left: 237px;
     }
 
-
     .info-manga {
-        padding-top: 84px;
+        padding-top: 70px;
+        justify-content: normal;
     }
+
+    .list-info-manga {
+        padding: 30px;
+        row-gap: 20px;
+        width: 449px;
+    }
+
     /* #endregion main styles */
 
 

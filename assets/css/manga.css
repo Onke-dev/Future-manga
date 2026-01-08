@@ -1301,9 +1301,11 @@ img {
         width: 1110px;
         column-gap: 86px;
         padding: 25px;
+        max-height: 225px;
     }
 
     .item-chapter {
+        box-sizing: border-box;
         flex-basis: calc((100% - 258px) / 4);
     }
     /* #endregion main styles */

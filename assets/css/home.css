@@ -69,16 +69,16 @@ img {
     margin: 0 auto;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     .container {
-        max-width: 769px;
+        max-width: 768px;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .container {
-        max-width: 1440px;
-        padding: 0 50px;
+        max-width: 1390px;
+        padding: 0 25px;
     }
 
 }
@@ -95,7 +95,7 @@ img {
 .nav-list {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     padding: 15px 0;
     align-items: center;
 }
@@ -103,7 +103,7 @@ img {
 .logo {
     text-decoration: none;
     cursor: pointer;
-    margin-right: 35px;
+
 }
 
 .logo:focus-visible {
@@ -296,6 +296,7 @@ img {
     padding: 12px 26px 12px 26px;
     width: 160px;
     background-color: #928d8d;
+    border: none;
 
     font-family: var(--font-family);
     font-weight: 400;
@@ -325,7 +326,6 @@ img {
 
     pointer-events: none;
 }
-
 
 
 /* #endregion header styles */
@@ -511,7 +511,7 @@ img {
 
 /* #endregion footer styles */
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
 
     /* #region header styles */
     .main_header {
@@ -520,10 +520,15 @@ img {
 
     .nav-list {
         padding: 25px 0;
+        justify-content: center;
+    }
+
+    .logo-head {
+        margin-right: 15px;
     }
 
     .pages {
-        margin-right: 15px;
+        margin-right: 14px;
     }
 
     .list_pages {
@@ -588,7 +593,7 @@ img {
     .search {
         background-color: rgba(146, 141, 141, 0.8);
         border-radius: 30px;
-        width: 130px;
+        max-width: 84px;
 
         padding: 8px 32px 8px 14px;
 
@@ -715,7 +720,6 @@ img {
         cursor: pointer;
     }
 
-    /* .item-lg {} */
 
     .icon-locale {
         position: absolute;
@@ -801,9 +805,16 @@ img {
         height: 108px;
     }
 
+    .logo-head {
+        margin-right: 95px;
+    }
 
     .logo-name {
         font-size: 48px;
+    }
+
+    .pages {
+        margin-right: 30px;
     }
 
     .list_pages {

@@ -645,7 +645,7 @@ img {
 
     opacity: 1;
     transform: translateY(0);
-    transition: opacity cubic-bezier(.12, .57, .96, .69);
+    transition: opacity 250ms cubic-bezier(.12, .57, .96, .69);
 }
 
 .item-chapter.is-hidden {
@@ -945,6 +945,7 @@ img {
 
     .account-user:active {
         background-color: transparent;
+        transition: stroke 200ms cubic-bezier(.48, .92, .74, .14);
         stroke: #000000;
     }
 
@@ -963,6 +964,7 @@ img {
     .eyes:focus-visible {
         background-color: transparent;
         stroke: #FFFFFF;
+        transition: stroke 200ms cubic-bezier(.48, .92, .74, .14);
         border: 1px solid #000000;
         outline: none;
     }
@@ -1226,7 +1228,7 @@ img {
 
     .account-user:hover {
         background-color: transparent;
-        stroke: #cd35f8;
+        /* stroke: #99909b; */
     }
 
     .eyes,
@@ -1238,7 +1240,7 @@ img {
 
     .eyes:hover {
         background-color: transparent;
-        stroke: #00ff4c;
+        /* stroke: #99909b; */
     }
 
     .wrap-lg {
@@ -1269,6 +1271,16 @@ img {
     .list-geo {
         top: 20px;
         left: 237px;
+    }
+
+    .location:hover {
+        transition: color 200ms cubic-bezier(.12, .57, .96, .69);
+        color: #ffffff;
+    }
+
+    .location:active {
+        color: #99b2ac;
+        transition: color 200ms cubic-bezier(.12, .57, .96, .69);
     }
 
     .info-manga {

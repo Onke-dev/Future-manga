@@ -70,20 +70,19 @@ img {
 }
 
 .containerWrap {
-    max-width: 230px;
+    max-width: 260px;
     margin: 0 auto;
 }
 
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     .container {
-        max-width: 769px;
+        max-width: 768px;
     }
 
     .containerWrap {
         max-width: 603px;
         margin: 0 auto;
-        
     }
 }
 
@@ -791,7 +790,7 @@ img {
 
 /* #endregion footer styles */
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
 
     /* #region header styles */
     .main_header {
@@ -808,7 +807,7 @@ img {
     }
 
     .pages {
-        margin-right: 15px;
+        margin-right: 14px;
     }
 
     .list_pages {
@@ -1042,7 +1041,8 @@ img {
     }
 
     .title-manga {
-        font-size: 24px;;
+        font-size: 24px;
+        text-align: left;
     }
     
     .item-info {
@@ -1100,11 +1100,11 @@ img {
     }
 
     .list-chapters {
-        width: 563px;
+        width: 533px;
         column-gap: 113px;
         flex-wrap: wrap;
         flex-direction: row;
-        padding: 32px 20px;
+        padding: 32px 50px 32px 20px;
     }
 
     .item-chapter {

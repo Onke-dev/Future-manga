@@ -69,9 +69,9 @@ img {
     margin: 0 auto;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     .container {
-        max-width: 769px;
+        max-width: 768px;
     }
 }
 
@@ -510,7 +510,7 @@ img {
 
 /* #endregion footer styles */
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
 
     /* #region header styles */
     .main_header {
@@ -527,7 +527,7 @@ img {
     }
 
     .pages {
-        margin-right: 15px;
+        margin-right: 14px;
     }
 
     .list_pages {

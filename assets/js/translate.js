@@ -68,7 +68,7 @@ const translations = {
         'chapter2': 'Chapter 2',
         'chapter1': 'Chapter 1',
         'chapter0': 'Chapter 0',
-        'mounth': 'Dec. 14.12.25',
+        'mounthDec': 'Dec. 14.12.25',
         'mounthJan': 'Jan. 09.01.26',
         '': '',
         '': '',

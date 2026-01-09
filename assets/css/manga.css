@@ -546,6 +546,7 @@ img {
     font-size: 16px;
     line-height: 100%;
     color: #fff;
+    cursor: pointer;
 }
 
 .summary {
@@ -674,6 +675,7 @@ img {
     font-weight: 400;
     font-size: 16px;
     color: #fff;
+    cursor: pointer;
 }
 
 .chapter_link {
@@ -1228,7 +1230,14 @@ img {
 
     .account-user:hover {
         background-color: transparent;
-        /* stroke: #99909b; */
+        transition: stroke 250ms cubic-bezier(.48, .92, .74, .14);
+        stroke: rgb(0, 242, 255);
+    }
+
+    .account-user:active {
+        background-color: transparent;
+        transition: stroke 100ms cubic-bezier(.48, .92, .74, .14);
+        stroke: #000000;
     }
 
     .eyes,
@@ -1240,7 +1249,14 @@ img {
 
     .eyes:hover {
         background-color: transparent;
-        /* stroke: #99909b; */
+        transition: stroke 250ms cubic-bezier(.48, .92, .74, .14);
+        stroke: rgb(224, 178, 13);
+    }
+
+    .eyes:active {
+        background-color: transparent;
+        stroke: #000000;
+        transition: stroke 100ms cubic-bezier(.48, .92, .74, .14);
     }
 
     .wrap-lg {
@@ -1296,6 +1312,12 @@ img {
         padding: 30px;
         row-gap: 20px;
         width: 449px;
+    }
+
+    .btn_read:active {
+        background-color: #fff;
+        color: #000;
+        transition: color 250ms cubic-bezier(.12, .57, .96, .69), background-color 250ms cubic-bezier(.12, .57, .96, .69);
     }
 
     .summary {

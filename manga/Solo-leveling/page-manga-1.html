@@ -1,364 +1,709 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solo Leveling</title>
-    <link rel="stylesheet" href="../../assets/css/manga.css">
-</head>
+    <link rel="stylesheet" href="../../assets/css/manga.css" />
+  </head>
 
-<body>
+  <body>
     <!-- #region header styles -->
     <header class="main_header">
-        <div class="container">
-            <nav class="nav-list">
-                <a class="logo logo-head" href="../../index.html">
-                    <h1 class="logo-name">Future</h1>
+      <div class="container">
+        <nav class="nav-list">
+          <a class="logo logo-head" href="../../index.html">
+            <h1 class="logo-name">Future</h1>
+          </a>
+          <div class="pages">
+            <ul class="list_pages">
+              <li class="header_item">
+                <a class="item" href="../../index.html" data-key="home">Home</a>
+              </li>
+              <li class="header_item">
+                <a class="item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="header_item">
+                <a class="item" href="#" data-key="about">About us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="functions">
+            <ul class="list_functions">
+              <li class="function_header">
+                <div class="wrap-search">
+                  <input
+                    class="search"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="magnifying-glass" width="24" height="24">
+                    <use href="../../assets/icon/icon.svg#icon-magnifier"></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="function_header">
+                <a class="account-user" href="#">
+                  <svg class="icon-user" width="40" height="40">
+                    <use href="../../assets/icon/icon.svg#icon-User"></use>
+                  </svg>
                 </a>
-                <div class="pages">
-                    <ul class="list_pages">
-                        <li class="header_item">
-                            <a class="item" href="../../index.html" data-key="home">Home</a>
-                        </li>
-                        <li class="header_item">
-                            <a class="item" href="#" data-key="manga">Manga</a>
-                        </li>
-                        <li class="header_item">
-                            <a class="item" href="#" data-key="about">About us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="functions">
-                    <ul class="list_functions">
-                        <li class="function_header">
-                            <div class="wrap-search">
-                                <input class="search" name="search-name" type="text" placeholder="Search"
-                                    data-key="search-placeholder">
-                                <svg class="magnifying-glass" width="24" height="24">
-                                    <use href="../../assets/icon/icon.svg#icon-magnifier"></use>
-                                </svg>
-                            </div>
-                        </li>
-                        <li class="function_header">
-                            <a class="account-user" href="#">
-                                <svg class="icon-user" width="40" height="40">
-                                    <use href="../../assets/icon/icon.svg#icon-User"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="function_header">
-                            <button type="button" class="eyes">
-                                <svg class="icon-eye" width="40" height="40">
-                                    <use href="../../assets/icon/icon.svg#icon-Eye"></use>
-                                </svg>
-                            </button>
-                        </li>
-                        <li class="function_header">
-                            <div class="wrap-lg">
-                                <select class="lg_func" name="language">
-                                    <option class="item-lg" value="en">En</option>
-                                    <option class="item-lg" value="ua">Ua </option>
-                                </select>
-                                <svg class="icon-locale" width="12" height="8">
-                                    <use href="../../assets/icon/icon.svg#icon-vector"></use>
-                                </svg>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <button class="burger_btn" type="button" data-menu-open>
-                    <svg class="burger_icon" width="40" height="40">
-                        <use class="icon_menu" href="../../assets/icon/icon.svg#icon-menu-toggle"></use>
-                    </svg>
+              </li>
+              <li class="function_header">
+                <button type="button" class="eyes">
+                  <svg class="icon-eye" width="40" height="40">
+                    <use href="../../assets/icon/icon.svg#icon-Eye"></use>
+                  </svg>
                 </button>
-            </nav>
-            <div class="mob-menu" data-menu>
-                <div class="container mob-menu-container">
-                    <button class="close-btn" type="button" data-menu-close>
-                        <svg class="btn_icon" width="40" height="40">
-                            <use href="../../assets/icon/icon.svg#icon-menu-close"></use>
-                        </svg>
-                    </button>
-                    <ul class="mob-list_pages">
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="../../index.html" data-key="home">Home</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="#" data-key="manga">Manga</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="#" data-key="about">About us</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <div class="wrap">
-                                <input class="search_mob" name="search-name" type="text" placeholder="Search"
-                                    data-key="search-placeholder">
-                                <svg class="icon_search" width="24" height="24">
-                                    <use href="../../assets/icon/icon.svg#icon-magnifier"></use>
-                                </svg>
-                            </div>
-                        </li>
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="#" data-key="account">Account</a>
-                        </li>
-                        <li class="mob-header_item" id="eye-open">
-                            <svg class="blindness" width="20" height="20">
-                                <use href="../../assets/icon/icon.svg#icon-Eye"></use>
-                            </svg>
-                            <a class="mob-item" href="#" data-key="visual-impairments">For people with visual
-                                impairments</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <div class="wrap_lg">
-                                <select class="lg_func" name="language" id="language-select">
-                                    <option class="item-lg" value="en">English</option>
-                                    <option class="item-lg" value="ua">Ukraine </option>
-                                </select>
-                                <svg class="icon_lg" width="12" height="8">
-                                    <use href="../../assets/icon/icon.svg#icon-vector"></use>
-                                </svg>
-                            </div>
-                        </li>
-                    </ul>
+              </li>
+              <li class="function_header">
+                <div class="wrap-lg">
+                  <select class="lg_func" name="language">
+                    <option class="item-lg" value="en">En</option>
+                    <option class="item-lg" value="ua">Ua</option>
+                  </select>
+                  <svg class="icon-locale" width="12" height="8">
+                    <use href="../../assets/icon/icon.svg#icon-vector"></use>
+                  </svg>
                 </div>
-            </div>
+              </li>
+            </ul>
+          </div>
+          <button class="burger_btn" type="button" data-menu-open>
+            <svg class="burger_icon" width="40" height="40">
+              <use
+                class="icon_menu"
+                href="../../assets/icon/icon.svg#icon-menu-toggle"
+              ></use>
+            </svg>
+          </button>
+        </nav>
+        <div class="mob-menu" data-menu>
+          <div class="container mob-menu-container">
+            <button class="close-btn" type="button" data-menu-close>
+              <svg class="btn_icon" width="40" height="40">
+                <use href="../../assets/icon/icon.svg#icon-menu-close"></use>
+              </svg>
+            </button>
+            <ul class="mob-list_pages">
+              <li class="mob-header_item">
+                <a class="mob-item" href="../../index.html" data-key="home"
+                  >Home</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="about">About us</a>
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap">
+                  <input
+                    class="search_mob"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="icon_search" width="24" height="24">
+                    <use href="../../assets/icon/icon.svg#icon-magnifier"></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="account">Account</a>
+              </li>
+              <li class="mob-header_item" id="eye-open">
+                <svg class="blindness" width="20" height="20">
+                  <use href="../../assets/icon/icon.svg#icon-Eye"></use>
+                </svg>
+                <a class="mob-item" href="#" data-key="visual-impairments"
+                  >For people with visual impairments</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap_lg">
+                  <select class="lg_func" name="language" id="language-select">
+                    <option class="item-lg" value="en">English</option>
+                    <option class="item-lg" value="ua">Ukraine</option>
+                  </select>
+                  <svg class="icon_lg" width="12" height="8">
+                    <use href="../../assets/icon/icon.svg#icon-vector"></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </header>
     <!-- #endregion header styles -->
 
     <!-- #region main styles -->
-    <main class="main_content">
-        <div class="container content-main">
-
-            <!-- #region sec1 styles -->
-            <section class="geolocatio">
-                <ul class="list-geo">
-                    <li class="item-goe home">
-                        <a class="location" href="../../index.html" data-key="home_location">Home</a>
-                    </li>
-                    <li class="item-goe">
-                        <a class="location" href="./page-manga-1.html" data-key="title_location">Solo Leveling</a>
-                    </li>
-                </ul>
-            </section>
-            <!-- #endregion sec1 styles -->
-
-            <!-- #region sec2 styles -->
-            <section class="cover">
-                <img class="img-cover" src="../../manga/Solo-leveling/image/solo-leveling-cover-1x.jpg"
-                    srcset="../../manga/Solo-leveling/image/solo-leveling-cover-1x.jpg 1x, ../../manga/Solo-leveling/image/solo-leveling-cover-2x.jpg 2x"
-                    width="200" height="286" alt="Cover of Solo Leveling" />
-            </section>
-            <!-- #endregion sec2 styles -->
-
-            <!-- #region sec3 styles -->
-            <section class="info-manga">
-                <ul class="list-info-manga">
-                    <li class="item-manga title">
-                        <h2 class="title-manga" data-key="title_manga">Name: Solo Leveling</h2>
-                    </li>
-                    <li class="item-manga item-info">
-                        <button class="rate" type="button">
-                            <svg class="star" width="32" height="32">
-                                <use href="../../assets/icon/icon.svg#icon-star"></use>
-                            </svg>
-                        </button>
-                        <p class="count-rate" data-key="count_rate">4.8(50K)</p>
-                    </li>
-                    <li class="item-manga item-info">
-                        <svg class="icon-views" width="32" height="32">
-                            <use href="../../assets/icon/icon.svg#icon-eye"></use>
-                        </svg>
-                        <span class="number-of-views" data-key="number_views">15M</span>
-                    </li>
-                    <li class="item-manga">
-                        <dl class="author">
-                            <dt class="author-of-manga" data-key="author_of_manga">Author:</dt>
-                            <dd class="name-author" data-key="name_of_author">Chu gong</dd>
-                        </dl>
-                    </li>
-                    <li class="item-manga">
-                        <dl class="genres-manga">
-                            <dt class="title" data-key="title_genre">Genres:</dt>
-                            <dd class="genre first" data-key="genre_first">adventure</dd>
-                            <dd class="genre twice" data-key="genre_twice">supernatural</dd>
-                            <dd class="genre" data-key="genre_last">dark fantasy</dd>
-                        </dl>
-                    </li>
-                    <li class="item-manga">
-                        <a class="btn_read" href="#" data-key="readFirst">Read last</a>
-                    </li>
-                    <li class="item-manga">
-                        <a class="btn_read" href="#" data-key="readLast">Read first</a>
-                    </li>
-                    <li class="item-manga add">
-                        <button class="btn_add" type="button" data-key="addManga">Add</button>
-                    </li>
-                </ul>
-            </section>
-            <!-- #endregion sec3 styles -->
-
-            <!-- #region sec4 styles -->
-            <section class="summary">
-                <h2 class="title-summary" data-key="summary">SUMMARY:</h2>
-                <p class="paragraph-summary" data-key="paragraph1">
-                    When inter-dimensional “gates” opened up “dungeons” full of monsters, “hunters” blessed with special
-                    abilities were
-                    humanity’s only defense. Years later, these hunters make a living by “raiding” these dungeons for
-                    loot.
-                </p>
-                <p class="paragraph-summary" data-key="paragraph2">
-                    Sung Jinwoo, a young bottom-feeder hunter, is overwhelmed by powerful monsters during a routine raid
-                    and finds himself in grave danger. Somehow cheating death, he gains access to exclusive quests and
-                    perks.
-                </p>
-
-                <p class="paragraph-summary" data-key="paragraph3">
-                    With each quest and perk, he grows stronger without limits. Liberated from his weaknesses, he is now
-                    a player of the
-                    system, on the rise and Solo Leveling!
-                </p>
-            </section>
-            <!-- #endregion sec4 styles -->
-
-            <!-- #region sec5 styles -->
-            <section class="chapters">
-                <h3 class="chapter-title" data-key="chapterTitle">Chapters:</h3>
-                <div class="wrap_reverse">
-                    <button class="btn_reverse" type="button" data-key="reverse">Reverse Order</button>
-                </div>
-                <ul class="list-chapters">
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="chapter12">Chapter 12</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="chapter11">Chapter 11</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="chapter10">Chapter 10</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 9</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 8</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 7</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 6</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 5</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 4</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 3</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 2</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 1</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                    <li class="item-chapter">
-                        <div class="wrap_item">
-                            <a class="chapter_link" href="#" data-key="">Chapter 0</a>
-                            <time class="chapter_date" datetime="2025-12-14" data-key="mounth">Dec. 14.12.25</time>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <!-- #endregion sec5 styles -->
+    <main class="main_content containerWrap">
+      <!-- #region sec1 styles -->
+      <section class="geolocatio">
+        <div class="containerWrap">
+          <ul class="list-geo">
+            <li class="item-goe home">
+              <a
+                class="location"
+                href="../../index.html"
+                data-key="home_location"
+                >Home</a
+              >
+            </li>
+            <li class="item-goe">
+              <a
+                class="location"
+                href="./page-manga-1.html"
+                data-key="title_location"
+                >Solo Leveling</a
+              >
+            </li>
+          </ul>
         </div>
+      </section>
+      <!-- #endregion sec1 styles -->
+
+      <!-- #region sec2 styles -->
+      <section class="info-manga">
+        <div class="containerWrap">
+          <div class="infoMangaWrap">
+            <img
+              class="img-cover cover"
+              src="../../manga/Solo-leveling/image/solo-leveling-cover-1x.jpg"
+              srcset="
+                ../../manga/Solo-leveling/image/solo-leveling-cover-1x.jpg 1x,
+                ../../manga/Solo-leveling/image/solo-leveling-cover-2x.jpg 2x
+              "
+              width="200"
+              height="286"
+              alt="Cover of Solo Leveling"
+            />
+            <ul class="list-info-manga">
+              <li class="item-manga title">
+                <h2 class="title-manga" data-key="title_manga">
+                  Name: Solo Leveling
+                </h2>
+              </li>
+              <li class="item-manga item-info">
+                <dl class="wrapInfo">
+                  <dt class="wrapIcon">
+                    <button class="rate" type="button">
+                      <svg class="star" width="32" height="32">
+                        <use href="../../assets/icon/icon.svg#icon-star"></use>
+                      </svg>
+                    </button>
+                  </dt>
+                  <dd class="number">
+                    <p class="count-rate" data-key="count_rate">4.8(50K)</p>
+                  </dd>
+                </dl>
+                <dl class="wrapInfo">
+                  <dt class="wrapIcon">
+                    <svg class="icon-views" width="32" height="32">
+                      <use href="../../assets/icon/icon.svg#icon-eye"></use>
+                    </svg>
+                  </dt>
+                  <dd class="number">
+                    <span class="number-of-views" data-key="number_views"
+                      >15M</span
+                    >
+                  </dd>
+                </dl>
+              </li>
+              <li class="item-manga">
+                <dl class="author">
+                  <dt class="author-of-manga" data-key="author_of_manga">
+                    Author:
+                  </dt>
+                  <dd class="name-author" data-key="name_of_author">
+                    Chu gong
+                  </dd>
+                </dl>
+              </li>
+              <li class="item-manga">
+                <dl class="genres-manga">
+                  <dt class="title" data-key="title_genre">Genres:</dt>
+                  <dd class="genre first" data-key="genre_first">adventure</dd>
+                  <dd class="genre twice" data-key="genre_twice">
+                    supernatural
+                  </dd>
+                  <dd class="genre" data-key="genre_last">dark fantasy</dd>
+                </dl>
+              </li>
+              <li class="item-manga">
+                <div class="wrapBtn">
+                  <a class="btn_read" href="#" data-key="readLast">Read last</a>
+                  <a class="btn_read" href="#" data-key="readFirst"
+                    >Read first</a
+                  >
+                </div>
+              </li>
+              <li class="item-manga add">
+                <button class="btn_add" type="button" data-key="addManga">
+                  Add
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- #endregion sec2 styles -->
+
+      <!-- #region sec3 styles -->
+      <section class="summary">
+        <div class="containerWrap">
+          <div class="wrapSummary">
+            <h2 class="title-summary" data-key="summary">SUMMARY:</h2>
+            <p class="paragraph-summary" data-key="paragraph1">
+              When inter-dimensional “gates” opened up “dungeons” full of
+              monsters, “hunters” blessed with special abilities were humanity’s
+              only defense. Years later, these hunters make a living by
+              “raiding” these dungeons for loot.
+            </p>
+            <p class="paragraph-summary" data-key="paragraph2">
+              Sung Jinwoo, a young bottom-feeder hunter, is overwhelmed by
+              powerful monsters during a routine raid and finds himself in grave
+              danger. Somehow cheating death, he gains access to exclusive
+              quests and perks.
+            </p>
+            <p class="paragraph-summary" data-key="paragraph3">
+              With each quest and perk, he grows stronger without limits.
+              Liberated from his weaknesses, he is now a player of the system,
+              on the rise and Solo Leveling!
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- #endregion sec3 styles -->
+
+      <!-- #region sec4 styles -->
+      <section class="chapters">
+        <div class="containerWrap">
+          <h3 class="chapter-title" data-key="chapterTitle">Chapters:</h3>
+          <div class="wrap_reverse">
+            <button class="btn_reverse" type="button" data-key="reverse">
+              Reverse Order
+            </button>
+          </div>
+          <ul class="list-chapters">
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter29"
+                  >Chapter 29</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter28"
+                  >Chapter 28</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter27"
+                  >Chapter 27</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter26"
+                  >Chapter 26</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter25"
+                  >Chapter 25</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter24"
+                  >Chapter 24</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter23"
+                  >Chapter 23</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter22"
+                  >Chapter 22</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter21"
+                  >Chapter 21</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter20"
+                  >Chapter 20</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter19"
+                  >Chapter 19</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter18"
+                  >Chapter 18</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li><li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter17"
+                  >Chapter 17</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthJan"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter16"
+                  >Chapter 16</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2026-01-09"
+                  data-key="mounthDec"
+                  >Jan. 09.01.26</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter15"
+                  >Chapter 15</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter14"
+                  >Chapter 14</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter13"
+                  >Chapter 13</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter12"
+                  >Chapter 12</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter11"
+                  >Chapter 11</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter10"
+                  >Chapter 10</a
+                >
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter9">Chapter 9</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter8">Chapter 8</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter7">Chapter 7</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter6">Chapter 6</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter5">Chapter 5</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter4">Chapter 4</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter3">Chapter 3</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter2">Chapter 2</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter1">Chapter 1</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+            <li class="item-chapter">
+              <div class="wrap_item">
+                <a class="chapter_link" href="#" data-key="chapter0">Chapter 0</a>
+                <time
+                  class="chapter_date"
+                  datetime="2025-12-14"
+                  data-key="mounthDec"
+                  >Dec. 14.12.25</time
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- #endregion sec4 styles -->
     </main>
     <!-- #endregion main styles -->
 
     <!-- #region footer styles -->
     <footer class="footer-main">
-        <div class="container">
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a class="logo" href="./Home/html/home.html">
-                        <span class="logo-name">Future</span>
-                    </a>
-                    <p class="info-footer" data-key="paragraph">Enjoy reading manga and manhwa for free.</p>
-                </li>
-                <li class="footer-item" id="social">
-                    <h3 class="title-social" data-key="social-media">Social media</h3>
-                    <ul class="social-list">
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="../../assets/icon/icon.svg#icon-instagram"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="../../assets/icon/icon.svg#icon-twitter"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="../../assets/icon/icon.svg#icon-facebook"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="../../assets/icon/icon.svg#icon-linkedin"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+      <div class="container">
+        <ul class="footer-list">
+          <li class="footer-item">
+            <a class="logo" href="./Home/html/home.html">
+              <span class="logo-name">Future</span>
+            </a>
+            <p class="info-footer" data-key="paragraph">
+              Enjoy reading manga and manhwa for free.
+            </p>
+          </li>
+          <li class="footer-item" id="social">
+            <h3 class="title-social" data-key="social-media">Social media</h3>
+            <ul class="social-list">
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="../../assets/icon/icon.svg#icon-instagram"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="../../assets/icon/icon.svg#icon-twitter"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="../../assets/icon/icon.svg#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="../../assets/icon/icon.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
             </ul>
-        </div>
+          </li>
+        </ul>
+      </div>
     </footer>
     <!-- #endregion footer styles -->
 
@@ -367,8 +712,7 @@
     <script type="module" src="../../assets/js/reverse.js"></script>
     <script type="module" src="../../assets/js/translate.js"></script>
     <script type="module" src="../../assets/js/pagination.js"></script>
-    
-    <!-- #endregion Scripts -->
-</body>
 
+    <!-- #endregion Scripts -->
+  </body>
 </html>

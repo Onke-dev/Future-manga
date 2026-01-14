@@ -23,7 +23,7 @@ const translations = {
         'title_manga': 'Name: Solo Leveling',
         'count_rate': '4.8(50K)',
         'number_views': '15M',
-        'author_of_manga': 'Author',
+        'author_of_manga': 'Author:',
         'name_of_author': 'Chu gong',
         'title_genre': 'Genre:',
         'genre_first': 'adventure',
@@ -101,7 +101,7 @@ const translations = {
         'title_manga': 'Назва: Підняття рівня наодинці',
         'count_rate': '4.8(50тис.)', // або 'к', якщо хочеш коротше
         'number_views': '15млн',
-        'author_of_manga': 'Автор',
+        'author_of_manga': 'Автор:',
         'name_of_author': 'Чу Гон',
         'title_genre': 'Жанри:',
         'genre_first': 'пригоди',

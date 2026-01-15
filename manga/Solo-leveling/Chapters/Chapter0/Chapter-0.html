@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <link rel="stylesheet" href="../../../../assets/css/manga.css" />
+  </head>
+
+  <body>
+    <!-- #region header styles -->
+    <header class="main_header">
+      <div class="container">
+        <nav class="nav-list">
+          <a class="logo logo-head" href="../../../../index.html">
+            <h1 class="logo-name">Future</h1>
+          </a>
+          <div class="pages">
+            <ul class="list_pages">
+              <li class="header_item">
+                <a class="item" href="../../../../index.html" data-key="home"
+                  >Home</a
+                >
+              </li>
+              <li class="header_item">
+                <a class="item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="header_item">
+                <a class="item" href="#" data-key="about">About us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="functions">
+            <ul class="list_functions">
+              <li class="function_header">
+                <div class="wrap-search">
+                  <input
+                    class="search"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="magnifying-glass" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-magnifier"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="function_header">
+                <a class="account-user" href="#">
+                  <svg class="icon-user" width="40" height="40">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-User"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="function_header">
+                <button type="button" class="eyes">
+                  <svg class="icon-eye" width="40" height="40">
+                    <use href="../../../../assets/icon/icon.svg#icon-Eye"></use>
+                  </svg>
+                </button>
+              </li>
+              <li class="function_header">
+                <div class="wrap-lg">
+                  <select class="lg_func" name="language">
+                    <option class="item-lg" value="en">En</option>
+                    <option class="item-lg" value="ua">Ua</option>
+                  </select>
+                  <svg class="icon-locale" width="12" height="8">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-vector"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="burger_btn" type="button" data-menu-open>
+            <svg class="burger_icon" width="40" height="40">
+              <use
+                class="icon_menu"
+                href="../../../../assets/icon/icon.svg#icon-menu-toggle"
+              ></use>
+            </svg>
+          </button>
+        </nav>
+        <div class="mob-menu" data-menu>
+          <div class="container mob-menu-container">
+            <button class="close-btn" type="button" data-menu-close>
+              <svg class="btn_icon" width="40" height="40">
+                <use
+                  href="../../../../assets/icon/icon.svg#icon-menu-close"
+                ></use>
+              </svg>
+            </button>
+            <ul class="mob-list_pages">
+              <li class="mob-header_item">
+                <a
+                  class="mob-item"
+                  href="../../../../index.html"
+                  data-key="home"
+                  >Home</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="about">About us</a>
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap">
+                  <input
+                    class="search_mob"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="icon_search" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-magnifier"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="account">Account</a>
+              </li>
+              <li class="mob-header_item" id="eye-open">
+                <svg class="blindness" width="20" height="20">
+                  <use href="../../../../assets/icon/icon.svg#icon-Eye"></use>
+                </svg>
+                <a class="mob-item" href="#" data-key="visual-impairments"
+                  >For people with visual impairments</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap_lg">
+                  <select class="lg_func" name="language" id="language-select">
+                    <option class="item-lg" value="en">English</option>
+                    <option class="item-lg" value="ua">Ukraine</option>
+                  </select>
+                  <svg class="icon_lg" width="12" height="8">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-vector"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- #endregion header styles -->
+
+    <!-- #region main styles -->
+    <main class="main_content">
+      <div class="container containerWrap">
+        <!-- #region sec1 styles -->
+        <section class="geolocatio">
+          <div class="containerWrap">
+            <ul class="list-geo">
+              <li class="item-goe home">
+                <a
+                  class="location"
+                  href="../../index.html"
+                  data-key="home_location"
+                  >Home</a
+                >
+              </li>
+              <li class="item-goe title">
+                <a
+                  class="location"
+                  href="./page-manga-1.html"
+                  data-key="title_location"
+                  >Solo Leveling</a
+                >
+              </li>
+              <li class="item-goe">
+                <a
+                  class="location page"
+                  href="./page-manga-1.html"
+                  data-key="page_location"
+                  >Chapter 0</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- #endregion sec1 styles -->
+      </div>
+    </main>
+    <!-- #endregion main styles -->
+
+    <!-- #region footer styles -->
+    <footer class="footer-main">
+      <div class="container">
+        <ul class="footer-list">
+          <li class="footer-item">
+            <a class="logo" href="../../../../index.html">
+              <span class="logo-name">Future</span>
+            </a>
+            <p class="info-footer" data-key="paragraph">
+              Enjoy reading manga and manhwa for free.
+            </p>
+          </li>
+          <li class="footer-item" id="social">
+            <h3 class="title-social" data-key="social-media">Social media</h3>
+            <ul class="social-list">
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-instagram"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-twitter"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-facebook"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- #endregion footer styles -->
+
+    <!-- #region Scripts -->
+
+    <script src="../../../../assets/js/menu.js"></script>
+    <script src="../../../../assets/js/translate.js"></script>
+    <script src="../../../../assets/js/pagination.js"></script>
+    <!-- #endregion Scripts -->
+  </body>
+</html>

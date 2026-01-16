@@ -1,304 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Junge&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/home.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
-    <link rel="stylesheet" href="./assets/css/home.css">
-</head>
-
-<body>
+  <body>
     <!-- #region header styles -->
     <header class="main_header">
-        <div class="container">
-            <nav class="nav-list">
-                <a class="logo logo-head" href="./index.html">
-                    <h1 class="logo-name">Future</h1>
+      <div class="container">
+        <nav class="nav-list">
+          <a class="logo logo-head" href="./index.html">
+            <h1 class="logo-name">Future</h1>
+          </a>
+          <div class="pages">
+            <ul class="list_pages">
+              <li class="header_item">
+                <a class="item" href="./index.html" data-key="home">Home</a>
+              </li>
+              <li class="header_item">
+                <a class="item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="header_item">
+                <a class="item" href="#" data-key="about">About us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="functions">
+            <ul class="list_functions">
+              <li class="function_header">
+                <div class="wrap-search">
+                  <input
+                    class="search"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="magnifying-glass" width="24" height="24">
+                    <use href="./assets/icon/icon.svg#icon-magnifier"></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="function_header">
+                <a class="account-user" href="#">
+                  <svg class="icon-user" width="40" height="40">
+                    <use href="./assets/icon/icon.svg#icon-User"></use>
+                  </svg>
                 </a>
-                <div class="pages">
-                    <ul class="list_pages">
-                        <li class="header_item">
-                            <a class="item" href="./index.html" data-key="home">Home</a>
-                        </li>
-                        <li class="header_item">
-                            <a class="item" href="#" data-key="manga">Manga</a>
-                        </li>
-                        <li class="header_item">
-                            <a class="item" href="#" data-key="about">About us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="functions">
-                    <ul class="list_functions">
-                        <li class="function_header">
-                            <div class="wrap-search">
-                                <input class="search" name="search-name" type="text" placeholder="Search"
-                                    data-key="search-placeholder">
-                                <svg class="magnifying-glass" width="24" height="24">
-                                    <use href="./assets/icon/icon.svg#icon-magnifier"></use>
-                                </svg>
-                            </div>
-                        </li>
-                        <li class="function_header">
-                            <a class="account-user" href="#">
-                                <svg class="icon-user" width="40" height="40">
-                                    <use href="./assets/icon/icon.svg#icon-User"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="function_header">
-                            <button type="button" class="eyes">
-                                <svg class="icon-eye" width="40" height="40">
-                                    <use href="./assets/icon/icon.svg#icon-Eye"></use>
-                                </svg>
-                            </button>
-                        </li>
-                        <li class="function_header">
-                            <div class="wrap-lg">
-                                <select class="lg_func" name="language">
-                                    <option class="item-lg" value="en">En</option>
-                                    <option class="item-lg" value="ua">Ua </option>
-                                </select>
-                                <svg class="icon-locale" width="12" height="8">
-                                    <use href="./assets/icon/icon.svg#icon-vector"></use>
-                                </svg>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <button class="burger_btn" type="button" data-menu-open>
-                    <svg class="burger_icon" width="40" height="40">
-                        <use class="icon_menu" href="./assets/icon/icon.svg#icon-menu-toggle"></use>
-                    </svg>
+              </li>
+              <li class="function_header">
+                <button type="button" class="eyes">
+                  <svg class="icon-eye" width="40" height="40">
+                    <use href="./assets/icon/icon.svg#icon-Eye"></use>
+                  </svg>
                 </button>
-            </nav>
-            <div class="mob-menu" data-menu>
-                <div class="container mob-menu-container">
-                    <button class="close-btn" type="button" data-menu-close>
-                        <svg class="btn_icon" width="40" height="40">
-                            <use href="./assets/icon/icon.svg#icon-menu-close"></use>
-                        </svg>
-                    </button>
-                    <ul class="mob-list_pages">
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="./index.html" data-key="home">Home</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="#" data-key="manga">Manga</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="#" data-key="about">About us</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <div class="wrap">
-                                <input class="search_mob" name="search-name" type="text" placeholder="Search"
-                                    data-key="search-placeholder">
-                                <svg class="icon_search" width="24" height="24">
-                                    <use href="./assets/icon/icon.svg#icon-magnifier"></use>
-                                </svg>
-                            </div>
-                        </li>
-                        <li class="mob-header_item">
-                            <a class="mob-item" href="#" data-key="account">Account</a>
-                        </li>
-                        <li class="mob-header_item" id="eye-open">
-                            <svg class="blindness" width="20" height="20">
-                                <use href="./assets/icon/icon.svg#icon-Eye"></use>
-                            </svg>
-                            <a class="mob-item" href="#" data-key="visual-impairments">For people with visual impairments</a>
-                        </li>
-                        <li class="mob-header_item">
-                            <div class="wrap_lg">
-                                <select class="lg_func" name="language" id="language-select">
-                                    <option class="item-lg" value="en">English</option>
-                                    <option class="item-lg" value="ua">Ukraine </option>
-                                </select>
-                                <svg class="icon_lg" width="12" height="8">
-                                    <use href="./assets/icon/icon.svg#icon-vector"></use>
-                                </svg>
-                            </div>
-                        </li>
-                    </ul>
+              </li>
+              <li class="function_header">
+                <div class="wrap-lg">
+                  <select class="lg_func" name="language">
+                    <option class="item-lg" value="en">En</option>
+                    <option class="item-lg" value="ua">Ua</option>
+                  </select>
+                  <svg class="icon-locale" width="12" height="8">
+                    <use href="./assets/icon/icon.svg#icon-vector"></use>
+                  </svg>
                 </div>
-            </div>
+              </li>
+            </ul>
+          </div>
+          <button class="burger_btn" type="button" data-menu-open>
+            <svg class="burger_icon" width="40" height="40">
+              <use
+                class="icon_menu"
+                href="./assets/icon/icon.svg#icon-menu-toggle"
+              ></use>
+            </svg>
+          </button>
+        </nav>
+        <div class="mob-menu" data-menu>
+          <div class="container mob-menu-container">
+            <button class="close-btn" type="button" data-menu-close>
+              <svg class="btn_icon" width="40" height="40">
+                <use href="./assets/icon/icon.svg#icon-menu-close"></use>
+              </svg>
+            </button>
+            <ul class="mob-list_pages">
+              <li class="mob-header_item">
+                <a class="mob-item" href="./index.html" data-key="home">Home</a>
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="about">About us</a>
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap">
+                  <input
+                    class="search_mob"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="icon_search" width="24" height="24">
+                    <use href="./assets/icon/icon.svg#icon-magnifier"></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="account">Account</a>
+              </li>
+              <li class="mob-header_item" id="eye-open">
+                <svg class="blindness" width="20" height="20">
+                  <use href="./assets/icon/icon.svg#icon-Eye"></use>
+                </svg>
+                <a class="mob-item" href="#" data-key="visual-impairments"
+                  >For people with visual impairments</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap_lg">
+                  <select class="lg_func" name="language" id="language-select">
+                    <option class="item-lg" value="en">English</option>
+                    <option class="item-lg" value="ua">Ukraine</option>
+                  </select>
+                  <svg class="icon_lg" width="12" height="8">
+                    <use href="./assets/icon/icon.svg#icon-vector"></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </header>
     <!-- #endregion header styles -->
 
     <!-- #region main styles -->
     <main class="main_content">
-        <div class="container content-main">
-            <ul class="content-manga " id="manga-container">
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="./manga/Solo-leveling/page-manga-1.html">
-                            <img class="manga-img" src="./assets/image/covers/solo-leveling-1x.jpg"
-                                srcset="./assets/image/covers/solo-leveling-1x.jpg 1x, ./assets/image/covers/solo-leveling-2x.jpg 2x"
-                                width="180" height="257" alt="Solo Leveling" />
-                        </a>
-                        <a href="./manga/Solo-leveling/page-manga-1.html">
-                            <h2 class="title-manga" data-key="manga-1-title">Solo Leveling</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img" src="./assets/image/covers/second-life-ranker-1x.jpg"
-                                srcset="./assets/image/covers/second-life-ranker-1x.jpg 1x, ./assets/image/covers/second-life-ranker-2x.jpg 2x"
-                                width="180" height="257" alt="Second Life Ranker" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">Second Life Ranker</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img"
-                                src="./assets/image/covers/the-only-one-who-returned-with-the-maximum-level-1x.jpg"
-                                srcset="./assets/image/covers/the-only-one-who-returned-with-the-maximum-level-1x.jpg 1x, ./assets/image/covers/the-only-one-who-returned-with-the-maximum-level-2x.jpg 2x"
-                                width="180" height="257" alt="The only one who returned with the maximum level" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">The only one who returned with the maximum level</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img" src="./assets/image/covers/naruto-1x.jpg"
-                                srcset="./assets/image/covers/naruto-1x.jpg 1x, ./assets/image/covers/naruto-2x.jpg 2x"
-                                width="180" height="257" alt="Naruto" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">Naruto</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img" src="./assets/image/covers/the-descent-of-the-demonic-master-1x.jpg"
-                                srcset="./assets/image/covers/the-descent-of-the-demonic-master-1x.jpg 1x, ./assets/image/covers/the-descent-of-the-demonic-master-2x.jpg 2x"
-                                width="180" height="257" alt="The Descent of the Demonic Master" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">The Descent of the Demonic Master</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img" src="./assets/image/covers/sonna-kazoku-nara-sutechaeba-1x.jpg"
-                                srcset="./assets/image/covers/sonna-kazoku-nara-sutechaeba-1x.jpg 1x, ./assets/image/covers/sonna-kazoku-nara-sutechaeba-2x.jpg 2x"
-                                width="180" height="257" alt="Sonna kazoku nara sutechaeba?" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">Sonna kazoku nara sutechaeba?</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img" src="./assets/image/covers/agnyeoneun-marionette-1x.jpg"
-                                srcset="./assets/image/covers/agnyeoneun-marionette-1x.jpg 1x, ./assets/image/covers/agnyeoneun-marionette-2x.jpg 2x"
-                                width="180" height="257" alt="Agnyeoneun Marionette" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">Agnyeoneun Marionette</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img" src="./assets/image/covers/the-beginning-after-the-end-1x.jpg"
-                                srcset="./assets/image/covers/the-beginning-after-the-end-1x.jpg 1x, ./assets/image/covers/the-beginning-after-the-end-2x.jpg 2x"
-                                width="180" height="257" alt="The Beginning After the End" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">The Beginning After the End</h2>
-                        </a>
-                    </div>
-                </li>
-                <li class="manga-item">
-                    <div class="manga">
-                        <a href="#">
-                            <img class="manga-img" src="./assets/image/covers/i-fell-in-love-after-school-1x.jpg"
-                                srcset="./assets/image/covers/i-fell-in-love-after-school-1x.jpg 1x, ./assets/image/covers/i-fell-in-love-after-school-2x.jpg 2x"
-                                width="180" height="257" alt="I fell in love after school" />
-                        </a>
-                        <a href="#">
-                            <h2 class="title-manga">I fell in love after school</h2>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-            <div id="pagination-numbers" class="pagination-container"></div>
-        </div>
+      <div class="container content-main">
+        <ul class="content-manga" id="manga-container">
+          <li class="manga-item">
+            <div class="manga">
+              <a href="./manga/Solo-leveling/page-manga-1.html">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/solo-leveling-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/solo-leveling-1x.jpg 1x,
+                    ./assets/image/covers/solo-leveling-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="Solo Leveling"
+                />
+              </a>
+              <a href="./manga/Solo-leveling/page-manga-1.html">
+                <h2 class="title-manga" data-key="manga-1-title">
+                  Solo Leveling
+                </h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/second-life-ranker-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/second-life-ranker-1x.jpg 1x,
+                    ./assets/image/covers/second-life-ranker-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="Second Life Ranker"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">Second Life Ranker</h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/the-only-one-who-returned-with-the-maximum-level-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/the-only-one-who-returned-with-the-maximum-level-1x.jpg 1x,
+                    ./assets/image/covers/the-only-one-who-returned-with-the-maximum-level-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="The only one who returned with the maximum level"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">
+                  The only one who returned with the maximum level
+                </h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/naruto-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/naruto-1x.jpg 1x,
+                    ./assets/image/covers/naruto-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="Naruto"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">Naruto</h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/the-descent-of-the-demonic-master-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/the-descent-of-the-demonic-master-1x.jpg 1x,
+                    ./assets/image/covers/the-descent-of-the-demonic-master-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="The Descent of the Demonic Master"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">The Descent of the Demonic Master</h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/sonna-kazoku-nara-sutechaeba-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/sonna-kazoku-nara-sutechaeba-1x.jpg 1x,
+                    ./assets/image/covers/sonna-kazoku-nara-sutechaeba-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="Sonna kazoku nara sutechaeba?"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">Sonna kazoku nara sutechaeba?</h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/agnyeoneun-marionette-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/agnyeoneun-marionette-1x.jpg 1x,
+                    ./assets/image/covers/agnyeoneun-marionette-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="Agnyeoneun Marionette"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">Agnyeoneun Marionette</h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/the-beginning-after-the-end-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/the-beginning-after-the-end-1x.jpg 1x,
+                    ./assets/image/covers/the-beginning-after-the-end-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="The Beginning After the End"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">The Beginning After the End</h2>
+              </a>
+            </div>
+          </li>
+          <li class="manga-item">
+            <div class="manga">
+              <a href="#">
+                <img
+                  class="manga-img"
+                  src="./assets/image/covers/i-fell-in-love-after-school-1x.jpg"
+                  srcset="
+                    ./assets/image/covers/i-fell-in-love-after-school-1x.jpg 1x,
+                    ./assets/image/covers/i-fell-in-love-after-school-2x.jpg 2x
+                  "
+                  width="180"
+                  height="257"
+                  alt="I fell in love after school"
+                />
+              </a>
+              <a href="#">
+                <h2 class="title-manga">I fell in love after school</h2>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <div id="pagination-numbers" class="pagination-container"></div>
+      </div>
     </main>
     <!-- #endregion main styles -->
 
     <!-- #region footer styles -->
     <footer class="footer-main">
-        <div class="container">
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a class="logo" href="./index.html">
-                        <span class="logo-name">Future</span>
-                    </a>
-                    <p class="info-footer" data-key="paragraph">Enjoy reading manga and manhwa for free.</p>
-                </li>
-                <li class="footer-item" id="social">
-                    <h3 class="title-social" data-key="social-media">Social media</h3>
-                    <ul class="social-list">
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="./assets/icon/icon.svg#icon-instagram"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="./assets/icon/icon.svg#icon-twitter"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="./assets/icon/icon.svg#icon-facebook"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-icon" href="#">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="./assets/icon/icon.svg#icon-linkedin"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+      <div class="container">
+        <ul class="footer-list">
+          <li class="footer-item">
+            <a class="logo" href="./index.html">
+              <span class="logo-name">Future</span>
+            </a>
+            <p class="info-footer" data-key="paragraph">
+              Enjoy reading manga and manhwa for free.
+            </p>
+          </li>
+          <li class="footer-item" id="social">
+            <h3 class="title-social" data-key="social-media">Social media</h3>
+            <ul class="social-list">
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="./assets/icon/icon.svg#icon-instagram"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="./assets/icon/icon.svg#icon-twitter"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="./assets/icon/icon.svg#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use href="./assets/icon/icon.svg#icon-linkedin"></use>
+                  </svg>
+                </a>
+              </li>
             </ul>
-        </div>
+          </li>
+        </ul>
+      </div>
     </footer>
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
-    
+
     <script src="./assets/js/menu.js"></script>
     <script src="./assets/js/translate.js"></script>
     <script src="./assets/js/pagination.js"></script>
     <!-- #endregion Scripts -->
-</body>
-
+  </body>
 </html>

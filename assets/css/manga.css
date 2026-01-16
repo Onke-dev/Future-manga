@@ -340,7 +340,7 @@ img {
 
 /* #region main styles */
 .main_content {
-    flex: 1;
+    flex: 0;
 }
 
 .geolocatio {

@@ -339,6 +339,11 @@ img {
 /* #endregion header styles */
 
 /* #region main styles */
+.main_content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 
 .geolocatio {
   display: flex;

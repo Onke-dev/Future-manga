@@ -71,7 +71,7 @@ const translations = {
         'chapter0': 'Chapter 0',
         'mounthDec': 'Dec. 14.12.25',
         'mounthJan': 'Jan. 09.01.26',
-        '': '',
+        'chapter0-title': 'Solo Leveling, Chapter 0',
         '': '',
         '': '',
 
@@ -149,6 +149,7 @@ const translations = {
         'chapter0': 'Глава 0',
         'mounthDec': 'Груд. 14.12.25',
         'mounthJan': 'Січ. 09.01.26',
+        'chapter0-title': 'Підняття рівня наодинці, Глава 0',
 
     }
 };

@@ -20,7 +20,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 body.is-open {
@@ -339,9 +339,9 @@ img {
 /* #endregion header styles */
 
 /* #region main styles */
-.main_content {
-    flex: 1;
-}
+  .main_content {
+      flex: 1;
+  }
 
 .geolocatio {
   display: flex;

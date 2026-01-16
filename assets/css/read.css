@@ -381,8 +381,11 @@ img {
   transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
 }
 
-.name-manga {
+.manga-content {
   padding-top: 30px;
+}
+
+.name-manga {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 20px;
@@ -396,6 +399,42 @@ img {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.list-chapters {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 25px;
+}
+
+.chapter-item {
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.img-page {
+  border-radius: 8px;
+}
+
+.read-next {
+  padding-top: 25px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.next-rigth {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.next {
+  stroke: #1e1e1e;
+
+  fill: transparent;
 }
 
 /* #endregion main styles */

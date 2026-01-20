@@ -20,7 +20,8 @@ const translations = {
         'visual-impairments': 'For people with visual impairments',
         'home_location': 'Home',
         'title_location': 'Solo Leveling',
-        'page_location': 'Chapter 0',
+        'page_location_0': 'Chapter 0',
+        'page_location_29': 'Chapter 29',
         'title_manga': 'Name: Solo Leveling',
         'count_rate': '4.8(50K)',
         'number_views': '15M',
@@ -72,7 +73,7 @@ const translations = {
         'mounthDec': 'Dec. 14.12.25',
         'mounthJan': 'Jan. 09.01.26',
         'chapter0-title': 'Solo Leveling, Chapter 0',
-        '': '',
+        'chapter29-title': 'Solo Leveling, Chapter 29',
         '': '',
 
 
@@ -108,8 +109,8 @@ const translations = {
         'genre_first': 'пригоди',
         'genre_twice': 'надприродне',
         'genre_last': 'темне фентезі',
-        'readFirst': 'Читати останній',
-        'readLast': 'Читати перший',
+        'readFirst': 'Читати першу',
+        'readLast': 'Читати останню',
         'addManga': 'Додати',
         'summary': 'ОПИС:',
         'paragraph1': `Коли відкрилися міжвимірні «брами» в «підземелля», повні монстрів, «мисливці», наділені особливими здібностями, стали єдиним захистом людства. Роками пізніше ці мисливці заробляють на життя «рейдами» в ці підземелля заради здобичі.`,
@@ -150,6 +151,7 @@ const translations = {
         'mounthDec': 'Груд. 14.12.25',
         'mounthJan': 'Січ. 09.01.26',
         'chapter0-title': 'Підняття рівня наодинці, Глава 0',
+        'chapter29-title': 'Підняття рівня наодинці, Глава 29',
 
     }
 };

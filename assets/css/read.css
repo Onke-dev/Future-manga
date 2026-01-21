@@ -818,7 +818,16 @@ img {
     height: 60px;
   }
 
-  
+  .scroll-up {
+    right: 10px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .up {
+    width: 35px;
+    height: 35px;
+  }
 
   /* #endregion main styles */
 
@@ -1032,6 +1041,17 @@ img {
   .next {
     width: 70px;
     height: 70px;
+  }
+
+  .scroll-up {
+    right: 50px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .up {
+    width: 50px;
+    height: 60px;
   }
 
   /* #endregion main styles */

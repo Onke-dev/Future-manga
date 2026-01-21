@@ -345,6 +345,7 @@ img {
 /* #region main styles */
 .main_content {
   flex: 1;
+  padding-bottom: 77px;
 }
 
 .geolocatio {
@@ -411,7 +412,8 @@ img {
   font-size: 18px;
   line-height: 167%;
   text-align: center;
-  color: #fff;
+  color: #000000;
+  font-weight: bold;
 }
 
 .list-advantages {
@@ -424,6 +426,10 @@ img {
   padding-bottom: 30px;
 }
 
+.item-advantages dt {
+    font-style: italic;
+}
+
 .join-us {
   font-family: var(--font-family);
   font-weight: 400;
@@ -431,10 +437,6 @@ img {
   line-height: 167%;
   text-align: center;
   color: #fff;
-}
-
-.bottom {
-    padding-bottom: 77px;
 }
 
 /* #endregion main styles */
@@ -750,16 +752,40 @@ img {
   /* #endregion header styles */
 
   /* #region main styles */
+  .main_content {
+    padding-bottom: 82px;
+  }
+
   .geolocatio {
     padding-top: 13px;
     display: block;
     width: 100%;
     position: relative;
     padding-left: 21px;
+    padding-bottom: 30px;
   }
 
   .location {
     font-size: 18px;
+  }
+
+  .about-us {
+    width: 553px;
+    padding: 20px 25px;
+  }
+
+  .title-welcome,
+  .our-team,
+  .our-advantages,
+  .item-advantages,
+  .join-us {
+    text-align: justify;
+  }
+
+  .title-welcome,
+  .our-team,
+  .list-advantages {
+    padding-bottom: 20px;
   }
 
   /* #endregion main styles */

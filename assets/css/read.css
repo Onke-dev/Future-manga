@@ -173,7 +173,8 @@ img {
   visibility: hidden;
   pointer-events: none;
 
-  transition: 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+  transition:
+    250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
     visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
@@ -181,7 +182,8 @@ img {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+  transition:
+    250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
     visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
@@ -433,6 +435,30 @@ img {
   stroke: #1e1e1e;
 
   fill: transparent;
+}
+
+.scroll-up {
+  position: fixed;
+  right: 5px;
+  bottom: 20px;
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background-color: #000000;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.scroll-up.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* #endregion main styles */
@@ -769,7 +795,6 @@ img {
     row-gap: 20px;
   }
 
-
   .chapter-item {
     width: 602px;
   }
@@ -792,6 +817,8 @@ img {
     width: 60px;
     height: 60px;
   }
+
+  
 
   /* #endregion main styles */
 
@@ -865,7 +892,8 @@ img {
   .header_item:focus {
     background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(236, 233, 233, 0.425);
-    transition: background-color 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+    transition:
+      background-color 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
       border 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
     outline: none;
     color: #000;

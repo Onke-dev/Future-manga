@@ -70,7 +70,7 @@ img {
 }
 
 .containerWrap {
-  max-width: 260px;
+  max-width: 330px;
   margin: 0 auto;
 }
 
@@ -359,7 +359,7 @@ img {
   gap: 8px;
 }
 
-.page::before {
+.page::after {
   content: "/";
   color: #000000;
 }

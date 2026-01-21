@@ -61,8 +61,13 @@
 <symbol id="icon-left-circle" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.8824" d="M16 10.666l-5.333 5.333M10.667 16l5.333 5.333M10.667 16h10.667M29.333 16c0 7.364-5.97 13.333-13.333 13.333s-13.333-5.97-13.333-13.333c0-7.364 5.97-13.333 13.333-13.333s13.333 5.97 13.333 13.333z"></path>
 </symbol>
+
 <symbol id="icon-right-circle" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.8286" d="M16 21.334l5.333-5.333M21.333 16l-5.333-5.333M21.333 16h-10.667M29.333 16c0 7.364-5.97 13.333-13.333 13.333s-13.333-5.97-13.333-13.333c0-7.364 5.97-13.333 13.333-13.333s13.333 5.97 13.333 13.333z"></path>
+</symbol>
+
+<symbol id="icon-up" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="5.12" d="M24 20l-8-8-8 8"></path>
 </symbol>
 
 </defs>

@@ -344,8 +344,10 @@ img {
 
 /* #region main styles */
 .main_content {
+  min-height: auto !important;
   flex: 1;
   padding-bottom: 77px;
+
 }
 
 .geolocatio {
@@ -427,7 +429,7 @@ img {
 }
 
 .item-advantages dt {
-    font-style: italic;
+  font-style: italic;
 }
 
 .join-us {
@@ -770,7 +772,8 @@ img {
   }
 
   .about-us {
-    width: 553px;
+    box-sizing: border-box;
+    width: 604px;
     padding: 20px 25px;
   }
 
@@ -949,10 +952,13 @@ img {
   /* #endregion header styles */
 
   /* #region main styles */
-
+  .main_content {
+    padding-bottom: 95px;
+  }
   .geolocatio {
     padding-top: 20px;
     padding-left: 97px;
+    padding-bottom: 59px;
   }
 
   .list-geo {
@@ -970,6 +976,10 @@ img {
     transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
   }
 
+  .about-us {
+    width: 1122px;
+    padding: 30px;
+  }
   /* #endregion main styles */
 
   /* #region footer styles */

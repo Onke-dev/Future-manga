@@ -80,16 +80,13 @@ const translations = {
     part2:
       "We are a team of passionate fans of Asian culture and graphic novels. Our goal is to create the most convenient space for Ukrainian readers, where everyone can find a story to their liking: from epic fantasy and exciting adventures to warm everyday stories.",
     part3: "Our advantages:",
-    part4: "A huge library:",
+    part4:
+      "A huge library: We are constantly updating the catalog with new sections and popular titles.",
     part5:
-      "We are constantly updating the catalog with new sections and popular titles.",
-    part6: "Convenient reader:",
-    part7:
-      "Our player is adapted for comfortable reading from both a computer and a smartphone.",
-    part8: "High quality:",
-    part9: "We make sure that images are clear and pages load quickly.",
-    part10:
-      "Join our community! Read and immerse yourself in incredible worlds with us.",
+      "Convenient reader: Our player is adapted for comfortable reading from both a computer and a smartphone.",
+
+    part6:
+      "High quality: We make sure that images are clear and pages load quickly.",
   },
   ua: {
     home: "Головна",

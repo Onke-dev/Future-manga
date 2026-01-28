@@ -1031,6 +1031,7 @@ img {
 
   .img-user {
     padding-right: 35px;
+    row-gap: 15px;
   }
 
   .user-info {

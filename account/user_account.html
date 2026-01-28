@@ -180,20 +180,20 @@
       <!-- #endregion sec1 styles -->
 
       <!-- #region sec2 styles -->
-      <section class="account-user">
+      <section class="account-user-info">
         <div class="img-user">
           <picture>
             <source
               srcset="
-                image/image-user-mobile-1x.png 1x,
-                image/image-user-mobile-2x.png 2x
+                image/image-user-desktop-1x.png 1x,
+                image/image-user-desktop-2x.png 2x
               "
               media="(min-width: 1440px)"
             />
             <source
               srcset="
-                image/image-user-mobile-1x.png 1x,
-                image/image-user-mobile-2x.png 2x
+                image/image-user-tablet-1x.png 1x,
+                image/image-user-tablet-2x.png 2x
               "
               media="(min-width: 768px)"
             />
@@ -204,7 +204,6 @@
               "
               media="(max-width: 767px)"
             />
-
             <img
               class="img-page"
               src="image/image-user-mobile-1x.png"
@@ -213,10 +212,9 @@
               height="160"
             />
           </picture>
-        </div>
-
-        <div class="user-info">
           <h2 class="name-user">Name user</h2>
+        </div>
+        <div class="user-info">
           <dl class="item-user">
             <div class="date-registration">
               <dt>Registration:</dt>
@@ -229,12 +227,11 @@
               <dd>10 minutes ago</dd>
             </div>
           </dl>
+          <a href="#" class="btn-liked">Liked</a>
         </div>
-
         <div class="user-actions">
-          <button type="button" class="btn-liked">Liked</button>
           <a href="#" class="setting-user" aria-label="Settings">
-            <svg class="icon" width="60" height="60">
+            <svg class="setting-icon" width="60" height="60">
               <use href="../assets/icon/icon.svg#icon-settings"></use>
             </svg>
           </a>

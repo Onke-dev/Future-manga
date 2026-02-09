@@ -108,7 +108,7 @@
                 <a class="mob-item" href="#" data-key="manga">Manga</a>
               </li>
               <li class="mob-header_item">
-                <a class="mob-item" href="./about_us.html" data-key="about"
+                <a class="mob-item" href="../about_us/about_us.html" data-key="about"
                   >About us</a
                 >
               </li>
@@ -127,7 +127,7 @@
                 </div>
               </li>
               <li class="mob-header_item">
-                <a class="mob-item" href="#" data-key="account">Account</a>
+                <a class="mob-item" href="../account/user_account.html" data-key="account">Account</a>
               </li>
               <li class="mob-header_item" id="eye-open">
                 <svg class="blindness" width="20" height="20">
@@ -186,11 +186,11 @@
         </div>
       </section>
       <!-- #endregion sec1 styles -->
-      <form class="form">
+      <form class="main-form">
         <h2 class="title-settings">User settings</h2>
         <fieldset class="form-settings">
-          <legend class="img_user">Photo profile</legend>
-          <div class="img-user">
+          <legend class="user-img">Photo profile</legend>
+          <div class="img-change">
             <picture>
               <source
                 srcset="
@@ -208,14 +208,14 @@
               />
               <source
                 srcset="
-                  image/image-user-mobile-1x.png 1x,
-                  image/image-user-mobile-2x.png 2x
+                  ../account/image/image-user-mobile-1x.png 1x,
+                  ../account/image/image-user-mobile-1x.png 2x
                 "
                 media="(max-width: 767px)"
               />
               <img
                 class="img-page"
-                src="image/image-user-mobile-1x.png"
+                src="../account/image/image-user-mobile-1x.png"
                 alt="img user"
                 width="160"
                 height="160"
@@ -223,13 +223,13 @@
             </picture>
           </div>
           <div class="upload-img">
-            <button type="button" class="upload-icon">
-              <svg class="icon" width="40" height="40">
+            <button type="button" class="upload">
+              <svg class="icon-upload" width="40" height="40">
                 <use href="../assets/icon/icon.svg#icon-upload_img"></use>
               </svg>
             </button>
 
-            <button type="button">Upload</button>
+            <button type="button" class="btn-upload-newImg">Upload</button>
           </div>
         </fieldset>
         <fieldset class="form-settings">

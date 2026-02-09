@@ -93,6 +93,7 @@ const translations = {
     activity: "Activity:",
     likedManga: "Liked",
     title_location_account: "My account",
+    title_location_settings: "Settings",
   },
   ua: {
     home: "Головна",
@@ -185,6 +186,7 @@ const translations = {
     activity: "Активність:",
     likedManga: "Сподобалось",
     title_location_account: "Мій профіль",
+    title_location_settings: "Налаштування  ",
   },
 };
 

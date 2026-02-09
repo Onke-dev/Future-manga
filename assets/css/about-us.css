@@ -906,13 +906,13 @@ img {
   .account-user:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(0, 242, 255);
+    stroke: rgb(0, 0, 0);
   }
 
   .account-user:active {
     background-color: transparent;
     transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: #000000;
+    stroke: #ffffff;
   }
 
   .eyes,
@@ -924,12 +924,12 @@ img {
   .eyes:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(224, 178, 13);
+    stroke: rgb(0, 0, 0);
   }
 
   .eyes:active {
     background-color: transparent;
-    stroke: #000000;
+    stroke: #ffffff;
     transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 

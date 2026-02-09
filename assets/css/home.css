@@ -842,9 +842,16 @@ img {
     outline: none;
   }
 
-  .account-user:hover {
+ .account-user:hover {
     background-color: transparent;
-    stroke: #cd35f8;
+    transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+    stroke: rgb(0, 0, 0);
+  }
+
+  .account-user:active {
+    background-color: transparent;
+    transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+    stroke: #ffffff;
   }
 
   .eyes,
@@ -855,7 +862,14 @@ img {
 
   .eyes:hover {
     background-color: transparent;
-    stroke: #00ff4c;
+    transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+    stroke: rgb(0, 0, 0);
+  }
+
+  .eyes:active {
+    background-color: transparent;
+    stroke: #ffffff;
+    transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
   .wrap-lg {

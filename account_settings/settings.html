@@ -194,6 +194,7 @@
         </div>
       </section>
       <!-- #endregion sec1 styles -->
+       <!-- #region form styles -->
       <form class="main-form">
         <h2 class="title-settings">User settings</h2>
         <fieldset class="form-settings">
@@ -232,7 +233,7 @@
               </picture>
             </div>
             <div class="upload-img">
-              <button type="button" class="upload">
+              <button type="button" class="load">
                 <svg class="icon-upload" width="40" height="40">
                   <use href="../assets/icon/icon.svg#icon-upload_img"></use>
                 </svg>
@@ -242,8 +243,8 @@
           </div>
         </fieldset>
         <fieldset class="form-settings">
+          <legend class="change-name">Change your Name</legend>
           <div class="sec">
-            <legend class="change-name">Change your Name</legend>
             <label for="user-name" class="user-name">Your Name</label>
             <input
               class="input-data"
@@ -253,11 +254,12 @@
               placeholder="Your name"
               required
             />
+            <button class="save_btn" type="submit">Save</button>
           </div>
         </fieldset>
         <fieldset class="form-settings">
+          <legend class="change-email">Change your Email</legend>
           <div class="sec">
-            <legend class="change-email">Change your Email</legend>
             <label for="user-email" class="user-email">Your Email</label>
             <input
               class="input-data"
@@ -267,11 +269,12 @@
               placeholder="Your email"
               required
             />
+            <button class="save_btn" type="submit">Save</button>
           </div>
         </fieldset>
         <fieldset class="form-settings">
+          <legend class="change-password">Change your password</legend>
           <div class="sec">
-            <legend class="change-password">Change your password</legend>
             <label for="current-password" class="current"
               >Current Password</label
             >
@@ -303,11 +306,12 @@
               placeholder="Confirm Password"
               required
             />
+            <button class="save_btn" type="submit">Save</button>
           </div>
         </fieldset>
         <fieldset class="form-settings last-box">
+          <legend class="title-delete-account">Delete Account</legend>
           <div class="sec last">
-            <legend class="title-delete-account">Delete Account</legend>
             <label for="delete-password" class="current-delete"
               >Current password</label
             >
@@ -321,13 +325,8 @@
             />
             <button class="confirm-delete" type="button">Confirm delete</button>
           </div>
-          <div class="wrap-submit">
-            <button class="save-settings" type="submit">Submit</button>
-          </div>
         </fieldset>
       </form>
-      <!-- #region form styles -->
-
       <!-- #endregion form styles -->
     </main>
     <!-- #endregion main styles -->

@@ -383,7 +383,7 @@ img {
 .container-form {
   border: 1px solid #000;
   border-radius: 20px;
-  padding: 30px;
+  padding: 29px;
   background-color: rgba(217, 217, 217, 0.5);
   width: 230px;
   display: flex;
@@ -418,6 +418,12 @@ legend {
   display: flex;
   flex-direction: column;
   row-gap: 12px;
+}
+
+.wrap-elems {
+  display: flex;
+  row-gap: 12px;
+  flex-direction: column;
 }
 
 .first {
@@ -466,6 +472,7 @@ legend {
 
 .user-img {
   padding-top: 12px;
+  padding-bottom: 0;
 }
 
 .form-settings legend,
@@ -499,6 +506,12 @@ legend {
   line-height: 100%;
   color: #000;
   cursor: pointer;
+}
+
+.wrap-password {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
 }
 
 .last-box {
@@ -865,6 +878,28 @@ legend {
 
   .title-settings {
     width: 540px;
+  }
+
+  .sec {
+    flex-direction: row;
+  }
+
+  .first {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .img-change {
+    padding: 20px 0;
+    margin: 0;
+  }
+
+  .upload-img {
+    flex-direction: column;
+    row-gap: 12px;
+    padding-left: 11px;
+    padding-top: 27px;
+    column-gap: 0;
   }
 
   /* #endregion main styles */

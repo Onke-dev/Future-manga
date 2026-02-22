@@ -137,12 +137,10 @@ img {
   font-weight: 400;
   font-size: 32px;
   text-align: center;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.48) 0%,
-    rgba(255, 255, 255, 0.9) 50.05%,
-    rgba(255, 255, 255, 0.48) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.48) 0%,
+      rgba(255, 255, 255, 0.9) 50.05%,
+      rgba(255, 255, 255, 0.48) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -393,6 +391,7 @@ img {
   box-sizing: border-box;
 }
 
+
 .title-settings {
   font-family: var(--font-family);
   font-weight: 400;
@@ -468,11 +467,12 @@ legend {
 .user-img {
   padding-top: 12px;
 }
+
 .form-settings legend,
 .form-settings label {
   font-family: var(--font-family);
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
 }
 
@@ -629,6 +629,7 @@ legend {
 /* #endregion footer styles */
 
 @media screen and (min-width: 768px) {
+
   /* #region header styles */
   .main_header {
     height: 90px;
@@ -678,12 +679,10 @@ legend {
     font-size: 18px;
     line-height: 2.22;
     text-align: center;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(255, 255, 255, 0.6) 50.05%,
-      rgba(255, 255, 255, 0.8) 100%
-    );
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.6) 50.05%,
+        rgba(255, 255, 255, 0.8) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -859,6 +858,15 @@ legend {
     font-size: 18px;
   }
 
+  .container-form {
+    width: 602px;
+    padding: 22px 30px;
+  }
+
+  .title-settings {
+    width: 540px;
+  }
+
   /* #endregion main styles */
 
   /* #region footer styles */
@@ -902,6 +910,7 @@ legend {
 }
 
 @media screen and (min-width: 1440px) {
+
   /* #region header styles */
   .main_header {
     height: 108px;
@@ -1023,6 +1032,7 @@ legend {
   .main_content {
     padding-bottom: 95px;
   }
+
   .geolocatio {
     padding-top: 20px;
     padding-left: 97px;

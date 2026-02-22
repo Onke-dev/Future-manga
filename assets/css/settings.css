@@ -382,7 +382,7 @@ img {
   transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
 }
 
-.main-form {
+.container-form {
   border: 1px solid #000;
   border-radius: 20px;
   padding: 30px;
@@ -408,7 +408,11 @@ img {
   border-bottom: 1px solid #000;
   display: flex;
   flex-direction: column;
-  padding: 12px 0 15px 0;
+  padding: 0 0 15px 0;
+}
+
+legend {
+  padding: 12px 0;
 }
 
 .sec {

@@ -1,200 +1,157 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../assets/css/settings.css" />
-  </head>
 
-  <body>
-    <!-- #region header styles -->
-    <header class="main_header">
-      <div class="container">
-        <nav class="nav-list">
-          <a class="logo logo-head" href="../index.html">
-            <h1 class="logo-name">Future</h1>
-          </a>
-          <div class="pages">
-            <ul class="list_pages">
-              <li class="header_item">
-                <a class="item" href="../index.html" data-key="home">Home</a>
-              </li>
-              <li class="header_item">
-                <a class="item" href="#" data-key="manga">Manga</a>
-              </li>
-              <li class="header_item">
-                <a
-                  class="item"
-                  href="../about_us/about_us.html"
-                  data-key="about"
-                  >About us</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="functions">
-            <ul class="list_functions">
-              <li class="function_header">
-                <div class="wrap-search">
-                  <input
-                    class="search"
-                    name="search-name"
-                    type="text"
-                    placeholder="Search"
-                    data-key="search-placeholder"
-                  />
-                  <svg class="magnifying-glass" width="24" height="24">
-                    <use href="../assets/icon/icon.svg#icon-magnifier"></use>
-                  </svg>
-                </div>
-              </li>
-              <li class="function_header">
-                <a class="account-user" href="../account/user_account.html">
-                  <svg class="icon-user" width="40" height="40">
-                    <use href="../assets/icon/icon.svg#icon-User"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="function_header">
-                <button type="button" class="eyes">
-                  <svg class="icon-eye" width="40" height="40">
-                    <use href="../assets/icon/icon.svg#icon-Eye"></use>
-                  </svg>
-                </button>
-              </li>
-              <li class="function_header">
-                <div class="wrap-lg">
-                  <select class="lg_func" name="language">
-                    <option class="item-lg" value="en">En</option>
-                    <option class="item-lg" value="ua">Ua</option>
-                  </select>
-                  <svg class="icon-locale" width="12" height="8">
-                    <use href="../assets/icon/icon.svg#icon-vector"></use>
-                  </svg>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <button class="burger_btn" type="button" data-menu-open>
-            <svg class="burger_icon" width="40" height="40">
-              <use
-                class="icon_menu"
-                href="../assets/icon/icon.svg#icon-menu-toggle"
-              ></use>
-            </svg>
-          </button>
-        </nav>
-        <div class="mob-menu" data-menu>
-          <div class="container mob-menu-container">
-            <button class="close-btn" type="button" data-menu-close>
-              <svg class="btn_icon" width="40" height="40">
-                <use href="../assets/icon/icon.svg#icon-menu-close"></use>
-              </svg>
-            </button>
-            <ul class="mob-list_pages">
-              <li class="mob-header_item">
-                <a class="mob-item" href="../../index.html" data-key="home"
-                  >Home</a
-                >
-              </li>
-              <li class="mob-header_item">
-                <a class="mob-item" href="#" data-key="manga">Manga</a>
-              </li>
-              <li class="mob-header_item">
-                <a
-                  class="mob-item"
-                  href="../about_us/about_us.html"
-                  data-key="about"
-                  >About us</a
-                >
-              </li>
-              <li class="mob-header_item">
-                <div class="wrap">
-                  <input
-                    class="search_mob"
-                    name="search-name"
-                    type="text"
-                    placeholder="Search"
-                    data-key="search-placeholder"
-                  />
-                  <svg class="icon_search" width="24" height="24">
-                    <use href="../assets/icon/icon.svg#icon-magnifier"></use>
-                  </svg>
-                </div>
-              </li>
-              <li class="mob-header_item">
-                <a
-                  class="mob-item"
-                  href="../account/user_account.html"
-                  data-key="account"
-                  >Account</a
-                >
-              </li>
-              <li class="mob-header_item" id="eye-open">
-                <svg class="blindness" width="20" height="20">
-                  <use href="../assets/icon/icon.svg#icon-Eye"></use>
-                </svg>
-                <a class="mob-item" href="#" data-key="visual-impairments"
-                  >For people with visual impairments</a
-                >
-              </li>
-              <li class="mob-header_item">
-                <div class="wrap_lg">
-                  <select class="lg_func" name="language" id="language-select">
-                    <option class="item-lg" value="en">English</option>
-                    <option class="item-lg" value="ua">Ukraine</option>
-                  </select>
-                  <svg class="icon_lg" width="12" height="8">
-                    <use href="../assets/icon/icon.svg#icon-vector"></use>
-                  </svg>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- #endregion header styles -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/settings.css" />
+</head>
 
-    <!-- #region main styles -->
-    <main class="main_content containerWrap">
-      <!-- #region sec1 styles -->
-      <section class="geolocatio">
-        <div class="containerWrap">
-          <ul class="list-geo">
-            <li class="item-goe home">
-              <a class="location" href="../index.html" data-key="home_location"
-                >Home</a
-              >
+<body>
+  <!-- #region header styles -->
+  <header class="main_header">
+    <div class="container">
+      <nav class="nav-list">
+        <a class="logo logo-head" href="../index.html">
+          <h1 class="logo-name">Future</h1>
+        </a>
+        <div class="pages">
+          <ul class="list_pages">
+            <li class="header_item">
+              <a class="item" href="../index.html" data-key="home">Home</a>
             </li>
-            <li class="item-goe home">
-              <a
-                class="location"
-                href="../account/user_account.html"
-                data-key="title_location_account"
-                >My account</a
-              >
+            <li class="header_item">
+              <a class="item" href="#" data-key="manga">Manga</a>
             </li>
-            <li class="item-goe">
-              <a
-                class="location"
-                href="../account_settings/settings.html"
-                data-key="title_location_settings"
-                >Settings</a
-              >
+            <li class="header_item">
+              <a class="item" href="../about_us/about_us.html" data-key="about">About us</a>
             </li>
           </ul>
         </div>
-      </section>
-      <!-- #endregion sec1 styles -->
-       <!-- #region form styles -->
+        <div class="functions">
+          <ul class="list_functions">
+            <li class="function_header">
+              <div class="wrap-search">
+                <input class="search" name="search-name" type="text" placeholder="Search"
+                  data-key="search-placeholder" />
+                <svg class="magnifying-glass" width="24" height="24">
+                  <use href="../assets/icon/icon.svg#icon-magnifier"></use>
+                </svg>
+              </div>
+            </li>
+            <li class="function_header">
+              <a class="account-user" href="../account/user_account.html">
+                <svg class="icon-user" width="40" height="40">
+                  <use href="../assets/icon/icon.svg#icon-User"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="function_header">
+              <button type="button" class="eyes">
+                <svg class="icon-eye" width="40" height="40">
+                  <use href="../assets/icon/icon.svg#icon-Eye"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="function_header">
+              <div class="wrap-lg">
+                <select class="lg_func" name="language">
+                  <option class="item-lg" value="en">En</option>
+                  <option class="item-lg" value="ua">Ua</option>
+                </select>
+                <svg class="icon-locale" width="12" height="8">
+                  <use href="../assets/icon/icon.svg#icon-vector"></use>
+                </svg>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="burger_btn" type="button" data-menu-open>
+          <svg class="burger_icon" width="40" height="40">
+            <use class="icon_menu" href="../assets/icon/icon.svg#icon-menu-toggle"></use>
+          </svg>
+        </button>
+      </nav>
+      <div class="mob-menu" data-menu>
+        <div class="container mob-menu-container">
+          <button class="close-btn" type="button" data-menu-close>
+            <svg class="btn_icon" width="40" height="40">
+              <use href="../assets/icon/icon.svg#icon-menu-close"></use>
+            </svg>
+          </button>
+          <ul class="mob-list_pages">
+            <li class="mob-header_item">
+              <a class="mob-item" href="../../index.html" data-key="home">Home</a>
+            </li>
+            <li class="mob-header_item">
+              <a class="mob-item" href="#" data-key="manga">Manga</a>
+            </li>
+            <li class="mob-header_item">
+              <a class="mob-item" href="../about_us/about_us.html" data-key="about">About us</a>
+            </li>
+            <li class="mob-header_item">
+              <div class="wrap">
+                <input class="search_mob" name="search-name" type="text" placeholder="Search"
+                  data-key="search-placeholder" />
+                <svg class="icon_search" width="24" height="24">
+                  <use href="../assets/icon/icon.svg#icon-magnifier"></use>
+                </svg>
+              </div>
+            </li>
+            <li class="mob-header_item">
+              <a class="mob-item" href="../account/user_account.html" data-key="account">Account</a>
+            </li>
+            <li class="mob-header_item" id="eye-open">
+              <svg class="blindness" width="20" height="20">
+                <use href="../assets/icon/icon.svg#icon-Eye"></use>
+              </svg>
+              <a class="mob-item" href="#" data-key="visual-impairments">For people with visual impairments</a>
+            </li>
+            <li class="mob-header_item">
+              <div class="wrap_lg">
+                <select class="lg_func" name="language" id="language-select">
+                  <option class="item-lg" value="en">English</option>
+                  <option class="item-lg" value="ua">Ukraine</option>
+                </select>
+                <svg class="icon_lg" width="12" height="8">
+                  <use href="../assets/icon/icon.svg#icon-vector"></use>
+                </svg>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- #endregion header styles -->
+
+  <!-- #region main styles -->
+  <main class="main_content containerWrap">
+    <!-- #region sec1 styles -->
+    <section class="geolocatio">
+      <div class="containerWrap">
+        <ul class="list-geo">
+          <li class="item-goe home">
+            <a class="location" href="../index.html" data-key="home_location">Home</a>
+          </li>
+          <li class="item-goe home">
+            <a class="location" href="../account/user_account.html" data-key="title_location_account">My account</a>
+          </li>
+          <li class="item-goe">
+            <a class="location" href="../account_settings/settings.html" data-key="title_location_settings">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- #endregion sec1 styles -->
+    <!-- #region form styles -->
+    <div class="container-form">
       <form class="main-form">
         <h2 class="title-settings">User settings</h2>
         <fieldset class="form-settings">
@@ -202,34 +159,20 @@
           <div class="sec first">
             <div class="img-change">
               <picture>
-                <source
-                  srcset="
-                    image/image-user-desktop-1x.png 1x,
-                    image/image-user-desktop-2x.png 2x
-                  "
-                  media="(min-width: 1440px)"
-                />
-                <source
-                  srcset="
-                    image/image-user-tablet-1x.png 1x,
-                    image/image-user-tablet-2x.png 2x
-                  "
-                  media="(min-width: 768px)"
-                />
-                <source
-                  srcset="
-                    ../account/image/image-user-mobile-1x.png 1x,
-                    ../account/image/image-user-mobile-1x.png 2x
-                  "
-                  media="(max-width: 767px)"
-                />
-                <img
-                  class="img-page"
-                  src="../account/image/image-user-mobile-1x.png"
-                  alt="img user"
-                  width="160"
-                  height="160"
-                />
+                <source srcset="
+                                  image/image-user-desktop-1x.png 1x,
+                                  image/image-user-desktop-2x.png 2x
+                                " media="(min-width: 1440px)" />
+                <source srcset="
+                                  image/image-user-tablet-1x.png 1x,
+                                  image/image-user-tablet-2x.png 2x
+                                " media="(min-width: 768px)" />
+                <source srcset="
+                                  ../account/image/image-user-mobile-1x.png 1x,
+                                  ../account/image/image-user-mobile-1x.png 2x
+                                " media="(max-width: 767px)" />
+                <img class="img-page" src="../account/image/image-user-mobile-1x.png" alt="img user" width="160"
+                  height="160" />
               </picture>
             </div>
             <div class="upload-img">
@@ -242,149 +185,115 @@
             </div>
           </div>
         </fieldset>
+      </form>
+      <form class="main-form">
         <fieldset class="form-settings">
           <legend class="change-name">Change your Name</legend>
           <div class="sec">
             <label for="user-name" class="user-name">Your Name</label>
-            <input
-              class="input-data"
-              id="user-name"
-              type="text"
-              name="user-name"
-              placeholder="Your name"
-              required
-            />
+            <input class="input-data" id="user-name" type="text" name="user-name" placeholder="Your name" required />
             <button class="save_btn" type="submit">Save</button>
           </div>
         </fieldset>
+      </form>
+      <form class="main-form">
         <fieldset class="form-settings">
           <legend class="change-email">Change your Email</legend>
           <div class="sec">
             <label for="user-email" class="user-email">Your Email</label>
-            <input
-              class="input-data"
-              id="user-email"
-              type="email"
-              name="user-email"
-              placeholder="Your email"
-              required
-            />
+            <input class="input-data" id="user-email" type="email" name="user-email" placeholder="Your email" required />
             <button class="save_btn" type="submit">Save</button>
           </div>
         </fieldset>
+      </form>
+      <form class="main-form">
         <fieldset class="form-settings">
           <legend class="change-password">Change your password</legend>
           <div class="sec">
-            <label for="current-password" class="current"
-              >Current Password</label
-            >
-            <input
-              class="input-data"
-              id="current-password"
-              type="password"
-              name="current-password"
-              placeholder="Confirm Password"
-              required
-            />
+            <label for="current-password" class="current">Current Password</label>
+            <input class="input-data" id="current-password" type="password" name="current-password"
+              placeholder="Confirm Password" required />
             <label for="new-password" class="new-password">New Password</label>
-            <input
-              class="input-data"
-              id="new-password"
-              type="password"
-              name="new-password"
-              placeholder="New Password"
-              required
-            />
-            <label for="confirm-password" class="confirm"
-              >Confirm Password</label
-            >
-            <input
-              class="input-data"
-              id="confirm-password"
-              type="password"
-              name="confirm-password"
-              placeholder="Confirm Password"
-              required
-            />
+            <input class="input-data" id="new-password" type="password" name="new-password" placeholder="New Password"
+              required />
+            <label for="confirm-password" class="confirm">Confirm Password</label>
+            <input class="input-data" id="confirm-password" type="password" name="confirm-password"
+              placeholder="Confirm Password" required />
             <button class="save_btn" type="submit">Save</button>
           </div>
         </fieldset>
+      </form>
+      <form class="main-form">
         <fieldset class="form-settings last-box">
           <legend class="title-delete-account">Delete Account</legend>
           <div class="sec last">
-            <label for="delete-password" class="current-delete"
-              >Current password</label
-            >
-            <input
-              class="input-data"
-              id="delete-password"
-              type="password"
-              name="delete-password"
-              placeholder="Current Password"
-              required
-            />
+            <label for="delete-password" class="current-delete">Current password</label>
+            <input class="input-data" id="delete-password" type="password" name="delete-password"
+              placeholder="Current Password" required />
             <button class="confirm-delete" type="button">Confirm delete</button>
           </div>
         </fieldset>
       </form>
-      <!-- #endregion form styles -->
-    </main>
-    <!-- #endregion main styles -->
+    </div>
+    <!-- #endregion form styles -->
+  </main>
+  <!-- #endregion main styles -->
 
-    <!-- #region footer styles -->
-    <footer class="footer-main">
-      <div class="container">
-        <ul class="footer-list">
-          <li class="footer-item">
-            <a class="logo" href="./Home/html/home.html">
-              <span class="logo-name">Future</span>
-            </a>
-            <p class="info-footer" data-key="paragraph">
-              Enjoy reading manga and manhwa for free.
-            </p>
-          </li>
-          <li class="footer-item" id="social">
-            <h3 class="title-social" data-key="social-media">Social media</h3>
-            <ul class="social-list">
-              <li class="social-item">
-                <a class="social-icon" href="#">
-                  <svg class="icon" width="24" height="24">
-                    <use href="../assets/icon/icon.svg#icon-instagram"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="social-item">
-                <a class="social-icon" href="#">
-                  <svg class="icon" width="24" height="24">
-                    <use href="../assets/icon/icon.svg#icon-twitter"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="social-item">
-                <a class="social-icon" href="#">
-                  <svg class="icon" width="24" height="24">
-                    <use href="../assets/icon/icon.svg#icon-facebook"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="social-item">
-                <a class="social-icon" href="#">
-                  <svg class="icon" width="24" height="24">
-                    <use href="../assets/icon/icon.svg#icon-linkedin"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </footer>
-    <!-- #endregion footer styles -->
+  <!-- #region footer styles -->
+  <footer class="footer-main">
+    <div class="container">
+      <ul class="footer-list">
+        <li class="footer-item">
+          <a class="logo" href="./Home/html/home.html">
+            <span class="logo-name">Future</span>
+          </a>
+          <p class="info-footer" data-key="paragraph">
+            Enjoy reading manga and manhwa for free.
+          </p>
+        </li>
+        <li class="footer-item" id="social">
+          <h3 class="title-social" data-key="social-media">Social media</h3>
+          <ul class="social-list">
+            <li class="social-item">
+              <a class="social-icon" href="#">
+                <svg class="icon" width="24" height="24">
+                  <use href="../assets/icon/icon.svg#icon-instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-icon" href="#">
+                <svg class="icon" width="24" height="24">
+                  <use href="../assets/icon/icon.svg#icon-twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-icon" href="#">
+                <svg class="icon" width="24" height="24">
+                  <use href="../assets/icon/icon.svg#icon-facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-icon" href="#">
+                <svg class="icon" width="24" height="24">
+                  <use href="../assets/icon/icon.svg#icon-linkedin"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  <!-- #endregion footer styles -->
 
-    <!-- #region Scripts -->
-    <script type="module" src="../assets/js/menu.js"></script>
-    <script type="module" src="../assets/js/translate.js"></script>
+  <!-- #region Scripts -->
+  <script type="module" src="../assets/js/menu.js"></script>
+  <script type="module" src="../assets/js/translate.js"></script>
 
-    <!-- #endregion Scripts -->
-  </body>
+  <!-- #endregion Scripts -->
+</body>
+
 </html>

@@ -855,7 +855,7 @@ legend {
 
   /* #region main styles */
   .main_content {
-    padding-bottom: 75px;
+    padding-bottom: 47px;
   }
 
   .geolocatio {
@@ -864,7 +864,6 @@ legend {
     width: 100%;
     position: relative;
     padding-left: 21px;
-    padding-bottom: 75px;
   }
 
   .location {
@@ -901,6 +900,18 @@ legend {
     padding-top: 27px;
     column-gap: 0;
   }
+
+
+  .user-name {
+    padding-top: 11px;
+  }
+
+  .wrap-password {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  
 
   /* #endregion main styles */
 

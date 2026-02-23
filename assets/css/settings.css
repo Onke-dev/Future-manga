@@ -487,10 +487,9 @@ legend {
   border: 1px solid #d9d9d9;
   border-radius: 30px;
   padding: 10px 16px;
-  max-width: 170px;
+  width: 170px;
   box-sizing: border-box;
-  /* height: 40px; */
-  min-width: 120px;
+  height: 40px;
   background-color: #fff;
 }
 
@@ -508,6 +507,12 @@ legend {
   cursor: pointer;
 }
 
+.sec-password {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
 .wrap-password {
   display: flex;
   flex-direction: column;
@@ -519,7 +524,6 @@ legend {
   padding-bottom: 0;
 }
 
-
 .title-delete-account,
 .current-delete {
   font-family: var(--font-family);
@@ -527,6 +531,12 @@ legend {
   font-size: 16px;
   line-height: 100%;
   color: #000;
+}
+
+.wrap-delete {
+  display: flex;
+  row-gap: 12px;
+  flex-direction: column;
 }
 
 .confirm-delete {
@@ -879,31 +889,57 @@ legend {
     width: 540px;
   }
 
-  .sec {
-    flex-direction: row;
+  .form-settings {
+    padding: 0 0 25px 0;
+  }
+
+  .first-form {
+    padding: 0;
+  }
+
+  .sec,
+  .wrap-password {
+    display: grid;
+    grid-template-columns: 135px 240px;
+    align-items: center;
+    column-gap: 46px;
   }
 
   .first {
     display: flex;
     flex-direction: row;
+    column-gap: 11px;
+    align-items: normal;
   }
 
   .img-change {
-    padding: 20px 0;
+    padding: 20px 0 25px 0;
     margin: 0;
   }
 
   .upload-img {
     flex-direction: column;
     row-gap: 12px;
-    padding-left: 11px;
     padding-top: 27px;
     column-gap: 0;
   }
 
-
-  .user-name {
+  .user-name,
+  .user-email,
+  .current-delete {
     padding-top: 11px;
+  }
+
+  .wrap-elems {
+    row-gap: 24px;
+  }
+
+  .input-data {
+    width: 240px;
+  }
+
+  .sec-password {
+    row-gap: 24px;
   }
 
   .wrap-password {
@@ -911,7 +947,25 @@ legend {
     align-items: center;
   }
 
-  
+  .confirm-password {
+    align-items: normal;
+  }
+
+  .confirm {
+    padding-top: 11px;
+  }
+
+  .last {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .wrap-delete {
+    flex-direction: row;
+    align-items: center;
+    column-gap: 18px;
+  }
 
   /* #endregion main styles */
 

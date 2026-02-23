@@ -154,7 +154,7 @@
     <div class="container-form">
       <form class="main-form">
         <h2 class="title-settings">User settings</h2>
-        <fieldset class="form-settings">
+        <fieldset class="form-settings first-form">
           <legend class="user-img">Photo profile</legend>
           <div class="sec first">
             <div class="img-change">
@@ -181,7 +181,7 @@
                   <use href="../assets/icon/icon.svg#icon-upload_img"></use>
                 </svg>
               </button>
-              <button type="button" class="btn-upload-newImg">Upload</button>
+              <button type="submit" class="btn-upload-newImg">Upload</button>
             </div>
           </div>
         </fieldset>
@@ -214,7 +214,7 @@
       <form class="main-form">
         <fieldset class="form-settings">
           <legend class="change-password">Change your password</legend>
-          <div class="sec">
+          <div class="sec-password">
             <div class="wrap-password">
               <label for="current-password" class="current">Current Password</label>
               <input class="input-data" id="current-password" type="password" name="current-password"
@@ -225,11 +225,13 @@
               <input class="input-data" id="new-password" type="password" name="new-password" placeholder="New Password"
                 required />
             </div>
-            <label for="confirm-password" class="confirm">Confirm Password</label>
-            <div class="wrap-elems">
-              <input class="input-data" id="confirm-password" type="password" name="confirm-password"
-                placeholder="Confirm Password" required />
-              <button class="save_btn" type="submit">Save</button>
+            <div class="wrap-password confirm-password">
+              <label for="confirm-password" class="confirm">Confirm Password</label>
+              <div class="wrap-elems">
+                <input class="input-data" id="confirm-password" type="password" name="confirm-password"
+                  placeholder="Confirm Password" required />
+                <button class="save_btn" type="submit">Save</button>
+              </div>
             </div>
           </div>
         </fieldset>
@@ -238,11 +240,10 @@
         <fieldset class="form-settings last-box">
           <legend class="title-delete-account">Delete Account</legend>
           <div class="sec last">
-            <label for="delete-password" class="current-delete">Current password</label>
-            <div class="wrap-elems">
+            <div class="wrap-delete">
               <input class="input-data" id="delete-password" type="password" name="delete-password"
                 placeholder="Current Password" required />
-              <button class="confirm-delete" type="button">Confirm delete</button>
+              <button class="confirm-delete" type="submit">Confirm delete</button>
             </div>
           </div>
         </fieldset>

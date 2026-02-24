@@ -415,35 +415,6 @@ img {
   align-items: center;
 }
 
-.wrap-info {
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
-}
-
-.item-user {
-  display: flex;
-  flex-direction: row;
-}
-
-.date-registration {
-  display: flex;
-  column-gap: 6px;
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  color: #000;
-}
-
-.time-activity {
-  display: flex;
-  column-gap: 6px;
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  color: #000;
-}
-
 .btn-liked {
   padding: 10px 37px;
   border-radius: 20px;
@@ -904,7 +875,7 @@ img {
   }
 
   .header_item {
-    padding: 8px 32px;
+    padding: 8px 30px;
   }
 
   .header_item:hover,

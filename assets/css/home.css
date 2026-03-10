@@ -498,6 +498,90 @@ img {
 
 /* #endregion footer styles */
 
+.backdrop {
+  position: relative;
+  background-color: #989898;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 245px;
+  height: 387px;
+  box-sizing: border-box;
+  padding: 60px 46px 70px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.title-filter {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  padding-bottom: 15px;
+}
+
+.list-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.defaultBtn {
+  background-color: transparent;
+  font-family: var(--font-family);
+  padding-bottom: 20px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+.defaultBtn h3 {
+  font-weight: normal;
+}
+
+.filtertBtn {
+  background-color: transparent;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.filtertBtn h3 {
+  font-weight: normal;
+}
+
+.palette {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  padding: 10px 0;
+}
+
+.palette div {
+  width: 25px;
+  height: 25px;
+}
+
 @media screen and (min-width: 768px) {
   /* #region header styles */
   .main_header {

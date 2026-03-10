@@ -400,6 +400,54 @@
     </footer>
     <!-- #endregion footer styles -->
 
+    <div class="backdrop is-hidden">
+      <div class="modal">
+        <button class="closeModalBtn" type="button" data-menu-close>
+          <svg class="btn_icon" width="28" height="28">
+            <use href="./assets/icon/icon.svg#icon-menu-close"></use>
+          </svg>
+        </button>
+        <h2 class="title-filter">Кольоровий фільтр</h2>
+        <ul class="list-filters">
+          <li class="item-filter">
+            <button class="defaultBtn" type="button">
+              <h3>Default</h3>
+            </button>
+          </li>
+          <li class="item-filter">
+            <button class="filtertBtn" type="button">
+              <h3>Deuteranopia</h3>
+            </button>
+            <div class="palette deuteranopia-palette">
+              <div style="background-color: #0057B7;"></div>
+              <div style="background-color: #FFDD00;"></div>
+              <div style="background-color: #2B2B2B;"></div>
+            </div>
+          </li>
+          <li class="item-filter">
+            <button class="filtertBtn" type="button">
+              <h3>Protanopia</h3>
+            </button>
+            <div class="palette protanopia-palette">
+              <div style="background-color: #56B4E9;"></div>
+              <div style="background-color: #E69F00;"></div>
+              <div style="background-color: #000000;"></div>
+            </div>
+          </li>
+          <li class="item-filter">
+            <button class="filtertBtn" type="button">
+              <h3>Tritanopia</h3>
+            </button>
+            <div class="palette tritanopia-palette">
+              <div style="background-color: #D55E00;"></div>
+              <div style="background-color: #009E73;"></div>
+              <div style="background-color: #F0F0F0;"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- #region Scripts -->
 
     <script src="./assets/js/menu.js"></script>

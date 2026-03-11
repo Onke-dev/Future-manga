@@ -3,7 +3,59 @@
   --font-family: "Junge", sans-serif;
   --second-family: "Inter", sans-serif;
   --third-family: "Roboto", sans-serif;
+
+  /* ========================================== */
+  /* БАЗОВЫЕ ЦВЕТА (Default)                    */
+  /* ========================================== */
+  
+  /* Тексты */
+  --text-main: #000000; /* Основной черный текст (названия манги) */
+  --text-light: #ffffff; /* Белый текст (в меню, футере, кнопках фильтров) */
+  --text-search: #fef7ff; /* Текст в поле поиска */
+
+  /* Иконки и обводки */
+  --icon-color: #ffffff; /* Белые иконки (лупа, соцсети, глазик) */
+  --icon-hover: #000000; /* Черные иконки при наведении/активности */
+
+  /* Пагинация (кнопки страниц) */
+  --pag-bg: #ffffff; /* Белый фон обычной кнопки пагинации */
+  --pag-bg-active: #2c2c2c; /* Темный фон активной кнопки пагинации */
+  --pag-text: #000000; /* Черный текст обычной кнопки */
+  --pag-text-active: #f5f5f5; /* Светлый текст активной кнопки */
+
+  /* Кнопки соцсетей */
+  --social-bg: #000000; /* Черный фон кнопок соцсетей */
+  --social-bg-active: #ffffff; /* Белый фон кнопок соцсетей при нажатии */
 }
+
+/* ========================================== */
+/* ПЕРЕОПРЕДЕЛЕНИЕ ЦВЕТОВ ДЛЯ ФИЛЬТРОВ          */
+/* ========================================== */
+
+body.theme-deuteranopia {
+  --text-main: #0057b7; 
+  --icon-hover: #0057b7;
+  --pag-bg-active: #0057b7;
+  --social-bg: #2b2b2b; 
+}
+
+body.theme-protanopia {
+  --text-main: #56b4e9; 
+  --icon-hover: #56b4e9;
+  --pag-bg-active: #56b4e9;
+  --pag-text-active: #000000;
+  --social-bg: #000000;
+}
+
+body.theme-tritanopia {
+  --text-main: #d55e00; 
+  --icon-hover: #d55e00;
+  --pag-bg-active: #d55e00;
+  --social-bg: #009e73;
+}
+
+/* ========================================== */
+
 
 html,
 body {
@@ -105,7 +157,7 @@ img {
 }
 
 .logo:focus-visible {
-  border: 1px solid #000000;
+  border: 1px solid var(--icon-hover); /* Заменил на переменную */
   outline: none;
 }
 
@@ -158,7 +210,8 @@ img {
   visibility: hidden;
   pointer-events: none;
 
-  transition: 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+  transition:
+    250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
     visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
@@ -166,7 +219,8 @@ img {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+  transition:
+    250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
     visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
@@ -206,7 +260,7 @@ img {
   font-weight: 400;
   font-size: 20px;
   line-height: 133%;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
 }
 
 .mob-item {
@@ -214,7 +268,7 @@ img {
   font-weight: 400;
   font-size: 20px;
   line-height: 133%;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
   text-decoration: none;
 }
 
@@ -238,7 +292,7 @@ img {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.03em;
-  color: #fef7ff;
+  color: var(--text-search); /* Заменил на переменную */
 }
 
 .search_mob:hover,
@@ -253,14 +307,14 @@ img {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.03em;
-  color: #fef7ff;
+  color: var(--text-search); /* Заменил на переменную */
 }
 
 .icon_search {
   position: absolute;
   top: 50%;
   right: 22px;
-  fill: #ffffff;
+  fill: var(--icon-color); /* Заменил на переменную */
   transform: translateY(-50%);
 }
 
@@ -272,7 +326,7 @@ img {
 }
 
 .blindness {
-  stroke: #ffffff;
+  stroke: var(--icon-color); /* Заменил на переменную */
   fill: transparent;
 }
 
@@ -297,7 +351,7 @@ img {
   font-weight: 400;
   font-size: 12px;
   line-height: 117%;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
   cursor: pointer;
 }
 
@@ -307,16 +361,16 @@ img {
 }
 
 .item-lg {
-  background-color: #000000;
+  background-color: var(--social-bg); /* Использовал переменную фона */
   text-decoration: none;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
 }
 
 .icon_lg {
   position: absolute;
   top: 50%;
   right: 26px;
-  fill: #ffffff;
+  fill: var(--icon-color); /* Заменил на переменную */
   transform: translateY(-50%);
 
   pointer-events: none;
@@ -365,7 +419,7 @@ img {
   font-size: 16px;
   line-height: 1.25;
   text-align: center;
-  color: #000;
+  color: var(--text-main);
   max-width: 180px;
 
   display: block;
@@ -386,18 +440,18 @@ img {
   width: 40px;
   height: 40px;
 
-  background-color: #ffffff;
+  background-color: var(--pag-bg); /* Заменил на переменную */
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  color: #000000;
+  color: var(--pag-text); /* Заменил на переменную */
   cursor: pointer;
 }
 
 .pag-btn.active {
-  background-color: #2c2c2c;
-  color: #f5f5f5;
+  background-color: var(--pag-bg-active); /* Заменил на переменную */
+  color: var(--pag-text-active); /* Заменил на переменную */
 }
 
 /* #endregion main styles */
@@ -436,7 +490,7 @@ img {
   font-size: 16px;
   line-height: 1.25;
   text-align: center;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
   max-width: 165px;
 
   margin-top: 22px;
@@ -448,7 +502,7 @@ img {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
   margin-top: 28px;
 }
 
@@ -469,50 +523,66 @@ img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #000;
+  background-color: var(--social-bg); /* Заменил на переменную */
   transition: background-color 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* position: relative; */
 }
 
 .social-icon:active {
-  background-color: #ffffff;
+  background-color: var(--social-bg-active); /* Заменил на переменную */
   transition: background-color 350ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
 .icon {
-  fill: #ffffff;
-  /* position: absolute;
-    top: 8px;
-    left: 8px; */
+  fill: var(--icon-color); /* Заменил на переменную */
 }
 
 .icon:active {
-  fill: #000000;
+  fill: var(--icon-hover); /* Заменил на переменную */
   transition: fill 350ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
 /* #endregion footer styles */
 
 .backdrop {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+    visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+}
+
+.backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   background-color: #989898;
-  border: 1px solid #fff;
+  border: 1px solid var(--text-light); /* Заменил на переменную */
   border-radius: 10px;
   width: 245px;
   height: 387px;
   box-sizing: border-box;
   padding: 60px 46px 70px;
-}
-
-.modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .closeModalBtn {
@@ -530,7 +600,7 @@ img {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
   padding-bottom: 15px;
 }
 
@@ -551,7 +621,7 @@ img {
   font-family: var(--font-family);
   padding-bottom: 20px;
   font-size: 16px;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
   cursor: pointer;
 }
 .defaultBtn h3 {
@@ -562,7 +632,7 @@ img {
   background-color: transparent;
   font-family: var(--font-family);
   font-size: 16px;
-  color: #fff;
+  color: var(--text-light); /* Заменил на переменную */
   cursor: pointer;
 }
 
@@ -606,7 +676,6 @@ img {
     flex-direction: row;
     column-gap: 20px;
     align-items: center;
-    /* margin-right: 11px; */
   }
 
   .header_item {
@@ -673,7 +742,7 @@ img {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.03em;
-    color: #fef7ff;
+    color: var(--text-search); /* Заменил на переменную */
     cursor: pointer;
   }
 
@@ -683,7 +752,7 @@ img {
   }
 
   .search:focus {
-    border: 1px solid #ffffff;
+    border: 1px solid var(--text-light); /* Заменил на переменную */
     outline: none;
   }
 
@@ -698,14 +767,14 @@ img {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.03em;
-    color: #fef7ff;
+    color: var(--text-search); /* Заменил на переменную */
   }
 
   .magnifying-glass {
     position: absolute;
     top: 50%;
     right: 8px;
-    fill: #ffffff;
+    fill: var(--icon-color); /* Заменил на переменную */
     transform: translateY(-50%);
   }
 
@@ -725,7 +794,7 @@ img {
     background-color: transparent;
     fill: none;
     stroke-width: 2px;
-    stroke: #f3f3f3;
+    stroke: var(--icon-color); /* Использовал переменную вместо жесткого #f3f3f3 */
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -739,13 +808,13 @@ img {
 
   .account-user:active {
     background-color: transparent;
-    stroke: #000000;
+    stroke: var(--icon-hover); /* Заменил на переменную */
   }
 
   .eyes {
     background-color: transparent;
     fill: none;
-    stroke: #ffffff;
+    stroke: var(--icon-color); /* Заменил на переменную */
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -754,14 +823,14 @@ img {
 
   .eyes:focus-visible {
     background-color: transparent;
-    stroke: #ffffff;
-    border: 1px solid #000000;
+    stroke: var(--icon-color); /* Заменил на переменную */
+    border: 1px solid var(--icon-hover); /* Заменил на переменную */
     outline: none;
   }
 
   .eyes:active {
     background-color: transparent;
-    stroke: #000000;
+    stroke: var(--icon-hover); /* Заменил на переменную */
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
@@ -780,7 +849,7 @@ img {
     font-weight: 400;
     font-size: 16px;
     line-height: 117%;
-    color: #fff;
+    color: var(--text-light); /* Заменил на переменную */
     cursor: pointer;
   }
 
@@ -788,7 +857,7 @@ img {
     position: absolute;
     top: 50%;
     right: 12px;
-    fill: #ffffff;
+    fill: var(--icon-color); /* Заменил на переменную */
     transform: translateY(-50%);
   }
 
@@ -889,11 +958,10 @@ img {
     background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(236, 233, 233, 0.425);
     outline: none;
-    color: #000;
   }
 
   .item:focus {
-    border: 1px solid #000000;
+    border: 1px solid var(--icon-hover); /* Заменил на переменную */
     outline: none;
   }
 
@@ -922,20 +990,20 @@ img {
   }
 
   .account-user:focus-visible {
-    border: 1px solid #000000;
+    border: 1px solid var(--icon-hover);
     outline: none;
   }
 
- .account-user:hover {
+  .account-user:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(0, 0, 0);
+    stroke: var(--icon-hover);
   }
 
   .account-user:active {
     background-color: transparent;
     transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: #ffffff;
+    stroke: var(--icon-color); /* Заменил на переменную */
   }
 
   .eyes,
@@ -947,12 +1015,12 @@ img {
   .eyes:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(0, 0, 0);
+    stroke: var(--icon-hover);
   }
 
   .eyes:active {
     background-color: transparent;
-    stroke: #ffffff;
+    stroke: var(--icon-color); /* Заменил на переменную */
     transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 

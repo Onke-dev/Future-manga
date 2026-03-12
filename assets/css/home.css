@@ -1,61 +1,10 @@
 /* #region global styles */
+
 :root {
   --font-family: "Junge", sans-serif;
   --second-family: "Inter", sans-serif;
   --third-family: "Roboto", sans-serif;
-
-  /* ========================================== */
-  /* БАЗОВЫЕ ЦВЕТА (Default)                    */
-  /* ========================================== */
-  
-  /* Тексты */
-  --text-main: #000000; /* Основной черный текст (названия манги) */
-  --text-light: #ffffff; /* Белый текст (в меню, футере, кнопках фильтров) */
-  --text-search: #fef7ff; /* Текст в поле поиска */
-
-  /* Иконки и обводки */
-  --icon-color: #ffffff; /* Белые иконки (лупа, соцсети, глазик) */
-  --icon-hover: #000000; /* Черные иконки при наведении/активности */
-
-  /* Пагинация (кнопки страниц) */
-  --pag-bg: #ffffff; /* Белый фон обычной кнопки пагинации */
-  --pag-bg-active: #2c2c2c; /* Темный фон активной кнопки пагинации */
-  --pag-text: #000000; /* Черный текст обычной кнопки */
-  --pag-text-active: #f5f5f5; /* Светлый текст активной кнопки */
-
-  /* Кнопки соцсетей */
-  --social-bg: #000000; /* Черный фон кнопок соцсетей */
-  --social-bg-active: #ffffff; /* Белый фон кнопок соцсетей при нажатии */
 }
-
-/* ========================================== */
-/* ПЕРЕОПРЕДЕЛЕНИЕ ЦВЕТОВ ДЛЯ ФИЛЬТРОВ          */
-/* ========================================== */
-
-body.theme-deuteranopia {
-  --text-main: #0057b7; 
-  --icon-hover: #0057b7;
-  --pag-bg-active: #0057b7;
-  --social-bg: #2b2b2b; 
-}
-
-body.theme-protanopia {
-  --text-main: #56b4e9; 
-  --icon-hover: #56b4e9;
-  --pag-bg-active: #56b4e9;
-  --pag-text-active: #000000;
-  --social-bg: #000000;
-}
-
-body.theme-tritanopia {
-  --text-main: #d55e00; 
-  --icon-hover: #d55e00;
-  --pag-bg-active: #d55e00;
-  --social-bg: #009e73;
-}
-
-/* ========================================== */
-
 
 html,
 body {
@@ -69,7 +18,6 @@ body {
   background-image: url("../image/background/noise.jpg");
   background-repeat: repeat;
   margin: 0;
-
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
@@ -80,7 +28,6 @@ body.is-open {
   position: fixed;
   left: 0;
   right: 0;
-
   touch-action: none;
 }
 
@@ -137,6 +84,7 @@ img {
 /* #endregion container */
 
 /* #region header styles */
+
 .main_header {
   height: 70px;
   background-color: #818181;
@@ -157,7 +105,7 @@ img {
 }
 
 .logo:focus-visible {
-  border: 1px solid var(--icon-hover); /* Заменил на переменную */
+  border: 1px solid #000000;
   outline: none;
 }
 
@@ -177,6 +125,7 @@ img {
     rgba(255, 255, 255, 0.9) 50.05%,
     rgba(255, 255, 255, 0.48) 100%
   );
+
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -209,7 +158,6 @@ img {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transition:
     250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
     visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
@@ -260,7 +208,7 @@ img {
   font-weight: 400;
   font-size: 20px;
   line-height: 133%;
-  color: var(--text-light); /* Заменил на переменную */
+  color: #fff;
 }
 
 .mob-item {
@@ -268,7 +216,7 @@ img {
   font-weight: 400;
   font-size: 20px;
   line-height: 133%;
-  color: var(--text-light); /* Заменил на переменную */
+  color: #fff;
   text-decoration: none;
 }
 
@@ -286,13 +234,12 @@ img {
   width: 200px;
   background-color: rgba(146, 141, 141, 0.8);
   padding: 8px 46px 8px 22px;
-
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.03em;
-  color: var(--text-search); /* Заменил на переменную */
+  color: #fef7ff;
 }
 
 .search_mob:hover,
@@ -307,14 +254,14 @@ img {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.03em;
-  color: var(--text-search); /* Заменил на переменную */
+  color: #fef7ff;
 }
 
 .icon_search {
   position: absolute;
   top: 50%;
   right: 22px;
-  fill: var(--icon-color); /* Заменил на переменную */
+  fill: #ffffff;
   transform: translateY(-50%);
 }
 
@@ -326,7 +273,7 @@ img {
 }
 
 .blindness {
-  stroke: var(--icon-color); /* Заменил на переменную */
+  stroke: #ffffff;
   fill: transparent;
 }
 
@@ -340,18 +287,16 @@ img {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-
   border-radius: 20px;
   padding: 12px 26px 12px 26px;
   width: 160px;
   background-color: #928d8d;
   border: none;
-
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 12px;
   line-height: 117%;
-  color: var(--text-light); /* Заменил на переменную */
+  color: #fff;
   cursor: pointer;
 }
 
@@ -361,16 +306,20 @@ img {
 }
 
 .item-lg {
-  background-color: var(--social-bg); /* Использовал переменную фона */
+  background-color: #000000;
   text-decoration: none;
-  color: var(--text-light); /* Заменил на переменную */
+  color: #fff;
 }
 
 .icon_lg {
   position: absolute;
+
   top: 50%;
+
   right: 26px;
-  fill: var(--icon-color); /* Заменил на переменную */
+
+  fill: #ffffff;
+
   transform: translateY(-50%);
 
   pointer-events: none;
@@ -386,24 +335,35 @@ img {
 
 .content-manga {
   align-items: center;
+
   padding-top: 70px;
+
   padding-bottom: 20px;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 30px;
 }
 
 .manga-item {
   display: flex;
+
   flex-direction: column;
+
   min-height: 295px;
+
   max-width: 180px;
 }
 
 .manga {
   display: flex;
+
   flex-direction: column;
+
   gap: 18px;
+
   align-items: center;
 
   text-decoration: none;
@@ -415,52 +375,77 @@ img {
 
 .title-manga {
   font-family: var(--font-family);
+
   font-weight: 400;
+
   font-size: 16px;
+
   line-height: 1.25;
+
   text-align: center;
-  color: var(--text-main);
+
+  color: #000;
+
   max-width: 180px;
 
   display: block;
+
   cursor: pointer;
 }
 
 .pagination-container {
   padding-bottom: 70px;
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: center;
+
   gap: 8px;
 }
 
 .pag-btn {
   padding: 8px 12px;
+
   border-radius: 8px;
+
   width: 40px;
+
   height: 40px;
 
-  background-color: var(--pag-bg); /* Заменил на переменную */
+  background-color: #ffffff;
+
   font-family: var(--second-family);
+
   font-weight: 400;
+
   font-size: 16px;
+
   line-height: 100%;
-  color: var(--pag-text); /* Заменил на переменную */
+
+  color: #000000;
+
   cursor: pointer;
 }
 
 .pag-btn.active {
-  background-color: var(--pag-bg-active); /* Заменил на переменную */
-  color: var(--pag-text-active); /* Заменил на переменную */
+  background-color: #2c2c2c;
+
+  color: #f5f5f5;
 }
 
 /* #endregion main styles */
 
 /* #region footer styles */
+
 .footer-main {
   background-color: rgba(152, 158, 169, 0.76);
+
   padding: 40px 0px;
+
   height: auto;
+
   width: 100%;
 
   flex-shrink: 0;
@@ -468,29 +453,41 @@ img {
 
 .content-footer {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 }
 
 .footer-list {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 }
 
 .footer-item {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 }
 
 .info-footer {
   font-family: var(--font-family);
+
   font-weight: 400;
+
   font-size: 16px;
+
   line-height: 1.25;
+
   text-align: center;
-  color: var(--text-light); /* Заменил на переменную */
+
+  color: #fff;
+
   max-width: 165px;
 
   margin-top: 22px;
@@ -498,50 +495,77 @@ img {
 
 .title-social {
   font-family: var(--third-family);
+
   font-weight: 500;
+
   font-size: 16px;
+
   line-height: 1.5;
+
   letter-spacing: 0.02em;
-  color: var(--text-light); /* Заменил на переменную */
+
+  color: #fff;
+
   margin-top: 28px;
 }
 
 .social-list {
   display: flex;
+
   flex-direction: column;
+
   row-gap: 16px;
+
   align-items: center;
+
   margin-top: 10px;
 }
 
 .social-item {
   width: 40px;
+
   height: 40px;
 }
 
 .social-icon {
   width: 100%;
+
   height: 100%;
+
   border-radius: 50%;
-  background-color: var(--social-bg); /* Заменил на переменную */
+
+  background-color: #000;
+
   transition: background-color 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
+  /* position: relative; */
 }
 
 .social-icon:active {
-  background-color: var(--social-bg-active); /* Заменил на переменную */
+  background-color: #ffffff;
+
   transition: background-color 350ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
 .icon {
-  fill: var(--icon-color); /* Заменил на переменную */
+  fill: #ffffff;
+
+  /* position: absolute;
+
+    top: 8px;
+
+    left: 8px; */
 }
 
 .icon:active {
-  fill: var(--icon-hover); /* Заменил на переменную */
+  fill: #000000;
+
   transition: fill 350ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
@@ -549,16 +573,25 @@ img {
 
 .backdrop {
   position: fixed;
+
   top: 0;
+
   left: 0;
+
   width: 100vw;
+
   height: 100vh;
+
   background-color: rgba(0, 0, 0, 0.5);
+
   z-index: 999999;
 
   opacity: 0;
+
   visibility: hidden;
+
   pointer-events: none;
+
   transition:
     opacity 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
     visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
@@ -566,7 +599,9 @@ img {
 
 .backdrop.is-visible {
   opacity: 1;
+
   visibility: visible;
+
   pointer-events: auto;
 }
 
@@ -575,38 +610,61 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   background-color: #989898;
-  border: 1px solid var(--text-light); /* Заменил на переменную */
+  border: 1px solid #fff;
   border-radius: 10px;
   width: 245px;
-  height: 387px;
   box-sizing: border-box;
-  padding: 60px 46px 70px;
+  padding: 60px 46px 60px;
+}
+
+.backdrop.is-visible {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transition:
+    250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+    visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
 .closeModalBtn {
   position: absolute;
+
   top: 10px;
+
   right: 10px;
+
   width: 28px;
+
   height: 28px;
+
   border-radius: 4px;
+
   background-color: rgba(0, 0, 0, 0.2);
+
   cursor: pointer;
 }
 
 .title-filter {
   font-family: var(--font-family);
+
   font-weight: 500;
+
   font-size: 16px;
-  color: var(--text-light); /* Заменил на переменную */
+
+  color: #fff;
+
   padding-bottom: 15px;
 }
 
 .list-filters {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 }
 
@@ -621,9 +679,10 @@ img {
   font-family: var(--font-family);
   padding-bottom: 20px;
   font-size: 16px;
-  color: var(--text-light); /* Заменил на переменную */
+  color: #fff;
   cursor: pointer;
 }
+
 .defaultBtn h3 {
   font-weight: normal;
 }
@@ -632,7 +691,7 @@ img {
   background-color: transparent;
   font-family: var(--font-family);
   font-size: 16px;
-  color: var(--text-light); /* Заменил на переменную */
+  color: #fff;
   cursor: pointer;
 }
 
@@ -649,17 +708,20 @@ img {
 
 .palette div {
   width: 25px;
+
   height: 25px;
 }
 
 @media screen and (min-width: 768px) {
   /* #region header styles */
+
   .main_header {
     height: 90px;
   }
 
   .nav-list {
     padding: 25px 0;
+
     justify-content: center;
   }
 
@@ -673,21 +735,33 @@ img {
 
   .list_pages {
     display: flex;
+
     flex-direction: row;
+
     column-gap: 20px;
+
     align-items: center;
+
+    /* margin-right: 11px; */
   }
 
   .header_item {
     background-color: rgba(255, 255, 255, 0.1);
+
     border: 1px solid rgba(255, 255, 255, 0.18);
+
     border-radius: 8px;
+
     padding: 0 5px;
+
     min-height: 40px;
 
     align-items: center;
+
     display: flex;
+
     justify-content: center;
+
     cursor: pointer;
   }
 
@@ -697,84 +771,120 @@ img {
 
   .item {
     text-decoration: none;
+
     font-family: var(--font-family);
+
     font-weight: 400;
+
     font-size: 18px;
+
     line-height: 2.22;
+
     text-align: center;
+
     background: linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.8) 0%,
+
       rgba(255, 255, 255, 0.6) 50.05%,
+
       rgba(255, 255, 255, 0.8) 100%
     );
+
     background-clip: text;
+
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
   }
 
   .list_functions {
     display: flex;
+
     flex-direction: row;
+
     align-items: center;
+
     column-gap: 11px;
   }
 
   .function_header {
     display: flex;
+
     align-items: center;
   }
 
   .wrap-search {
     position: relative;
+
     display: inline-block;
   }
 
   .search {
     background-color: rgba(146, 141, 141, 0.8);
+
     border-radius: 30px;
+
     max-width: 84px;
 
     padding: 8px 32px 8px 14px;
 
     font-family: var(--third-family);
+
     font-weight: 400;
+
     font-size: 16px;
+
     line-height: 1.5;
+
     letter-spacing: 0.03em;
-    color: var(--text-search); /* Заменил на переменную */
+
+    color: #fef7ff;
+
     cursor: pointer;
   }
 
   .search:hover {
     border: none;
+
     outline: none;
   }
 
   .search:focus {
-    border: 1px solid var(--text-light); /* Заменил на переменную */
+    border: 1px solid #ffffff;
+
     outline: none;
   }
 
   .search:active {
     border: none;
+
     outline: none;
   }
 
   .search::placeholder {
     font-family: var(--third-family);
+
     font-weight: 400;
+
     font-size: 16px;
+
     line-height: 1.5;
+
     letter-spacing: 0.03em;
-    color: var(--text-search); /* Заменил на переменную */
+
+    color: #fef7ff;
   }
 
   .magnifying-glass {
     position: absolute;
+
     top: 50%;
+
     right: 8px;
-    fill: var(--icon-color); /* Заменил на переменную */
+
+    fill: #ffffff;
+
     transform: translateY(-50%);
   }
 
@@ -792,51 +902,73 @@ img {
 
   .account-user {
     background-color: transparent;
+
     fill: none;
+
     stroke-width: 2px;
-    stroke: var(--icon-color); /* Использовал переменную вместо жесткого #f3f3f3 */
+
+    stroke: #f3f3f3;
+
     width: 40px;
+
     height: 40px;
+
     cursor: pointer;
+
     transition: stroke 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
   .account-user:focus:not(:focus-visible) {
     border: none;
+
     outline: none;
   }
 
   .account-user:active {
     background-color: transparent;
-    stroke: var(--icon-hover); /* Заменил на переменную */
+
+    stroke: #000000;
   }
 
   .eyes {
     background-color: transparent;
+
     fill: none;
-    stroke: var(--icon-color); /* Заменил на переменную */
+
+    stroke: #ffffff;
+
     width: 40px;
+
     height: 40px;
+
     cursor: pointer;
+
     transition: stroke 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
   .eyes:focus-visible {
     background-color: transparent;
-    stroke: var(--icon-color); /* Заменил на переменную */
-    border: 1px solid var(--icon-hover); /* Заменил на переменную */
+
+    stroke: #ffffff;
+
+    border: 1px solid #000000;
+
     outline: none;
   }
 
   .eyes:active {
     background-color: transparent;
-    stroke: var(--icon-hover); /* Заменил на переменную */
+
+    stroke: #000000;
+
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
   .wrap-lg {
     position: relative;
+
     display: inline-block;
+
     width: 60px;
   }
 
@@ -846,18 +978,27 @@ img {
     padding: 8px 10px;
 
     font-family: var(--font-family);
+
     font-weight: 400;
+
     font-size: 16px;
+
     line-height: 117%;
-    color: var(--text-light); /* Заменил на переменную */
+
+    color: #fff;
+
     cursor: pointer;
   }
 
   .icon-locale {
     position: absolute;
+
     top: 50%;
+
     right: 12px;
-    fill: var(--icon-color); /* Заменил на переменную */
+
+    fill: #ffffff;
+
     transform: translateY(-50%);
   }
 
@@ -871,15 +1012,21 @@ img {
 
   .content-manga {
     flex-direction: row;
+
     flex-wrap: wrap;
+
     justify-content: center;
+
     row-gap: 21px;
+
     column-gap: 31px;
+
     align-items: flex-start;
   }
 
   .manga-item {
     flex-basis: calc((100% - 62px) / 3);
+
     min-height: 305px;
 
     flex-grow: 1;
@@ -895,32 +1042,39 @@ img {
 
   .footer-list {
     flex-direction: row;
+
     align-items: baseline;
   }
 
   .footer-item {
     align-items: flex-start;
+
     gap: 17px;
   }
 
   #social {
     align-items: center;
+
     padding-left: 111px;
   }
 
   .info-footer {
     margin-top: 0;
+
     text-align: left;
   }
 
   .title-social {
     margin-top: 0;
+
     text-align: center;
   }
 
   .social-list {
     margin: 0;
+
     flex-direction: row;
+
     gap: 16px;
   }
 
@@ -929,6 +1083,7 @@ img {
 
 @media screen and (min-width: 1440px) {
   /* #region header styles */
+
   .main_header {
     height: 108px;
   }
@@ -956,17 +1111,23 @@ img {
   .header_item:hover,
   .header_item:focus {
     background-color: rgba(255, 255, 255, 0.3);
+
     border: 1px solid rgba(236, 233, 233, 0.425);
+
     outline: none;
+
+    color: #000;
   }
 
   .item:focus {
-    border: 1px solid var(--icon-hover); /* Заменил на переменную */
+    border: 1px solid #000000;
+
     outline: none;
   }
 
   .item:focus:not(:focus-visible) {
     border: none;
+
     outline: none;
   }
 
@@ -976,6 +1137,7 @@ img {
 
   .search {
     min-width: 316px;
+
     padding: 17px 40px 17px 14px;
   }
 
@@ -986,24 +1148,27 @@ img {
   .account-user,
   .icon-user {
     width: 58px;
+
     height: 58px;
   }
 
   .account-user:focus-visible {
-    border: 1px solid var(--icon-hover);
+    border: 1px solid #000000;
+
     outline: none;
   }
 
   .account-user:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: var(--icon-hover);
+    stroke: rgb(0, 0, 0);
   }
 
   .account-user:active {
     background-color: transparent;
+
     transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: var(--icon-color); /* Заменил на переменную */
+    stroke: #ffffff;
   }
 
   .eyes,
@@ -1015,12 +1180,13 @@ img {
   .eyes:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: var(--icon-hover);
+    stroke: rgb(0, 0, 0);
   }
 
   .eyes:active {
     background-color: transparent;
-    stroke: var(--icon-color); /* Заменил на переменную */
+
+    stroke: #ffffff;
     transition: stroke 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
@@ -1064,6 +1230,7 @@ img {
   /* #endregion main styles */
 
   /* #region footer styles */
+
   .footer-main {
     padding: 44px 0 66px 0;
   }

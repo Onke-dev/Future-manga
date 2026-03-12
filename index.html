@@ -14,7 +14,13 @@
   </head>
 
   <body>
-    <!-- #region header styles -->
+    <script>
+      const savedTheme = localStorage.getItem("siteTheme");
+      if (savedTheme && savedTheme !== "default") {
+        document.body.classList.add("theme-" + savedTheme);
+      }
+    </script>
+
     <header class="main_header">
       <div class="container">
         <nav class="nav-list">
@@ -160,9 +166,6 @@
         </div>
       </div>
     </header>
-    <!-- #endregion header styles -->
-
-    <!-- #region main styles -->
     <main class="main_content">
       <div class="container content-main">
         <ul class="content-manga" id="manga-container">
@@ -354,9 +357,6 @@
         <div id="pagination-numbers" class="pagination-container"></div>
       </div>
     </main>
-    <!-- #endregion main styles -->
-
-    <!-- #region footer styles -->
     <footer class="footer-main">
       <div class="container">
         <ul class="footer-list">
@@ -404,8 +404,6 @@
         </ul>
       </div>
     </footer>
-    <!-- #endregion footer styles -->
-
     <div class="backdrop">
       <div class="modal">
         <button class="closeModalBtn" type="button" data-modal-close>
@@ -420,18 +418,16 @@
           </button>
         </div>
         <div class="item-filter">
-          <button class="filtertBtn" type="button" data-theme="Contrast">
+          <button class="filtertBtn" type="button" data-theme="contrast">
             <h3>Contrast</h3>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- #region Scripts -->
     <script type="module" src="./assets/js/color-filter.js"></script>
     <script type="module" src="./assets/js/menu.js"></script>
     <script type="module" src="./assets/js/translate.js"></script>
     <script type="module" src="./assets/js/pagination.js"></script>
-    <!-- #endregion Scripts -->
-  </body>
+    </body>
 </html>

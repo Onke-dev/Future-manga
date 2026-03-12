@@ -4,6 +4,13 @@
   --font-family: "Junge", sans-serif;
   --second-family: "Inter", sans-serif;
   --third-family: "Roboto", sans-serif;
+
+  --bg-header: #818181;
+  --bg-footer: rgba(152, 158, 169, 0.76);
+  --bg-mob-menu: #808080;
+
+  /* Тексты */
+  --text-main: #000000;
 }
 
 html,

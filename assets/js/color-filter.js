@@ -1,53 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const openModal = document.querySelectorAll("[data-backdrop-open]");
-  const closeModal = document.querySelector("[data-modal-close]");
+  // ==========================================
+  // 1. ЛОГИКА ОТКРЫТИЯ/ЗАКРЫТИЯ ОКНА
+  // ==========================================
+
+  const openModalBtns = document.querySelectorAll("[data-backdrop-open]");
+  const closeModalBtn = document.querySelector("[data-modal-close]");
   const modal = document.querySelector(".backdrop");
 
   function toggleModal() {
-    modal.classList.toggle("is-visible");
+    if (modal) {
+      modal.classList.toggle("is-visible");
+    }
   }
-  openModal.forEach((btn) => {
+
+  // Вешаем клик на все кнопки с глазиком
+  openModalBtns.forEach((btn) => {
     btn.addEventListener("click", toggleModal);
   });
 
-  if (closeModal) {
-    closeModal.addEventListener("click", toggleModal);
+  // Вешаем клик на крестик в модальном окне
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", toggleModal);
   }
 
-  function applyTheme(themeName) {
-    // Сначала удаляем ВСЕ классы тем, чтобы они не наслаивались друг на друга
-    document.body.classList.remove(
-      "theme-deuteranopia",
-      "theme-protanopia",
-      "theme-tritanopia",
-    );
+  // ==========================================
+  // 2. ЛОГИКА СМЕНЫ ТЕМ И СОХРАНЕНИЯ
+  // ==========================================
 
-    // Если выбрано не 'default', то добавляем класс нужной темы к body
+  // Находим обе кнопки: и Default, и Contrast
+  const themeButtons = document.querySelectorAll("[data-theme]");
+
+  // Главная функция применения темы
+  function applyTheme(themeName) {
+    // 1. Удаляем класс контраста, чтобы сбросить стили (если выбрали Default)
+    document.body.classList.remove("theme-contrast");
+
+    // 2. Если выбрали не 'default', добавляем соответствующий класс (theme-contrast)
     if (themeName !== "default") {
       document.body.classList.add(`theme-${themeName}`);
     }
 
-    // Сохраняем выбор в локальную память браузера
+    // 3. Сохраняем выбор в память браузера
     localStorage.setItem("siteTheme", themeName);
   }
 
-  // При загрузке страницы проверяем, сохранял ли пользователь тему раньше
+  // При загрузке страницы проверяем, сохранял ли читатель настройки ранее
   const savedTheme = localStorage.getItem("siteTheme");
   if (savedTheme) {
-    // Если да, сразу применяем её
+    // Если да — сразу применяем сохраненную тему (например, при переходе на другую страницу)
     applyTheme(savedTheme);
   }
 
   // Вешаем слушатель клика на каждую кнопку темы
   themeButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Считываем название темы из атрибута data-theme той кнопки, на которую нажали
+      // Считываем название темы (default или contrast) из атрибута
       const selectedTheme = btn.getAttribute("data-theme");
 
       // Запускаем функцию смены темы
       applyTheme(selectedTheme);
 
-      // Автоматически закрываем окошко после выбора (очень удобно для пользователя!)
+      // Автоматически закрываем окошко после выбора для удобства
       toggleModal();
     });
   });

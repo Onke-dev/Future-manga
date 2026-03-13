@@ -9,8 +9,13 @@
   /* DEAFAULT                                   */
   /* ========================================== */
 
+  /* BODY */
+  --bg-body: rgb(221, 221, 221, 0.6);
+
   /* HEADER */
   --bg-header: #818181;
+  --bg-search: rgba(146, 141, 141, 0.8);
+  --hover-eye-user: rgb(0, 0, 0);
 
   /* BUGER */
   --bg-search-mob: rgba(146, 141, 141, 0.8);
@@ -20,10 +25,19 @@
   --br-translate: none;
   --br-translate-focus: 1px solid #fff;
 
+  /* MAIN */
+  --text-name-manga: #000;
+  --bg-pag: #2c2c2c;
+  --color-pag: #f5f5f5;
+  --bg-pag-next: #ffffff;
+  --color-pag-next: #000000;
+
   /* FOOTER*/
   --bg-footer: rgba(152, 158, 169, 0.76);
   --bg-icon-footer: #000;
   --fill-footer: #fff;
+  --fill-icon-active: #000000;
+  --bg-icon-active: #ffffff;
   /* text */
 
   /* ========================================== */
@@ -32,8 +46,14 @@
 
   /* background */
   body.theme-contrast {
+    /* BODY */
+    --bg-body: rgba(0, 0, 0, 0.7);
+
     /* HEADER */
     --bg-header: #000000;
+    --bg-search: rgba(0, 0, 0, 0.8);
+    --hover-eye-user: rgb(255, 217, 0);
+
     /* BUGER */
     --bg-search-mob: rgba(0, 0, 0, 0.8);
     --br-search-mob: 1px solid #fff;
@@ -41,10 +61,30 @@
     --bg-translate: #000000;
     --br-translate: 1px solid #fff;
     --br-translate-focus: 1px solid #fff;
+    /* MAIN */
+    --text-name-manga: #ffffff;
+    --bg-pag: #ffffff;
+    --color-pag: #000000;
+    --bg-pag-next: #000000;
+    --color-pag-next: #ffffff;
+
     /* FOOTER */
     --bg-footer: #000000;
     --bg-icon-footer: #ffffff;
     --fill-footer: #000000;
+    --fill-icon-active: #ffffff;
+    --bg-icon-active: #000000;
+  }
+
+  /* Приглушаем яркость обложек в режиме контраста */
+  body.theme-contrast .manga-img {
+    filter: brightness(0.5); /* 1 - это 100% яркости, 0.7 - это 70% */
+    transition: filter 250ms ease; /* Плавное затемнение */
+  }
+
+  /* При наведении можно возвращать им яркость! */
+  body.theme-contrast .manga-img:hover {
+    filter: brightness(1);
   }
 }
 
@@ -56,13 +96,14 @@ body {
 
 body {
   font-family: var(--font-family);
-  background-color: #ddd;
+  background-color: var(--bg-body);
   background-image: url("../image/background/noise.jpg");
   background-repeat: repeat;
   margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
+  background-blend-mode: multiply;
 }
 
 body.is-open {
@@ -419,33 +460,21 @@ img {
 
 .title-manga {
   font-family: var(--font-family);
-
   font-weight: 400;
-
   font-size: 16px;
-
   line-height: 1.25;
-
   text-align: center;
-
-  color: #000;
-
+  color: var(--text-name-manga);
   max-width: 180px;
-
   display: block;
-
   cursor: pointer;
 }
 
 .pagination-container {
   padding-bottom: 70px;
-
   display: flex;
-
   flex-direction: row;
-
   justify-content: center;
-
   gap: 8px;
 }
 
@@ -458,7 +487,7 @@ img {
 
   height: 40px;
 
-  background-color: #ffffff;
+  background-color: var(--bg-pag-next);
 
   font-family: var(--second-family);
 
@@ -468,15 +497,14 @@ img {
 
   line-height: 100%;
 
-  color: #000000;
+  color: var(--color-pag-next);
 
   cursor: pointer;
 }
 
 .pag-btn.active {
-  background-color: #2c2c2c;
-
-  color: #f5f5f5;
+  background-color: var(--bg-pag);
+  color: var(--color-pag);
 }
 
 /* #endregion main styles */
@@ -580,25 +608,19 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* position: relative; */
 }
 
 .social-icon:active {
-  background-color: #ffffff;
+  background-color: var(--bg-icon-active);
   transition: background-color 350ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
 .icon {
   fill: var(--fill-footer);
-
-  /* position: absolute;
-    top: 8px;
-    left: 8px; */
 }
 
 .icon:active {
-  fill: #000000;
+  fill: var(--fill-icon-active);
   transition: fill 350ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
 }
 
@@ -791,70 +813,49 @@ img {
   }
 
   .search {
-    background-color: rgba(146, 141, 141, 0.8);
-
+    background-color: var(--bg-search);
     border-radius: 30px;
-
     max-width: 84px;
-
     padding: 8px 32px 8px 14px;
-
     font-family: var(--third-family);
-
     font-weight: 400;
-
     font-size: 16px;
-
     line-height: 1.5;
-
     letter-spacing: 0.03em;
-
     color: #fef7ff;
-
     cursor: pointer;
+    border: var(--br-search-mob);
   }
 
   .search:hover {
     border: none;
-
     outline: none;
   }
 
   .search:focus {
     border: 1px solid #ffffff;
-
     outline: none;
   }
 
   .search:active {
     border: none;
-
     outline: none;
   }
 
   .search::placeholder {
     font-family: var(--third-family);
-
     font-weight: 400;
-
     font-size: 16px;
-
     line-height: 1.5;
-
     letter-spacing: 0.03em;
-
     color: #fef7ff;
   }
 
   .magnifying-glass {
     position: absolute;
-
     top: 50%;
-
     right: 8px;
-
     fill: #ffffff;
-
     transform: translateY(-50%);
   }
 
@@ -872,91 +873,62 @@ img {
 
   .account-user {
     background-color: transparent;
-
     fill: none;
-
     stroke-width: 2px;
-
     stroke: #f3f3f3;
-
     width: 40px;
-
     height: 40px;
-
     cursor: pointer;
-
     transition: stroke 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
   .account-user:focus:not(:focus-visible) {
     border: none;
-
     outline: none;
   }
 
   .account-user:active {
     background-color: transparent;
-
     stroke: #000000;
   }
 
   .eyes {
     background-color: transparent;
-
     fill: none;
-
     stroke: #ffffff;
-
     width: 40px;
-
     height: 40px;
-
     cursor: pointer;
-
     transition: stroke 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
   .eyes:focus-visible {
     background-color: transparent;
-
     stroke: #ffffff;
-
     border: 1px solid #000000;
-
     outline: none;
   }
 
   .eyes:active {
     background-color: transparent;
-
     stroke: #000000;
-
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
 
   .wrap-lg {
     position: relative;
-
     display: inline-block;
-
     width: 60px;
   }
 
   .lg_func {
     width: 60px;
-
     padding: 8px 10px;
-
     font-family: var(--font-family);
-
     font-weight: 400;
-
     font-size: 16px;
-
     line-height: 117%;
-
     color: #fff;
-
     cursor: pointer;
   }
 
@@ -1131,7 +1103,7 @@ img {
   .account-user:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(0, 0, 0);
+    stroke: var(--hover-eye-user)
   }
 
   .account-user:active {
@@ -1150,7 +1122,7 @@ img {
   .eyes:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(0, 0, 0);
+    stroke: var(--hover-eye-user);
   }
 
   .eyes:active {
@@ -1222,6 +1194,10 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .social-icon:hover {
+    background-color: var(--hover-eye-user);
   }
 
   /* #endregion footer styles */

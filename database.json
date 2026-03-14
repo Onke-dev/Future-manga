@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "title": "Solo Leveling",
+    "nameAuthor": "Chu gong",
+    "genres": [
+      "adventure",
+      "supernatural",
+      "dark fantasy"
+    ],
+    "description": "When inter-dimensional “gates” opened up “dungeons” full of monsters...",
+    "cover": "images/covers/solo-leveling.jpg",
+    "views": 0,
+    "rating": {
+      "sum": 0,
+      "count": 0,
+      "average": 0.0
+    },
+    "chapters": [
+      {
+        "number": 1,
+        "title": "Chapter 0",
+        "pages": [
+          "images/manga/solo-leveling/ch1/page1.jpg",
+          "images/manga/solo-leveling/ch1/page2.jpg",
+          "images/manga/solo-leveling/ch1/page3.jpg"
+        ]
+      },
+      {
+        "number": 29,
+        "title": "Chapter 29",
+        "pages": [
+          "images/manga/solo-leveling/ch2/page1.jpg",
+          "images/manga/solo-leveling/ch2/page2.jpg"
+        ]
+      }
+    ]
+  }
+]

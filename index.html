@@ -14,6 +14,13 @@
   </head>
 
   <body>
+    <script>
+      const savedTheme = localStorage.getItem("siteTheme");
+      if (savedTheme && savedTheme !== "default") {
+        document.body.classList.add("theme-" + savedTheme);
+      }
+    </script>
+
     <!-- #region header styles -->
     <header class="main_header">
       <div class="container">
@@ -30,10 +37,7 @@
                 <a class="item" href="#" data-key="manga">Manga</a>
               </li>
               <li class="header_item">
-                <a
-                  class="item"
-                  href="./about_us/about_us.html"
-                  data-key="about"
+                <a class="item" href="./about_us/about_us.html" data-key="about"
                   >About us</a
                 >
               </li>
@@ -63,7 +67,7 @@
                 </a>
               </li>
               <li class="function_header">
-                <button type="button" class="eyes">
+                <button type="button" class="eyes" data-backdrop-open>
                   <svg class="icon-eye" width="40" height="40">
                     <use href="./assets/icon/icon.svg#icon-Eye"></use>
                   </svg>
@@ -128,14 +132,23 @@
                 </div>
               </li>
               <li class="mob-header_item">
-                <a class="mob-item" href="../account/user_account.html" data-key="account">Account</a>
+                <a
+                  class="mob-item"
+                  href="../account/user_account.html"
+                  data-key="account"
+                  >Account</a
+                >
               </li>
               <li class="mob-header_item" id="eye-open">
                 <svg class="blindness" width="20" height="20">
                   <use href="./assets/icon/icon.svg#icon-Eye"></use>
                 </svg>
-                <a class="mob-item" href="#" data-key="visual-impairments"
-                  >For people with visual impairments</a
+                <a
+                  class="mob-item"
+                  href="#"
+                  data-key="visual-impairments"
+                  data-backdrop-open
+                  >Color Filrer</a
                 >
               </li>
               <li class="mob-header_item">
@@ -162,7 +175,7 @@
         <ul class="content-manga" id="manga-container">
           <li class="manga-item">
             <div class="manga">
-              <a href="./manga/Solo-leveling/page-manga-1.html">
+              <a class="focus" href="./manga/Solo-leveling/page-manga-1.html">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/solo-leveling-1x.jpg"
@@ -184,7 +197,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/second-life-ranker-1x.jpg"
@@ -204,7 +217,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/the-only-one-who-returned-with-the-maximum-level-1x.jpg"
@@ -226,7 +239,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/naruto-1x.jpg"
@@ -246,7 +259,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/the-descent-of-the-demonic-master-1x.jpg"
@@ -266,7 +279,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/sonna-kazoku-nara-sutechaeba-1x.jpg"
@@ -286,7 +299,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/agnyeoneun-marionette-1x.jpg"
@@ -306,7 +319,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/the-beginning-after-the-end-1x.jpg"
@@ -326,7 +339,7 @@
           </li>
           <li class="manga-item">
             <div class="manga">
-              <a href="#">
+              <a class="focus" href="#">
                 <img
                   class="manga-img"
                   src="./assets/image/covers/i-fell-in-love-after-school-1x.jpg"
@@ -400,11 +413,32 @@
     </footer>
     <!-- #endregion footer styles -->
 
-    <!-- #region Scripts -->
+    <!-- #region color Filter styles -->
+    <div class="backdrop">
+      <div class="modal">
+        <button class="closeModalBtn" type="button" data-modal-close>
+          <svg class="btn_icon" width="28" height="28">
+            <use href="./assets/icon/icon.svg#icon-menu-close"></use>
+          </svg>
+        </button>
+        <h2 class="title-filter">Кольоровий фільтр</h2>
+        <div class="item-filter">
+          <button class="defaultBtn" type="button" data-theme="default">
+            <h3>Default</h3>
+          </button>
+        </div>
+        <div class="item-filter">
+          <button class="filtertBtn" type="button" data-theme="contrast">
+            <h3>Contrast</h3>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- #endregion color Filter styles -->
 
-    <script src="./assets/js/menu.js"></script>
-    <script src="./assets/js/translate.js"></script>
-    <script src="./assets/js/pagination.js"></script>
-    <!-- #endregion Scripts -->
-  </body>
+    <script type="module" src="./assets/js/color-filter.js"></script>
+    <script type="module" src="./assets/js/menu.js"></script>
+    <script type="module" src="./assets/js/translate.js"></script>
+    <script type="module" src="./assets/js/pagination.js"></script>
+    </body>
 </html>

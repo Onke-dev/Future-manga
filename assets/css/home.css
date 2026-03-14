@@ -15,7 +15,10 @@
   /* HEADER */
   --bg-header: #818181;
   --bg-search: rgba(146, 141, 141, 0.8);
+  --br-search: 1px solid #fff;
   --hover-eye-user: rgb(0, 0, 0);
+  --focus: 1px solid #fff;
+  --hover-logo: 1px solid #ffffff;
 
   /* BUGER */
   --bg-search-mob: rgba(146, 141, 141, 0.8);
@@ -23,6 +26,7 @@
   --bg-mob-menu: #808080;
   --bg-translate: #928d8d;
   --br-translate: none;
+  --br-translate-focus-mob: 1px solid #fff;
   --br-translate-focus: 1px solid #fff;
 
   /* MAIN */
@@ -52,7 +56,10 @@
     /* HEADER */
     --bg-header: #000000;
     --bg-search: rgba(0, 0, 0, 0.8);
+    --br-search: 1px solid rgb(255, 217, 0);
     --hover-eye-user: rgb(255, 217, 0);
+    --focus: 1px solid rgb(255, 217, 0);
+    --hover-logo: 1px solid rgb(255, 217, 0);
 
     /* BUGER */
     --bg-search-mob: rgba(0, 0, 0, 0.8);
@@ -61,6 +68,8 @@
     --bg-translate: #000000;
     --br-translate: 1px solid #fff;
     --br-translate-focus: 1px solid #fff;
+    --br-translate-focus: 1px solid rgb(255, 217, 0);
+
     /* MAIN */
     --text-name-manga: #ffffff;
     --bg-pag: #ffffff;
@@ -76,15 +85,9 @@
     --bg-icon-active: #000000;
   }
 
-  /* Приглушаем яркость обложек в режиме контраста */
+  /* Делаем обложки черно-белыми в режиме контраста */
   body.theme-contrast .manga-img {
-    filter: brightness(0.5); /* 1 - это 100% яркости, 0.7 - это 70% */
-    transition: filter 250ms ease; /* Плавное затемнение */
-  }
-
-  /* При наведении можно возвращать им яркость! */
-  body.theme-contrast .manga-img:hover {
-    filter: brightness(1);
+    filter: grayscale(100%); /* Полностью убираем цвет */
   }
 }
 
@@ -238,6 +241,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 999999999;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -386,7 +390,7 @@ img {
 }
 
 .lg_func:focus {
-  border: var(--br-translate-focus);
+  border: var(--br-translate-focus-mob);
   outline: none;
 }
 
@@ -762,7 +766,6 @@ img {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 8px;
-    padding: 0 5px;
     min-height: 40px;
     align-items: center;
     display: flex;
@@ -779,6 +782,7 @@ img {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 18px;
+    padding: 0 10px;
     line-height: 2.22;
     text-align: center;
     background: linear-gradient(
@@ -828,17 +832,16 @@ img {
   }
 
   .search:hover {
-    border: none;
+    border: var(--br-search);
     outline: none;
   }
 
   .search:focus {
-    border: 1px solid #ffffff;
+    border: var(--br-search);
     outline: none;
   }
 
   .search:active {
-    border: none;
     outline: none;
   }
 
@@ -905,7 +908,7 @@ img {
   .eyes:focus-visible {
     background-color: transparent;
     stroke: #ffffff;
-    border: 1px solid #000000;
+    border: var(--focus);
     outline: none;
   }
 
@@ -1033,6 +1036,9 @@ img {
   .logo-head {
     margin-right: 95px;
   }
+  .logo:focus {
+    border: var(--hover-logo);
+  }
 
   .logo-name {
     font-size: 48px;
@@ -1046,24 +1052,16 @@ img {
     column-gap: 30px;
   }
 
-  .header_item {
+  .header_item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .item {
     padding: 8px 30px;
   }
 
-  .header_item:hover,
-  .header_item:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-
-    border: 1px solid rgba(236, 233, 233, 0.425);
-
-    outline: none;
-
-    color: #000;
-  }
-
   .item:focus {
-    border: 1px solid #000000;
-
+    border: var(--focus);
     outline: none;
   }
 
@@ -1095,15 +1093,14 @@ img {
   }
 
   .account-user:focus-visible {
-    border: 1px solid #000000;
-
+    border: var(--focus);
     outline: none;
   }
 
   .account-user:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: var(--hover-eye-user)
+    stroke: var(--hover-eye-user);
   }
 
   .account-user:active {
@@ -1141,6 +1138,10 @@ img {
     width: 90px;
     font-size: 16px;
     line-height: 88%;
+  }
+
+  .lg_func:focus {
+    border: var(--br-translate-focus);
   }
 
   .icon-locale {
@@ -1190,14 +1191,19 @@ img {
     max-width: 328px;
   }
 
+  .info-footer:focus {
+    border: var(--focus);
+  }
+
   .social-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  .social-icon:hover {
-    background-color: var(--hover-eye-user);
+  .social-icon:focus {
+    outline: var(--focus);
+    outline-offset: 2px;
   }
 
   /* #endregion footer styles */

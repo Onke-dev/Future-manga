@@ -791,9 +791,10 @@ img {
     padding-right: 20px;
   }
 
-  .img-page {
+  .img-user {
     width: 200px;
     height: 200px;
+    padding-right: 35px;
   }
 
   .user-info {

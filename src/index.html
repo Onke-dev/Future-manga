@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/home.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
   <body>
@@ -30,10 +30,7 @@
                 <a class="item" href="#" data-key="manga">Manga</a>
               </li>
               <li class="header_item">
-                <a
-                  class="item"
-                  href="./about_us/about_us.html"
-                  data-key="about"
+                <a class="item" href="./about_us/about_us.html" data-key="about"
                   >About us</a
                 >
               </li>
@@ -51,21 +48,21 @@
                     data-key="search-placeholder"
                   />
                   <svg class="magnifying-glass" width="24" height="24">
-                    <use href="./assets/icon/icon.svg#icon-magnifier"></use>
+                    <use href="./icon/icon.svg#icon-magnifier"></use>
                   </svg>
                 </div>
               </li>
               <li class="function_header">
                 <a class="account-user" href="./account/user_account.html">
                   <svg class="icon-user" width="40" height="40">
-                    <use href="./assets/icon/icon.svg#icon-User"></use>
+                    <use href="./icon/icon.svg#icon-User"></use>
                   </svg>
                 </a>
               </li>
               <li class="function_header">
                 <button type="button" class="eyes">
                   <svg class="icon-eye" width="40" height="40">
-                    <use href="./assets/icon/icon.svg#icon-Eye"></use>
+                    <use href="./icon/icon.svg#icon-Eye"></use>
                   </svg>
                 </button>
               </li>
@@ -76,7 +73,7 @@
                     <option class="item-lg" value="ua">Ua</option>
                   </select>
                   <svg class="icon-locale" width="12" height="8">
-                    <use href="./assets/icon/icon.svg#icon-vector"></use>
+                    <use href="./icon/icon.svg#icon-vector"></use>
                   </svg>
                 </div>
               </li>
@@ -86,7 +83,7 @@
             <svg class="burger_icon" width="40" height="40">
               <use
                 class="icon_menu"
-                href="./assets/icon/icon.svg#icon-menu-toggle"
+                href="./icon/icon.svg#icon-menu-toggle"
               ></use>
             </svg>
           </button>
@@ -95,7 +92,7 @@
           <div class="container mob-menu-container">
             <button class="close-btn" type="button" data-menu-close>
               <svg class="btn_icon" width="40" height="40">
-                <use href="./assets/icon/icon.svg#icon-menu-close"></use>
+                <use href="./icon/icon.svg#icon-menu-close"></use>
               </svg>
             </button>
             <ul class="mob-list_pages">
@@ -123,16 +120,21 @@
                     data-key="search-placeholder"
                   />
                   <svg class="icon_search" width="24" height="24">
-                    <use href="./assets/icon/icon.svg#icon-magnifier"></use>
+                    <use href="./icon/icon.svg#icon-magnifier"></use>
                   </svg>
                 </div>
               </li>
               <li class="mob-header_item">
-                <a class="mob-item" href="../account/user_account.html" data-key="account">Account</a>
+                <a
+                  class="mob-item"
+                  href="../account/user_account.html"
+                  data-key="account"
+                  >Account</a
+                >
               </li>
               <li class="mob-header_item" id="eye-open">
                 <svg class="blindness" width="20" height="20">
-                  <use href="./assets/icon/icon.svg#icon-Eye"></use>
+                  <use href="./icon/icon.svg#icon-Eye"></use>
                 </svg>
                 <a class="mob-item" href="#" data-key="visual-impairments"
                   >For people with visual impairments</a
@@ -145,7 +147,7 @@
                     <option class="item-lg" value="ua">Ukraine</option>
                   </select>
                   <svg class="icon_lg" width="12" height="8">
-                    <use href="./assets/icon/icon.svg#icon-vector"></use>
+                    <use href="./icon/icon.svg#icon-vector"></use>
                   </svg>
                 </div>
               </li>
@@ -368,28 +370,28 @@
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./assets/icon/icon.svg#icon-instagram"></use>
+                    <use href="./icon/icon.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./assets/icon/icon.svg#icon-twitter"></use>
+                    <use href="./icon/icon.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./assets/icon/icon.svg#icon-facebook"></use>
+                    <use href="./icon/icon.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./assets/icon/icon.svg#icon-linkedin"></use>
+                    <use href="./icon/icon.svg#icon-linkedin"></use>
                   </svg>
                 </a>
               </li>
@@ -402,9 +404,7 @@
 
     <!-- #region Scripts -->
 
-    <script src="./assets/js/menu.js"></script>
-    <script src="./assets/js/translate.js"></script>
-    <script src="./assets/js/pagination.js"></script>
+    <script type="module" src="./main.js"></script>
     <!-- #endregion Scripts -->
   </body>
 </html>

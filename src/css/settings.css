@@ -426,7 +426,7 @@ legend {
   flex-direction: column;
 }
 
-.first {
+.first-item {
   row-gap: 0;
   padding-top: 0;
 }
@@ -912,7 +912,7 @@ legend {
     column-gap: 46px;
   }
 
-  .first {
+  .first-item {
     display: flex;
     flex-direction: row;
     column-gap: 11px;

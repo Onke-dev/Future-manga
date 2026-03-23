@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My account</title>
+    <title>Admin Panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -177,12 +177,20 @@
                 >Home</a
               >
             </li>
+            <li class="item-goe home">
+              <a
+                class="location"
+                href="../../pages/account/user_account.html"
+                data-key="title_location_account"
+                >My account</a
+              >
+            </li>
             <li class="item-goe">
               <a
                 class="location"
-                href="./user_account.html"
+                href="../../pages/admin_panel/admin_panel.html"
                 data-key="title_location_account"
-                >My account</a
+                >Admin Panel</a
               >
             </li>
           </ul>
@@ -191,60 +199,70 @@
       <!-- #endregion sec1 styles -->
 
       <!-- #region sec2 styles -->
-      <section class="account-user-info">
-        <div class="img-user">
-          <picture>
-            <source
-              srcset="
-                ../../image/default-user-photo/image-user-desktop-1x.png 1x,
-                ../../image/default-user-photo/image-user-desktop-2x.png 2x
-              "
-              media="(min-width: 1440px)"
+      <section class="sec_add_manga">
+        <form class="form-add-manga">
+          <h2 class="main-title-add">Add Manga</h2>
+          <fieldset class="item-add-manga">
+            <label for="cover_manga" class="title-add">Cover Manga</label>
+            <input
+              type="text"
+              class="input-cover-manga"
+              id="cover_manga"
+              name="cover_manga"
+              placeholder="Cover Manga"
+              required
             />
-            <source
-              srcset="
-                ../../image/default-user-photo/image-user-tablet-1x.png 1x,
-                ../../image/default-user-photo/image-user-tablet-2x.png 2x
-              "
-              media="(min-width: 768px)"
+          </fieldset>
+          <fieldset class="item-add-manga">
+            <label for="name-manga" class="title-add">Name Manga</label>
+            <input
+              type="text"
+              class="input-name-manga"
+              id="name-manga"
+              name="name-manga"
+              placeholder="Name Manga"
+              required
             />
-            <source
-              srcset="
-                ../../image/default-user-photo/image-user-mobile-1x.png 1x,
-                ../../image/default-user-photo/image-user-mobile-2x.png 2x
-              "
-              media="(max-width: 767px)"
+          </fieldset>
+          <fieldset class="item-add-manga">
+            <label for="status-manga" class="title-add">Status</label>
+            <select
+              class="add-status"
+              name="status-manga"
+              id="status-manga"
+            ></select>
+          </fieldset>
+          <fieldset class="item-add-manga">
+            <label for="name-author" class="title-add">Name Author</label>
+            <input
+              type="text"
+              class="input-name-author"
+              id="name-author"
+              name="name-author"
+              placeholder="Name Author"
+              required
             />
-            <img
-              class="img-user"
-              src="../../image/default-user-photo/image-user-mobile-1x.png"
-              alt="img user"
-              width="160"
-              height="160"
-            />
-          </picture>
-          <h2 class="name-user" data-key="userName">Name user</h2>
-        </div>
-        <div class="user-info">
-          <a href="#" class="btn-liked" data-key="likedManga">Liked</a>
-          <a
-            href="../../pages/admin_panel/admin_panel.html"
-            class="btn-admin-panel"
-            data-key="likedManga"
-            >Admin panel</a
-          >
-        </div>
-        <div class="user-actions">
-          <a
-            href="../../pages/account_settings/settings.html"
-            class="setting-user"
-            aria-label="Settings"
-          >
-            <svg class="setting-icon" width="60" height="60">
-              <use href="../../icon/icon.svg#icon-settings"></use>
-            </svg>
-          </a>
-        </div>
+          </fieldset>
+          <fieldset class="item-add-manga">
+            <label for="genres-manga" class="title-add">Genres</label>
+            <select
+              class="add-genres"
+              name="genres-manga"
+              id="genres-manga"
+            ></select>
+          </fieldset>
+          <fieldset class="item-add-manga">
+            <label for="manga-summary" class="title-add">SUMMARY</label>
+            <textarea
+              class="summary-content"
+              name="manga-summary"
+              id="manga-summary"
+              placeholder="Summary about manga"
+              required
+            ></textarea>
+          </fieldset>
+          <button class="btn-add-manga" type="submit">ADD</button>
+        </form>
       </section>
       <!-- #endregion sec2 styles -->
     </main>

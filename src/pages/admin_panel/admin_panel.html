@@ -202,7 +202,7 @@
       <section class="sec_add_manga">
         <form class="form-add-manga">
           <h2 class="main-title-add">Add Manga</h2>
-          <fieldset class="item-add-manga">
+          <fieldset class="item-add-manga retreat-down">
             <label for="cover_manga" class="title-add">Cover Manga</label>
             <input
               type="text"
@@ -213,7 +213,7 @@
               required
             />
           </fieldset>
-          <fieldset class="item-add-manga">
+          <fieldset class="item-add-manga retreat-down">
             <label for="name-manga" class="title-add">Name Manga</label>
             <input
               type="text"
@@ -224,15 +224,54 @@
               required
             />
           </fieldset>
-          <fieldset class="item-add-manga">
-            <label for="status-manga" class="title-add">Status</label>
-            <select
-              class="add-status"
-              name="status-manga"
-              id="status-manga"
-            ></select>
+          <fieldset class="item-add-manga retreat-down">
+            <div class="custom-select-container">
+              <label class="title-add">Status</label>
+
+              <div class="custom-select" id="genres-select">
+                <div class="select-trigger">
+                  <span>Status</span>
+                  <span class="arrow">v</span>
+                </div>
+
+                <div class="select-options">
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option1"
+                    />
+                    Option 1</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option2"
+                    />
+                    Option 2</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option3"
+                    />
+                    Option 3</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option4"
+                    />
+                    Option 4</label
+                  >
+                </div>
+              </div>
+            </div>
           </fieldset>
-          <fieldset class="item-add-manga">
+          <fieldset class="item-add-manga retreat-down">
             <label for="name-author" class="title-add">Name Author</label>
             <input
               type="text"
@@ -243,15 +282,54 @@
               required
             />
           </fieldset>
-          <fieldset class="item-add-manga">
-            <label for="genres-manga" class="title-add">Genres</label>
-            <select
-              class="add-genres"
-              name="genres-manga"
-              id="genres-manga"
-            ></select>
+          <fieldset class="item-add-manga retreat-down">
+            <div class="custom-select-container">
+              <label class="title-add">Genres</label>
+
+              <div class="custom-select" id="genres-select">
+                <div class="select-trigger">
+                  <span>Genres</span>
+                  <span class="arrow">v</span>
+                </div>
+
+                <div class="select-options">
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option1"
+                    />
+                    Option 1</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option2"
+                    />
+                    Option 2</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option3"
+                    />
+                    Option 3</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="genres-manga[]"
+                      value="option4"
+                    />
+                    Option 4</label
+                  >
+                </div>
+              </div>
+            </div>
           </fieldset>
-          <fieldset class="item-add-manga">
+          <fieldset class="item-add-manga retreat-nearBtn">
             <label for="manga-summary" class="title-add">SUMMARY</label>
             <textarea
               class="summary-content"
@@ -263,6 +341,13 @@
           </fieldset>
           <button class="btn-add-manga" type="submit">ADD</button>
         </form>
+      </section>
+
+      <section class="sec-list">
+        <div class="wrap-list-manga">
+          <h2 class="title-of-list">Manga on the site</h2>
+          <ul class="manga-list"></ul>
+        </div>
       </section>
       <!-- #endregion sec2 styles -->
     </main>

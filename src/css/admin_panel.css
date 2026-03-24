@@ -349,10 +349,40 @@ img {
 /* #endregion header styles */
 
 /* #region main styles */
-.form-add-manga {
+.geolocatio {
   display: flex;
-  flex-direction: column;
-  row-gap: 15px;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.list-geo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.home::after {
+  content: '/';
+  color: #000000;
+}
+
+.location {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  color: #494949;
+}
+
+.location:active {
+  color: #ff0000;
+  transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
+}
+
+.form-add-manga {
+  display: block;
   padding: 25px 20px;
   border-radius: 30px;
   box-sizing: border-box;
@@ -369,12 +399,16 @@ img {
 .main-title-add {
   display: flex;
   justify-content: center;
-  padding-bottom: 5px;
+  padding-bottom: 20px;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 20px;
   line-height: 100%;
   color: #000;
+}
+
+.retreat-down {
+  padding-bottom: 15px;
 }
 
 .item-add-manga {
@@ -431,14 +465,50 @@ img {
   background: #fff;
 }
 
-.add-genres {
-  border: 1px solid #d9d9d9;
+/* Общий контейнер */
+.custom-select {
+  position: relative;
+  width: 200px; /* Ширина вашего селекта */
+  font-family: sans-serif;
+}
+
+/* Стили для кнопки */
+.select-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #fff;
   border-radius: 8px;
-  padding: 12px 12px 12px 16px;
-  width: 120px;
-  height: 40px;
-  min-width: 120px;
-  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+/* Скрытый список опций */
+.select-options {
+  display: none; /* Прячем по умолчанию */
+  position: absolute;
+  top: 110%; /* Отступ от кнопки */
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 10;
+}
+
+/* Класс, который будет добавлять JS для открытия */
+.custom-select.open .select-options {
+  display: block; /* Показываем список */
+}
+
+/* Стилизация самих пунктов */
+.select-options label {
+  display: block;
+  padding: 5px 0;
+  cursor: pointer;
 }
 
 .summary-content {
@@ -450,6 +520,10 @@ img {
   min-width: 120px;
   min-height: 80px;
   background: #fff;
+}
+
+.retreat-nearBtn {
+  padding-bottom: 40px;
 }
 
 .btn-add-manga {
@@ -466,9 +540,53 @@ img {
   color: #f5f5f5;
 }
 
+.sec-list {
+  padding-bottom: 30px;
+}
+
+.wrap-list-manga {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.75) 0%,
+    #9b8989 56.73%,
+    rgba(20, 19, 19, 0.39) 100%
+  );
+  border-radius: 30px;
+  width: 260px;
+  height: 100%;
+  padding: 30px 18px;
+}
+
+.title-of-list {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 100%;
+  color: #000;
+  padding-bottom: 25px;
+}
+
+.manga-list {
+  background: linear-gradient(
+    180deg,
+    #302c2c 0%,
+    #d4d3d3 50%,
+    rgba(134, 123, 123, 0.5) 100%
+  );
+  border-radius: 20px;
+  width: 224px;
+  height: 100%;
+}
+
 /* #endregion main styles */
 
 /* #region footer styles */
+.sec_add_manga {
+  padding-bottom: 45px;
+}
+
 .footer-main {
   background-color: rgba(152, 158, 169, 0.76);
   padding: 40px 0px;
@@ -778,7 +896,38 @@ img {
   /* #endregion header styles */
 
   /* #region main styles */
+  .geolocatio {
+    padding-top: 13px;
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-left: 21px;
+  }
 
+  .location {
+    font-size: 18px;
+  }
+
+  .geolocatio {
+    padding-top: 20px;
+    padding-left: 97px;
+    padding-bottom: 50px;
+  }
+
+  .list-geo {
+    top: 20px;
+    left: 237px;
+  }
+
+  .location:hover {
+    transition: color 250ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
+    color: #ffffff;
+  }
+
+  .location:active {
+    color: #ff0000;
+    transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
+  }
   /* #endregion main styles */
 
   /* #region footer styles */

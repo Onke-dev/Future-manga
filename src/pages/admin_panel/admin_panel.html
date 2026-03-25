@@ -200,7 +200,7 @@
 
       <!-- #region sec2 styles -->
       <section class="sec_add_manga">
-        <form class="form-add-manga">
+        <form class="form-add-manga js-add-manga">
           <h2 class="main-title-add">Add Manga</h2>
           <fieldset class="item-add-manga retreat-down">
             <label for="cover_manga" class="title-add">Cover Manga</label>
@@ -225,51 +225,11 @@
             />
           </fieldset>
           <fieldset class="item-add-manga retreat-down">
-            <div class="custom-select-container">
-              <label class="title-add">Status</label>
-
-              <div class="custom-select" id="genres-select">
-                <div class="select-trigger">
-                  <span>Status</span>
-                  <span class="arrow">v</span>
-                </div>
-
-                <div class="select-options">
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option1"
-                    />
-                    Option 1</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option2"
-                    />
-                    Option 2</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option3"
-                    />
-                    Option 3</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option4"
-                    />
-                    Option 4</label
-                  >
-                </div>
-              </div>
-            </div>
+            <label for="status-manga" class="title-add">Status</label>
+            <select class="add-status" name="status-manga" id="status-manga">
+              <option value="ongoing">ONG</option>
+              <option value="completed">COM</option>
+            </select>
           </fieldset>
           <fieldset class="item-add-manga retreat-down">
             <label for="name-author" class="title-add">Name Author</label>
@@ -283,51 +243,27 @@
             />
           </fieldset>
           <fieldset class="item-add-manga retreat-down">
-            <div class="custom-select-container">
-              <label class="title-add">Genres</label>
+            <label for="genres-manga" class="title-add">Genres</label>
+            <select class="add-genres" name="genres-manga" id="genres-manga">
+              <optgroup label="Demographics">
+                <option value="shonen">Shonen</option>
+                <option value="shojo">Shojo</option>
+                <option value="seinen">Seinen</option>
+                <option value="josei">Josei</option>
+              </optgroup>
 
-              <div class="custom-select" id="genres-select">
-                <div class="select-trigger">
-                  <span>Genres</span>
-                  <span class="arrow">v</span>
-                </div>
-
-                <div class="select-options">
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option1"
-                    />
-                    Option 1</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option2"
-                    />
-                    Option 2</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option3"
-                    />
-                    Option 3</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="genres-manga[]"
-                      value="option4"
-                    />
-                    Option 4</label
-                  >
-                </div>
-              </div>
-            </div>
+              <optgroup label="Main Genres">
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="isekai">Isekai</option>
+                <option value="romance">Romance</option>
+                <option value="slice-of-life">Slice of Life</option>
+                <option value="thriller">Thriller</option>
+              </optgroup>
+            </select>
           </fieldset>
           <fieldset class="item-add-manga retreat-nearBtn">
             <label for="manga-summary" class="title-add">SUMMARY</label>
@@ -404,7 +340,7 @@
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
-    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../js/admin.js"></script>
     <!-- #endregion Scripts -->
   </body>
 </html>

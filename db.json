@@ -13,12 +13,26 @@
       "title": "Solo Leveling",
       "author": "Chu gong",
       "status": "ONGOING",
-      "genres": ["adventure", "supernatural", "dark fantasy"],
+      "genres": [
+        "adventure",
+        "supernatural",
+        "dark fantasy"
+      ],
       "summary": "When inter-dimensional “gates” opened up “dungeons” full of monsters...",
       "cover1x": "/image/covers/solo-leveling-1x.jpg",
       "cover2x": "/image/covers/solo-leveling-2x.jpg",
       "alt": "Solo Leveling"
+    },
+    {
+      "id": "fc97",
+      "cover": "1",
+      "title": "1",
+      "status": "completed",
+      "author": "1",
+      "genres": "shonen",
+      "summary": "1"
     }
   ],
-  "chapters": []
+  "chapters": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }

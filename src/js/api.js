@@ -3,7 +3,7 @@ import axios from 'axios';
 // Зберігаємо адресу нашої бази даних у константу
 const BASE_URL = 'http://localhost:3000';
 
-// Експортуємо функцію, щоб її можна було викликати з інших файлів
+// add manga on the home page
 export async function getMangas() {
   try {
     const response = await axios.get(`${BASE_URL}/mangas`);
@@ -12,5 +12,26 @@ export async function getMangas() {
   } catch (error) {
     console.error('Помилка при завантаженні бази манги:', error);
     return []; // Якщо сталася помилка, повертаємо порожній масив, щоб сайт не зламався
+  }
+}
+
+export async function getMangasId(id) {
+  try {
+    const response = await axios.get(`${BASE_URL}/mangas/${id}`);
+    // Axios автоматично кладе JSON у властивість .data
+    return response.data;
+  } catch (error) {
+    console.error('Помилка при завантаженні бази манги:', error);
+    return null;
+  }
+}
+
+export async function addNewManga(newManga) {
+  try {
+    const response = await axios.post(`${BASE_URL}/mangas`, newManga);
+    // Axios автоматично кладе JSON у властивість .data
+    return response.data;
+  } catch (error) {
+    console.error('Помилка при завантаженні бази манги:', error);
   }
 }

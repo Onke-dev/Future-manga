@@ -1,15 +1,10 @@
-// Импортируем наш ЗАПРОС
-import { getMangas } from './api.js';
-const mangaList = document.querySelector('.js-manga-render');
 
-// ==========================================
-// ЧАСТЬ 1: РЕНДЕР (Render)
-// ==========================================
-function renderMangaCards(mangas) {
-  const markup = mangas
-    .map(manga => {
-      const { id, cover1x, cover2x, title, alt } = manga;
-      return `<li class="manga-item">
+import { getMangas } from './api.js';
+
+
+function itemTemplate(manga) {
+  const { id, cover1x, cover2x, title, alt } = manga;
+  return `<li class="manga-item">
   <div class="manga">
     <a href="./manga/manga-template.html?id=${id}">
       <img
@@ -29,22 +24,8 @@ function renderMangaCards(mangas) {
     </a>
   </div>
 </li>`;
-    })
-    .join('');
-  mangaList.innerHTML = markup;
 }
 
-// ==========================================
-// ЧАСТЬ 2: ПОДІЯ (Event)
-// ==========================================
-async function onPageLoad() {
-  await getMangas()
-  // 1. Сделай ЗАПРОС к API и дождись ответа (используй await getMangas())
-  // Сохрани результат в переменную (например, const data = ...)
-  // 2. Передай полученную переменную в функцию РЕНДЕРА
-  // renderMangaCards(data);
+function itemsTemplate(mangas) {
+  return mangas.map(itemTemplate).join('');
 }
-
-// 3. Повесь слушатель событий на документ.
-// Когда HTML полностью загрузится ('DOMContentLoaded'), должна запуститься функция onPageLoad
-document.addEventListener('DOMContentLoaded', onPageLoad);

@@ -537,7 +537,16 @@ img {
 
 .img-manga-panel {
   border-radius: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
+}
+
+.title-manga-panel {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #000;
+  padding-bottom: 25px;
 }
 
 .wrap-btns {

@@ -46,7 +46,7 @@ export function mangaPanleTemplate(manga) {
                 <button class="btn-manga showMore" type="button">
                   SHOW MORE
                 </button>
-                <button class="btn-manga delete" type="button">DELETE</button>
+                <button class="btn-manga delete" type="button" data-id="${id}">DELETE</button>
               </div>
             </li>`;
 }

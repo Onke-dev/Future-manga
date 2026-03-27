@@ -35,3 +35,15 @@ export async function addNewManga(newManga) {
     console.error('Помилка при завантаженні бази манги:', error);
   }
 }
+
+export async function deleteManga(id) {
+  try {
+    const response = await axios.delete(`${BASE_URL}/mangas/${id}`);
+    return response.data;
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: `Error ${error} while removing a manga from the manga database`,
+    });
+  }
+}

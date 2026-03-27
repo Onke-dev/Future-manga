@@ -206,9 +206,20 @@
             <label for="cover_manga" class="title-add">Cover Manga</label>
             <input
               type="text"
-              class="input-cover-manga"
+              class="input-add-manga"
               id="cover_manga"
               name="cover_manga"
+              placeholder="Alt Manga"
+              required
+            />
+          </fieldset>
+          <fieldset class="item-add-manga retreat-down">
+            <label for="cover_alt" class="title-add">Alt cover</label>
+            <input
+              type="text"
+              class="input-add-manga"
+              id="cover_alt"
+              name="cover_alt"
               placeholder="Cover Manga"
               required
             />
@@ -217,7 +228,7 @@
             <label for="name-manga" class="title-add">Name Manga</label>
             <input
               type="text"
-              class="input-name-manga"
+              class="input-add-manga"
               id="name-manga"
               name="name-manga"
               placeholder="Name Manga"
@@ -235,7 +246,7 @@
             <label for="name-author" class="title-add">Name Author</label>
             <input
               type="text"
-              class="input-name-author"
+              class="input-add-manga"
               id="name-author"
               name="name-author"
               placeholder="Name Author"
@@ -278,14 +289,16 @@
           <button class="btn-add-manga" type="submit">ADD</button>
         </form>
       </section>
+      <!-- #endregion sec2 styles -->
 
+      <!-- #region sec3 styles -->
       <section class="sec-list">
         <div class="wrap-list-manga">
           <h2 class="title-of-list">Manga on the site</h2>
           <ul class="manga-list"></ul>
         </div>
       </section>
-      <!-- #endregion sec2 styles -->
+      <!-- #endregion sec3 styles -->
     </main>
     <!-- #endregion main styles -->
 

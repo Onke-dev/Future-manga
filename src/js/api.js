@@ -45,9 +45,12 @@ export async function deleteManga(id) {
   }
 }
 
-export async function updateManga(id) {
+export async function updateManga(id, updatedManga) {
   try {
-    const response = await axios.patch(`${BASE_URL}/mangas/${id}`);
+    const response = await axios.patch(
+      `${BASE_URL}/mangas/${id}`,
+      updatedManga
+    );
     return response.data;
   } catch (error) {
     console.error('Помилка при оновленні манги до бази манги:', error);

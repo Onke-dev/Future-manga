@@ -13,25 +13,31 @@
       "title": "Solo Leveling",
       "author": "Chu gong",
       "status": "ONGOING",
-      "genres": [
-        "adventure",
-        "supernatural",
-        "dark fantasy"
-      ],
+      "genres": "",
       "summary": "When inter-dimensional “gates” opened up “dungeons” full of monsters...",
       "cover1x": "/image/covers/solo-leveling-1x.jpg",
       "cover2x": "/image/covers/solo-leveling-2x.jpg",
       "alt": "Solo Leveling"
     },
     {
-      "id": "c59b",
-      "cover": "1",
-      "alt": "1",
-      "title": "1",
+      "id": "60f3",
+      "cover": "Naruto",
+      "alt": "img cover Naruto",
+      "title": "Naruto 2",
       "status": "ongoing",
-      "author": "1",
+      "author": "Masashi Kishimoto",
+      "genres": "comedy",
+      "summary": "Naruto is a renowned manga and anime series following Naruto Uzumaki, an isolated, mischievous ninja in the Hidden Leaf Village who dreams of becoming Hokage—the village leader—to gain recognition"
+    },
+    {
+      "id": "d06d",
+      "cover": "                  ",
+      "alt": "        ",
+      "title": "     ",
+      "status": "ongoing",
+      "author": "   ",
       "genres": "shonen",
-      "summary": "1"
+      "summary": "     "
     }
   ],
   "chapters": [],

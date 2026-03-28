@@ -2,6 +2,7 @@ import { addNewManga } from './api.js';
 import { getMangas } from './api.js';
 import { deleteManga } from './api.js';
 import { getMangasId } from './api.js';
+import { updateManga } from './api.js';
 import { mangaPanleTemplate } from './renders-pages.js';
 import { mangasPanleTemplate } from './renders-pages.js';
 
@@ -47,6 +48,14 @@ refs.formAdd.addEventListener('submit', async e => {
     summary: formData.get('manga-summary'),
   };
 
+  if (e.target.trim()) {
+    iziToast.error({
+      title: 'Error',
+      message: `Error ${error}`,
+    });
+    return;
+  }
+
   try {
     const newManga = await addNewManga(newMangaData);
     const markup = mangaPanleTemplate(newManga);
@@ -62,7 +71,44 @@ refs.formAdd.addEventListener('submit', async e => {
     });
   }
 
-  refs.form.reset();
+  refs.formAdd.reset();
+});
+
+refs.formChange.addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = e.target.dataset.id;
+  const formData = new FormData(e.target);
+
+  const updatedManga = {
+    cover: formData.get('cover_manga'),
+    alt: formData.get('cover_alt'),
+    title: formData.get('name-manga'),
+    status: formData.get('status-manga'),
+    author: formData.get('name-author'),
+    genres: formData.get('genres-manga'),
+    summary: formData.get('manga-summary'),
+  };
+
+  try {
+    const res = await updateManga(id, updatedManga);
+    const updatedMarkup = mangaPanleTemplate(res);
+    const oldCard = document
+      .querySelector(`[data-id="${id}"]`)
+      .closest('.manga-itemPanel');
+    oldCard.outerHTML = updatedMarkup;
+
+    refs.modalChange.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
+    iziToast.success({
+      title: 'OK',
+      message: 'Successfully update info about manga!',
+    });
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: `Oops! Something went wrong: ${error}`,
+    });
+  }
 });
 
 refs.listManga.addEventListener('click', async e => {
@@ -91,6 +137,7 @@ refs.listManga.addEventListener('click', async e => {
 
       refs.modalChange.classList.add('is-open');
       document.body.classList.add('no-scroll');
+      refs.formChange.dataset.id = id;
     }
   } catch (error) {
     iziToast.error({

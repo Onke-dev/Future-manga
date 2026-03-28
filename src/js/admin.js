@@ -89,12 +89,20 @@ refs.listManga.addEventListener('click', async e => {
       refs.formChange.elements['genres-manga'].value = updateManga.genres;
       refs.formChange.elements['manga-summary'].value = updateManga.summary;
 
-      refs.modalChange.classList.toggle('is-open');
+      refs.modalChange.classList.add('is-open');
+      document.body.classList.add('no-scroll');
     }
   } catch (error) {
     iziToast.error({
       title: 'Error',
       message: `Oops! Something went wrong: ${error}`,
     });
+  }
+});
+
+refs.modalChange.addEventListener('click', e => {
+  if (e.target === e.currentTarget) {
+    refs.modalChange.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
   }
 });

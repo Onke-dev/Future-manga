@@ -22,6 +22,16 @@
       "cover1x": "/image/covers/solo-leveling-1x.jpg",
       "cover2x": "/image/covers/solo-leveling-2x.jpg",
       "alt": "Solo Leveling"
+    },
+    {
+      "id": "c59b",
+      "cover": "1",
+      "alt": "1",
+      "title": "1",
+      "status": "ongoing",
+      "author": "1",
+      "genres": "shonen",
+      "summary": "1"
     }
   ],
   "chapters": [],

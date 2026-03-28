@@ -200,62 +200,62 @@
 
       <!-- #region sec2 styles -->
       <section class="sec_add_manga">
-        <form class="form-add-manga js-add-manga">
-          <h2 class="main-title-add">Add Manga</h2>
-          <fieldset class="item-add-manga retreat-down">
-            <label for="cover_manga" class="title-add">Cover Manga</label>
+        <form class="form-manga js-add-manga">
+          <h2 class="main-title-form-manga">Add Manga</h2>
+          <fieldset class="item-form retreat-down">
+            <label for="cover_manga" class="title-form-manga">Cover Manga</label>
             <input
               type="text"
-              class="input-add-manga"
+              class="form-input"
               id="cover_manga"
               name="cover_manga"
               placeholder="Alt Manga"
               required
             />
           </fieldset>
-          <fieldset class="item-add-manga retreat-down">
-            <label for="cover_alt" class="title-add">Alt cover</label>
+          <fieldset class="item-form retreat-down">
+            <label for="cover_alt" class="title-form-manga">Alt cover</label>
             <input
               type="text"
-              class="input-add-manga"
+              class="form-input"
               id="cover_alt"
               name="cover_alt"
               placeholder="Cover Manga"
               required
             />
           </fieldset>
-          <fieldset class="item-add-manga retreat-down">
-            <label for="name-manga" class="title-add">Name Manga</label>
+          <fieldset class="item-form retreat-down">
+            <label for="name-manga" class="title-form-manga">Name Manga</label>
             <input
               type="text"
-              class="input-add-manga"
+              class="form-input"
               id="name-manga"
               name="name-manga"
               placeholder="Name Manga"
               required
             />
           </fieldset>
-          <fieldset class="item-add-manga retreat-down">
-            <label for="status-manga" class="title-add">Status</label>
-            <select class="add-status" name="status-manga" id="status-manga">
+          <fieldset class="item-form retreat-down">
+            <label for="status-manga" class="title-form-manga">Status</label>
+            <select class="manga-status" name="status-manga" id="status-manga">
               <option value="ongoing">ONG</option>
               <option value="completed">COM</option>
             </select>
           </fieldset>
-          <fieldset class="item-add-manga retreat-down">
-            <label for="name-author" class="title-add">Name Author</label>
+          <fieldset class="item-form retreat-down">
+            <label for="name-author" class="title-form-manga">Name Author</label>
             <input
               type="text"
-              class="input-add-manga"
+              class="form-input"
               id="name-author"
               name="name-author"
               placeholder="Name Author"
               required
             />
           </fieldset>
-          <fieldset class="item-add-manga retreat-down">
-            <label for="genres-manga" class="title-add">Genres</label>
-            <select class="add-genres" name="genres-manga" id="genres-manga">
+          <fieldset class="item-form retreat-down">
+            <label for="genres-manga" class="title-form-manga">Genres</label>
+            <select class="manga-genres" name="genres-manga" id="genres-manga">
               <optgroup label="Demographics">
                 <option value="shonen">Shonen</option>
                 <option value="shojo">Shojo</option>
@@ -276,8 +276,8 @@
               </optgroup>
             </select>
           </fieldset>
-          <fieldset class="item-add-manga retreat-nearBtn">
-            <label for="manga-summary" class="title-add">SUMMARY</label>
+          <fieldset class="item-form retreat-nearBtn">
+            <label for="manga-summary" class="title-form-manga">SUMMARY</label>
             <textarea
               class="summary-content"
               name="manga-summary"
@@ -286,7 +286,7 @@
               required
             ></textarea>
           </fieldset>
-          <button class="btn-add-manga" type="submit">ADD</button>
+          <button class="btn-form-manga" type="submit">ADD</button>
         </form>
       </section>
       <!-- #endregion sec2 styles -->
@@ -299,6 +299,97 @@
         </div>
       </section>
       <!-- #endregion sec3 styles -->
+
+      <div class="modalChangeManga">
+        <form class="form-manga js-change-manga">
+          <h2 class="main-title-form-manga">CHANGE INFO</h2>
+          <fieldset class="item-form retreat-down">
+            <label for="cover_manga" class="title-form-manga">Cover Manga</label>
+            <input
+              type="text"
+              class="form-input"
+              id="cover_manga"
+              name="cover_manga"
+              placeholder="Alt Manga"
+              required
+            />
+          </fieldset>
+          <fieldset class="item-form retreat-down">
+            <label for="cover_alt" class="title-form-manga">Alt cover</label>
+            <input
+              type="text"
+              class="form-input"
+              id="cover_alt"
+              name="cover_alt"
+              placeholder="Cover Manga"
+              required
+            />
+          </fieldset>
+          <fieldset class="item-form retreat-down">
+            <label for="name-manga" class="title-form-manga">Name Manga</label>
+            <input
+              type="text"
+              class="form-input"
+              id="name-manga"
+              name="name-manga"
+              placeholder="Name Manga"
+              required
+            />
+          </fieldset>
+          <fieldset class="item-form retreat-down">
+            <label for="status-manga" class="title-form-manga">Status</label>
+            <select class="manga-status" name="status-manga" id="status-manga">
+              <option value="ongoing">ONG</option>
+              <option value="completed">COM</option>
+            </select>
+          </fieldset>
+          <fieldset class="item-form retreat-down">
+            <label for="name-author" class="title-form-manga">Name Author</label>
+            <input
+              type="text"
+              class="form-input"
+              id="name-author"
+              name="name-author"
+              placeholder="Name Author"
+              required
+            />
+          </fieldset>
+          <fieldset class="item-form retreat-down">
+            <label for="genres-manga" class="title-form-manga">Genres</label>
+            <select class="manga-genres" name="genres-manga" id="genres-manga">
+              <optgroup label="Demographics">
+                <option value="shonen">Shonen</option>
+                <option value="shojo">Shojo</option>
+                <option value="seinen">Seinen</option>
+                <option value="josei">Josei</option>
+              </optgroup>
+
+              <optgroup label="Main Genres">
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="isekai">Isekai</option>
+                <option value="romance">Romance</option>
+                <option value="slice-of-life">Slice of Life</option>
+                <option value="thriller">Thriller</option>
+              </optgroup>
+            </select>
+          </fieldset>
+          <fieldset class="item-form retreat-nearBtn">
+            <label for="manga-summary" class="title-form-manga">SUMMARY</label>
+            <textarea
+              class="summary-content"
+              name="manga-summary"
+              id="manga-summary"
+              placeholder="Summary about manga"
+              required
+            ></textarea>
+          </fieldset>
+          <button class="btn-form-manga" type="submit">SAVE</button>
+        </form>
+      </div>
     </main>
     <!-- #endregion main styles -->
 

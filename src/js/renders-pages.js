@@ -27,7 +27,6 @@ export function mangasHomeTemplate(mangas) {
   return mangas.map(mangaHomeTemplate).join('');
 }
 
-
 // This function for admin panel
 export function mangaPanleTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
@@ -42,10 +41,10 @@ export function mangaPanleTemplate(manga) {
               />
               <h2 class="title-manga-panel">${title}</h2>
               <div class="wrap-btns">
-                <button class="btn-manga change" type="button">CHANGE</button>
                 <button class="btn-manga showMore" type="button">
                   SHOW MORE
                 </button>
+                <button class="btn-manga change" type="button" data-id="${id}">CHANGE</button>
                 <button class="btn-manga delete" type="button" data-id="${id}">DELETE</button>
               </div>
             </li>`;

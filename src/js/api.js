@@ -3,7 +3,7 @@ import axios from 'axios';
 // Зберігаємо адресу нашої бази даних у константу
 const BASE_URL = 'http://localhost:3000';
 
-// add manga on the home page
+// add manga to the admin panel
 export async function getMangas() {
   try {
     const response = await axios.get(`${BASE_URL}/mangas`);
@@ -41,9 +41,15 @@ export async function deleteManga(id) {
     const response = await axios.delete(`${BASE_URL}/mangas/${id}`);
     return response.data;
   } catch (error) {
-    iziToast.error({
-      title: 'Error',
-      message: `Error ${error} while removing a manga from the manga database`,
-    });
+    console.error('Помилка при видаленні манги з бази манги:', error);
+  }
+}
+
+export async function updateManga(id) {
+  try {
+    const response = await axios.patch(`${BASE_URL}/mangas/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Помилка при оновленні манги до бази манги:', error);
   }
 }

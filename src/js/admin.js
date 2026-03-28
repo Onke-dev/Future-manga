@@ -1,6 +1,7 @@
 import { addNewManga } from './api.js';
 import { getMangas } from './api.js';
 import { deleteManga } from './api.js';
+import { getMangasId } from './api.js';
 import { mangaPanleTemplate } from './renders-pages.js';
 import { mangasPanleTemplate } from './renders-pages.js';
 
@@ -8,9 +9,11 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const refs = {
-  form: document.querySelector('.js-add-manga'),
+  formAdd: document.querySelector('.js-add-manga'),
+  formChange: document.querySelector('.js-change-manga'),
+  modalChange: document.querySelector('.modalChangeManga'),
   listManga: document.querySelector('.manga-list'),
-  // deleteBtn: document.querySelector('.delete'),
+  secList: document.querySelector('.sec-list'),
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -20,6 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const reverseManga = newManga.reverse();
       const markup = mangasPanleTemplate(reverseManga);
       refs.listManga.innerHTML = markup;
+    } else {
     }
   } catch (error) {
     iziToast.error({
@@ -29,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-refs.form.addEventListener('submit', async e => {
+refs.formAdd.addEventListener('submit', async e => {
   e.preventDefault();
   const formData = new FormData(e.target);
 
@@ -71,11 +75,26 @@ refs.listManga.addEventListener('click', async e => {
         title: 'OK',
         message: 'Successfully delete manga!',
       });
+    } else if (e.target.classList.contains('change')) {
+      const id = e.target.dataset.id;
+
+      const updateManga = await getMangasId(id);
+      console.log(updateManga);
+
+      refs.formChange.elements['cover_manga'].value = updateManga.cover;
+      refs.formChange.elements['cover_alt'].value = updateManga.alt;
+      refs.formChange.elements['name-manga'].value = updateManga.title;
+      refs.formChange.elements['status-manga'].value = updateManga.status;
+      refs.formChange.elements['name-author'].value = updateManga.author;
+      refs.formChange.elements['genres-manga'].value = updateManga.genres;
+      refs.formChange.elements['manga-summary'].value = updateManga.summary;
+
+      refs.modalChange.classList.toggle('is-open');
     }
   } catch (error) {
     iziToast.error({
       title: 'Error',
-      message: `Error ${error} while removing a manga from the manga database`,
+      message: `Oops! Something went wrong: ${error}`,
     });
   }
 });

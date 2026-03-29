@@ -39,21 +39,20 @@ refs.formAdd.addEventListener('submit', async e => {
   const formData = new FormData(e.target);
 
   const newMangaData = {
-    cover: formData.get('cover_manga'),
-    alt: formData.get('cover_alt'),
-    title: formData.get('name-manga'),
+    cover: formData.get('cover_manga').replace(/\s+/g, ' ').trim(),
+    alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
+    title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
     status: formData.get('status-manga'),
-    author: formData.get('name-author'),
+    author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
     genres: formData.get('genres-manga'),
-    summary: formData.get('manga-summary'),
+    summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
   };
 
-  if (e.target.trim()) {
-    iziToast.error({
-      title: 'Error',
-      message: `Error ${error}`,
+  if (Object.values(newMangaData).some(value => value.trim() === '')) {
+    return iziToast.warning({
+      title: 'Caution',
+      message: 'Please fill in all fields! Spaces only are not allowed.',
     });
-    return;
   }
 
   try {
@@ -80,14 +79,21 @@ refs.formChange.addEventListener('submit', async e => {
   const formData = new FormData(e.target);
 
   const updatedManga = {
-    cover: formData.get('cover_manga'),
-    alt: formData.get('cover_alt'),
-    title: formData.get('name-manga'),
+    cover: formData.get('cover_manga').replace(/\s+/g, ' ').trim(),
+    alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
+    title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
     status: formData.get('status-manga'),
-    author: formData.get('name-author'),
+    author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
     genres: formData.get('genres-manga'),
-    summary: formData.get('manga-summary'),
+    summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
   };
+
+  if (Object.values(updatedManga).some(value => value.trim() === '')) {
+    return iziToast.warning({
+      title: 'Caution',
+      message: 'Please fill in all fields! Spaces only are not allowed.',
+    });
+  }
 
   try {
     const res = await updateManga(id, updatedManga);

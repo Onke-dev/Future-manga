@@ -181,6 +181,7 @@ refs.listManga.addEventListener('click', async e => {
 
       refs.formChange.elements['cover_manga'].value = '';
       refs.formChange.dataset.oldCover = updateManga.cover;
+      document.querySelector('.js-cover-img').src = updateManga.cover;
 
       refs.formChange.elements['cover_alt'].value = updateManga.alt;
       refs.formChange.elements['name-manga'].value = updateManga.title;

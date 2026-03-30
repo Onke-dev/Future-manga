@@ -312,18 +312,24 @@
         <form class="form-manga change-form js-change-manga">
           <h2 class="main-title-form-manga">CHANGE INFO</h2>
           <fieldset class="item-form retreat-down">
-            <label for="cover_manga" class="title-form-manga"
-              >Cover Manga</label
-            >
-            <input
-              type="file"
-              class="form-input"
-              id="cover_manga"
-              name="cover_manga"
-              placeholder="Alt Manga"
-              accept="image/*"
-              required
-            />
+            <div class="wrpa-uploadImg">
+              <label for="cover_manga" class="title-form-manga"
+                >Cover Manga</label
+              >
+              <input
+                type="file"
+                class="form-input"
+                id="cover_manga"
+                name="cover_manga"
+                placeholder="Alt Manga"
+                accept="image/*"
+                required
+              />
+              <p class="title-form-manga">Cover Manga</p>
+              <div class="wrap-img-cover">
+                <img class="js-cover-img" src="" alt="Current cover" />
+              </div>
+            </div>
           </fieldset>
           <fieldset class="item-form retreat-down">
             <label for="cover_alt" class="title-form-manga">Alt cover</label>

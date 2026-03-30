@@ -3,6 +3,8 @@ import { getMangas } from './api.js';
 import { deleteManga } from './api.js';
 import { getMangasId } from './api.js';
 import { updateManga } from './api.js';
+import { uploadImgUser } from './api.js';
+
 import { mangaPanleTemplate } from './renders-pages.js';
 import { mangasPanleTemplate } from './renders-pages.js';
 
@@ -38,24 +40,46 @@ refs.formAdd.addEventListener('submit', async e => {
   e.preventDefault();
   const formData = new FormData(e.target);
 
-  const newMangaData = {
-    cover: formData.get('cover_manga').replace(/\s+/g, ' ').trim(),
+  const infoData = {
     alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
     title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
-    status: formData.get('status-manga'),
     author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
-    genres: formData.get('genres-manga'),
     summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
   };
-
-  if (Object.values(newMangaData).some(value => value.trim() === '')) {
+  if (Object.values(infoData).some(value => value.trim() === '')) {
     return iziToast.warning({
       title: 'Caution',
       message: 'Please fill in all fields! Spaces only are not allowed.',
     });
   }
 
+  // 2. Валідація картинки
+  const fileInputElement = e.target.elements['cover_manga']; // Достукаємося безпосередньо до HTML-елемента інпуту форми
+
+  if (!fileInputElement.files || fileInputElement.files.length === 0) {
+    return iziToast.warning({
+      title: 'Caution',
+      message: 'Please select a cover image!',
+    });
+  }
+
+  // Якщо файл є, беремо перший (він же єдиний, бо accept="image/*")
+  const uploadImg = fileInputElement.files[0];
+
   try {
+    const cover1x = await uploadImgUser(uploadImg);
+
+    const newMangaData = {
+      cover: cover1x, // Наш лінк з ImgBB
+      status: formData.get('status-manga'),
+      genres: formData.get('genres-manga'),
+
+      alt: infoData.alt,
+      title: infoData.title,
+      author: infoData.author,
+      summary: infoData.summary,
+    };
+
     const newManga = await addNewManga(newMangaData);
     const markup = mangaPanleTemplate(newManga);
     refs.listManga.insertAdjacentHTML('afterbegin', markup);
@@ -78,22 +102,44 @@ refs.formChange.addEventListener('submit', async e => {
   const id = e.target.dataset.id;
   const formData = new FormData(e.target);
 
-  const updatedManga = {
-    cover: formData.get('cover_manga').replace(/\s+/g, ' ').trim(),
+  const infoData = {
     alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
     title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
-    status: formData.get('status-manga'),
     author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
-    genres: formData.get('genres-manga'),
     summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
   };
-
-  if (Object.values(updatedManga).some(value => value.trim() === '')) {
+  if (Object.values(infoData).some(value => value.trim() === '')) {
     return iziToast.warning({
       title: 'Caution',
       message: 'Please fill in all fields! Spaces only are not allowed.',
     });
   }
+
+  const inputElem = e.target.elements['cover_manga'];
+  let coverUrl = refs.formChange.dataset.oldCover;
+
+  if (inputElem.files && inputElem.files.length > 0) {
+    const uploadImg = inputElem.files[0];
+    try {
+      coverUrl = await uploadImgUser(uploadImg);
+    } catch (error) {
+      return iziToast.error({
+        title: 'Error',
+        message: 'Failed to upload new image',
+      });
+    }
+  }
+
+  const updatedManga = {
+    cover: coverUrl,
+    status: formData.get('status-manga'),
+    genres: formData.get('genres-manga'),
+    alt: infoData.alt,
+    title: infoData.title,
+    author: infoData.author,
+    summary: infoData.summary,
+  };
+
 
   try {
     const res = await updateManga(id, updatedManga);
@@ -133,7 +179,9 @@ refs.listManga.addEventListener('click', async e => {
       const updateManga = await getMangasId(id);
       console.log(updateManga);
 
-      refs.formChange.elements['cover_manga'].value = updateManga.cover;
+      refs.formChange.elements['cover_manga'].value = '';
+      refs.formChange.dataset.oldCover = updateManga.cover;
+
       refs.formChange.elements['cover_alt'].value = updateManga.alt;
       refs.formChange.elements['name-manga'].value = updateManga.title;
       refs.formChange.elements['status-manga'].value = updateManga.status;

@@ -9,35 +9,44 @@
   ],
   "mangas": [
     {
-      "id": "1",
-      "title": "Solo Leveling",
-      "author": "Chu gong",
-      "status": "ONGOING",
-      "genres": "",
-      "summary": "When inter-dimensional “gates” opened up “dungeons” full of monsters...",
-      "cover1x": "/image/covers/solo-leveling-1x.jpg",
-      "cover2x": "/image/covers/solo-leveling-2x.jpg",
-      "alt": "Solo Leveling"
-    },
-    {
-      "id": "60f3",
-      "cover": "Naruto",
-      "alt": "img cover Naruto",
-      "title": "Naruto",
+      "id": "2c25",
+      "cover": "https://i.ibb.co/tt6RqFV/naruto-1x.jpg",
       "status": "ongoing",
-      "author": "Masashi Kishimoto",
-      "genres": "comedy",
-      "summary": "Naruto is a renowned manga and anime series following Naruto Uzumaki, an isolated, mischievous ninja in the Hidden Leaf Village who dreams of becoming Hokage—the village leader—to gain recognition"
-    },
-    {
-      "id": "c588",
-      "cover": "dgdgd gfdgdgdg",
-      "alt": "dgdgd gfdgdgdg",
-      "title": "dgdgd gfdgdgdg",
-      "status": "ongoing",
-      "author": "dgdgd gfdgdgdg",
       "genres": "shonen",
-      "summary": "dgdgd gfdgdgdg"
+      "alt": "Naruto",
+      "title": "Naruto",
+      "author": "Kishimoto",
+      "summary": "fsfsfs"
+    },
+    {
+      "id": "f56c",
+      "cover": "https://i.ibb.co/5gdc6VbZ/the-descent-of-the-demonic-master-1x.jpg",
+      "status": "completed",
+      "genres": "isekai",
+      "alt": "gdg",
+      "title": "gdgdg",
+      "author": "gdgd",
+      "summary": "gdgdgd"
+    },
+    {
+      "id": "adb8",
+      "cover": "https://i.ibb.co/dsSSWLWv/second-life-ranker-1x.jpg",
+      "status": "ongoing",
+      "genres": "shonen",
+      "alt": "пвпвпв",
+      "title": "аіваіаіі",
+      "author": "аіаіаіаі",
+      "summary": "іаіаіаіаі"
+    },
+    {
+      "id": "7495",
+      "cover": "https://i.ibb.co/7x3PTdY9/agnyeoneun-marionette-1x.jpg",
+      "status": "completed",
+      "genres": "shonen",
+      "alt": "jfgjhfhsfh",
+      "title": "dshshdash",
+      "author": "shfdnbsfhnbsxhnb",
+      "summary": "hfsxhnsxhd"
     }
   ],
   "chapters": [],

@@ -56,3 +56,22 @@ export async function updateManga(id, updatedManga) {
     console.error('Помилка при оновленні манги до бази манги:', error);
   }
 }
+
+export async function uploadImgUser(img) {
+  const key = 'b4c2e2dd57a22e0b112660df85c660bb';
+
+  const formData = new FormData();
+  formData.append('image', img);
+  formData.append('key', key);
+
+  try {
+    const response = await axios.post(
+      'https://api.imgbb.com/1/upload',
+      formData
+    );
+    return response.data.data.url;
+  } catch (error) {
+    console.error('Error loading image', error);
+    throw error;
+  }
+}

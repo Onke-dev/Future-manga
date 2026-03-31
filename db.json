@@ -9,44 +9,26 @@
   ],
   "mangas": [
     {
-      "id": "2c25",
-      "cover": "https://i.ibb.co/tt6RqFV/naruto-1x.jpg",
+      "id": "998b",
+      "cover1x": "https://i.ibb.co/tMLDVtb1/solo-leveling-1x.jpg",
+      "cover2x": "https://i.ibb.co/wxzyr22/solo-leveling-2x.jpg",
       "status": "ongoing",
       "genres": "shonen",
-      "alt": "Naruto",
-      "title": "Naruto",
-      "author": "Kishimoto",
-      "summary": "fsfsfs"
+      "alt": "sdsds",
+      "title": "dsdsds",
+      "author": "dsdsds",
+      "summary": "dsdsds"
     },
     {
-      "id": "f56c",
-      "cover": "https://i.ibb.co/5gdc6VbZ/the-descent-of-the-demonic-master-1x.jpg",
-      "status": "completed",
-      "genres": "isekai",
-      "alt": "gdg",
-      "title": "gdgdg",
-      "author": "gdgd",
-      "summary": "gdgdgd"
-    },
-    {
-      "id": "adb8",
-      "cover": "https://i.ibb.co/dsSSWLWv/second-life-ranker-1x.jpg",
+      "id": "34a9",
+      "cover1x": "https://i.ibb.co/QvjMNqS8/agnyeoneun-marionette-2x.jpg",
+      "cover2x": "https://i.ibb.co/qMfzmkbN/sonna-kazoku-nara-sutechaeba-2x.jpg",
       "status": "ongoing",
       "genres": "shonen",
-      "alt": "пвпвпв",
-      "title": "аіваіаіі",
-      "author": "аіаіаіаі",
-      "summary": "іаіаіаіаі"
-    },
-    {
-      "id": "7495",
-      "cover": "https://i.ibb.co/7x3PTdY9/agnyeoneun-marionette-1x.jpg",
-      "status": "completed",
-      "genres": "shonen",
-      "alt": "jfgjhfhsfh",
-      "title": "dshshdash",
-      "author": "shfdnbsfhnbsxhnb",
-      "summary": "hfsxhnsxhd"
+      "alt": "hrhw",
+      "title": "rhwhw",
+      "author": "geweg",
+      "summary": "gewge"
     }
   ],
   "chapters": [],

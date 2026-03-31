@@ -353,6 +353,12 @@ img {
 /* #endregion header styles */
 
 /* #region main styles */
+.wrap-content {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
 .geolocatio {
   display: flex;
   flex-direction: row;
@@ -801,7 +807,7 @@ img {
   .search {
     background-color: rgba(146, 141, 141, 0.8);
     border-radius: 30px;
-    max-width: 84px;
+    max-width: 130px;
 
     padding: 8px 32px 8px 14px;
 

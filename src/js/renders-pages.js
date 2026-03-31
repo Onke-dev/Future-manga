@@ -1,12 +1,13 @@
 // This function for Home page
 export function mangaHomeTemplate(manga) {
-  const { id, cover, title, alt } = manga;
+  const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-item">
   <div class="manga">
     <a href="./manga/manga-template.html?id=${id}">
       <img
         class="manga-img"
-        src="${cover}"
+        src="${cover1x}"
+        srcset="${cover1x} 1x, ${cover2x} 2x"
         width="180"
         height="257"
         alt="${alt}"
@@ -25,11 +26,12 @@ export function mangasHomeTemplate(mangas) {
 
 // This function for admin panel
 export function mangaPanleTemplate(manga) {
-  const { id, cover, title, alt } = manga;
+  const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-itemPanel">
               <img
                 class="img-manga-panel"
-                src="${cover}"
+                src="${cover1x}"
+                srcset="${cover1x} 1x, ${cover2x} 2x"
                 alt="${alt}"
                 width="180"
                 height="257"

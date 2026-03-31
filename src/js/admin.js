@@ -53,24 +53,30 @@ refs.formAdd.addEventListener('submit', async e => {
     });
   }
 
-  // 2. Валідація картинки
-  const fileInputElement = e.target.elements['cover_manga']; // Достукаємося безпосередньо до HTML-елемента інпуту форми
+  const file1x = e.target.elements['cover_manga_1x'];
+  const file2x = e.target.elements['cover_manga_2x'];
 
-  if (!fileInputElement.files || fileInputElement.files.length === 0) {
+  if (
+    !file1x.files ||
+    file1x.files.length === 0 ||
+    !file2x.files ||
+    file2x.files.length === 0
+  ) {
     return iziToast.warning({
       title: 'Caution',
       message: 'Please select a cover image!',
     });
   }
 
-  // Якщо файл є, беремо перший (він же єдиний, бо accept="image/*")
-  const uploadImg = fileInputElement.files[0];
-
+  const uploadImg1x = file1x.files[0];
+  const uploadImg2x = file2x.files[0];
   try {
-    const cover1x = await uploadImgUser(uploadImg);
+    const coverImg1x = await uploadImgUser(uploadImg1x);
+    const coverImg2x = await uploadImgUser(uploadImg2x);
 
     const newMangaData = {
-      cover: cover1x, // Наш лінк з ImgBB
+      cover1x: coverImg1x,
+      cover2x: coverImg2x,
       status: formData.get('status-manga'),
       genres: formData.get('genres-manga'),
 
@@ -115,23 +121,32 @@ refs.formChange.addEventListener('submit', async e => {
     });
   }
 
-  const inputElem = e.target.elements['cover_manga'];
-  let coverUrl = refs.formChange.dataset.oldCover;
+  let coverUrl1x = refs.formChange.dataset.oldCover;
+  let coverUrl2x = refs.formChange.dataset.oldCover;
 
-  if (inputElem.files && inputElem.files.length > 0) {
-    const uploadImg = inputElem.files[0];
-    try {
-      coverUrl = await uploadImgUser(uploadImg);
-    } catch (error) {
-      return iziToast.error({
-        title: 'Error',
-        message: 'Failed to upload new image',
-      });
+  const inputElem1x = e.target.elements['cover1x_change_manga'];
+  const inputElem2x = e.target.elements['cover2x_change_manga'];
+
+  try {
+    if (inputElem1x.files && inputElem1x.files.length > 0) {
+      const uploadImg1x = inputElem1x.files[0];
+      coverUrl1x = await uploadImgUser(uploadImg1x);
     }
+
+    if (inputElem2x.files && inputElem2x.files.length > 0) {
+      const uploadImg2x = inputElem2x.files[0];
+      coverUrl2x = await uploadImgUser(uploadImg2x);
+    }
+  } catch (error) {
+    return iziToast.error({
+      title: 'Error',
+      message: 'Failed to upload new image',
+    });
   }
 
   const updatedManga = {
-    cover: coverUrl,
+    cover1x: coverUrl1x,
+    cover2x: coverUrl2x,
     status: formData.get('status-manga'),
     genres: formData.get('genres-manga'),
     alt: infoData.alt,
@@ -139,7 +154,6 @@ refs.formChange.addEventListener('submit', async e => {
     author: infoData.author,
     summary: infoData.summary,
   };
-
 
   try {
     const res = await updateManga(id, updatedManga);
@@ -179,9 +193,17 @@ refs.listManga.addEventListener('click', async e => {
       const updateManga = await getMangasId(id);
       console.log(updateManga);
 
-      refs.formChange.elements['cover_manga'].value = '';
-      refs.formChange.dataset.oldCover = updateManga.cover;
-      document.querySelector('.js-cover-img').src = updateManga.cover;
+      refs.formChange.elements['cover1x_change_manga'].value = '';
+      refs.formChange.dataset.oldCover1x =
+        updateManga.cover1x || updateManga.cover;
+      document.querySelector('.js-cover1x-img').src =
+        updateManga.cover1x || updateManga.cover;
+
+      refs.formChange.elements['cover2x_change_manga'].value = '';
+      refs.formChange.dataset.oldCover2x =
+        updateManga.cover2x || updateManga.cover;
+      document.querySelector('.js-cover2x-img').src =
+        updateManga.cover2x || updateManga.cover;
 
       refs.formChange.elements['cover_alt'].value = updateManga.alt;
       refs.formChange.elements['name-manga'].value = updateManga.title;

@@ -262,7 +262,7 @@
                 id="status-manga"
               >
                 <option value="ongoing">ONG</option>
-                <option value="completed">COM</option>
+                <option value="end">END</option>
               </select>
             </fieldset>
             <fieldset class="item-form retreat-down">
@@ -279,30 +279,16 @@
               />
             </fieldset>
             <fieldset class="item-form retreat-down">
-              <label for="genres-manga" class="title-form-manga">Genres</label>
-              <select
-                class="manga-genres"
-                name="genres-manga"
-                id="genres-manga"
-              >
-                <optgroup label="Demographics">
-                  <option value="shonen">Shonen</option>
-                  <option value="shojo">Shojo</option>
-                  <option value="seinen">Seinen</option>
-                  <option value="josei">Josei</option>
-                </optgroup>
-                <optgroup label="Main Genres">
-                  <option value="action">Action</option>
-                  <option value="adventure">Adventure</option>
-                  <option value="comedy">Comedy</option>
-                  <option value="drama">Drama</option>
-                  <option value="fantasy">Fantasy</option>
-                  <option value="isekai">Isekai</option>
-                  <option value="romance">Romance</option>
-                  <option value="slice-of-life">Slice of Life</option>
-                  <option value="thriller">Thriller</option>
-                </optgroup>
-              </select>
+              <p class="title-form-manga">Genres</p>
+              <div class="custom-multi-select">
+                <div class="select-genres js-genres-select">
+                  <p class="title-form-manga">Genres</p>
+                  <svg class="icon-select" width="10" height="6">
+                    <use href="../../icon/icon.svg#icon-open-select"></use>
+                  </svg>
+                </div>
+                <div class="container-elements js-elems-list"></div>
+              </div>
             </fieldset>
             <fieldset class="item-form retreat-nearBtn">
               <label for="manga-summary" class="title-form-manga"
@@ -402,7 +388,7 @@
                 id="status-manga"
               >
                 <option value="ongoing">ONG</option>
-                <option value="completed">COM</option>
+                <option value="end">END</option>
               </select>
             </fieldset>
             <fieldset class="item-form retreat-down">
@@ -424,6 +410,7 @@
                 class="manga-genres"
                 name="genres-manga"
                 id="genres-manga"
+                multiple
               >
                 <optgroup label="Demographics">
                   <option value="shonen">Shonen</option>

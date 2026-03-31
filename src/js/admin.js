@@ -40,12 +40,8 @@ refs.formAdd.addEventListener('submit', async e => {
   e.preventDefault();
   const formData = new FormData(e.target);
 
-  const infoData = {
-    alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
-    title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
-    author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
-    summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
-  };
+  const infoData = dataElems(formData);
+
   if (Object.values(infoData).some(value => value.trim() === '')) {
     return iziToast.warning({
       title: 'Caution',
@@ -108,12 +104,8 @@ refs.formChange.addEventListener('submit', async e => {
   const id = e.target.dataset.id;
   const formData = new FormData(e.target);
 
-  const infoData = {
-    alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
-    title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
-    author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
-    summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
-  };
+  const infoData = dataElems(formData);
+
   if (Object.values(infoData).some(value => value.trim() === '')) {
     return iziToast.warning({
       title: 'Caution',
@@ -191,7 +183,6 @@ refs.listManga.addEventListener('click', async e => {
       const id = e.target.dataset.id;
 
       const updateManga = await getMangasId(id);
-      console.log(updateManga);
 
       refs.formChange.elements['cover1x_change_manga'].value = '';
       refs.formChange.dataset.oldCover1x =
@@ -212,8 +203,7 @@ refs.listManga.addEventListener('click', async e => {
       refs.formChange.elements['genres-manga'].value = updateManga.genres;
       refs.formChange.elements['manga-summary'].value = updateManga.summary;
 
-      refs.modalChange.classList.add('is-open');
-      document.body.classList.add('no-scroll');
+      openModal();
       refs.formChange.dataset.id = id;
     }
   } catch (error) {
@@ -226,7 +216,26 @@ refs.listManga.addEventListener('click', async e => {
 
 refs.modalChange.addEventListener('click', e => {
   if (e.target === e.currentTarget) {
-    refs.modalChange.classList.remove('is-open');
-    document.body.classList.remove('no-scroll');
+    hideModal();
   }
 });
+
+function dataElems(formData) {
+  const infoData = {
+    alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
+    title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
+    author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
+    summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
+  };
+  return infoData;
+}
+
+function openModal() {
+  refs.modalChange.classList.add('is-open');
+  document.body.classList.add('no-scroll');
+}
+
+function hideModal() {
+  refs.modalChange.classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
+}

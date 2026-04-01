@@ -466,6 +466,38 @@ img {
   right: 16px;
 }
 
+.js-elems-list {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.js-elems-list.is-open {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  max-width: 100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.upload-img {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 220px;
+  height: 100%;
+  min-width: 120px;
+  background: #fff;
+}
+
 .form-input {
   border: 1px solid #d9d9d9;
   border-radius: 8px;

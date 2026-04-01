@@ -22,13 +22,45 @@
     {
       "id": "34a9",
       "cover1x": "https://i.ibb.co/QvjMNqS8/agnyeoneun-marionette-2x.jpg",
-      "cover2x": "https://i.ibb.co/qMfzmkbN/sonna-kazoku-nara-sutechaeba-2x.jpg",
+      "cover2x": "https://i.ibb.co/QvjMNqS8/agnyeoneun-marionette-2x.jpg",
       "status": "ongoing",
       "genres": "shonen",
-      "alt": "---",
-      "title": "---",
-      "author": "---",
-      "summary": "gewgedd"
+      "alt": "fsfsdf",
+      "title": "fgsfsf",
+      "author": "fsfsfs",
+      "summary": "fsfsfs"
+    },
+    {
+      "id": "51f3",
+      "cover1x": "https://i.ibb.co/HDy10y1x/sonna-kazoku-nara-sutechaeba-1x.jpg",
+      "cover2x": "https://i.ibb.co/qMfzmkbN/sonna-kazoku-nara-sutechaeba-2x.jpg",
+      "status": "ongoing",
+      "genres": "actioncomedyfantasygossipisekaimagicpsychological",
+      "alt": "QQQ",
+      "title": "sfsfs",
+      "author": "dsfsfs",
+      "summary": "sdsdsds"
+    },
+    {
+      "id": "a457",
+      "cover1x": "https://i.ibb.co/YFZwWMS0/the-beginning-after-the-end-1x.jpg",
+      "cover2x": "https://i.ibb.co/pjMkS5C3/the-beginning-after-the-end-2x.jpg",
+      "status": "ongoing",
+      "genres": [
+        "sci-fi",
+        "seinen",
+        "shoujo",
+        "shounen",
+        "slice_of_life",
+        "sports",
+        "supernatural",
+        "thriller",
+        "tragedy"
+      ],
+      "alt": "впвпв",
+      "title": "пвпвп",
+      "author": "впвпв",
+      "summary": "пвпвпв"
     }
   ],
   "chapters": [],

@@ -4,10 +4,13 @@ import { deleteManga } from './api.js';
 import { getMangasId } from './api.js';
 import { updateManga } from './api.js';
 import { uploadImgUser } from './api.js';
-
 import { mangaPanleTemplate } from './renders-pages.js';
 import { mangasPanleTemplate } from './renders-pages.js';
-
+import { mangaGenres, genresTemplate } from './renders-pages.js';
+import { openModal } from './renders-pages.js';
+import { hideModal } from './renders-pages.js';
+import { dataElems } from './renders-pages.js';
+import { dropDownWindow } from './renders-pages.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -20,6 +23,12 @@ const refs = {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const markupGenres = genresTemplate(mangaGenres);
+  document.querySelectorAll('.js-elems-list').forEach(element => {
+    element.innerHTML = markupGenres;
+  });
+
+  dropDownWindow();
   try {
     const newManga = await getMangas();
     if (newManga && newManga.length > 0) {
@@ -70,11 +79,14 @@ refs.formAdd.addEventListener('submit', async e => {
     const coverImg1x = await uploadImgUser(uploadImg1x);
     const coverImg2x = await uploadImgUser(uploadImg2x);
 
+    const checkGenres = Array.from(
+      e.target.querySelectorAll('input[type="checkbox"]:checked')
+    ).map(checkbox => checkbox.value);
     const newMangaData = {
       cover1x: coverImg1x,
       cover2x: coverImg2x,
       status: formData.get('status-manga'),
-      genres: formData.get('genres-manga'),
+      genres: checkGenres,
 
       alt: infoData.alt,
       title: infoData.title,
@@ -113,8 +125,8 @@ refs.formChange.addEventListener('submit', async e => {
     });
   }
 
-  let coverUrl1x = refs.formChange.dataset.oldCover;
-  let coverUrl2x = refs.formChange.dataset.oldCover;
+  let coverUrl1x = refs.formChange.dataset.oldCover1x;
+  let coverUrl2x = refs.formChange.dataset.oldCover2x;
 
   const inputElem1x = e.target.elements['cover1x_change_manga'];
   const inputElem2x = e.target.elements['cover2x_change_manga'];
@@ -219,23 +231,3 @@ refs.modalChange.addEventListener('click', e => {
     hideModal();
   }
 });
-
-function dataElems(formData) {
-  const infoData = {
-    alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
-    title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
-    author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
-    summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
-  };
-  return infoData;
-}
-
-function openModal() {
-  refs.modalChange.classList.add('is-open');
-  document.body.classList.add('no-scroll');
-}
-
-function hideModal() {
-  refs.modalChange.classList.remove('is-open');
-  document.body.classList.remove('no-scroll');
-}

@@ -1,4 +1,28 @@
 // This function for Home page
+const refs = {
+  modalChange: document.querySelector('.modalChangeManga'),
+};
+
+export function openModal() {
+  refs.modalChange.classList.add('is-open');
+  document.body.classList.add('no-scroll');
+}
+
+export function hideModal() {
+  refs.modalChange.classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
+}
+
+export function dataElems(formData) {
+  const infoData = {
+    alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
+    title: formData.get('name-manga').replace(/\s+/g, ' ').trim(),
+    author: formData.get('name-author').replace(/\s+/g, ' ').trim(),
+    summary: formData.get('manga-summary').replace(/\s+/g, ' ').trim(),
+  };
+  return infoData;
+}
+
 export function mangaHomeTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-item">
@@ -49,4 +73,62 @@ export function mangaPanleTemplate(manga) {
 
 export function mangasPanleTemplate(mangas) {
   return mangas.map(mangaPanleTemplate).join('');
+}
+
+export const mangaGenres = [
+  { value: 'action', label: 'Action' },
+  { value: 'adventure', label: 'Adventure' },
+  { value: 'comedy', label: 'Comedy' },
+  { value: 'crime', label: 'Crime' },
+  { value: 'drama', label: 'Drama' },
+  { value: 'fantasy', label: 'Fantasy' },
+  { value: 'gossip', label: 'Gossip' },
+  { value: 'historical', label: 'Historical' },
+  { value: 'horror', label: 'Horror' },
+  { value: 'isekai', label: 'Isekai' },
+  { value: 'josei', label: 'Josei' },
+  { value: 'magic', label: 'Magic' },
+  { value: 'mature', label: 'Mature' },
+  { value: 'mystery', label: 'Mystery' },
+  { value: 'psychological', label: 'Psychological' },
+  { value: 'romance', label: 'Romance' },
+  { value: 'school_life', label: 'School Life' },
+  { value: 'sci-fi', label: 'Sci-Fi' },
+  { value: 'seinen', label: 'Seinen' },
+  { value: 'shoujo', label: 'Shoujo' },
+  { value: 'shounen', label: 'Shounen' },
+  { value: 'slice_of_life', label: 'Slice of Life' },
+  { value: 'sports', label: 'Sports' },
+  { value: 'supernatural', label: 'Supernatural' },
+  { value: 'thriller', label: 'Thriller' },
+  { value: 'tragedy', label: 'Tragedy' },
+];
+
+export function genreTemplate(item) {
+  const { value, label } = item;
+  return `<label class="genreManga">
+  <input type="checkbox" name="manga_genres" value="${value}" class="genre-checkbox" />
+  ${label}
+</label>`;
+}
+export function genresTemplate(items) {
+  return items.map(genreTemplate).join('');
+}
+
+export function dropDownWindow() {
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.js-genres-select');
+
+    if (btn) {
+      const dropDown = btn.nextElementSibling;
+      dropDown.classList.toggle('is-open');
+      return;
+    }
+
+    if (!e.target.closest('.custom-multi-select')) {
+      document.querySelectorAll('.js-elems-list.is-open').forEach(dropDown => {
+        dropDown.classList.remove('is-open');
+      });
+    }
+  });
 }

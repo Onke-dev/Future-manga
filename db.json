@@ -24,7 +24,7 @@
       "cover1x": "https://i.ibb.co/QvjMNqS8/agnyeoneun-marionette-2x.jpg",
       "cover2x": "https://i.ibb.co/QvjMNqS8/agnyeoneun-marionette-2x.jpg",
       "status": "ongoing",
-      "genres": "shonen",
+      "genres": [],
       "alt": "fsfsdf",
       "title": "fgsfsf",
       "author": "fsfsfs",
@@ -35,7 +35,11 @@
       "cover1x": "https://i.ibb.co/HDy10y1x/sonna-kazoku-nara-sutechaeba-1x.jpg",
       "cover2x": "https://i.ibb.co/qMfzmkbN/sonna-kazoku-nara-sutechaeba-2x.jpg",
       "status": "ongoing",
-      "genres": "actioncomedyfantasygossipisekaimagicpsychological",
+      "genres": [
+        "gossip",
+        "historical",
+        "isekai"
+      ],
       "alt": "QQQ",
       "title": "sfsfs",
       "author": "dsfsfs",

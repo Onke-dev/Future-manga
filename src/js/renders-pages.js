@@ -108,7 +108,7 @@ export function genreTemplate(item) {
   const { value, label } = item;
   return `<label class="genreManga">
   <input type="checkbox" name="manga_genres" value="${value}" class="genre-checkbox" />
-  ${label}
+  <span class="name_genre">${label}</span>
 </label>`;
 }
 export function genresTemplate(items) {

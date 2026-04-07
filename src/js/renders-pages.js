@@ -62,9 +62,7 @@ export function mangaPanleTemplate(manga) {
               />
               <h2 class="title-manga-panel">${title}</h2>
               <div class="wrap-btns">
-                <button class="btn-manga showMore" type="button">
-                  SHOW MORE
-                </button>
+                <button class="btn-manga showMore" type="button" data-id="${id}">SHOW MORE</button>
                 <button class="btn-manga change" type="button" data-id="${id}">CHANGE</button>
                 <button class="btn-manga delete" type="button" data-id="${id}">DELETE</button>
               </div>

@@ -221,6 +221,10 @@ refs.listManga.addEventListener('click', async e => {
 
       openModal();
       refs.formChange.dataset.id = id;
+    } else if (e.target.classList.contains('showMore')) {
+      const btn = e.target.closest('.showMore');
+      const id = btn.dataset.id;
+      window.location.href = `manga-template.html?id=${id}`;
     }
   } catch (error) {
     iziToast.error({

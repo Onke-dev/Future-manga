@@ -1,9 +1,6 @@
 
 /* Sections style */
-@import url('./about-us.css');
 @import url('./account.css');
-@import url('./home.css');
 @import url('./manga.css');
 @import url('./read.css');
 @import url('./settings.css');
-@import url('./admin_panel.css');

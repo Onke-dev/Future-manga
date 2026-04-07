@@ -1,0 +1,67 @@
+/* #region global styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  --font-family: 'Junge', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #ddd;
+  background-image: url('../image/background/noise.jpg');
+  background-repeat: repeat;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+body.is-open {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  touch-action: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+button,
+input,
+dd,
+dl {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* #endregion global styles */

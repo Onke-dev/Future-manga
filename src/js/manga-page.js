@@ -31,14 +31,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const genreElems = document.querySelector('.genres-manga');
     const dt = `<dt class="title" data-key="title_genre">Genres:</dt>`;
     if (Array.isArray(mangaData.genres)) {
-      const dd = mangaData.genres
-        .map(genre => {
-          return `<dd class="genre">${genre}</dd>`;
-        })
-        .join('');
-      genreElems.innerHTML = dt + dd;
+      const genreManga = mangaData.genres.join(', ');
+      genreElems.innerHTML = dt + `<dd class="genre">${genreManga}</dd>`;
     } else {
-      genreElems.innerHTML = dt + `<dd class="genre">${mangaData.genres}</dd>`;
+      const genreManga = mangaData.genres.spit(' ').join(', ');
+      genreElems.innerHTML = dt + `<dd class="genre">${genreManga}</dd>`;
     }
   } catch (error) {
     iziToast.error({

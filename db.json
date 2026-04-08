@@ -13,11 +13,17 @@
       "cover1x": "https://i.ibb.co/tMLDVtb1/solo-leveling-1x.jpg",
       "cover2x": "https://i.ibb.co/wxzyr22/solo-leveling-2x.jpg",
       "status": "ongoing",
-      "genres": "shonen",
-      "alt": "sdsds",
-      "title": "dsdsds",
-      "author": "dsdsds",
-      "summary": "dsdsds"
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "magic",
+        "supernatural"
+      ],
+      "alt": "Cover of Solo Leveling",
+      "title": "Solo Leveling",
+      "author": "Chu gong",
+      "summary": "The story is set in a world where mysterious \"Gates\" have appeared, connecting our world to dungeons filled with monsters. Humans who gained supernatural abilities to fight these monsters are known as Hunters. Unlike most RPG-style worlds, a Hunter’s rank—from E-rank (the weakest) to S-rank (the strongest)—is determined at the moment they awaken. It is impossible for a Hunter to get stronger through training or experience... except for one."
     },
     {
       "id": "34a9",
@@ -51,6 +57,10 @@
       "cover2x": "https://i.ibb.co/pjMkS5C3/the-beginning-after-the-end-2x.jpg",
       "status": "ongoing",
       "genres": [
+        "mystery",
+        "psychological",
+        "romance",
+        "school_life",
         "sci-fi",
         "seinen",
         "shoujo",

@@ -216,7 +216,7 @@ refs.listManga.addEventListener('click', async e => {
       refs.formChange.elements['name-manga'].value = updateManga.title;
       refs.formChange.elements['status-manga'].value = updateManga.status;
       refs.formChange.elements['name-author'].value = updateManga.author;
-      checkBoxes();
+      checkBoxes(updateManga);
       refs.formChange.elements['manga-summary'].value = updateManga.summary;
 
       openModal();
@@ -240,14 +240,14 @@ refs.modalChange.addEventListener('click', e => {
   }
 });
 
-function checkBoxes() {
+function checkBoxes(mangaData) {
   const allCheckboxes = document.querySelectorAll('input[name="manga_genres"]');
   allCheckboxes.forEach(checkbox => {
     checkbox.checked = false;
   });
 
-  if (updateManga.genres && Array.isArray(updateManga.genres)) {
-    updateManga.forEach(genre => {
+  if (mangaData.genres && Array.isArray(mangaData.genres)) {
+    mangaData.genres.forEach(genre => {
       const targetElem = refs.formChange.querySelector(
         `input[name="manga_genres"][value="${genre}"]`
       );

@@ -25,9 +25,9 @@ export function dataElems(formData) {
 
 export function mangaHomeTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
-  return `<li class="manga-item">
+  return `<li class="manga-item" data-id=${id}>
   <div class="manga">
-    <a href="./manga/manga-template.html?id=${id}">
+    <a href="./pages/admin_panel/manga-template.html?id=${manga.id}">
       <img
         class="manga-img"
         src="${cover1x}"
@@ -37,7 +37,7 @@ export function mangaHomeTemplate(manga) {
         alt="${alt}"
       />
     </a>
-    <a href="./manga/manga-template.html?id=${id}">
+    <a href="./pages/admin_panel/manga-template.html?id=${manga.id}">
       <h2 class="title-manga">${title}</h2>
     </a>
   </div>

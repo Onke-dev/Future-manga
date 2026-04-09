@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Manga</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main-styles.css" />
-    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="../../css/main-styles.css" />
+    <link rel="stylesheet" href="../../css/manga.css" />
   </head>
 
   <body>
@@ -19,21 +19,26 @@
     <header class="main_header">
       <div class="container">
         <nav class="nav-list">
-          <a class="logo logo-head" href="./index.html">
+          <a class="logo logo-head" href="../../index.html">
             <h1 class="logo-name">Future</h1>
           </a>
           <div class="pages">
             <ul class="list_pages">
               <li class="header_item">
-                <a class="item" href="./index.html" data-key="home">Home</a>
-              </li>
-              <li class="header_item">
-                <a class="item" href="./pages/manga/manga.html" data-key="manga">Manga</a>
+                <a class="item" href="../../index.html" data-key="home">Home</a>
               </li>
               <li class="header_item">
                 <a
                   class="item"
-                  href="./pages/about_us/about_us.html"
+                  href="../../pages/manga/manga.html"
+                  data-key="manga"
+                  >Manga</a
+                >
+              </li>
+              <li class="header_item">
+                <a
+                  class="item"
+                  href="../../pages/about_us/about_us.html"
                   data-key="about"
                   >About us</a
                 >
@@ -52,24 +57,24 @@
                     data-key="search-placeholder"
                   />
                   <svg class="magnifying-glass" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-magnifier"></use>
+                    <use href="../../icon/icon.svg#icon-magnifier"></use>
                   </svg>
                 </div>
               </li>
               <li class="function_header">
                 <a
                   class="account-user"
-                  href="./pages/account/user_account.html"
+                  href="../../pages/account/user_account.html"
                 >
                   <svg class="icon-user" width="40" height="40">
-                    <use href="./icon/icon.svg#icon-User"></use>
+                    <use href="../../icon/icon.svg#icon-User"></use>
                   </svg>
                 </a>
               </li>
               <li class="function_header">
                 <button type="button" class="eyes">
                   <svg class="icon-eye" width="40" height="40">
-                    <use href="./icon/icon.svg#icon-Eye"></use>
+                    <use href="../../icon/icon.svg#icon-Eye"></use>
                   </svg>
                 </button>
               </li>
@@ -80,7 +85,7 @@
                     <option class="item-lg" value="ua">Ua</option>
                   </select>
                   <svg class="icon-locale" width="12" height="8">
-                    <use href="./icon/icon.svg#icon-vector"></use>
+                    <use href="../../icon/icon.svg#icon-vector"></use>
                   </svg>
                 </div>
               </li>
@@ -90,7 +95,7 @@
             <svg class="burger_icon" width="40" height="40">
               <use
                 class="icon_menu"
-                href="./icon/icon.svg#icon-menu-toggle"
+                href="../../icon/icon.svg#icon-menu-toggle"
               ></use>
             </svg>
           </button>
@@ -99,12 +104,14 @@
           <div class="container mob-menu-container">
             <button class="close-btn" type="button" data-menu-close>
               <svg class="btn_icon" width="40" height="40">
-                <use href="./icon/icon.svg#icon-menu-close"></use>
+                <use href="../../icon/icon.svg#icon-menu-close"></use>
               </svg>
             </button>
             <ul class="mob-list_pages">
               <li class="mob-header_item">
-                <a class="mob-item" href="./index.html" data-key="home">Home</a>
+                <a class="mob-item" href="../../index.html" data-key="home"
+                  >Home</a
+                >
               </li>
               <li class="mob-header_item">
                 <a class="mob-item" href="#" data-key="manga">Manga</a>
@@ -112,7 +119,7 @@
               <li class="mob-header_item">
                 <a
                   class="mob-item"
-                  href="./pages/about_us/about_us.html"
+                  href="../../pages/about_us/about_us.html"
                   data-key="about"
                   >About us</a
                 >
@@ -127,21 +134,21 @@
                     data-key="search-placeholder"
                   />
                   <svg class="icon_search" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-magnifier"></use>
+                    <use href="../../icon/icon.svg#icon-magnifier"></use>
                   </svg>
                 </div>
               </li>
               <li class="mob-header_item">
                 <a
                   class="mob-item"
-                  href="./pages/account/user_account.html"
+                  href="../../pages/account/user_account.html"
                   data-key="account"
                   >Account</a
                 >
               </li>
               <li class="mob-header_item" id="eye-open">
                 <svg class="blindness" width="20" height="20">
-                  <use href="./icon/icon.svg#icon-Eye"></use>
+                  <use href="../../icon/icon.svg#icon-Eye"></use>
                 </svg>
                 <a class="mob-item" href="#" data-key="visual-impairments"
                   >For people with visual impairments</a
@@ -154,7 +161,7 @@
                     <option class="item-lg" value="ua">Ukraine</option>
                   </select>
                   <svg class="icon_lg" width="12" height="8">
-                    <use href="./icon/icon.svg#icon-vector"></use>
+                    <use href="../../icon/icon.svg#icon-vector"></use>
                   </svg>
                 </div>
               </li>
@@ -168,6 +175,83 @@
     <!-- #region main styles -->
     <main class="main_content">
       <div class="container content-main">
+        <!-- #region sec1 styles -->
+        <section class="geolocatio">
+          <div class="containerWrap">
+            <ul class="list-geo">
+              <li class="item-goe home">
+                <a
+                  class="location"
+                  href="../../index.html"
+                  data-key="home_location"
+                  >Home</a
+                >
+              </li>
+              <li class="item-goe home">
+                <a
+                  class="location"
+                  href="../../pages/account/user_account.html"
+                  data-key="title_location_account"
+                  >My account</a
+                >
+              </li>
+              <li class="item-goe">
+                <a
+                  class="location"
+                  href="../../pages/account_settings/settings.html"
+                  data-key="title_location_settings"
+                  >Settings</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- #endregion sec1 styles -->
+        <div class="container-search">
+          <div class="search-manga">
+            <input
+              type="text"
+              class="find-name"
+              name="find-name-manga"
+              placeholder="Name"
+              required
+            />
+          </div>
+          <div class="list-elems">
+            <div class="elems">
+              <input
+                type="text"
+                class="find-name-author"
+                name="find-author"
+                placeholder="Author"
+              />
+            </div>
+            <div class="elems">
+              <select class="take-status-manga" name="take-status-manga">
+                <option value="ONG">ONG</option>
+                <option value="END">END</option>
+              </select>
+              <svg class="icon-select" width="10" height="6">
+                <use href="../../icon/icon.svg#icon-open-select"></use>
+              </svg>
+            </div>
+            <div class="elems">
+              <div class="custom-multi-select">
+                <div class="select-genres js-genres-select">
+                  <p class="title-form-manga">Genres</p>
+                  <svg class="icon-select" width="10" height="6">
+                    <use href="../../icon/icon.svg#icon-open-select"></use>
+                  </svg>
+                </div>
+                <div class="container-elements js-elems-list"></div>
+              </div>
+            </div>
+            <div class="elems">
+              <button type="button">Search</button>
+            </div>
+          </div>
+        </div>
+
         <ul class="content-manga js-manga-render"></ul>
         <div id="pagination-numbers" class="pagination-container"></div>
       </div>
@@ -179,7 +263,7 @@
       <div class="container">
         <ul class="footer-list">
           <li class="footer-item">
-            <a class="logo" href="./index.html">
+            <a class="logo" href="../../index.html">
               <span class="logo-name">Future</span>
             </a>
             <p class="info-footer" data-key="paragraph">
@@ -192,28 +276,28 @@
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-instagram"></use>
+                    <use href="../../icon/icon.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-twitter"></use>
+                    <use href="../../icon/icon.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-facebook"></use>
+                    <use href="../../icon/icon.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-linkedin"></use>
+                    <use href="../../icon/icon.svg#icon-linkedin"></use>
                   </svg>
                 </a>
               </li>
@@ -225,7 +309,7 @@
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
-    <script type="module" src="./js/home-mangas.js"></script>
+    <!-- <script type="module" src="../../js/home-mangas.js"></script> -->
 
     <!-- #endregion Scripts -->
   </body>

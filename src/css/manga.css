@@ -5,9 +5,19 @@
   margin: 0 auto;
 }
 
+.containerWrap {
+  max-width: 275px;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
+  }
+
+  .containerWrap {
+    max-width: 685px;
+    margin: 0 auto;
   }
 }
 
@@ -15,6 +25,11 @@
   .container {
     max-width: 1440px;
     padding: 0 25px;
+  }
+
+  .containerWrap {
+    max-width: 1015px;
+    margin: 0 auto;
   }
 }
 
@@ -24,6 +39,7 @@
 
 .main_content {
   flex: 1;
+  display: flex;
 }
 
 .geolocatio {
@@ -89,6 +105,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.elems {
+  width: 120px;
+  height: 40px;
 }
 
 .find-name-author {
@@ -268,11 +289,29 @@
     display: block;
     width: 100%;
     position: relative;
-    padding-left: 21px;
+    /* padding-left: 21px; */
   }
 
   .location {
     font-size: 18px;
+  }
+
+  .container-search {
+    width: 603px;
+    height: 155px;
+    padding: 25px 30px;
+  }
+
+  .search-manga {
+    margin-bottom: 25px;
+  }
+
+  .find-name {
+    width: 543px;
+  }
+
+  .list-elems {
+    column-gap: 21px;
   }
 
   .manga-item {
@@ -295,14 +334,8 @@
   }
 
   .geolocatio {
-    padding-top: 20px;
-    padding-left: 97px;
-    padding-bottom: 50px;
-  }
-
-  .list-geo {
-    top: 20px;
-    left: 237px;
+    padding-top: 25px;
+    padding-bottom: 30px;
   }
 
   .location:hover {
@@ -313,6 +346,24 @@
   .location:active {
     color: #ff0000;
     transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
+  }
+
+  .container-search {
+    width: 900px;
+    height: 148px;
+    margin-bottom: 40px;
+  }
+
+  .search-manga {
+    margin-bottom: 18px;
+  }
+
+  .find-name {
+    width: 840px;
+  }
+
+  .list-elems {
+    column-gap: 35px;
   }
 
   .content-main {

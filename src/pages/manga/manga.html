@@ -207,13 +207,14 @@
           </div>
         </section>
         <!-- #endregion sec1 styles -->
-        <div class="container-search">
+        <form class="container-search js-search-form">
           <div class="search-manga">
             <input
               type="text"
               class="find-name"
               name="find-name-manga"
               placeholder="Name"
+              aria-label="Search by name"
               required
             />
           </div>
@@ -224,16 +225,24 @@
                 class="find-name-author"
                 name="find-author"
                 placeholder="Author"
+                aria-label="Search by name"
               />
             </div>
             <div class="elems">
-              <select class="take-status-manga" name="take-status-manga">
-                <option value="ONG">ONG</option>
-                <option value="END">END</option>
-              </select>
-              <svg class="icon-select" width="10" height="6">
-                <use href="../../icon/icon.svg#icon-open-select"></use>
-              </svg>
+              <div class="wrap-search-status">
+                <select
+                  class="take-status-manga"
+                  name="take-status-manga"
+                  aria-label="Select status"
+                >
+                  <option value="All">All</option>
+                  <option value="ONG">ONG</option>
+                  <option value="END">END</option>
+                </select>
+                <svg class="icon-select-staus" width="10" height="6">
+                  <use href="../../icon/icon.svg#icon-open-select"></use>
+                </svg>
+              </div>
             </div>
             <div class="elems">
               <div class="custom-multi-select">
@@ -247,10 +256,10 @@
               </div>
             </div>
             <div class="elems">
-              <button type="button">Search</button>
+              <button class="btn-search-manga" type="submit">Search</button>
             </div>
           </div>
-        </div>
+        </form>
 
         <ul class="content-manga js-manga-render"></ul>
         <div id="pagination-numbers" class="pagination-container"></div>

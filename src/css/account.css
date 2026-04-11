@@ -1,0 +1,257 @@
+/* #region container */
+
+.container {
+  max-width: 320px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.containerWrap {
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+
+  .containerWrap {
+    max-width: 603px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 25px;
+  }
+
+  .containerWrap {
+    max-width: 1210px;
+    margin: 0 auto;
+  }
+}
+
+/* #endregion container */
+
+/* #region main styles */
+.main_content {
+  min-height: auto !important;
+  flex: 1;
+  padding-bottom: 109px;
+}
+
+.geolocatio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 62px;
+}
+
+.list-geo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.home::after {
+  content: '/';
+  color: #000000;
+}
+
+.location {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 14px;
+  color: #494949;
+}
+
+.location:active {
+  color: #ff0000;
+  transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
+}
+
+.account-user-info {
+  box-sizing: border-box;
+  padding: 25px 29px;
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  border-radius: 25px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #d9d9d9;
+}
+
+.wrap-img-user {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.name-user {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 22px;
+  color: #000;
+}
+.user-info {
+  padding: 20px 0;
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-liked {
+  padding: 10px 37px;
+  border-radius: 20px;
+  background: #000;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-admin-panel {
+  padding: 10px 37px;
+  border-radius: 20px;
+  background: #ae00ff;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  width: 60px;
+  height: 60px;
+}
+
+.setting-user {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.setting-icon {
+  fill: #000000;
+}
+
+.setting-icon:active {
+  fill: #fff;
+  transition: background-color 30ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+}
+
+/* #endregion main styles */
+
+@media screen and (min-width: 768px) {
+  /* #region main styles */
+  .main_content {
+    padding-bottom: 75px;
+  }
+
+  .geolocatio {
+    padding-top: 13px;
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-left: 21px;
+    padding-bottom: 75px;
+  }
+
+  .location {
+    font-size: 18px;
+  }
+
+  .account-user-info {
+    padding: 40px;
+    width: 603px;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .wrap-img-user {
+    padding-right: 20px;
+  }
+
+  .image-user {
+    min-width: 200px;
+    height: 200px;
+  }
+
+  .user-info {
+    align-items: flex-start;
+    row-gap: 30px;
+  }
+
+  .user-actions {
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+  }
+
+  /* #endregion main styles */
+}
+
+@media screen and (min-width: 1440px) {
+  /* #region main styles */
+  .main_content {
+    padding-bottom: 95px;
+  }
+  .geolocatio {
+    padding-top: 20px;
+    padding-left: 97px;
+    padding-bottom: 59px;
+  }
+
+  .list-geo {
+    top: 20px;
+    left: 237px;
+  }
+
+  .location:hover {
+    transition: color 250ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
+    color: #ffffff;
+  }
+
+  .location:active {
+    color: #ff0000;
+    transition: color 50ms cubic-bezier(0.12, 0.57, 0.96, 0.69);
+  }
+
+  .account-user-info {
+    padding: 45px;
+    width: 814px;
+  }
+
+  .wrap-img-user {
+    padding-right: 35px;
+    row-gap: 15px;
+  }
+
+  .user-info {
+    row-gap: 25px;
+  }
+
+  .user-actions {
+    top: 45px;
+    right: 45px;
+  }
+
+  /* #endregion main styles */
+}

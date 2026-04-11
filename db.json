@@ -1,0 +1,156 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@future-manga.com",
+      "password": "123",
+      "role": "admin"
+    }
+  ],
+  "mangas": [
+    {
+      "id": "998b",
+      "cover1x": "https://i.ibb.co/tMLDVtb1/solo-leveling-1x.jpg",
+      "cover2x": "https://i.ibb.co/wxzyr22/solo-leveling-2x.jpg",
+      "status": "ONG",
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "magic",
+        "supernatural"
+      ],
+      "alt": "Cover of Solo Leveling",
+      "title": "Solo Leveling",
+      "author": "Chu gong",
+      "summary": "The story is set in a world where mysterious \"Gates\" have appeared, connecting our world to dungeons filled with monsters. Humans who gained supernatural abilities to fight these monsters are known as Hunters. Unlike most RPG-style worlds, a Hunter’s rank—from E-rank (the weakest) to S-rank (the strongest)—is determined at the moment they awaken. It is impossible for a Hunter to get stronger through training or experience... except for one."
+    },
+    {
+      "id": "34a9",
+      "cover1x": "https://i.ibb.co/QvjMNqS8/agnyeoneun-marionette-2x.jpg",
+      "cover2x": "https://i.ibb.co/QvjMNqS8/agnyeoneun-marionette-2x.jpg",
+      "status": "ongoing",
+      "genres": [],
+      "alt": "fsfsdf",
+      "title": "fgsfsf",
+      "author": "fsfsfs",
+      "summary": "fsfsfs"
+    },
+    {
+      "id": "51f3",
+      "cover1x": "https://i.ibb.co/HDy10y1x/sonna-kazoku-nara-sutechaeba-1x.jpg",
+      "cover2x": "https://i.ibb.co/qMfzmkbN/sonna-kazoku-nara-sutechaeba-2x.jpg",
+      "status": "ongoing",
+      "genres": [
+        "gossip",
+        "historical",
+        "isekai"
+      ],
+      "alt": "QQQ",
+      "title": "sfsfs",
+      "author": "dsfsfs",
+      "summary": "sdsdsds"
+    },
+    {
+      "id": "a457",
+      "cover1x": "https://i.ibb.co/YFZwWMS0/the-beginning-after-the-end-1x.jpg",
+      "cover2x": "https://i.ibb.co/pjMkS5C3/the-beginning-after-the-end-2x.jpg",
+      "status": "ongoing",
+      "genres": [
+        "mystery",
+        "psychological",
+        "romance",
+        "school_life",
+        "sci-fi",
+        "seinen",
+        "shoujo",
+        "shounen",
+        "slice_of_life",
+        "sports",
+        "supernatural",
+        "thriller",
+        "tragedy"
+      ],
+      "alt": "впвпв",
+      "title": "пвпвп",
+      "author": "впвпв",
+      "summary": "пвпвпв"
+    },
+    {
+      "id": "d8e4",
+      "cover1x": "https://i.ibb.co/TBYnWvRH/second-life-ranker-1x.jpg",
+      "cover2x": "https://i.ibb.co/QFtN7BR6/second-life-ranker-2x.jpg",
+      "status": "ONG",
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "magic"
+      ],
+      "alt": "Cover of Second Life Ranker",
+      "title": "Second Life Ranker",
+      "author": "Nong Nong, Sa Doyeon",
+      "summary": "Second Life Ranker’ is a fantasy action series that tells the story of a young man who ventures into a perilous tower to uncover the truth behind his brother’s death. After finding his brother’s diary, he discovers a secret world filled with trials, monsters and powerful ‘Rankers’. Determined to avenge his brother and become stronger, he uses the knowledge contained in the diary to climb the tower at a pace that exceeds all expectations."
+    },
+    {
+      "id": "e6ac",
+      "cover1x": "https://i.ibb.co/bjVG6GQ8/the-only-one-who-returned-with-the-maximum-level-1x.jpg",
+      "cover2x": "https://i.ibb.co/9kH5b35Z/the-only-one-who-returned-with-the-maximum-level-2x.jpg",
+      "status": "ONG",
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "seinen",
+        "supernatural",
+        "tragedy"
+      ],
+      "alt": "Cover of The Max Level Returner",
+      "title": "The Max Level Returner",
+      "author": "Honey, Lee Ji-deuk",
+      "summary": "The Return of the Master” is a fantasy and action story set in a world where a mysterious tower and monsters suddenly appear, plunging humanity into a game system. The protagonist, who was once one of the best players, disappeared during a crucial mission and was presumed dead. Several years later, whilst the world is fighting for its survival, he returns to Earth at the ‘highest level’. Unlike the others, who still have to develop further, he already possesses overwhelming power, top-tier abilities and a profound understanding of the system. With this advantage, he begins to eliminate threats, protect humanity and uncover the secrets behind the tower."
+    },
+    {
+      "id": "9d1b",
+      "cover1x": "https://i.ibb.co/kgFQKHjy/naruto-1x.jpg",
+      "cover2x": "https://i.ibb.co/tMmw9wP8/naruto-2x.jpg",
+      "status": "ONG",
+      "genres": [
+        "action"
+      ],
+      "alt": "fsdfs",
+      "title": "fsfsfs",
+      "author": "fsfsfs",
+      "summary": "sfsfsfs"
+    },
+    {
+      "id": "07a5",
+      "cover1x": "https://i.ibb.co/bg3gPBNd/the-descent-of-the-demonic-master-1x.jpg",
+      "cover2x": "https://i.ibb.co/rGR9tVvR/the-descent-of-the-demonic-master-2x.jpg",
+      "status": "ONG",
+      "genres": [
+        "action",
+        "crime",
+        "gossip",
+        "isekai"
+      ],
+      "alt": "sfsdgfdg",
+      "title": "dgdgd",
+      "author": "fsfs",
+      "summary": "fsfsfs"
+    },
+    {
+      "id": "0ec6",
+      "cover1x": "https://i.ibb.co/TDDF0Ysw/i-fell-in-love-after-school-1x.jpg",
+      "cover2x": "https://i.ibb.co/fG8qJJhQ/i-fell-in-love-after-school-2x.jpg",
+      "status": null,
+      "genres": [],
+      "alt": "dzsds",
+      "title": "dsdsds",
+      "author": "dsdsds",
+      "summary": "dsdsds"
+    }
+  ],
+  "chapters": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

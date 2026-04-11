@@ -192,9 +192,9 @@
           <li class="item-goe">
             <a
               class="location"
-              href="../../pages/account_settings/settings.html"
+              href="../../pages/manga/manga.html"
               data-key="title_location_settings"
-              >Settings</a
+              >Manga</a
             >
           </li>
         </ul>
@@ -213,7 +213,6 @@
               name="find-name-manga"
               placeholder="Name"
               aria-label="Search by name"
-              required
             />
           </div>
           <div class="list-elems">
@@ -232,8 +231,9 @@
                   class="take-status-manga"
                   name="take-status-manga"
                   aria-label="Select status"
+                  aria-placeholder="Status"
                 >
-                  <option value="All">All</option>
+                  <option value="" disabled selected hidden>Status</option>
                   <option value="ONG">ONG</option>
                   <option value="END">END</option>
                 </select>
@@ -316,7 +316,8 @@
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
-    <!-- <script type="module" src="../../js/home-mangas.js"></script> -->
+    <script type="module" src="../../js/home-mangas.js"></script>
+    <script type="module" src="../../js/search.js"></script>
 
     <!-- #endregion Scripts -->
   </body>

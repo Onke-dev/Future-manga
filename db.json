@@ -12,7 +12,7 @@
       "id": "998b",
       "cover1x": "https://i.ibb.co/tMLDVtb1/solo-leveling-1x.jpg",
       "cover2x": "https://i.ibb.co/wxzyr22/solo-leveling-2x.jpg",
-      "status": "ongoing",
+      "status": "ONG",
       "genres": [
         "action",
         "adventure",
@@ -75,6 +75,40 @@
       "title": "пвпвп",
       "author": "впвпв",
       "summary": "пвпвпв"
+    },
+    {
+      "id": "d8e4",
+      "cover1x": "https://i.ibb.co/TBYnWvRH/second-life-ranker-1x.jpg",
+      "cover2x": "https://i.ibb.co/QFtN7BR6/second-life-ranker-2x.jpg",
+      "status": "ONG",
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "magic"
+      ],
+      "alt": "Cover of Second Life Ranker",
+      "title": "Second Life Ranker",
+      "author": "Nong Nong, Sa Doyeon",
+      "summary": "Second Life Ranker’ is a fantasy action series that tells the story of a young man who ventures into a perilous tower to uncover the truth behind his brother’s death. After finding his brother’s diary, he discovers a secret world filled with trials, monsters and powerful ‘Rankers’. Determined to avenge his brother and become stronger, he uses the knowledge contained in the diary to climb the tower at a pace that exceeds all expectations."
+    },
+    {
+      "id": "e6ac",
+      "cover1x": "https://i.ibb.co/bjVG6GQ8/the-only-one-who-returned-with-the-maximum-level-1x.jpg",
+      "cover2x": "https://i.ibb.co/9kH5b35Z/the-only-one-who-returned-with-the-maximum-level-2x.jpg",
+      "status": "ONG",
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "seinen",
+        "supernatural",
+        "tragedy"
+      ],
+      "alt": "Cover of The Max Level Returner",
+      "title": "The Max Level Returner",
+      "author": "Honey, Lee Ji-deuk",
+      "summary": "The Return of the Master” is a fantasy and action story set in a world where a mysterious tower and monsters suddenly appear, plunging humanity into a game system. The protagonist, who was once one of the best players, disappeared during a crucial mission and was presumed dead. Several years later, whilst the world is fighting for its survival, he returns to Earth at the ‘highest level’. Unlike the others, who still have to develop further, he already possesses overwhelming power, top-tier abilities and a profound understanding of the system. With this advantage, he begins to eliminate threats, protect humanity and uncover the secrets behind the tower."
     }
   ],
   "chapters": [],

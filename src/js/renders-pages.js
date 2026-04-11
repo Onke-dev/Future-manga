@@ -23,6 +23,14 @@ export function dataElems(formData) {
   return infoData;
 }
 
+export function serarchElems(formData) {
+  const infoData = {
+    title: (formData.get('find-name-manga') || '').replace(/\s+/g, ' ').trim(),
+    author: (formData.get('find-author') || '').replace(/\s+/g, ' ').trim(),
+  };
+  return infoData;
+}
+
 export function mangaHomeTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-item" data-id=${id}>
@@ -46,6 +54,31 @@ export function mangaHomeTemplate(manga) {
 
 export function mangasHomeTemplate(mangas) {
   return mangas.map(mangaHomeTemplate).join('');
+}
+
+export function mangaTemplate(manga) {
+  const { id, cover1x, cover2x, title, alt } = manga;
+  return `<li class="manga-item" data-id=${id}>
+  <div class="manga">
+    <a href="../../pages/admin_panel/manga-template.html?id=${manga.id}">
+      <img
+        class="manga-img"
+        src="${cover1x}"
+        srcset="${cover1x} 1x, ${cover2x} 2x"
+        width="180"
+        height="257"
+        alt="${alt}"
+      />
+    </a>
+    <a href="../../pages/admin_panel/manga-template.html?id=${manga.id}">
+      <h2 class="title-manga">${title}</h2>
+    </a>
+  </div>
+</li>`;
+}
+
+export function mangasTemplate(mangas) {
+  return mangas.map(mangaTemplate).join('');
 }
 
 // This function for admin panel

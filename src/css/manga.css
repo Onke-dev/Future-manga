@@ -80,6 +80,7 @@
   height: 188px;
   background: rgba(0, 0, 0, 0.3);
   padding: 20px 15px;
+  margin-bottom: 40px;
 }
 
 .search-manga {
@@ -179,6 +180,52 @@
   right: 16px;
 }
 
+.js-elems-list {
+  display: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(255, 255, 255, 0.7) 49.04%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.container-elements.is-open {
+  position: relative;
+  z-index: 99999;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  column-gap: 5px;
+  width: 220px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.genreManga {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  width: calc(50% - 2.5px);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.name_genre {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
 .btn-search-manga {
   border: 1px solid #2c2c2c;
   border-radius: 8px;
@@ -196,7 +243,7 @@
 
 .content-manga {
   align-items: center;
-  padding-top: 70px;
+
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -282,6 +329,7 @@
     row-gap: 21px;
     column-gap: 31px;
     align-items: flex-start;
+    width: 603px;
   }
 
   .geolocatio {

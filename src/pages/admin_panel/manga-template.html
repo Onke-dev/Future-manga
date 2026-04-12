@@ -27,7 +27,7 @@
                 <a class="item" href="../../index.html" data-key="home">Home</a>
               </li>
               <li class="header_item">
-                <a class="item" href="#" data-key="manga">Manga</a>
+                <a class="item" href="../../pages/manga/manga.html" data-key="manga">Manga</a>
               </li>
               <li class="header_item">
                 <a
@@ -204,89 +204,83 @@
     </section>
     <!-- #endregion sec1 styles -->
 
-    <main class="containerWrap">
+    <main class="container">
       <!-- #region sec2 styles -->
       <section class="info-manga">
-        <div class="containerWrap">
-          <div class="infoMangaWrap">
-            <img
-              class="img-cover cover js-cover"
-              src=""
-              srcset=""
-              width="200"
-              height="286"
-              alt="Cover of Solo Leveling"
-            />
-            <ul class="list-info-manga">
-              <li class="item-manga title">
-                <h2 class="title-manga js-title">Loading...</h2>
-                <span class="status-manga js-status">Loading...</span>
-              </li>
-              <li class="item-manga item-info">
-                <dl class="wrapInfo">
-                  <dt class="wrapIcon">
-                    <button class="rate" type="button">
-                      <svg class="star" width="32" height="32">
-                        <use href="../../assets/icon/icon.svg#icon-star"></use>
-                      </svg>
-                    </button>
-                  </dt>
-                  <dd class="number">
-                    <p class="count-rate" data-key="count_rate">4.8(50K)</p>
-                  </dd>
-                </dl>
-                <dl class="wrapInfo">
-                  <dt class="wrapIcon">
-                    <svg class="icon-views" width="32" height="32">
-                      <use href="../../assets/icon/icon.svg#icon-eye"></use>
+        <div class="infoMangaWrap">
+          <img
+            class="img-cover cover js-cover"
+            src=""
+            srcset=""
+            width="200"
+            height="286"
+            alt="Cover of Solo Leveling"
+          />
+          <ul class="list-info-manga">
+            <li class="item-manga title">
+              <h2 class="title-manga js-title">Loading...</h2>
+              <span class="status-manga js-status">Loading...</span>
+            </li>
+            <li class="item-manga item-info">
+              <dl class="wrapInfo">
+                <dt class="wrapIcon">
+                  <button class="rate" type="button">
+                    <svg class="star" width="32" height="32">
+                      <use href="../../assets/icon/icon.svg#icon-star"></use>
                     </svg>
-                  </dt>
-                  <dd class="number">
-                    <span class="number-of-views" data-key="number_views"
-                      >15M</span
-                    >
-                  </dd>
-                </dl>
-              </li>
-              <li class="item-manga">
-                <dl class="author">
-                  <dt class="author-of-manga">Author:</dt>
-                  <dd class="name-author js-author">Loading...</dd>
-                </dl>
-              </li>
-              <li class="item-manga">
-                <dl class="genres-manga js-genres-container">
-                  <dt class="title">Genres:</dt>
-                  <dd class="genre js-genres-list">Loading...</dd>
-                </dl>
-              </li>
-              <li class="item-manga">
-                <div class="wrapBtn">
-                  <a class="btn_read" href="" data-key="readLast">Read last</a>
-                  <a class="btn_read" href="" data-key="readFirst"
-                    >Read first</a
+                  </button>
+                </dt>
+                <dd class="number">
+                  <p class="count-rate" data-key="count_rate">4.8(50K)</p>
+                </dd>
+              </dl>
+              <dl class="wrapInfo">
+                <dt class="wrapIcon">
+                  <svg class="icon-views" width="32" height="32">
+                    <use href="../../assets/icon/icon.svg#icon-eye"></use>
+                  </svg>
+                </dt>
+                <dd class="number">
+                  <span class="number-of-views" data-key="number_views"
+                    >15M</span
                   >
-                </div>
-              </li>
-              <li class="item-manga add">
-                <button class="btn_add" type="button" data-key="addManga">
-                  Add
-                </button>
-              </li>
-            </ul>
-          </div>
+                </dd>
+              </dl>
+            </li>
+            <li class="item-manga">
+              <dl class="author">
+                <dt class="author-of-manga">Author:</dt>
+                <dd class="name-author js-author">Loading...</dd>
+              </dl>
+            </li>
+            <li class="item-manga">
+              <dl class="genres-manga js-genres-container">
+                <dt class="title">Genres:</dt>
+                <dd class="genre js-genres-list">Loading...</dd>
+              </dl>
+            </li>
+            <li class="item-manga">
+              <div class="wrapBtn">
+                <a class="btn_read" href="" data-key="readLast">Read last</a>
+                <a class="btn_read" href="" data-key="readFirst">Read first</a>
+              </div>
+            </li>
+            <li class="item-manga add">
+              <button class="btn_add" type="button" data-key="addManga">
+                Add
+              </button>
+            </li>
+          </ul>
         </div>
       </section>
       <!-- #endregion sec2 styles -->
 
       <!-- #region sec3 styles -->
       <section class="summary">
-        <div class="containerWrap">
-          <div class="wrapSummary">
-            <h2 class="title-summary">SUMMARY:</h2>
-            <div class="summary-container">
-              <p class="paragraph-summary js-summary-container">Loading...</p>
-            </div>
+        <div class="wrapSummary">
+          <h2 class="title-summary">SUMMARY:</h2>
+          <div class="summary-container">
+            <p class="paragraph-summary js-summary-container">Loading...</p>
           </div>
         </div>
       </section>
@@ -294,15 +288,13 @@
 
       <!-- #region sec4 styles -->
       <section class="chapters">
-        <div class="containerWrap">
-          <h3 class="chapter-title" data-key="chapterTitle">Chapters:</h3>
-          <div class="wrap_reverse">
-            <button class="btn_reverse" type="button" data-key="reverse">
-              Reverse Order
-            </button>
-          </div>
-          <ul class="list-chapters"></ul>
+        <h3 class="chapter-title" data-key="chapterTitle">Chapters:</h3>
+        <div class="wrap_reverse">
+          <button class="btn_reverse" type="button" data-key="reverse">
+            Reverse Order
+          </button>
         </div>
+        <ul class="list-chapters"></ul>
       </section>
       <!-- #endregion sec4 styles -->
     </main>

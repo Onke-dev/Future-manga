@@ -313,6 +313,31 @@
   color: #f5f5f5;
 }
 
+.pagination-container .paginationjs .paginationjs-pages ul {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+}
+
+.paginationjs-page {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 32px;
+  height: 32px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #1e1e1e;
+  cursor: pointer;
+}
+
+.active {
+  background: #2c2c2c;
+  color: #f5f5f5;
+}
+
 /* #endregion main styles */
 
 @media screen and (min-width: 768px) {
@@ -330,6 +355,7 @@
     column-gap: 31px;
     align-items: flex-start;
     width: 603px;
+    padding-bottom: 30px;
   }
 
   .geolocatio {
@@ -337,7 +363,6 @@
     display: block;
     width: 100%;
     position: relative;
-    /* padding-left: 21px; */
   }
 
   .location {
@@ -369,6 +394,10 @@
     flex-grow: 1;
   }
 
+  .pagination-container {
+    padding-bottom: 50px;
+  }
+
   /* #endregion main styles */
 }
 
@@ -378,7 +407,7 @@
   .content-manga {
     column-gap: 60px;
     row-gap: 22px;
-    padding: 91px 0 28px 0;
+    padding: 0 0 28px 0;
     width: 900px;
   }
 
@@ -424,7 +453,7 @@
   }
 
   .pagination-container {
-    padding-bottom: 91px;
+    padding-bottom: 60px;
   }
 
   /* #endregion main styles */

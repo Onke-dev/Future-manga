@@ -98,6 +98,31 @@
   color: #f5f5f5;
 }
 
+.pagination-container .paginationjs .paginationjs-pages ul {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+}
+
+.paginationjs-page {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 32px;
+  height: 32px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #1e1e1e;
+  cursor: pointer;
+}
+
+.active {
+  background: #2c2c2c;
+  color: #f5f5f5;
+}
+
 /* #endregion main styles */
 
 @media screen and (min-width: 768px) {
@@ -114,6 +139,8 @@
     row-gap: 21px;
     column-gap: 31px;
     align-items: flex-start;
+    padding-top: 56px;
+    padding-bottom: 30px;
   }
 
   .manga-item {
@@ -121,6 +148,10 @@
     min-height: 305px;
 
     flex-grow: 1;
+  }
+
+  .pagination-container {
+    padding-bottom: 76px;
   }
 
   /* #endregion main styles */

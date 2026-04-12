@@ -7,7 +7,7 @@
 }
 
 .containerWrap {
-  max-width: 260px;
+  max-width: 275px;
   margin: 0 auto;
 }
 
@@ -17,7 +17,7 @@
   }
 
   .containerWrap {
-    max-width: 603px;
+    max-width: 685px;
     margin: 0 auto;
   }
 }
@@ -29,7 +29,7 @@
   }
 
   .containerWrap {
-    max-width: 1210px;
+    max-width: 1015px;
     margin: 0 auto;
   }
 }
@@ -48,14 +48,14 @@
   flex-direction: row;
   justify-content: center;
   padding-top: 20px;
-  padding-bottom: 62px;
+  padding-bottom: 30px;
 }
 
 .list-geo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 1px;
 }
 
 .home::after {
@@ -168,8 +168,6 @@
     display: block;
     width: 100%;
     position: relative;
-    padding-left: 21px;
-    padding-bottom: 75px;
   }
 
   .location {
@@ -213,16 +211,12 @@
   .main_content {
     padding-bottom: 95px;
   }
+
   .geolocatio {
-    padding-top: 20px;
-    padding-left: 97px;
-    padding-bottom: 59px;
+    padding-top: 25px;
+    padding-bottom: 30px;
   }
 
-  .list-geo {
-    top: 20px;
-    left: 237px;
-  }
 
   .location:hover {
     transition: color 250ms cubic-bezier(0.12, 0.57, 0.96, 0.69);

@@ -163,3 +163,26 @@ export function dropDownWindow() {
     }
   });
 }
+
+export function searchMagaTemplate(manga) {
+  const { cover1x, cover2x, alt, title, id } = manga;
+  const baseUrl = import.meta.env.BASE_URL;
+  return `<li class="item-header">
+            <a href="${baseUrl}pages/admin_panel/manga-template.html?id=${id}">
+              <img
+               class="img-manga-header"
+                src="${cover1x}"
+                srcset="${cover1x} 1x, ${cover2x} 2x"
+                alt="${alt}"
+                width="180"
+                height="257"
+              />
+            </a>
+            <a href="${baseUrl}pages/admin_panel/manga-template.html?id=${id}">
+              <h2 class="header-search-title">${title}</h2>
+            </a>
+          </li>`;
+}
+export function searchMagasTemplate(mangas) {
+  return mangas.map(searchMagaTemplate).join('');
+}

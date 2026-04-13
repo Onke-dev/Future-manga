@@ -318,15 +318,14 @@
   .wrap-search {
     position: relative;
     display: inline-block;
+    height: 40px;
   }
 
   .search {
     background-color: rgba(146, 141, 141, 0.8);
     border-radius: 30px;
     max-width: 130px;
-
     padding: 8px 32px 8px 14px;
-
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
@@ -366,6 +365,18 @@
     right: 8px;
     fill: #ffffff;
     transform: translateY(-50%);
+  }
+
+  .header-search-list {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.7);
+    max-height: 250px;
+    overflow-y: auto;
   }
 
   .burger_btn {
@@ -526,13 +537,44 @@
     column-gap: 30px;
   }
 
+  .wrap-search {
+    height: 58px;
+  }
+
   .search {
     min-width: 362px;
     padding: 17px 40px 17px 14px;
   }
 
+  .btn-search {
+    cursor: pointer;
+  }
+
   .magnifying-glass {
     right: 16px;
+  }
+
+  .item-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 15px;
+    padding: 10px;
+  }
+
+  .img-manga-header {
+    width: 110px;
+    height: 157px;
+    border-radius: 10px;
+  }
+
+  .header-search-title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 250%;
+    text-align: center;
+    color: #ffffff;
   }
 
   .account-user,

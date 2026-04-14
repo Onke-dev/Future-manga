@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 29</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="../../../../assets/css/read.css" /> -->
+  </head>
+
+  <body>
+    <!-- #region header styles -->
+    <header class="main_header">
+      <div class="container">
+        <nav class="nav-list">
+          <a class="logo logo-head" href="../../../../index.html">
+            <h1 class="logo-name">Future</h1>
+          </a>
+          <div class="pages">
+            <ul class="list_pages">
+              <li class="header_item">
+                <a class="item" href="../../../../index.html" data-key="home"
+                  >Home</a
+                >
+              </li>
+              <li class="header_item">
+                <a class="item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="header_item">
+                <a
+                  class="item"
+                  href="../../../../about_us/about_us.html"
+                  data-key="about"
+                  >About us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="functions">
+            <ul class="list_functions">
+              <li class="function_header">
+                <div class="wrap-search">
+                  <input
+                    class="search"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="magnifying-glass" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-magnifier"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="function_header">
+                <a
+                  class="account-user"
+                  href="../../../../account/user_account.html"
+                >
+                  <svg class="icon-user" width="40" height="40">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-User"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="function_header">
+                <button type="button" class="eyes">
+                  <svg class="icon-eye" width="40" height="40">
+                    <use href="../../../../assets/icon/icon.svg#icon-Eye"></use>
+                  </svg>
+                </button>
+              </li>
+              <li class="function_header">
+                <div class="wrap-lg">
+                  <select class="lg_func" name="language">
+                    <option class="item-lg" value="en">En</option>
+                    <option class="item-lg" value="ua">Ua</option>
+                  </select>
+                  <svg class="icon-locale" width="12" height="8">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-vector"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="burger_btn" type="button" data-menu-open>
+            <svg class="burger_icon" width="40" height="40">
+              <use
+                class="icon_menu"
+                href="../../../../assets/icon/icon.svg#icon-menu-toggle"
+              ></use>
+            </svg>
+          </button>
+        </nav>
+        <div class="mob-menu" data-menu>
+          <div class="container mob-menu-container">
+            <button class="close-btn" type="button" data-menu-close>
+              <svg class="btn_icon" width="40" height="40">
+                <use
+                  href="../../../../assets/icon/icon.svg#icon-menu-close"
+                ></use>
+              </svg>
+            </button>
+            <ul class="mob-list_pages">
+              <li class="mob-header_item">
+                <a
+                  class="mob-item"
+                  href="../../../../index.html"
+                  data-key="home"
+                  >Home</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <a class="mob-item" href="#" data-key="manga">Manga</a>
+              </li>
+              <li class="mob-header_item">
+                <a
+                  class="mob-item"
+                  href="../../../../about_us/about_us.html"
+                  data-key="about"
+                  >About us</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap">
+                  <input
+                    class="search_mob"
+                    name="search-name"
+                    type="text"
+                    placeholder="Search"
+                    data-key="search-placeholder"
+                  />
+                  <svg class="icon_search" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-magnifier"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="mob-header_item">
+                <a
+                  class="mob-item"
+                  href="../../../../account/user_account.html"
+                  data-key="account"
+                  >Account</a
+                >
+              </li>
+              <li class="mob-header_item" id="eye-open">
+                <svg class="blindness" width="20" height="20">
+                  <use href="../../../../assets/icon/icon.svg#icon-Eye"></use>
+                </svg>
+                <a class="mob-item" href="#" data-key="visual-impairments"
+                  >For people with visual impairments</a
+                >
+              </li>
+              <li class="mob-header_item">
+                <div class="wrap_lg">
+                  <select class="lg_func" name="language" id="language-select">
+                    <option class="item-lg" value="en">English</option>
+                    <option class="item-lg" value="ua">Ukraine</option>
+                  </select>
+                  <svg class="icon_lg" width="12" height="8">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-vector"
+                    ></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- #endregion header styles -->
+
+    <!-- #region main styles -->
+    <main class="main_content">
+      <div class="container containerWrap">
+        <!-- #region sec1 styles -->
+        <section class="geolocatio">
+          <div class="containerWrap">
+            <ul class="list-geo">
+              <li class="item-goe home">
+                <a
+                  class="location"
+                  href="../../../../index.html"
+                  data-key="home_location"
+                  >Home</a
+                >
+              </li>
+              <li class="item-goe page">
+                <a
+                  class="location"
+                  href="../../page-manga-1.html"
+                  data-key="title_location"
+                  >Solo Leveling</a
+                >
+              </li>
+              <li class="item-goe">
+                <a
+                  class="location"
+                  href="./Chapter-29.html"
+                  data-key="page_location_29"
+                  >Chapter 29</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- #endregion sec1 styles -->
+
+        <!-- #region sec2 styles -->
+        <section class="manga-content">
+          <div class="containerWrap">
+            <h2 class="name-manga" data-key="chapter29-title">
+              Solo Leveling, Chapter 29
+            </h2>
+            <ul class="list-chapters">
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-1-desktop-1x-BqqNMkLO.jpg 1x, /Future-manga/assets/solo-lvl-page-1-desktop-2x-DYQzCabZ.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-1-tablet-1x-BXiy4bFx.jpg 1x, /Future-manga/assets/solo-lvl-page-1-tablet-2x-NdmmHetZ.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-1-mob-1x-MweypfTc.jpg 1x, /Future-manga/assets/solo-lvl-page-1-mob-2x-DCAGUb5p.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-1-mob-1x-MweypfTc.jpg"
+                      alt="Page 1 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="2044"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-2-desktop-1x-Ikx2Br9R.jpg 1x, /Future-manga/assets/solo-lvl-page-2-desktop-2x-91PzCj00.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-2-tablet-1x-BFlNwQMy.jpg 1x, /Future-manga/assets/solo-lvl-page-2-tablet-2x-C_kFtILM.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-2-mob-1x-BPEj-R-X.jpg 1x, /Future-manga/assets/solo-lvl-page-2-mob-2x-C1G7K3eF.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-2-mob-1x-BPEj-R-X.jpg"
+                      alt="Page 2 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1918"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-3-desktop-1x-ZX3iLbBL.jpg 1x, /Future-manga/assets/solo-lvl-page-3-desktop-2x-B3lmPKp7.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-3-tablet-1x-CQB8d_py.jpg 1x, /Future-manga/assets/solo-lvl-page-3-tablet-2x-dOeJcWe0.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-3-mob-1x-DY8tU7sr.jpg 1x, /Future-manga/assets/solo-lvl-page-3-mob-2x-DeZmIwgF.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-3-mob-1x-DY8tU7sr.jpg"
+                      alt="Page 3 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="2107"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-4-desktop-1x-gIQ3PE60.jpg 1x, /Future-manga/assets/solo-lvl-page-4-desktop-2x-oIMjgj6f.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-4-tablet-1x-D7viYoNu.jpg 1x, /Future-manga/assets/solo-lvl-page-4-tablet-2x-C7z4o2k4.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-4-mob-1x-DC6043FO.jpg 1x, /Future-manga/assets/solo-lvl-page-4-mob-2x-3xG2SBUC.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-4-mob-1x-DC6043FO.jpg"
+                      alt="Page 4 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="2190"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-5-desktop-1x-dIaMhfbb.jpg 1x, /Future-manga/assets/solo-lvl-page-5-desktop-2x-CdQWEgoA.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-5-tablet-1x-BSNDTVmP.jpg 1x, /Future-manga/assets/solo-lvl-page-5-tablet-2x-V-L3Kwzh.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-5-mob-1x-COFtxpDa.jpg 1x, /Future-manga/assets/solo-lvl-page-5-mob-2x-DqclEici.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-5-mob-1x-COFtxpDa.jpg"
+                      alt="Page 5 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1962"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-6-desktop-1x-RarYl6bT.jpg 1x, /Future-manga/assets/solo-lvl-page-6-desktop-2x-1j9bxrjT.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-6-tablet-1x-CrHnwEO-.jpg 1x, /Future-manga/assets/solo-lvl-page-6-tablet-2x-ux6DCL89.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-6-mob-1x-C-8-kzXR.jpg 1x, /Future-manga/assets/solo-lvl-page-6-mob-2x-j9fvz4jr.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-6-mob-1x-C-8-kzXR.jpg"
+                      alt="Page 6 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1914"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-7-desktop-1x-r3Hrl4NI.jpg 1x, /Future-manga/assets/solo-lvl-page-7-desktop-2x-Cf03AMgh.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-7-tablet-1x-BWZ9fdeu.jpg 1x, /Future-manga/assets/solo-lvl-page-7-tablet-2x-CXBgKI8a.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-7-mob-1x-CR3fcY3Z.jpg 1x, /Future-manga/assets/solo-lvl-page-7-mob-2x-BpRTuAzf.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-7-mob-1x-CR3fcY3Z.jpg"
+                      alt="Page 7 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1596"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-8-desktop-1x-DAywCuRX.jpg 1x, /Future-manga/assets/solo-lvl-page-8-desktop-2x-7nvZgwSv.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-8-tablet-1x-CRMXIQYA.jpg 1x, /Future-manga/assets/solo-lvl-page-8-tablet-2x-DictvBNZ.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-8-mob-1x-5QnG45ax.jpg 1x, /Future-manga/assets/solo-lvl-page-8-mob-2x-CsB7hsOZ.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-8-mob-1x-5QnG45ax.jpg"
+                      alt="Page 8 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1767"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-9-desktop-1x-COg8tvdl.jpg 1x, /Future-manga/assets/solo-lvl-page-9-desktop-2x-79yxOFd7.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-9-tablet-1x-B4K1ZxT8.jpg 1x, /Future-manga/assets/solo-lvl-page-9-tablet-2x-CIxmQgqJ.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-9-mob-1x-bc-piFEh.jpg 1x, /Future-manga/assets/solo-lvl-page-9-mob-2x-BkqSzQUx.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-9-mob-1x-bc-piFEh.jpg"
+                      alt="Page 9 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="2056"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-10-desktop-1x-lJfFWctd.jpg 1x, /Future-manga/assets/solo-lvl-page-10-desktop-2x-CfL9WPJF.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-10-tablet-1x-D09H2XfP.jpg 1x, /Future-manga/assets/solo-lvl-page-10-tablet-2x-Dtj2Sspg.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-10-mob-1x-BsJnC9HU.jpg 1x, /Future-manga/assets/solo-lvl-page-10-mob-2x-B0nTCXrz.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-10-mob-1x-BsJnC9HU.jpg"
+                      alt="Page 10 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1596"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-11-desktop-1x-BTCIpuqn.jpg 1x, /Future-manga/assets/solo-lvl-page-11-desktop-2x-8LCgT836.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-11-tablet-1x-xicOVW1l.jpg 1x, /Future-manga/assets/solo-lvl-page-11-tablet-2x-BV9gh3D5.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-11-mob-1x-CKIZg1vF.jpg 1x, /Future-manga/assets/solo-lvl-page-11-mob-2x-oDFaiPMT.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-11-mob-1x-CKIZg1vF.jpg"
+                      alt="Page 11 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1914"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-12-desktop-1x-CRQuDcHc.jpg 1x, /Future-manga/assets/solo-lvl-page-12-desktop-2x-C9bB4T6_.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-12-tablet-1x-DLRxS9u_.jpg 1x, /Future-manga/assets/solo-lvl-page-12-tablet-2x-DHnU1yEd.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-12-mob-1x-B6De1G_f.jpg 1x, /Future-manga/assets/solo-lvl-page-12-mob-2x-DQE3qMHM.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-12-mob-1x-B6De1G_f.jpg"
+                      alt="Page 12 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1895"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-13-desktop-1x-DH5kZKyW.jpg 1x, /Future-manga/assets/solo-lvl-page-13-desktop-2x-C2KiUM6C.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-13-tablet-1x-BgtngUMf.jpg 1x, /Future-manga/assets/solo-lvl-page-13-tablet-2x-B_J7ZqVk.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-13-mob-1x-I-4VClqc.jpg 1x, /Future-manga/assets/solo-lvl-page-13-mob-2x-BVllQLkm.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-13-mob-1x-I-4VClqc.jpg"
+                      alt="Page 13 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1934"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-8-desktop-1x-DAywCuRX.jpg 1x, /Future-manga/assets/solo-lvl-page-8-desktop-2x-7nvZgwSv.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-14-tablet-1x-trOro95s.jpg 1x, /Future-manga/assets/solo-lvl-page-14-tablet-2x-Dyrr5HcQ.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-14-mob-1x-BQnSHFdd.jpg 1x, /Future-manga/assets/solo-lvl-page-14-mob-2x-BoF01rl3.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-14-mob-1x-BQnSHFdd.jpg"
+                      alt="Page 14 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1709"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-15-desktop-1x-BAHbhhmS.jpg 1x, /Future-manga/assets/solo-lvl-page-15-desktop-2x-C1CNMxFz.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-15-tablet-1x-Bwnq5IFQ.jpg 1x, /Future-manga/assets/solo-lvl-page-15-tablet-2x-CyyuEFDv.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-15-mob-1x-gKmUZLT0.jpg 1x, /Future-manga/assets/solo-lvl-page-15-mob-2x-5pHZikHv.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-15-mob-1x-gKmUZLT0.jpg"
+                      alt="Page 15 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1887"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-16-desktop-1x-DGKf0W7E.jpg 1x, /Future-manga/assets/solo-lvl-page-16-desktop-2x-7APZvxH6.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-16-tablet-1x-wEsQ4jR3.jpg 1x, /Future-manga/assets/solo-lvl-page-16-tablet-2x-DHd-N1_o.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-16-mob-1x-BAFqDJyo.jpg 1x, /Future-manga/assets/solo-lvl-page-16-mob-2x-BKOueNHF.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-16-mob-1x-BAFqDJyo.jpg"
+                      alt="Page 16 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1391"
+                    />
+                  </picture>
+                </div>
+              </li>
+              <li class="chapter-item">
+                <div class="img-chapter">
+                  <picture>
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-17-desktop-1x-sf33YzOc.jpg 1x, /Future-manga/assets/solo-lvl-page-17-desktop-2x-8SoWP8ow.jpg 2x"
+                      media="(min-width: 1440px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-17-tablet-1x-AHh6SeGA.jpg 1x, /Future-manga/assets/solo-lvl-page-17-tablet-2x-DNngHtDz.jpg 2x"
+                      media="(min-width: 768px)"
+                    />
+                    <source
+                      srcset="/Future-manga/assets/solo-lvl-page-17-mob-1x-i3Fj8xvo.jpg 1x, /Future-manga/assets/solo-lvl-page-17-mob-2x-DGy3Anrl.jpg 2x"
+                      media="(max-width: 767px)"
+                    />
+
+                    <img
+                      class="img-page"
+                      src="/Future-manga/assets/solo-lvl-page-17-mob-1x-i3Fj8xvo.jpg"
+                      alt="Page 17 Solo Leveling, Chapter 29"
+                      width="230"
+                      height="1504"
+                    />
+                  </picture>
+                </div>
+              </li>
+            </ul>
+            <div class="read-next">
+              <a class="next-rigth" href="#">
+                <svg class="next" width="34" height="34">
+                  <use
+                    href="../../../../assets/icon/icon.svg#icon-left-circle"
+                  ></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion sec2 styles -->
+
+        <!-- #region sec3 styles -->
+        <button class="scroll-up" aria-label="Scroll to top">
+          <svg class="up" width="25" height="25">
+            <use href="../../../../assets/icon/icon.svg#icon-up"></use>
+          </svg>
+        </button>
+        <!-- #endregion sec3 styles -->
+      </div>
+    </main>
+    <!-- #endregion main styles -->
+
+    <!-- #region footer styles -->
+    <footer class="footer-main">
+      <div class="container">
+        <ul class="footer-list">
+          <li class="footer-item">
+            <a class="logo" href="../../../../index.html">
+              <span class="logo-name">Future</span>
+            </a>
+            <p class="info-footer" data-key="paragraph">
+              Enjoy reading manga and manhwa for free.
+            </p>
+          </li>
+          <li class="footer-item" id="social">
+            <h3 class="title-social" data-key="social-media">Social media</h3>
+            <ul class="social-list">
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-instagram"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-twitter"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-facebook"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-icon" href="#">
+                  <svg class="icon" width="24" height="24">
+                    <use
+                      href="../../../../assets/icon/icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- #endregion footer styles -->
+
+    <!-- #region Scripts -->
+
+    <!-- <script type="module" src="../../../../assets/js/menu.js"></script>
+    <script type="module" src="../../../../assets/js/translate.js"></script>
+    <script type="module" src="../../../../assets/js/pagination.js"></script>
+    <script type="module" src="../../../../assets/js/scroll-up.js"></script> -->
+    <!-- #endregion Scripts -->
+  </body>
+</html>

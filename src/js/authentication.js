@@ -3,8 +3,10 @@ import {
   auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from './firebase-api.js';
 import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 // --- РЕГИСТРАЦИЯ ---
 export async function registerUser(email, password) {
@@ -42,5 +44,23 @@ export async function loginUser(email, password) {
     return user;
   } catch (error) {
     iziToast.error({ title: 'Error', message: 'Неверный email или пароль.' });
+  }
+}
+
+// --- ВЫХОД ИЗ АККАУНТА ---
+export async function logoutUser() {
+  try {
+    await signOut(auth);
+    iziToast.info({
+      title: 'Goodbye',
+      message: 'Вы успешно вышли из аккаунта.',
+    });
+    return true; // Возвращаем true, чтобы сказать "Всё прошло отлично"
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: 'Ошибка при выходе: ' + error.message,
+    });
+    return false;
   }
 }

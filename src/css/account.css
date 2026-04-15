@@ -131,6 +131,17 @@
   cursor: pointer;
 }
 
+.btn-exit {
+  padding: 10px 37px;
+  border-radius: 20px;
+  background: #ff0000;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
 .user-actions {
   display: flex;
   flex-direction: column;
@@ -193,7 +204,7 @@
 
   .user-info {
     align-items: flex-start;
-    row-gap: 30px;
+    row-gap: 20px;
   }
 
   .user-actions {
@@ -216,7 +227,6 @@
     padding-top: 25px;
     padding-bottom: 30px;
   }
-
 
   .location:hover {
     transition: color 250ms cubic-bezier(0.12, 0.57, 0.96, 0.69);

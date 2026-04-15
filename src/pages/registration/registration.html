@@ -178,7 +178,7 @@
           <li class="item-goe">
             <a
               class="location"
-              href="./registration.html"
+              href="../../pages/registration/registration.html"
               data-key="title_location_about"
               >Registration</a
             >
@@ -196,21 +196,25 @@
         <fieldset class="item-regist">
           <label for="user-email" class="text-form">Email:</label>
           <input
-            type="text"
+            type="email"
             class="input-form"
             id="user-email"
             name="user-email"
             placeholder="Write your Email"
+            autocomplete="username"
+            required
           />
         </fieldset>
         <fieldset class="item-regist">
           <label for="user-password" class="text-form">Password:</label>
           <input
-            type="text"
+            type="password"
             class="input-form"
             id="user-password"
             name="user-password"
             placeholder="Password"
+            autocomplete="new-password"
+            required
           />
         </fieldset>
         <fieldset class="item-regist">
@@ -218,16 +222,18 @@
             >Repeat password:</label
           >
           <input
-            type="text"
+            type="password"
             class="input-form"
             id="user-password-reapeat"
             name="user-password-reapeat"
             placeholder="Repeat password"
+            autocomplete="new-password"
+            required
           />
         </fieldset>
         <div class="wrap-btn">
-            <button type="submit" class="btn-singIn">Sign in</button>
-            <button type="submit" class="btn-regist">Register</button>
+          <button type="button" class="btn-singIn js-go-login">Sign in</button>
+          <button type="submit" class="btn-regist">Register</button>
         </div>
       </form>
       <!-- #endregion sec2 styles -->
@@ -285,7 +291,8 @@
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
-     <script type="module" src="/main.js"></script>
+    <script type="module" src="../../js/registration-page.js"></script>
+    <script type="module" src="../../main.js"></script>
     <!-- #endregion Scripts -->
   </body>
 </html>

@@ -83,6 +83,14 @@
   padding: 20px 15px;
 }
 
+.form-login {
+  width: 260px;
+  height: 321px;
+  box-shadow: 0 16px 32px -8px rgba(12, 12, 13, 0.4);
+  background: rgba(254, 254, 254, 0.4);
+  padding: 20px 15px;
+}
+
 .main-title {
   font-family: var(--font-family);
   font-weight: 600;
@@ -121,6 +129,67 @@
   color: #1e1e1e;
 }
 
+.remember-content {
+  margin-bottom: 20px;
+}
+
+.wrap-remember-me {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+}
+
+/* 1. Відключаємо стандартний дизайн браузера */
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #34c759;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 2. Малюємо саму галочку (через ::before) */
+input[type='checkbox']::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  top: 1px;
+}
+
+/* 3. Показуємо галочку, коли на чекбокс клікнули */
+input[type='checkbox']:checked::before {
+  opacity: 1;
+}
+
+/* 4. Красимо саму рамочку в зелений при кліку (по бажанню) */
+input[type='checkbox']:checked {
+  background-color: #34c759;
+}
+
+.title-remember {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #000;
+}
+
 .wrap-btn {
   display: flex;
   flex-direction: column;
@@ -142,6 +211,7 @@
   line-height: 100%;
   text-align: center;
   color: #f3f3f3;
+  cursor: pointer;
 }
 
 .btn-regist {
@@ -157,6 +227,7 @@
   line-height: 100%;
   text-align: center;
   color: #f3f3f3;
+  cursor: pointer;
 }
 
 /* #endregion main styles */

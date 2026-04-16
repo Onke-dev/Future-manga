@@ -50,15 +50,18 @@
               <li class="function_header">
                 <div class="wrap-search">
                   <input
-                    class="search"
+                    class="search jsHeaderSearch"
                     name="search-name"
                     type="text"
                     placeholder="Search"
                     data-key="search-placeholder"
                   />
-                  <svg class="magnifying-glass" width="24" height="24">
-                    <use href="../../icon/icon.svg#icon-magnifier"></use>
-                  </svg>
+                  <button class="btn-search" type="button">
+                    <svg class="magnifying-glass" width="24" height="24">
+                      <use href="./icon/icon.svg#icon-magnifier"></use>
+                    </svg>
+                  </button>
+                  <ul class="header-search-list js-list-search"></ul>
                 </div>
               </li>
               <li class="function_header">
@@ -171,43 +174,39 @@
       </div>
     </header>
     <!-- #endregion header styles -->
-
+    <div class="wrap-loader"><span class="loader"></span></div>
+    <!-- #region sec1 styles -->
+    <section class="geolocatio">
+      <div class="containerWrap">
+        <ul class="list-geo">
+          <li class="item-goe home">
+            <a class="location" href="../../index.html" data-key="home_location"
+              >Home</a
+            >
+          </li>
+          <li class="item-goe home">
+            <a
+              class="location"
+              href="../../pages/account/user_account.html"
+              data-key="title_location_account"
+              >My account</a
+            >
+          </li>
+          <li class="item-goe">
+            <a
+              class="location"
+              href="../../pages/admin_panel/admin_panel.html"
+              data-key="title_location_account"
+              >Admin Panel</a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- #endregion sec1 styles -->
     <!-- #region main styles -->
-    <main class="container">
+    <main class="containe js-main" style="display: none">
       <div class="wrap-content">
-        <!-- #region sec1 styles -->
-        <section class="geolocatio">
-          <div class="container">
-            <ul class="list-geo">
-              <li class="item-goe home">
-                <a
-                  class="location"
-                  href="../../index.html"
-                  data-key="home_location"
-                  >Home</a
-                >
-              </li>
-              <li class="item-goe home">
-                <a
-                  class="location"
-                  href="../../pages/account/user_account.html"
-                  data-key="title_location_account"
-                  >My account</a
-                >
-              </li>
-              <li class="item-goe">
-                <a
-                  class="location"
-                  href="../../pages/admin_panel/admin_panel.html"
-                  data-key="title_location_account"
-                  >Admin Panel</a
-                >
-              </li>
-            </ul>
-          </div>
-        </section>
-        <!-- #endregion sec1 styles -->
-
         <!-- #region sec2 styles -->
         <section class="sec_add_manga">
           <form class="form-manga js-add-manga">
@@ -505,8 +504,10 @@
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
+    <script type="module" src="../../js/admin-guard.js"></script>
     <script type="module" src="../../main.js"></script>
     <script type="module" src="../../js/admin.js"></script>
+    <script type="module" src="../../js/search-header.js"></script>
     <!-- #endregion Scripts -->
   </body>
 </html>

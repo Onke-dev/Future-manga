@@ -7,7 +7,7 @@
 }
 
 .containerWrap {
-  max-width: 260px;
+  max-width: 275px;
   margin: 0 auto;
 }
 
@@ -17,7 +17,7 @@
   }
 
   .containerWrap {
-    max-width: 603px;
+    max-width: 685px;
     margin: 0 auto;
   }
 }
@@ -29,7 +29,7 @@
   }
 
   .containerWrap {
-    max-width: 1210px;
+    max-width: 1015px;
     margin: 0 auto;
   }
 }
@@ -37,6 +37,38 @@
 /* #endregion container */
 
 /* #region main styles */
+.wrap-loader {
+  display: flex;
+  margin: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.wrap-loader.hidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .wrap-content {
   display: flex;
   flex-direction: column;
@@ -47,8 +79,16 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.geolocatio.hidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .list-geo {
@@ -124,6 +164,10 @@
   border: none;
   padding: 0;
   margin: 0;
+}
+
+.retreat-down {
+  margin-bottom: 15px;
 }
 
 .title-form-manga {
@@ -412,14 +456,10 @@
   }
 
   .geolocatio {
-    /* padding-top: 20px;
-    padding-left: 97px;
-    padding-bottom: 50px; */
-  }
-
-  .list-geo {
-    top: 20px;
-    left: 237px;
+    padding-top: 13px;
+    display: block;
+    width: 100%;
+    position: relative;
   }
 
   .location:hover {
@@ -436,18 +476,10 @@
 
 @media screen and (min-width: 1440px) {
   /* #region main styles */
-  .main_content {
-    /* padding-bottom: 95px; */
-  }
-  .geolocatio {
-    /* padding-top: 20px;
-    padding-left: 97px;
-    padding-bottom: 59px; */
-  }
 
-  .list-geo {
-    top: 20px;
-    left: 237px;
+  .geolocatio {
+    padding-top: 25px;
+    padding-bottom: 30px;
   }
 
   .location:hover {

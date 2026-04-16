@@ -47,15 +47,18 @@
               <li class="function_header">
                 <div class="wrap-search">
                   <input
-                    class="search"
+                    class="search jsHeaderSearch"
                     name="search-name"
                     type="text"
                     placeholder="Search"
                     data-key="search-placeholder"
                   />
-                  <svg class="magnifying-glass" width="24" height="24">
-                    <use href="../../icon/icon.svg#icon-magnifier"></use>
-                  </svg>
+                  <button class="btn-search" type="button">
+                    <svg class="magnifying-glass" width="24" height="24">
+                      <use href="./icon/icon.svg#icon-magnifier"></use>
+                    </svg>
+                  </button>
+                  <ul class="header-search-list js-list-search"></ul>
                 </div>
               </li>
               <li class="function_header">
@@ -278,6 +281,7 @@
 
     <!-- #region Scripts -->
     <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../js/search-header.js"></script>
     <!-- #endregion Scripts -->
   </body>
 </html>

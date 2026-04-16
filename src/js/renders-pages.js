@@ -186,3 +186,30 @@ export function searchMagaTemplate(manga) {
 export function searchMagasTemplate(mangas) {
   return mangas.map(searchMagaTemplate).join('');
 }
+
+const loader = document.querySelector('.wrap-loader');
+const navigation = document.querySelector('.geolocatio');
+
+export function showLoader() {
+  if (loader) {
+    loader.classList.remove('hidden');
+  }
+}
+
+export function hideLoader() {
+  if (loader) {
+    loader.classList.add('hidden');
+  }
+}
+
+export function hideNavigation() {
+  if (navigation) {
+    navigation.classList.add('hidden');
+  }
+}
+
+export function showNavigation() {
+  if (navigation) {
+    navigation.classList.remove('hidden');
+  }
+}

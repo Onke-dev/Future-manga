@@ -23,7 +23,8 @@ body {
 
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 body.is-open {

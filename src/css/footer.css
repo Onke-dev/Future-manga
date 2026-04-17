@@ -97,12 +97,12 @@
   /* #region footer styles */
 
   .footer-main {
-    padding: 30px 0 34px 0;
+    height: 153px ;
+    padding: 32px 0 32px 0;
   }
 
   .footer-list {
     flex-direction: row;
-    align-items: baseline;
   }
 
   .footer-item {
@@ -137,6 +137,7 @@
 @media screen and (min-width: 1440px) {
   /* #region footer styles */
   .footer-main {
+    height: 201px;
     padding: 44px 0 66px 0;
   }
 

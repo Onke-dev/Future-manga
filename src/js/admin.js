@@ -1,16 +1,24 @@
-import { addNewManga } from './api.js';
-import { getMangas } from './api.js';
-import { deleteManga } from './api.js';
-import { getMangasId } from './api.js';
-import { updateManga } from './api.js';
-import { uploadImgUser } from './api.js';
-import { mangaPanleTemplate } from './renders-pages.js';
-import { mangasPanleTemplate } from './renders-pages.js';
-import { mangaGenres, genresTemplate } from './renders-pages.js';
-import { openModal } from './renders-pages.js';
-import { hideModal } from './renders-pages.js';
-import { dataElems } from './renders-pages.js';
-import { dropDownWindow } from './renders-pages.js';
+import {
+  addNewManga,
+  getMangas,
+  deleteManga,
+  getMangasId,
+  updateManga,
+  uploadImgUser,
+} from './api.js';
+
+import {
+  mangaPanleTemplate,
+  mangasPanleTemplate,
+  mangaGenres,
+  genresTemplate,
+} from './renders-pages.js';
+import {
+  openModal,
+  hideModal,
+  dataElems,
+  dropDownWindow,
+} from './renders-pages.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 

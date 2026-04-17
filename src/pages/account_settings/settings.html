@@ -209,7 +209,7 @@
     <main class="main_content containerWrap">
       <!-- #region form styles -->
       <div class="container-form">
-        <form class="main-form">
+        <form class="main-form js-photo">
           <h2 class="title-settings" data-key="main_title_settings">
             User settings
           </h2>
@@ -267,7 +267,7 @@
             </div>
           </fieldset>
         </form>
-        <form class="main-form">
+        <form class="main-form js-name">
           <fieldset class="form-settings">
             <legend class="change-name" data-key="change_name_user">
               Change your Name
@@ -283,7 +283,6 @@
                   id="user-name"
                   type="text"
                   name="user-name"
-                  placeholder="Your name"
                   required
                 />
                 <button class="save_btn" type="submit" data-key="save_button">
@@ -293,7 +292,7 @@
             </div>
           </fieldset>
         </form>
-        <form class="main-form">
+        <form class="main-form js-email">
           <fieldset class="form-settings">
             <legend class="change-email" data-key="change_email_user">
               Change your Email
@@ -309,7 +308,6 @@
                   id="user-email"
                   type="email"
                   name="user-email"
-                  placeholder="Your email"
                   required
                 />
                 <button class="save_btn" type="submit" data-key="save_button">
@@ -319,7 +317,7 @@
             </div>
           </fieldset>
         </form>
-        <form class="main-form">
+        <form class="main-form js-password">
           <fieldset class="form-settings">
             <legend class="change-password" data-key="change_user_password">
               Change your password
@@ -384,7 +382,7 @@
             </div>
           </fieldset>
         </form>
-        <form class="main-form">
+        <form class="main-form js-delete-account">
           <fieldset class="form-settings last-box">
             <legend class="title-delete-account" data-key="delete_account">
               Delete Account
@@ -469,6 +467,7 @@
     <!-- #region Scripts -->
     <script type="module" src="../../main.js"></script>
     <script type="module" src="../../js/search-header.js"></script>
+    <script type="module" src="../../js/signOut.js"></script>
     <!-- <script type="module" src="../../js/menu.js"></script>
     <script type="module" src="../../js/translate.js"></script> -->
 

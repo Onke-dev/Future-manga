@@ -4,6 +4,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
+  verifyBeforeUpdateEmail,
 } from './firebase-api.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -17,6 +19,13 @@ export async function registerUser(email, password) {
       password
     );
     const user = userCredential.user;
+
+    const defaultName = email.split('@')[0];
+
+    await updateProfile(user, {
+      displayName: defaultName,
+      // photoURL: 'тут_можно_ссылку_на_стандартную_аватарку.png'
+    });
 
     iziToast.success({
       title: 'Success',
@@ -61,6 +70,71 @@ export async function logoutUser() {
       title: 'Error',
       message: 'Ошибка при выходе: ' + error.message,
     });
+    return false;
+  }
+}
+
+// =====================================
+// 1. ИЗМЕНЕНИЕ ИМЕНИ
+// =====================================
+export async function changeName(newName) {
+  // Ждем newName
+  const user = auth.currentUser;
+  if (user) {
+    try {
+      await updateProfile(user, { displayName: newName }); // Передаем newName
+      iziToast.success({ title: 'Success', message: 'Имя успешно обновлено!' });
+      return true;
+    } catch (error) {
+      iziToast.error({ title: 'Error', message: 'Ошибка: ' + error.message });
+      return false;
+    }
+  } else {
+    iziToast.error({
+      title: 'Error',
+      message: 'Пользователь не найден. Перезайдите в аккаунт.',
+    });
+    return false;
+  }
+}
+
+// =====================================
+// 2. ИЗМЕНЕНИЕ EMAIL
+// =====================================
+export async function changeEmail(newEmail) {
+  const user = auth.currentUser;
+
+  if (!user) {
+    iziToast.error({
+      title: 'Error',
+      message: 'Пользователь не найден. Перезайдите в аккаунт.',
+    });
+    return false;
+  }
+
+  try {
+    // Используем новый безопасный метод!
+    await verifyBeforeUpdateEmail(user, newEmail);
+
+    // Предупреждаем пользователя, что нужно проверить почту
+    iziToast.success({
+      title: 'Check your Inbox!',
+      message:
+        'Ссылка для подтверждения отправлена на новый email. Перейдите по ней, чтобы изменения вступили в силу!',
+      timeout: 6000, // Пусть повисит подольше, чтобы успел прочитать
+    });
+    return true;
+  } catch (error) {
+    // Если Firebase попросит перелогиниться (auth/requires-recent-login)
+    if (error.code === 'auth/requires-recent-login') {
+      iziToast.warning({
+        title: 'Security',
+        message:
+          'Ради безопасности, пожалуйста, нажмите EXIT, войдите заново и повторите попытку.',
+      });
+    } else {
+      iziToast.error({ title: 'Error', message: 'Ошибка: ' + error.message });
+    }
     return false;
   }
 }

@@ -11,13 +11,12 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/Future-manga/admin_panel.js"></script>
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/vendor-DExSUx-s.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/api-BUHk4xxQ.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/renders-pages-CxvQQuDj.js">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/vendor-Nxcx92q3.js">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/main-C88f5dxz.js">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/search-header-BalrNAg7.js">
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/main-CsDKKCyV.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/admin_panel-CT-4GKWb.css">
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/main-styles-B4vzXs6N.css">
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/admin_panel-Ca6LmCw6.css">
   </head>
 
   <body>
@@ -34,7 +33,12 @@
                 <a class="item" href="../../index.html" data-key="home">Home</a>
               </li>
               <li class="header_item">
-                <a class="item" href="../../pages/manga/manga.html" data-key="manga">Manga</a>
+                <a
+                  class="item"
+                  href="../../pages/manga/manga.html"
+                  data-key="manga"
+                  >Manga</a
+                >
               </li>
               <li class="header_item">
                 <a
@@ -51,15 +55,18 @@
               <li class="function_header">
                 <div class="wrap-search">
                   <input
-                    class="search"
+                    class="search jsHeaderSearch"
                     name="search-name"
                     type="text"
                     placeholder="Search"
                     data-key="search-placeholder"
                   />
-                  <svg class="magnifying-glass" width="24" height="24">
-                    <use href="../../icon/icon.svg#icon-magnifier"></use>
-                  </svg>
+                  <button class="btn-search" type="button">
+                    <svg class="magnifying-glass" width="24" height="24">
+                      <use href="./icon/icon.svg#icon-magnifier"></use>
+                    </svg>
+                  </button>
+                  <ul class="header-search-list js-list-search"></ul>
                 </div>
               </li>
               <li class="function_header">
@@ -172,43 +179,39 @@
       </div>
     </header>
     <!-- #endregion header styles -->
-
+    <div class="wrap-loader"><span class="loader"></span></div>
+    <!-- #region sec1 styles -->
+    <section class="geolocatio">
+      <div class="containerWrap">
+        <ul class="list-geo">
+          <li class="item-goe home">
+            <a class="location" href="../../index.html" data-key="home_location"
+              >Home</a
+            >
+          </li>
+          <li class="item-goe home">
+            <a
+              class="location"
+              href="../../pages/account/user_account.html"
+              data-key="title_location_account"
+              >My account</a
+            >
+          </li>
+          <li class="item-goe">
+            <a
+              class="location"
+              href="../../pages/admin_panel/admin_panel.html"
+              data-key="title_location_account"
+              >Admin Panel</a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- #endregion sec1 styles -->
     <!-- #region main styles -->
-    <main class="container">
+    <main class="containe js-main" style="display: none">
       <div class="wrap-content">
-        <!-- #region sec1 styles -->
-        <section class="geolocatio">
-          <div class="container">
-            <ul class="list-geo">
-              <li class="item-goe home">
-                <a
-                  class="location"
-                  href="../../index.html"
-                  data-key="home_location"
-                  >Home</a
-                >
-              </li>
-              <li class="item-goe home">
-                <a
-                  class="location"
-                  href="../../pages/account/user_account.html"
-                  data-key="title_location_account"
-                  >My account</a
-                >
-              </li>
-              <li class="item-goe">
-                <a
-                  class="location"
-                  href="../../pages/admin_panel/admin_panel.html"
-                  data-key="title_location_account"
-                  >Admin Panel</a
-                >
-              </li>
-            </ul>
-          </div>
-        </section>
-        <!-- #endregion sec1 styles -->
-
         <!-- #region sec2 styles -->
         <section class="sec_add_manga">
           <form class="form-manga js-add-manga">

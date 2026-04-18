@@ -1,2 +1,0 @@
-import{b as a,g as o,o as t}from"./vendor-DExSUx-s.js";const n={apiKey:"AIzaSyAFoelggij4rkzoeKq5twqklpQ3dd4Ycmw",authDomain:"future-manga.firebaseapp.com",projectId:"future-manga",storageBucket:"future-manga.firebasestorage.app",messagingSenderId:"1088108462273",appId:"1:1088108462273:web:55c30b5dccc18d0795d440",measurementId:"G-YZGBY0PE58"},s=a(n),g=o(s);t(g,e=>{e?console.log("Привет, ",e.email):console.log("Гость")});
-//# sourceMappingURL=main-BBOhnqHd.js.map

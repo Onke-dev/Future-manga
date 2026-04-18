@@ -3,47 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Sign in</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/Future-manga/index.js"></script>
+    <script type="module" crossorigin src="/Future-manga/sign-in.js"></script>
     <link rel="modulepreload" crossorigin href="/Future-manga/assets/vendor-Nxcx92q3.js">
     <link rel="modulepreload" crossorigin href="/Future-manga/assets/main-C88f5dxz.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/preload-helper-C1zo7JW1.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/search-header-BalrNAg7.js">
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/authentication-B95L6D2M.js">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/main-CsDKKCyV.css">
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/index-CTsV6ZPF.css">
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/registration-DvKt2gI5.css">
   </head>
 
   <body>
-    <!--WELLCOM-->
     <!-- #region header styles -->
     <header class="main_header">
       <div class="container">
         <nav class="nav-list">
-          <a class="logo logo-head" href="./index.html">
+          <a class="logo logo-head" href="../../index.html">
             <h1 class="logo-name">Future</h1>
           </a>
           <div class="pages">
             <ul class="list_pages">
               <li class="header_item">
-                <a class="item" href="./index.html" data-key="home">Home</a>
-              </li>
-              <li class="header_item">
-                <a class="item" href="./pages/manga/manga.html" data-key="manga"
-                  >Manga</a
-                >
+                <a class="item" href="../../index.html" data-key="home">Home</a>
               </li>
               <li class="header_item">
                 <a
                   class="item"
-                  href="./pages/about_us/about_us.html"
-                  data-key="about"
+                  href="../../pages/manga/manga.html"
+                  data-key="manga"
+                  >Manga</a
+                >
+              </li>
+              <li class="header_item">
+                <a class="item" href="./about_us.html" data-key="about"
                   >About us</a
                 >
               </li>
@@ -54,34 +52,31 @@
               <li class="function_header">
                 <div class="wrap-search">
                   <input
-                    class="search jsHeaderSearch"
+                    class="search"
                     name="search-name"
                     type="text"
                     placeholder="Search"
                     data-key="search-placeholder"
                   />
-                  <button class="btn-search" type="button">
-                    <svg class="magnifying-glass" width="24" height="24">
-                      <use href="./icon/icon.svg#icon-magnifier"></use>
-                    </svg>
-                  </button>
-                  <ul class="header-search-list js-list-search"></ul>
+                  <svg class="magnifying-glass" width="24" height="24">
+                    <use href="../../icon/icon.svg#icon-magnifier"></use>
+                  </svg>
                 </div>
               </li>
               <li class="function_header">
                 <a
                   class="account-user"
-                  href="./pages/registration/registration.html"
+                  href="../../pages/account/user_account.html"
                 >
                   <svg class="icon-user" width="40" height="40">
-                    <use href="./icon/icon.svg#icon-User"></use>
+                    <use href="../../icon/icon.svg#icon-User"></use>
                   </svg>
                 </a>
               </li>
               <li class="function_header">
                 <button type="button" class="eyes">
                   <svg class="icon-eye" width="40" height="40">
-                    <use href="./icon/icon.svg#icon-Eye"></use>
+                    <use href="../../icon/icon.svg#icon-Eye"></use>
                   </svg>
                 </button>
               </li>
@@ -92,7 +87,7 @@
                     <option class="item-lg" value="ua">Ua</option>
                   </select>
                   <svg class="icon-locale" width="12" height="8">
-                    <use href="./icon/icon.svg#icon-vector"></use>
+                    <use href="../../icon/icon.svg#icon-vector"></use>
                   </svg>
                 </div>
               </li>
@@ -102,7 +97,7 @@
             <svg class="burger_icon" width="40" height="40">
               <use
                 class="icon_menu"
-                href="./icon/icon.svg#icon-menu-toggle"
+                href="../../icon/icon.svg#icon-menu-toggle"
               ></use>
             </svg>
           </button>
@@ -111,21 +106,20 @@
           <div class="container mob-menu-container">
             <button class="close-btn" type="button" data-menu-close>
               <svg class="btn_icon" width="40" height="40">
-                <use href="./icon/icon.svg#icon-menu-close"></use>
+                <use href="../../icon/icon.svg#icon-menu-close"></use>
               </svg>
             </button>
             <ul class="mob-list_pages">
               <li class="mob-header_item">
-                <a class="mob-item" href="./index.html" data-key="home">Home</a>
+                <a class="mob-item" href="../../index.html" data-key="home"
+                  >Home</a
+                >
               </li>
               <li class="mob-header_item">
                 <a class="mob-item" href="#" data-key="manga">Manga</a>
               </li>
               <li class="mob-header_item">
-                <a
-                  class="mob-item"
-                  href="./pages/about_us/about_us.html"
-                  data-key="about"
+                <a class="mob-item" href="./about_us.html" data-key="about"
                   >About us</a
                 >
               </li>
@@ -139,21 +133,21 @@
                     data-key="search-placeholder"
                   />
                   <svg class="icon_search" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-magnifier"></use>
+                    <use href="../../icon/icon.svg#icon-magnifier"></use>
                   </svg>
                 </div>
               </li>
               <li class="mob-header_item">
                 <a
                   class="mob-item"
-                  href="./pages/account/user_account.html"
+                  href="../../pages/account/user_account.html"
                   data-key="account"
                   >Account</a
                 >
               </li>
               <li class="mob-header_item" id="eye-open">
                 <svg class="blindness" width="20" height="20">
-                  <use href="./icon/icon.svg#icon-Eye"></use>
+                  <use href="../../icon/icon.svg#icon-Eye"></use>
                 </svg>
                 <a class="mob-item" href="#" data-key="visual-impairments"
                   >For people with visual impairments</a
@@ -166,7 +160,7 @@
                     <option class="item-lg" value="ua">Ukraine</option>
                   </select>
                   <svg class="icon_lg" width="12" height="8">
-                    <use href="./icon/icon.svg#icon-vector"></use>
+                    <use href="../../icon/icon.svg#icon-vector"></use>
                   </svg>
                 </div>
               </li>
@@ -177,12 +171,77 @@
     </header>
     <!-- #endregion header styles -->
 
-    <!-- #region main styles -->
-    <main class="main_content">
-      <div class="container content-main">
-        <ul class="content-manga js-manga-render"></ul>
-        <div id="pagination-numbers" class="pagination-container"></div>
+    <!-- #region sec1 styles -->
+    <section class="geolocatio">
+      <div class="containerWrap">
+        <ul class="list-geo">
+          <li class="item-goe home">
+            <a class="location" href="../../index.html" data-key="home_location"
+              >Home</a
+            >
+          </li>
+          <li class="item-goe home">
+            <a
+              class="location"
+              href="../../pages/registration/registration.html"
+              data-key="title_location_about"
+              >Registration</a
+            >
+          </li>
+          <li class="item-goe">
+            <a
+              class="location"
+              href="../../pages/sign-in/sign-in.html"
+              data-key="title_location_about"
+              >Sign in</a
+            >
+          </li>
+        </ul>
       </div>
+    </section>
+    <!-- #endregion sec1 styles -->
+
+    <!-- #region main styles -->
+    <main class="main_content container">
+      <!-- #region sec2 styles -->
+      <form class="form-login">
+        <h2 class="main-title">SIGN IN</h2>
+        <fieldset class="item-regist">
+          <label for="user-email" class="text-form">Email:</label>
+          <input
+            type="email"
+            class="input-form"
+            id="user-email"
+            name="user-email"
+            placeholder="Write your Email"
+          />
+        </fieldset>
+        <fieldset class="item-regist">
+          <label for="user-password" class="text-form">Password:</label>
+          <input
+            type="password"
+            class="input-form"
+            id="user-password"
+            name="user-password"
+            placeholder="Password"
+          />
+        </fieldset>
+        <fieldset class="item-regist remember-content">
+          <div class="wrap-remember-me">
+            <input
+              type="checkbox"
+              class="remember"
+              name="remember"
+              id="remember"
+            />
+            <label for="remember" class="title-remember">Remember me</label>
+          </div>
+        </fieldset>
+        <div class="wrap-btn">
+          <button type="submit" class="btn-singIn js-go-login">Sign in</button>
+        </div>
+      </form>
+      <!-- #endregion sec2 styles -->
     </main>
     <!-- #endregion main styles -->
 
@@ -191,7 +250,7 @@
       <div class="container">
         <ul class="footer-list">
           <li class="footer-item">
-            <a class="logo" href="./index.html">
+            <a class="logo" href="../../index.html">
               <span class="logo-name">Future</span>
             </a>
             <p class="info-footer" data-key="paragraph">
@@ -204,28 +263,28 @@
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-instagram"></use>
+                    <use href="../../icon/icon.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-twitter"></use>
+                    <use href="../../icon/icon.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-facebook"></use>
+                    <use href="../../icon/icon.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
               <li class="social-item">
                 <a class="social-icon" href="#">
                   <svg class="icon" width="24" height="24">
-                    <use href="./icon/icon.svg#icon-linkedin"></use>
+                    <use href="../../icon/icon.svg#icon-linkedin"></use>
                   </svg>
                 </a>
               </li>
@@ -237,7 +296,6 @@
     <!-- #endregion footer styles -->
 
     <!-- #region Scripts -->
-
     <!-- #endregion Scripts -->
   </body>
 </html>

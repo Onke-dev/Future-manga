@@ -11,12 +11,12 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/Future-manga/manga-template.js"></script>
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/vendor-DExSUx-s.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/api-BUHk4xxQ.js">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/vendor-Nxcx92q3.js">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/main-C88f5dxz.js">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/search-header-BalrNAg7.js">
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/main-CsDKKCyV.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/manga-template-Da2FvCDA.css">
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/main-styles-B4vzXs6N.css">
   </head>
   <body>
     <!-- #region header styles -->
@@ -49,15 +49,18 @@
               <li class="function_header">
                 <div class="wrap-search">
                   <input
-                    class="search"
+                    class="search jsHeaderSearch"
                     name="search-name"
                     type="text"
                     placeholder="Search"
                     data-key="search-placeholder"
                   />
-                  <svg class="magnifying-glass" width="24" height="24">
-                    <use href="../../icon/icon.svg#icon-magnifier"></use>
-                  </svg>
+                  <button class="btn-search" type="button">
+                    <svg class="magnifying-glass" width="24" height="24">
+                      <use href="./icon/icon.svg#icon-magnifier"></use>
+                    </svg>
+                  </button>
+                  <ul class="header-search-list js-list-search"></ul>
                 </div>
               </li>
               <li class="function_header">

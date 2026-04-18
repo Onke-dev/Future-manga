@@ -38,8 +38,7 @@
 
 /* #region main styles */
 .main_content {
-  min-height: auto !important;
-  flex: 1;
+  min-height: auto;
   padding-bottom: 109px;
 }
 
@@ -172,6 +171,7 @@
   /* #region main styles */
   .main_content {
     padding-bottom: 75px;
+    margin: auto;
   }
 
   .geolocatio {

@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main-styles.css" />
     <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/main-styles.css" />
   </head>
 
   <body>
@@ -113,7 +113,12 @@
                 <a class="mob-item" href="./index.html" data-key="home">Home</a>
               </li>
               <li class="mob-header_item">
-                <a class="mob-item" href="#" data-key="manga">Manga</a>
+                <a
+                  class="mob-item"
+                  href="./pages/manga/manga.html"
+                  data-key="manga"
+                  >Manga</a
+                >
               </li>
               <li class="mob-header_item">
                 <a
@@ -140,7 +145,7 @@
               <li class="mob-header_item">
                 <a
                   class="mob-item"
-                  href="./pages/account/user_account.html"
+                  href="./pages/registration/registration.html"
                   data-key="account"
                   >Account</a
                 >
@@ -232,9 +237,10 @@
 
     <!-- #region Scripts -->
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/js-functions/menu.js"></script>
     <script type="module" src="./js/home-mangas.js"></script>
     <script type="module" src="./js/search-header.js"></script>
-
+    <script type="module" src="./js/header-auth.js"></script>
     <!-- #endregion Scripts -->
   </body>
 </html>

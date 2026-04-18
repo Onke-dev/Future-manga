@@ -1,5 +1,13 @@
 import { auth, onAuthStateChanged } from './firebase-api.js';
-import { logoutUser, changeName, changeEmail } from './authentication.js';
+import {
+  logoutUser,
+  changeName,
+  changeEmail,
+  changePassword,
+  deleteUserAccount,
+} from './authentication.js';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const ADMIN_EMAIL = `angertina777@ukr.net`;
 
@@ -7,10 +15,16 @@ const refs = {
   btnLogout: document.querySelector('.btn-exit'),
   btnPanel: document.querySelector('#admin-btn'),
   formChangeName: document.querySelector('.js-name'), // ID формы смены имени
-  formChangeEmail: document.querySelector('.js-email'),
   inputNewName: document.querySelector('#user-name'),
   profileName: document.querySelector('.js-profile-name'),
+  formChangeEmail: document.querySelector('.js-email'),
   inputEmail: document.querySelector('#user-email'),
+  formChangePassword: document.querySelector('.js-password'),
+  inputCurrentPassord: document.querySelector('#current-password'),
+  inputNewPassord: document.querySelector('#new-password'),
+  inputConfirmPassord: document.querySelector('#confirm-password'),
+  formDeleteAcc: document.querySelector('.js-delete-account'),
+  inputDeleteAcc: document.querySelector('#delete-password'),
 };
 
 onAuthStateChanged(auth, user => {
@@ -72,7 +86,7 @@ if (refs.btnLogout) {
   });
 }
 
-// 1. Изменение имени
+// --- ИЗМЕНЕНИЕ ИМЕНИ ---
 if (refs.formChangeName) {
   refs.formChangeName.addEventListener('submit', async e => {
     e.preventDefault(); // Останавливаем перезагрузку страницы
@@ -97,6 +111,7 @@ if (refs.formChangeName) {
   });
 }
 
+// --- ИЗМЕНЕНИЕ EMAIL ---
 if (refs.formChangeEmail) {
   refs.formChangeEmail.addEventListener('submit', async e => {
     e.preventDefault(); // Останавливаем перезагрузку страницы
@@ -114,6 +129,58 @@ if (refs.formChangeEmail) {
       // НОВАЯ СТРОЧКА: Сразу обновляем placeholder на новое имя
       if (refs.inputEmail) refs.inputEmail.placeholder = newEmail;
       refs.formChangeEmail.reset();
+    }
+  });
+}
+
+// --- ИЗМЕНЕНИЕ PASSWORD ---
+if (refs.formChangePassword) {
+  refs.formChangePassword.addEventListener('submit', async e => {
+    e.preventDefault();
+    const currentPassord = refs.inputCurrentPassord.value.trim();
+    const newPassord = refs.inputNewPassord.value.trim();
+    const confirmPassord = refs.inputConfirmPassord.value.trim();
+
+    if (!currentPassord || !newPassord || !confirmPassord) {
+      iziToast.warning({
+        title: 'Warning',
+        message: 'Пожалуйста, заполните все поля.',
+      });
+      return;
+    }
+    if (newPassord !== confirmPassord) {
+      iziToast.error({ title: 'Error', message: 'Новые пароли не совпадают!' });
+      return;
+    }
+    const success = await changePassword(currentPassord, newPassord);
+    if (success) {
+      // Если всё отлично, очищаем форму
+      refs.formChangePassword.reset();
+    }
+  });
+}
+
+// --- DELETE ACCOUNT ---
+if (refs.formDeleteAcc) {
+  refs.formDeleteAcc.addEventListener('submit', async e => {
+    e.preventDefault();
+    const password = refs.inputDeleteAcc.value.trim();
+    if (!password) {
+      iziToast.warning({
+        title: 'Warning',
+        message: 'Введите пароль для подтверждения.',
+      });
+      return;
+    }
+    const isConfirmed = confirm(
+      'Вы уверены? Это действие навсегда удалит ваш аккаунт и все данные без возможности восстановления.'
+    );
+    if (!isConfirmed) return;
+    const success = await deleteUserAccount(password);
+    if (success) {
+      
+      const baseUrl = import.meta.env.BASE_URL;
+      window.location.replace(`${baseUrl}index.html`);
     }
   });
 }

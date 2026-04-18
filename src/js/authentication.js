@@ -6,6 +6,10 @@ import {
   signOut,
   updateProfile,
   verifyBeforeUpdateEmail,
+  updatePassword,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  deleteUser,
 } from './firebase-api.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -74,9 +78,7 @@ export async function logoutUser() {
   }
 }
 
-// =====================================
-// 1. ИЗМЕНЕНИЕ ИМЕНИ
-// =====================================
+// --- ИЗМЕНЕНИЕ ИМЕНИ ---
 export async function changeName(newName) {
   // Ждем newName
   const user = auth.currentUser;
@@ -98,9 +100,7 @@ export async function changeName(newName) {
   }
 }
 
-// =====================================
-// 2. ИЗМЕНЕНИЕ EMAIL
-// =====================================
+// --- ИЗМЕНЕНИЕ EMAIL ---
 export async function changeEmail(newEmail) {
   const user = auth.currentUser;
 
@@ -134,6 +134,94 @@ export async function changeEmail(newEmail) {
       });
     } else {
       iziToast.error({ title: 'Error', message: 'Ошибка: ' + error.message });
+    }
+    return false;
+  }
+}
+
+// --- ИЗМЕНЕНИЕ PASSWORD ---
+export async function changePassword(currentPassword, newPassword) {
+  const user = auth.currentUser;
+  if (!user) {
+    iziToast.error({ title: 'Error', message: 'Пользователь не найден.' });
+    return false;
+  }
+
+  try {
+    const credential = EmailAuthProvider.credential(
+      user.email,
+      currentPassword
+    );
+    await reauthenticateWithCredential(user, credential);
+    await updatePassword(user, newPassword);
+    iziToast.success({ title: 'Success', message: 'Пароль успешно изменен!' });
+    return true;
+  } catch (error) {
+    if (
+      error.code === 'auth/invalid-credential' ||
+      error.code === 'auth/wrong-password'
+    ) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Текущий пароль введен неверно!',
+      });
+    } else if (error.code === 'auth/weak-password') {
+      iziToast.error({
+        title: 'Weak Password',
+        message: 'Новый пароль должен быть не менее 6 символов.',
+      });
+    } else {
+      iziToast.error({ title: 'Error', message: error.message });
+    }
+    return false;
+  }
+}
+
+// Вспомогательная функция для подтверждения пароля
+export async function reauthenticate(currentPassword) {
+  const user = auth.currentUser;
+  const credential = EmailAuthProvider.credential(user.email, currentPassword);
+  return await reauthenticateWithCredential(user, credential);
+}
+
+export async function deleteUserAccount(currentPassword) {
+  const user = auth.currentUser;
+
+  if (!user) {
+    iziToast.error({ title: 'Error', message: 'Пользователь не найден.' });
+    return false;
+  }
+
+  try {
+    // 1. Создаем "ключ" из текущей почты и пароля
+    const credential = EmailAuthProvider.credential(
+      user.email,
+      currentPassword
+    );
+
+    // 2. Доказываем Firebase, что это реально мы
+    await reauthenticateWithCredential(user, credential);
+
+    // 3. Удаляем пользователя!
+    await deleteUser(user);
+
+    // Уведомление (хотя пользователь его вряд ли увидит долго, так как мы его перекинем)
+    iziToast.info({
+      title: 'Goodbye',
+      message: 'Ваш аккаунт навсегда удален.',
+    });
+    return true;
+  } catch (error) {
+    if (
+      error.code === 'auth/invalid-credential' ||
+      error.code === 'auth/wrong-password'
+    ) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Текущий пароль введен неверно!',
+      });
+    } else {
+      iziToast.error({ title: 'Error', message: error.message });
     }
     return false;
   }

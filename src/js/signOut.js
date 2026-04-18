@@ -5,6 +5,7 @@ import {
   changeEmail,
   changePassword,
   deleteUserAccount,
+  uploadAvatar,
 } from './authentication.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -25,6 +26,14 @@ const refs = {
   inputConfirmPassord: document.querySelector('#confirm-password'),
   formDeleteAcc: document.querySelector('.js-delete-account'),
   inputDeleteAcc: document.querySelector('#delete-password'),
+
+  formPhoto: document.querySelector('.js-photo'),
+  imgAvatar: document.querySelector('.img-settings, .image-user'),
+  sourcesAvatar: document.querySelectorAll(
+    '.img-change picture source, .wrap-img-user picture source'
+  ),
+  btnTriggerLoad: document.querySelector('.load'), // Кнопка с иконкой
+  inputFile: document.querySelector('#avatar-upload'), // Наш скрытый инпут
 };
 
 onAuthStateChanged(auth, user => {
@@ -58,6 +67,14 @@ onAuthStateChanged(auth, user => {
     } else {
       if (refs.btnPanel) refs.btnPanel.style.display = 'none';
     }
+
+    if (refs.imgAvatar && user.photoURL) {
+      refs.imgAvatar.src = user.photoURL;
+      // Удаляем дефолтные адаптивные заглушки, чтобы они не перебивали кастомную фотку
+      if (refs.sourcesAvatar) {
+        refs.sourcesAvatar.forEach(source => source.remove());
+      }
+    }
   } else {
     const baseUrl = import.meta.env.BASE_URL;
 
@@ -74,6 +91,7 @@ if (refs.btnLogout) {
     const isSuccess = await logoutUser();
 
     if (isSuccess) {
+      localStorage.removeItem('userAvatar');
       // Если выход прошел успешно, перекидываем юзера на главную страницу
       const baseUrl = import.meta.env.BASE_URL;
       setTimeout(() => {
@@ -178,9 +196,90 @@ if (refs.formDeleteAcc) {
     if (!isConfirmed) return;
     const success = await deleteUserAccount(password);
     if (success) {
-      
       const baseUrl = import.meta.env.BASE_URL;
       window.location.replace(`${baseUrl}index.html`);
     }
   });
+}
+
+// --- ИЗМЕНЕНИЕ АВАТАРКИ ---
+
+// Переменная, которая будет хранить файл до того, как мы нажмем "Upload"
+let selectedFile = null;
+
+// 1. При клике на иконку (.load) — открываем системное окно выбора файла
+if (refs.btnTriggerLoad && refs.inputFile) {
+  refs.btnTriggerLoad.addEventListener('click', () => {
+    refs.inputFile.click();
+  });
+}
+
+// 2. Когда файл выбран — делаем предпросмотр
+if (refs.inputFile) {
+  refs.inputFile.addEventListener('change', e => {
+    selectedFile = e.target.files[0];
+    if (!selectedFile) return;
+
+    // Создаем временную ссылку на картинку прямо в браузере (без интернета)
+    const previewUrl = URL.createObjectURL(selectedFile);
+
+    // Показываем предпросмотр
+    if (refs.imgAvatar) {
+      refs.imgAvatar.src = previewUrl;
+
+      // Сносим <source>, чтобы предпросмотр сработал на всех экранах
+      if (refs.sourcesAvatar) {
+        refs.sourcesAvatar.forEach(source => source.remove());
+      }
+    }
+  });
+}
+
+// 3. Отправка формы в Firebase по кнопке "Upload"
+if (refs.formPhoto) {
+  refs.formPhoto.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    if (!selectedFile) {
+      iziToast.info({
+        title: 'Info',
+        message: 'Сначала выберите новое фото с помощью иконки!',
+      });
+      return;
+    }
+
+    // Ищем кнопку сабмита, чтобы заблокировать её от двойного клика
+    const btnSubmit = refs.formPhoto.querySelector('.btn-upload-newImg');
+    if (btnSubmit) btnSubmit.disabled = true;
+
+    // Слегка затеняем картинку для эффекта загрузки
+    if (refs.imgAvatar) refs.imgAvatar.style.opacity = '0.5';
+
+    // ВЫЗЫВАЕМ ФУНКЦИЮ ИЗ authentication.js!
+    const newPhotoUrl = await uploadAvatar(selectedFile);
+
+    // Возвращаем как было
+    if (refs.imgAvatar) refs.imgAvatar.style.opacity = '1';
+    if (btnSubmit) btnSubmit.disabled = false;
+
+    if (newPhotoUrl) {
+      localStorage.setItem('userAvatar', newPhotoUrl);
+      selectedFile = null; // Очищаем временный файл
+      refs.inputFile.value = ''; // Очищаем инпут
+
+      // Если у тебя есть маленькая аватарка где-то еще (например в хедере)
+      // refs.headerAvatar.src = newPhotoUrl;
+    }
+  });
+}
+
+// ==========================================
+// 1. МАГИЯ КЭША: Мгновенно ставим фотку из памяти браузера
+// ==========================================
+const cachedPhoto = localStorage.getItem('userAvatar');
+if (cachedPhoto && refs.imgAvatar) {
+  refs.imgAvatar.src = cachedPhoto;
+  if (refs.sourcesAvatar) {
+    refs.sourcesAvatar.forEach(source => source.remove());
+  }
 }

@@ -402,7 +402,7 @@
     transition: stroke 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
   }
   .account-user.is-active .icon-user {
-    stroke: #34c759; /* Если иконка сделана контурными линиями */
+    stroke: #34c759; 
     transition: all 0.3s ease; 
   }
 

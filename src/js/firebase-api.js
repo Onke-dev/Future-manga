@@ -13,6 +13,7 @@ import {
   reauthenticateWithCredential,
   deleteUser,
 } from 'firebase/auth';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -34,6 +35,8 @@ const app = initializeApp(firebaseConfig);
 // Экспортируем инструмент auth, чтобы другие файлы могли логинить юзеров
 export const auth = getAuth(app);
 
+const storage = getStorage(app);
+
 // Экспортируем сами функции, чтобы вызывать их при клике на кнопки
 export {
   createUserWithEmailAndPassword,
@@ -46,6 +49,10 @@ export {
   EmailAuthProvider,
   reauthenticateWithCredential,
   deleteUser,
+  storage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
 };
 
 async function confirmationPassword(currentPassword) {

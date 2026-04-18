@@ -10,6 +10,10 @@ import {
   EmailAuthProvider,
   reauthenticateWithCredential,
   deleteUser,
+  storage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
 } from './firebase-api.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -184,6 +188,7 @@ export async function reauthenticate(currentPassword) {
   return await reauthenticateWithCredential(user, credential);
 }
 
+// ---DELETE ACCOUNT ---
 export async function deleteUserAccount(currentPassword) {
   const user = auth.currentUser;
 
@@ -223,6 +228,40 @@ export async function deleteUserAccount(currentPassword) {
     } else {
       iziToast.error({ title: 'Error', message: error.message });
     }
+    return false;
+  }
+}
+
+// --- ИЗМЕНЕНИЕ АВАТАРКИ ---
+export async function uploadAvatar(file) {
+  const user = auth.currentUser;
+  if (!user) return false;
+
+  try {
+    // 1. Создаем путь: папка 'avatars' / уникальный ID юзера
+    const fileRef = ref(storage, `avatars/${user.uid}`);
+
+    // 2. Загружаем файл в Firebase
+    await uploadBytes(fileRef, file);
+
+    // 3. Получаем публичную ссылку на загруженную картинку
+    const photoURL = await getDownloadURL(fileRef);
+
+    // 4. Сохраняем эту ссылку в профиль пользователя
+    await updateProfile(user, { photoURL: photoURL });
+
+    iziToast.success({
+      title: 'Success',
+      message: 'Аватарка успешно обновлена!',
+    });
+
+    // Возвращаем ссылку, чтобы мгновенно показать её на странице
+    return photoURL;
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: 'Ошибка загрузки: ' + error.message,
+    });
     return false;
   }
 }

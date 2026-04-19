@@ -1,7 +1,7 @@
-/* #region header styles */
+/* header.css */
 .main_header {
   height: 70px;
-  background-color: #818181;
+  background-color: var(--bg-header);
   width: 100%;
 }
 
@@ -43,7 +43,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  /* text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
 }
 
 .list_pages {
@@ -63,7 +62,7 @@
 }
 
 .mob-menu {
-  background-color: #808080;
+  background-color: var(--bg-mob-menu);
   position: fixed;
   top: 0;
   left: 0;
@@ -147,15 +146,15 @@
 .search_mob {
   border-radius: 30px;
   width: 268px;
-  background-color: rgba(146, 141, 141, 0.8);
+  background-color: var(--bg-search-mob);
   padding: 8px 46px 8px 22px;
-
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.03em;
   color: #fef7ff;
+  border: var(--br-search-mob);
 }
 
 .search_mob:hover,
@@ -207,7 +206,7 @@
   border-radius: 20px;
   padding: 12px 26px 12px 26px;
   width: 160px;
-  background-color: #928d8d;
+  background-color: var(--bg-translate);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -238,10 +237,107 @@
   pointer-events: none;
 }
 
-/* #endregion header styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+    visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+}
+
+.backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #989898;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 245px;
+  box-sizing: border-box;
+  padding: 60px 46px 60px;
+}
+
+.backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    250ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
+    visibility 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.title-filter {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  padding-bottom: 15px;
+}
+
+.list-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.defaultBtn {
+  background-color: transparent;
+  font-family: var(--font-family);
+  padding-bottom: 20px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.defaultBtn h3 {
+  font-weight: normal;
+}
+
+.filtertBtn {
+  background-color: transparent;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.filtertBtn h3 {
+  font-weight: normal;
+}
 
 @media screen and (min-width: 768px) {
-  /* #region header styles */
   .main_header {
     height: 90px;
   }
@@ -264,7 +360,6 @@
     flex-direction: row;
     column-gap: 5px;
     align-items: center;
-    /* margin-right: 11px; */
   }
 
   .header_item {
@@ -322,7 +417,7 @@
   }
 
   .search {
-    background-color: rgba(146, 141, 141, 0.8);
+    background-color: var(--bg-search);
     border-radius: 30px;
     max-width: 130px;
     padding: 8px 32px 8px 14px;
@@ -341,7 +436,7 @@
   }
 
   .search:focus {
-    border: 1px solid #ffffff;
+    border: var(--focus);
     outline: none;
   }
 
@@ -467,12 +562,9 @@
     fill: #ffffff;
     transform: translateY(-50%);
   }
-
-  /* #endregion header styles */
 }
 
 @media screen and (min-width: 1440px) {
-  /* #region header styles */
   .main_header {
     height: 108px;
   }
@@ -595,7 +687,7 @@
   .account-user:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(0, 0, 0);
+    stroke: var(--hover-eye-user);
   }
 
   .account-user:active {
@@ -613,7 +705,7 @@
   .eyes:hover {
     background-color: transparent;
     transition: stroke 250ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
-    stroke: rgb(0, 0, 0);
+    stroke: var(--hover-eye-user);
   }
 
   .eyes:active {
@@ -636,6 +728,4 @@
   .icon-locale {
     right: 28px;
   }
-
-  /* #endregion header styles */
 }

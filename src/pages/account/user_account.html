@@ -72,22 +72,11 @@
                 </a>
               </li>
               <li class="function_header">
-                <button type="button" class="eyes">
+                <button type="button" class="eyes" data-backdrop-open>
                   <svg class="icon-eye" width="40" height="40">
                     <use href="../../icon/icon.svg#icon-Eye"></use>
                   </svg>
                 </button>
-              </li>
-              <li class="function_header">
-                <div class="wrap-lg">
-                  <select class="lg_func" name="language">
-                    <option class="item-lg" value="en">En</option>
-                    <option class="item-lg" value="ua">Ua</option>
-                  </select>
-                  <svg class="icon-locale" width="12" height="8">
-                    <use href="../../icon/icon.svg#icon-vector"></use>
-                  </svg>
-                </div>
               </li>
             </ul>
           </div>
@@ -158,17 +147,6 @@
                 <a class="mob-item" href="#" data-key="visual-impairments"
                   >For people with visual impairments</a
                 >
-              </li>
-              <li class="mob-header_item">
-                <div class="wrap_lg">
-                  <select class="lg_func" name="language" id="language-select">
-                    <option class="item-lg" value="en">English</option>
-                    <option class="item-lg" value="ua">Ukraine</option>
-                  </select>
-                  <svg class="icon_lg" width="12" height="8">
-                    <use href="../../icon/icon.svg#icon-vector"></use>
-                  </svg>
-                </div>
               </li>
             </ul>
           </div>
@@ -313,12 +291,36 @@
     </footer>
     <!-- #endregion footer styles -->
 
+    <!-- #region color Filter styles -->
+    <div class="backdrop">
+      <div class="modal">
+        <button class="closeModalBtn" type="button" data-modal-close>
+          <svg class="btn_icon" width="28" height="28">
+            <use href="../../icon/icon.svg#icon-menu-close"></use>
+          </svg>
+        </button>
+        <h2 class="title-filter">Кольоровий фільтр</h2>
+        <div class="item-filter">
+          <button class="defaultBtn" type="button" data-theme="default">
+            <h3>Default</h3>
+          </button>
+        </div>
+        <div class="item-filter">
+          <button class="filtertBtn" type="button" data-theme="contrast">
+            <h3>Contrast</h3>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- #endregion color Filter styles -->
+
     <!-- #region Scripts -->
     <script type="module" src="../../js/signOut.js"></script>
     <script type="module" src="../../main.js"></script>
     <script type="module" src="../../js/js-functions/menu.js"></script>
     <script type="module" src="../../js/search-header.js"></script>
     <script type="module" src="../../js/header-auth.js"></script>
+    <script type="module" src="../../js/js-functions/modal-filter.js"></script>
     <!-- #endregion Scripts -->
   </body>
 </html>

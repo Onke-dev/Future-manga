@@ -66,7 +66,7 @@
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 14px;
-  color: #494949;
+  color: var(--text-location);
 }
 
 .location:active {
@@ -83,7 +83,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #d9d9d9;
+  background: var(--bg-account-card);
 }
 
 .wrap-img-user {
@@ -122,7 +122,7 @@
 .btn-admin-panel {
   padding: 10px 30px;
   border-radius: 20px;
-  background: #ae00ff;
+  background: var(--color-btn-admin);
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 18px;
@@ -134,7 +134,7 @@
 .btn-exit {
   padding: 10px 37px;
   border-radius: 20px;
-  background: #ff0000;
+  background: var(--color-exit);
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 18px;
@@ -201,6 +201,7 @@
   .image-user {
     min-width: 200px;
     height: 200px;
+    object-fit: cover;
   }
 
   .user-info {

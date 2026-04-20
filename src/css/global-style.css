@@ -6,7 +6,7 @@
 }
 
 :root {
-  --font-family: "Junge", sans-serif;
+  --font-family: 'Junge', sans-serif;
 
   /* ========================================== */
   /* DEAFAULT                                   */
@@ -20,7 +20,7 @@
   --bg-search: rgba(146, 141, 141, 0.8);
   --br-search: 1px solid #fff;
   --hover-eye-user: rgb(0, 0, 0);
-  --focus: 1px solid #fff;
+  --focus: 1px solid rgb(0, 0, 0);
   --hover-logo: 1px solid #ffffff;
 
   /* BUGER */
@@ -38,6 +38,11 @@
   --color-pag: #f5f5f5;
   --bg-pag-next: #ffffff;
   --color-pag-next: #000000;
+  --color-btn-admin: #ae00ff;
+  --color-exit: #ff0000;
+
+  /* Account */
+  --bg-account-card: #d9d9d9;
 
   /* FOOTER*/
   --bg-footer: rgba(152, 158, 169, 0.76);
@@ -45,7 +50,9 @@
   --fill-footer: #fff;
   --fill-icon-active: #000000;
   --bg-icon-active: #ffffff;
+
   /* text */
+  --text-location: #494949;
 
   /* ========================================== */
   /* CONTRAST                                  */
@@ -79,6 +86,11 @@
     --color-pag: #000000;
     --bg-pag-next: #000000;
     --color-pag-next: #ffffff;
+    --color-btn-admin: #000000;
+    --color-exit: #000000;
+
+    /* Account */
+    --bg-account-card: rgba(255, 255, 255, 0.1);
 
     /* FOOTER */
     --bg-footer: #000000;
@@ -86,14 +98,16 @@
     --fill-footer: #000000;
     --fill-icon-active: #ffffff;
     --bg-icon-active: #000000;
+
+    /* text */
+    --text-location: #ffffff;
   }
 
-  /* Делаем обложки черно-белыми в режиме контраста */
-  body.theme-contrast .manga-img {
-    filter: grayscale(100%); /* Полностью убираем цвет */
+  body.theme-contrast .manga-img,
+  body.theme-contrast .image-user {
+    filter: grayscale(100%);
   }
 }
-
 
 html,
 body {
@@ -106,8 +120,8 @@ body {
   background-color: var(--bg-body);
   background-image: url('../image/background/noise.jpg');
   background-repeat: repeat;
+  background-blend-mode: multiply;
   margin: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -157,5 +171,7 @@ fieldset {
   padding: 0;
   margin: 0;
 }
+
+
 
 /* #endregion global styles */

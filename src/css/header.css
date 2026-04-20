@@ -363,30 +363,24 @@
   }
 
   .header_item {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 8px;
-    padding: 10px;
-    width: 100px;
-    height: 40px;
-
     align-items: center;
     display: flex;
     justify-content: center;
     cursor: pointer;
   }
 
-  .header_item:active {
-    background-color: rgb(255, 255, 255, 0.5);
-  }
-
   .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
     line-height: 2.22;
     text-align: center;
+
+    /* Твой градиентный текст */
     background: linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.8) 0%,
@@ -396,6 +390,34 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.644);
+    border-radius: 8px;
+    padding: 10px;
+    width: 100px;
+    height: 40px;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /* Растягиваем на всю кнопку */
+    background-color: rgba(255, 255, 255, 0.456);
+    border-radius: 10px;
+    opacity: 0; /* Прячем его в обычном состоянии */
+    z-index: -1; /* Кладем строго под текст */
+    transition: opacity 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+  }
+
+  .item:active::before {
+    opacity: 1;
   }
 
   .list_functions {
@@ -428,6 +450,7 @@
     letter-spacing: 0.03em;
     color: #fef7ff;
     cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.644);
   }
 
   .search:hover {
@@ -436,7 +459,7 @@
   }
 
   .search:focus {
-    border: var(--focus);
+    border: none;
     outline: none;
   }
 
@@ -569,6 +592,10 @@
     height: 108px;
   }
 
+  .logo:focus {
+    border: var(--focus);
+  }
+
   .logo-head {
     margin-right: 64px;
   }
@@ -585,17 +612,26 @@
     column-gap: 30px;
   }
 
-  .header_item {
-    border-radius: 15px;
-    padding: 14px 25px;
+  .item {
     width: 138px;
     height: 58px;
+    border-radius: 15px;
+    padding: 14px 25px;
+    font-size: 20px;
+    line-height: 2;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .header_item:hover,
-  .header_item:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(236, 233, 233, 0.425);
+  .item:active {
+    background-color: rgba(255, 255, 255, 0.637);
+    transition: background-color 50ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
+  }
+
+  .item:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(236, 233, 233, 1);
     transition:
       background-color 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14),
       border 200ms cubic-bezier(0.48, 0.92, 0.74, 0.14);
@@ -603,24 +639,8 @@
     color: #000;
   }
 
-  .item {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 2;
-    text-align: center;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(255, 255, 255, 0.6) 50.05%,
-      rgba(255, 255, 255, 0.8) 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   .item:focus {
-    border: 1px solid #000000;
+    border: var(--focus);
     outline: none;
   }
 
@@ -640,6 +660,14 @@
   .search {
     min-width: 362px;
     padding: 17px 40px 17px 14px;
+  }
+
+  .search:hover {
+    border: 1px solid rgba(255, 255, 255, 0.643);
+  }
+
+  .search:focus {
+    border: var(--focus);
   }
 
   .btn-search {
@@ -680,7 +708,7 @@
   }
 
   .account-user:focus-visible {
-    border: 1px solid #000000;
+    border: var(--focus);
     outline: none;
   }
 
@@ -708,6 +736,10 @@
     stroke: var(--hover-eye-user);
   }
 
+  .eyes:focus {
+    border: var(--focus);
+  }
+
   .eyes:active {
     background-color: transparent;
     stroke: #ffffff;
@@ -723,6 +755,10 @@
     width: 90px;
     font-size: 16px;
     line-height: 88%;
+  }
+
+  .lg_func:focus {
+    border: var(--focus);
   }
 
   .icon-locale {

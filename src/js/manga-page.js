@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     refs.authorName.textContent = mangaData.author;
     refs.summaryManga.textContent = mangaData.summary;
 
+    document.title = `${mangaData.title}`;
+
     if (refs.mainName) {
       refs.mainName.textContent = mangaData.title;
     }
@@ -94,16 +96,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         </li>
       `;
 
-      // 2. ПРОВЕРКА: Откуда пришел пользователь?
       if (previousPage.includes('manga.html')) {
         // Если из общего каталога
+        sessionStorage.setItem('cameFromCatalog', 'true');
         breadcrumbsHTML += `
           <li class="item-goe home">
             <a class="location" href="../../pages/manga/manga.html" data-key="manga">Manga</a>
           </li>
         `;
+      } else if (previousPage.includes('index.html') || previousPage === '') {
+        // Если с главной
+        sessionStorage.setItem('cameFromCatalog', 'false');
       } else if (previousPage.includes('admin_panel.html')) {
-        // ЕСЛИ ИЗ АДМИНКИ: Добавляем сразу два шага (Account -> Admin Panel)
+        // ЕСЛИ ИЗ АДМИНКИ
+        sessionStorage.setItem('cameFromCatalog', 'false'); // Тоже сбрасываем память каталога
         breadcrumbsHTML += `
           <li class="item-goe home">
             <a class="location" href="../../pages/account/user_account.html" data-key="account">My Account</a>
@@ -113,7 +119,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           </li>
         `;
       } else if (previousPage.includes('user_account.html')) {
-        // Если просто из аккаунта (не из админки)
+        // Если из аккаунта
+        sessionStorage.setItem('cameFromCatalog', 'false');
         breadcrumbsHTML += `
           <li class="item-goe home">
             <a class="location" href="../../pages/account/user_account.html" data-key="account">My Account</a>

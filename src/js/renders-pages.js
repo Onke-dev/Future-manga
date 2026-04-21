@@ -35,7 +35,7 @@ export function mangaHomeTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-item" data-id=${id}>
   <div class="manga">
-    <a href="./pages/admin_panel/manga-template.html?id=${manga.id}">
+    <a href="./pages/manga-deteils/manga-template.html?id=${manga.id}">
       <img
         class="manga-img"
         src="${cover1x}"
@@ -45,7 +45,7 @@ export function mangaHomeTemplate(manga) {
         alt="${alt}"
       />
     </a>
-    <a href="./pages/admin_panel/manga-template.html?id=${manga.id}">
+    <a href="./pages/manga-deteils/manga-template.html?id=${manga.id}">
       <h2 class="title-manga">${title}</h2>
     </a>
   </div>
@@ -60,7 +60,7 @@ export function mangaTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-item" data-id=${id}>
   <div class="manga">
-    <a href="../../pages/admin_panel/manga-template.html?id=${manga.id}">
+    <a href="../../pages/manga-deteils/manga-template.html?id=${manga.id}">
       <img
         class="manga-img"
         src="${cover1x}"
@@ -70,7 +70,7 @@ export function mangaTemplate(manga) {
         alt="${alt}"
       />
     </a>
-    <a href="../../pages/admin_panel/manga-template.html?id=${manga.id}">
+    <a href="../../pages/manga-deteils/manga-template.html?id=${manga.id}">
       <h2 class="title-manga">${title}</h2>
     </a>
   </div>
@@ -168,7 +168,7 @@ export function searchMagaTemplate(manga) {
   const { cover1x, cover2x, alt, title, id } = manga;
   const baseUrl = import.meta.env.BASE_URL;
   return `<li class="item-header">
-            <a href="${baseUrl}pages/admin_panel/manga-template.html?id=${id}">
+            <a href="${baseUrl}pages/manga-deteils/manga-template.html?id=${id}">
               <img
                class="img-manga-header"
                 src="${cover1x}"
@@ -178,7 +178,7 @@ export function searchMagaTemplate(manga) {
                 height="257"
               />
             </a>
-            <a href="${baseUrl}pages/admin_panel/manga-template.html?id=${id}">
+            <a href="${baseUrl}pages/manga-deteils/manga-template.html?id=${id}">
               <h2 class="header-search-title">${title}</h2>
             </a>
           </li>`;

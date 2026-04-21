@@ -1,12 +1,4 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "email": "admin@future-manga.com",
-      "password": "123",
-      "role": "admin"
-    }
-  ],
   "mangas": [
     {
       "id": "998b",
@@ -151,6 +143,75 @@
       "summary": "dsdsds"
     }
   ],
-  "chapters": [],
+  "chapters": [
+    {
+      "id": "5fad",
+      "mangaId": "998b",
+      "chapter": 0,
+      "pages": {
+        "desktop1x": [
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-1-desktop-1x.jpg?alt=media&token=a107c812-ecc0-4ac7-b20e-086e5d87622c",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-2-desktop-1x.jpg?alt=media&token=ab92fc46-9316-455a-ae4b-ebb733c99c04",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-3-desktop-1x.jpg?alt=media&token=2aa47bd5-4967-4294-8661-8c644fb4b544",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-4-desktop-1x.jpg?alt=media&token=3fbb2699-9145-4c0c-a5a0-4e5a92a6982a",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-5-desktop-1x.jpg?alt=media&token=7e1512ad-72b4-49f6-8bbf-7e0ac4cb182b",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-6-desktop-1x.jpg?alt=media&token=6b9a4695-05eb-4709-a767-8ad8e0a439fd",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-7-desktop-1x.jpg?alt=media&token=c9e692c1-1907-4038-8d5f-745516e860fd",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-8-desktop-1x.jpg?alt=media&token=f533f37e-89db-462c-9994-5e3ce25acc59"
+        ],
+        "desktop2x": [
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-1-desktop-2x.jpg?alt=media&token=7e91e5f8-163c-4dce-8edd-3e682e8bcfb7",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-2-desktop-2x.jpg?alt=media&token=7be4403b-123c-482d-9a6d-357f38fe9a45",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-3-desktop-2x.jpg?alt=media&token=2dd8e4fa-c965-45ee-a6fd-1ad6dbba6d40",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-4-desktop-2x.jpg?alt=media&token=675c1b06-6281-4a72-a9a4-925df96e514b",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-5-desktop-2x.jpg?alt=media&token=2e77e0c2-9721-4863-8816-104c4e38c988",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-6-desktop-2x.jpg?alt=media&token=dc161b76-187e-4633-9261-50ec6adae23a",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-7-desktop-2x.jpg?alt=media&token=0b29abb7-830e-4013-af9d-5fa871b7157d",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-8-desktop-2x.jpg?alt=media&token=450082f8-71d4-46b7-ab8c-d101e160decc"
+        ],
+        "tablet1x": [
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-1-tablet-1x.jpg?alt=media&token=e39bd7e7-2bed-48e3-a41b-0cdd3369be88",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-2-tablet-1x.jpg?alt=media&token=c902c5dc-a684-46ed-a07e-58d951e3ccf9",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-3-tablet-1x.jpg?alt=media&token=a58722fc-a730-49b8-a028-9d26dc0d40ad",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-4-tablet-1x.jpg?alt=media&token=83e7ec1c-b2a3-4681-a0d4-8ca6d75bc6ed",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-5-tablet-1x.jpg?alt=media&token=3b306f51-65db-4db4-812d-18ce92312b49",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-6-tablet-1x.jpg?alt=media&token=b898f705-645f-4672-b994-f83241fb2109",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-7-tablet-1x.jpg?alt=media&token=4eaab1cb-3e05-499f-8e37-ab24dbcd1103",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-8-tablet-1x.jpg?alt=media&token=a4b182ea-2b2a-41a5-acfa-410fffe0e7b5"
+        ],
+        "tablet2x": [
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-1-tablet-2x.jpg?alt=media&token=5d92c1df-6288-4556-8e13-09d57726acf1",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-2-tablet-2x.jpg?alt=media&token=a81e2614-03b5-4c75-8708-b2dbf59c5ffb",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-3-tablet-2x.jpg?alt=media&token=5e2651f9-34e3-4e43-bf3b-b43387e1e899",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-4-tablet-2x.jpg?alt=media&token=79961e4f-999f-4b4a-87e2-2a5472df8491",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-5-tablet-2x.jpg?alt=media&token=b0949ba3-b2e6-4c0f-bcf0-1fa06254554b",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-6-tablet-2x.jpg?alt=media&token=93eeca19-299b-478e-8993-07e61b27d71d",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-7-tablet-2x.jpg?alt=media&token=a0da3d57-d381-493d-89fc-b58ab4ba42d5",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-8-tablet-2x.jpg?alt=media&token=d4f6a9cd-1427-465c-a192-0b5f014279ff"
+        ],
+        "mobile1x": [
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-1-mob-1x.jpg?alt=media&token=3e0fa82e-f6cc-49d5-87a9-645b03152257",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-2-mob-1x.jpg?alt=media&token=188b29d7-e22c-451f-8d8e-940dc577c1b2",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-3-mob-1x.jpg?alt=media&token=eeae05b3-4421-4d19-ab3e-0d594f1e325b",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-4-mob-1x.jpg?alt=media&token=5e9a8086-11dd-4fc1-ab16-a4465524a3d8",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-5-mob-1x.jpg?alt=media&token=904a88ab-a1d0-4ff8-aa08-50679ef93eb1",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-6-mob-1x.jpg?alt=media&token=d14930e9-eecb-4530-99b4-02969d5f6807",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-7-mob-1x.jpg?alt=media&token=e7845c2a-c805-4a28-b8fe-04d95291aab2",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-8-mob-1x.jpg?alt=media&token=f0a72d48-d053-4b3d-a793-4f9feeacc72e"
+        ],
+        "mobile2x": [
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-1-mob-2x.jpg?alt=media&token=02caff24-e645-4d07-8143-55adfbba301b",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-2-mob-2x.jpg?alt=media&token=bd983368-c22f-4b40-b541-007edd756fd9",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-3-mob-2x.jpg?alt=media&token=55d848e9-ea62-4e67-903f-60b40fdde43c",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-4-mob-2x.jpg?alt=media&token=a6448d2a-9cef-4a9b-9052-5e7d197ec52b",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-5-mob-2x.jpg?alt=media&token=a57e8b09-6226-4c02-ab69-8690a96ec73f",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-6-mob-2x.jpg?alt=media&token=60492e3e-b0ac-4d6d-ba78-ff105160e059",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-7-mob-2x.jpg?alt=media&token=1af2a345-6cbf-4c9c-a287-1ab2ddb66cce",
+          "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/Chapters%2F998b%2Fchapter_0%2Fsolo-lvl-page-8-mob-2x.jpg?alt=media&token=e86081d2-dae5-4af2-b7ea-e3dbf2de789a"
+        ]
+      },
+      "dateAdded": "2026-04-21"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

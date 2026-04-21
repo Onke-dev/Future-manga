@@ -232,7 +232,7 @@ refs.listManga.addEventListener('click', async e => {
     } else if (e.target.classList.contains('showMore')) {
       const btn = e.target.closest('.showMore');
       const id = btn.dataset.id;
-      window.location.href = `manga-template.html?id=${id}`;
+      window.location.href = `../manga-deteils/manga-template.html?id=${id  }`;
     }
   } catch (error) {
     iziToast.error({

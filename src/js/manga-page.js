@@ -16,6 +16,8 @@ const refs = {
   chaptersList: document.querySelector('.list-chapters'),
   mainName: document.querySelector('.js-main-name'),
   navigationList: document.querySelector('.js-navigation-list'),
+  readFirstBtn: document.querySelector('[data-key="readFirst"]'),
+  readLastBtn: document.querySelector('[data-key="readLast"]'),
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -154,11 +156,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     const chaptersData = await chaptersResponse.json();
 
     if (chaptersData.length > 0) {
+      // 1. Сортируем главы от большего к меньшему
       chaptersData.sort((a, b) => b.chapter - a.chapter);
+
+      // =======================================================
+      // ЛОГИКА КНОПКИ READ FIRST / READ LAST
+      // =======================================================
+      // Берем самую первую (в конце массива) и самую последнюю (в начале массива) главы
+      const lastChapterNum = chaptersData[0].chapter;
+      const firstChapterNum = chaptersData[chaptersData.length - 1].chapter;
+
+      if (refs.readFirstBtn) {
+        refs.readFirstBtn.href = `../../pages/read/read.html?id=${mangaId}&chapter=${firstChapterNum}`;
+      }
+      if (refs.readLastBtn) {
+        refs.readLastBtn.href = `../../pages/read/read.html?id=${mangaId}&chapter=${lastChapterNum}`;
+      }
+      // =======================================================
+
+      // 2. Отрисовка списка глав
       const chaptersMarkup = chaptersData
         .map(ch => {
           const dateObj = new Date(ch.dateAdded);
-          const formattedDate = `Dec. ${dateObj.toLocaleDateString()}`;
+          // ИСПРАВЛЕНА ДАТА: теперь месяц будет подставляться автоматически (Jan, Feb, Mar...)
+          const formattedDate = dateObj.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+          });
           return `
           <li class="item-chapter">
             <div class="wrap_item">
@@ -173,6 +198,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         .join('');
       refs.chaptersList.innerHTML = chaptersMarkup;
     } else {
+      // Прячем кнопки, если глав еще нет
+      if (refs.readFirstBtn) refs.readFirstBtn.style.display = 'none';
+      if (refs.readLastBtn) refs.readLastBtn.style.display = 'none';
       refs.chaptersList.innerHTML = `<li style="color: #fff; font-family: var(--second-family);">No chapters added yet.</li>`;
     }
   } catch (error) {

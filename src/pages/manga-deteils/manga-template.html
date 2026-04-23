@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../css/main-styles.css" />
     <link rel="stylesheet" href="../../css/info-manga.css" />
+    <link rel="stylesheet" href="../../css/main-styles.css" />
   </head>
   <body>
     <!-- #region header styles -->
@@ -137,17 +137,30 @@
               <li class="mob-header_item">
                 <a
                   class="mob-item"
-                  href="./user_account.html"
+                  href="../../pages/account/user_account.html"
                   data-key="account"
                   >Account</a
                 >
               </li>
-              <li class="mob-header_item" id="eye-open">
-                <svg class="blindness" width="20" height="20">
+              <li
+                class="mob-header_item"
+                id="eye-open"
+                data-backdrop-open
+                style="cursor: pointer"
+              >
+                <svg
+                  class="blindness"
+                  width="20"
+                  height="20"
+                  style="pointer-events: none"
+                >
                   <use href="../../icon/icon.svg#icon-Eye"></use>
                 </svg>
-                <a class="mob-item" href="#" data-key="visual-impairments"
-                  >For people with visual impairments</a
+                <span
+                  class="mob-item"
+                  data-key="visual-impairments"
+                  style="pointer-events: none"
+                  >For people with visual impairments</span
                 >
               </li>
             </ul>
@@ -389,6 +402,8 @@
     <!-- #region Scripts -->
     <script type="module" src="../../main.js"></script>
     <script type="module" src="../../js/manga-page.js"></script>
+    <script type="module" src="../../js/js-functions/menu.js"></script>
+
     <script type="module" src="../../js/search-header.js"></script>
     <script type="module" src="../../js/js-functions/modal-filter.js"></script>
     <!-- #endregion Scripts -->

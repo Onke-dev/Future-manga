@@ -142,12 +142,25 @@
                   >Account</a
                 >
               </li>
-              <li class="mob-header_item" id="eye-open">
-                <svg class="blindness" width="20" height="20">
+              <li
+                class="mob-header_item"
+                id="eye-open"
+                data-backdrop-open
+                style="cursor: pointer"
+              >
+                <svg
+                  class="blindness"
+                  width="20"
+                  height="20"
+                  style="pointer-events: none"
+                >
                   <use href="../../icon/icon.svg#icon-Eye"></use>
                 </svg>
-                <a class="mob-item" href="#" data-key="visual-impairments"
-                  >For people with visual impairments</a
+                <span
+                  class="mob-item"
+                  data-key="visual-impairments"
+                  style="pointer-events: none"
+                  >For people with visual impairments</span
                 >
               </li>
             </ul>

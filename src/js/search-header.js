@@ -3,6 +3,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { getMangas } from './api.js';
 import { searchMagasTemplate } from './renders-pages.js';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const refs = {
   inputHeader: document.querySelector('.jsHeaderSearch'),
   listElems: document.querySelector('.js-list-search'),
@@ -58,7 +60,7 @@ refs.btnSearch.addEventListener('click', e => {
   const query = refs.inputHeader.value.trim();
 
   if (query) {
-    window.location.href = `${baseUrl}pages/admin_panel/manga-template.html?title=${query}`;
+    window.location.href = `${baseUrl}pages/manga-deteils/manga-template.html?title=${query}`;
   }
 });
 

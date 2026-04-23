@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
-  // 1. ЛОГИКА ОТКРЫТИЯ/ЗАКРЫТИЯ ОКНА
+  // 1. ЛОГИКА ОТКРЫТИЯ/ЗАКРЫТИЯ ОКНА ФИЛЬТРА
   // ==========================================
 
   const openModalBtns = document.querySelectorAll('[data-backdrop-open]');
@@ -27,41 +27,43 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. ЛОГИКА СМЕНЫ ТЕМ И СОХРАНЕНИЯ
   // ==========================================
 
-  // Находим обе кнопки: и Default, и Contrast
   const themeButtons = document.querySelectorAll('[data-theme]');
 
-  // Главная функция применения темы
   function applyTheme(themeName) {
-    // 1. Удаляем класс контраста, чтобы сбросить стили (если выбрали Default)
     document.body.classList.remove('theme-contrast');
 
-    // 2. Если выбрали не 'default', добавляем соответствующий класс (theme-contrast)
     if (themeName !== 'default') {
       document.body.classList.add(`theme-${themeName}`);
     }
 
-    // 3. Сохраняем выбор в память браузера
     localStorage.setItem('siteTheme', themeName);
   }
 
-  // При загрузке страницы проверяем, сохранял ли читатель настройки ранее
   const savedTheme = localStorage.getItem('siteTheme');
   if (savedTheme) {
-    // Если да — сразу применяем сохраненную тему (например, при переходе на другую страницу)
     applyTheme(savedTheme);
   }
 
-  // Вешаем слушатель клика на каждую кнопку темы
   themeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Считываем название темы (default или contrast) из атрибута
       const selectedTheme = btn.getAttribute('data-theme');
 
-      // Запускаем функцию смены темы
+      // 1. Применяем выбранную тему
       applyTheme(selectedTheme);
 
-      // Автоматически закрываем окошко после выбора для удобства
+      // 2. Закрываем саму модалку фильтра
       toggleModal();
+
+      // 3. УМНОЕ ЗАКРЫТИЕ МОБИЛЬНОГО МЕНЮ
+      // Ищем меню и его кнопку-крестик
+      const mobMenu = document.querySelector('[data-menu]');
+      const closeMenuBtn = document.querySelector('[data-menu-close]');
+
+      // Если мы на мобилке, меню существует И оно сейчас открыто
+      if (mobMenu && mobMenu.classList.contains('is-open') && closeMenuBtn) {
+        // Виртуально "нажимаем" на крестик мобильного меню
+        closeMenuBtn.click();
+      }
     });
   });
 });

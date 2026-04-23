@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         sessionStorage.setItem('cameFromCatalog', 'false');
       } else if (previousPage.includes('admin_panel.html')) {
         // ЕСЛИ ИЗ АДМИНКИ
-        sessionStorage.setItem('cameFromCatalog', 'false'); // Тоже сбрасываем память каталога
+        sessionStorage.setItem('cameFromCatalog', 'false');
         breadcrumbsHTML += `
           <li class="item-goe home">
             <a class="location" href="../../pages/account/user_account.html" data-key="account">My Account</a>
@@ -126,6 +126,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         breadcrumbsHTML += `
           <li class="item-goe home">
             <a class="location" href="../../pages/account/user_account.html" data-key="account">My Account</a>
+          </li>
+        `;
+      } else if (previousPage.includes('about_us.html')) {
+        // ==========================================
+        // НОВОЕ: Если пришли со страницы About Us
+        // ==========================================
+        sessionStorage.setItem('cameFromCatalog', 'false');
+        breadcrumbsHTML += `
+          <li class="item-goe home">
+            <a class="location" href="../../pages/about_us/about_us.html" data-key="about">About us</a>
           </li>
         `;
       }

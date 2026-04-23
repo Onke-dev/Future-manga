@@ -78,8 +78,8 @@
 }
 
 .info-manga {
-  margin-bottom: 44px;
   margin: 0 auto;
+  margin-bottom: 32px;
 }
 
 .infoMangaWrap {
@@ -95,7 +95,7 @@
   gap: 12px;
   border: 1px solid #000;
   border-radius: 25px;
-  max-width: 196px;
+  max-width: 230px;
   max-height: 100%;
   padding: 18px 16px;
 
@@ -140,6 +140,9 @@
 
 .title {
   justify-content: center;
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
 }
 
 .title-manga {
@@ -148,6 +151,23 @@
   font-size: 20px;
   text-align: center;
   color: #fff;
+}
+
+.status-manga {
+  border-radius: 20px;
+  width: 58px;
+  height: 24px;
+  background-color: #19ea69;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  padding: 3px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .rate {
@@ -261,9 +281,10 @@
   background: rgba(192, 192, 194, 0.65);
   border: 1px solid rgba(0, 0, 0, 0.65);
   border-radius: 10px;
-  width: 208px;
+  width: 230px;
 
   margin: 0 auto;
+  margin-bottom: 44px;
   padding: 20px 10px;
 }
 
@@ -287,7 +308,7 @@
 .chapters {
   margin: 0 auto;
   max-width: 230px;
-  padding-bottom: 80px;
+  padding-bottom: 67px;
 }
 
 .chapter-title {
@@ -300,11 +321,14 @@
 
 .wrap_reverse {
   padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 
 .list-chapters {
   border-radius: 30px;
-  width: 200px;
+  width: 230px;
   max-height: 350px;
   padding: 15px;
   background-color: rgba(88, 95, 97, 0.86);
@@ -363,8 +387,23 @@
 
 .btn_reverse {
   border-radius: 10px;
+  width: 150px;
+  height: 53px;
   padding: 17px 22px;
   background-color: rgba(0, 0, 0, 0.8);
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn_add-manga {
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  width: 150px;
+  height: 53px;
+  background-color: #595e5f;
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 16px;
@@ -563,19 +602,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
-
-  .btn_add-manga {
-    border: 1px solid rgba(0, 0, 0, 0.75);
-    border-radius: 10px;
-    width: 150px;
-    height: 53px;
-    background-color: #595e5f;
-    font-family: var(--second-family);
-    font-weight: 400;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
   }
 
   .chapters {

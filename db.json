@@ -1,4 +1,51 @@
 {
+  "likes": [
+    {
+      "id": "a055",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "998b"
+    },
+    {
+      "id": "7da6",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "34a9"
+    },
+    {
+      "id": "8e1f",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "51f3"
+    },
+    {
+      "id": "ea95",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "d8e4"
+    },
+    {
+      "id": "e0a3",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "07a5"
+    },
+    {
+      "id": "0506",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "9d1b"
+    },
+    {
+      "id": "c10c",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "e6ac"
+    },
+    {
+      "id": "af03",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "a457"
+    },
+    {
+      "id": "44f7",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
+      "mangaId": "0ec6"
+    }
+  ],
   "mangas": [
     {
       "id": "998b",

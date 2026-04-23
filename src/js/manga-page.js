@@ -4,7 +4,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 // Импортируем Firebase
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from './firebase-api.js'; // Убедись, что путь к файлу правильный!
+import { storage, auth } from './firebase-api.js'; // Убедись, что путь к файлу правильный!
 
 const refs = {
   coverElem: document.querySelector('.js-cover'),
@@ -18,6 +18,7 @@ const refs = {
   navigationList: document.querySelector('.js-navigation-list'),
   readFirstBtn: document.querySelector('[data-key="readFirst"]'),
   readLastBtn: document.querySelector('[data-key="readLast"]'),
+  btnAddLiked: document.querySelector('.btn_add'),
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -57,6 +58,74 @@ document.addEventListener('DOMContentLoaded', async () => {
     addChapterModal.addEventListener('click', event => {
       if (event.target === addChapterModal) {
         addChapterModal.classList.remove('is-visible');
+      }
+    });
+  }
+
+  if (refs.btnAddLiked) {
+    refs.btnAddLiked.addEventListener('click', async e => {
+      // 1. БЛОКИРУЕМ КНОПКУ от повторных нажатий
+      const btn = e.currentTarget;
+      btn.disabled = true;
+      btn.style.opacity = '0.5'; // Делаем её полупрозрачной для визуала
+
+      const user = auth.currentUser;
+      if (!user) {
+        iziToast.warning({
+          title: 'Внимание',
+          message: 'Нужно войти в аккаунт!',
+        });
+        btn.disabled = false; // разблокируем
+        btn.style.opacity = '1';
+        return;
+      }
+
+      try {
+        // 2. Проверяем базу
+        const checkRes = await fetch(
+          `http://localhost:3000/likes?userId=${user.uid}&mangaId=${mangaId}`
+        );
+        const checkData = await checkRes.json();
+
+        if (checkData.length > 0) {
+          iziToast.info({
+            title: 'Инфо',
+            message: 'Эта манга уже есть в вашем списке!',
+          });
+          return; // Кнопка останется заблокированной, если манга уже там
+        }
+
+        // 3. Добавляем в базу
+        const newLike = {
+          userId: user.uid,
+          mangaId: mangaId,
+        };
+
+        const response = await fetch('http://localhost:3000/likes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newLike),
+        });
+
+        if (!response.ok) throw new Error('Ошибка сервера');
+
+        iziToast.success({
+          title: 'Супер!',
+          message: 'Манга добавлена в избранное!',
+        });
+
+        // Меняем текст кнопки, чтобы юзер понял, что всё успешно
+        btn.textContent = 'Added ✓';
+      } catch (error) {
+        console.error(error);
+        iziToast.error({
+          title: 'Ошибка',
+          message: 'Не удалось добавить в избранное',
+        });
+
+        // Разблокируем только если произошла ошибка, чтобы можно было попробовать снова
+        btn.disabled = false;
+        btn.style.opacity = '1';
       }
     });
   }

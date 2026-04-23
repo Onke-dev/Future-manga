@@ -213,3 +213,25 @@ export function showNavigation() {
     navigation.classList.remove('hidden');
   }
 }
+
+export function cardItemTemplate(cardItem) {
+  const { id, cover1x, cover2x, title, alt } = cardItem;
+  return `<li class="carditem">
+              <img
+                class="img-card"
+                src="${cover1x}"
+                srcset="${cover1x} 1x, ${cover2x} 2x"
+                alt="${alt}"
+                width="180"
+                height="257"
+              />
+              <h2 class="name-manga">${title}</h2>
+              <div class="wrap-btns">
+                <button class="btn-manga showMore" type="button" data-id="${id}">SHOW MORE</button>
+                <button class="btn-manga delete" type="button" data-id="${id}">DELETE</button>
+              </div>
+            </li>`;
+}
+export function cardsItemsTemplate(cardsItem) {
+  return cardsItem.map(cardItemTemplate).join('');
+}

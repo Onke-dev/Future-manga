@@ -2,10 +2,15 @@ import { getMangasId } from './api.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// Импортируем Firebase
+// Firebase imports for storage operations
+// Імпорт Firebase для операцій зі сховищем
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage, auth } from './firebase-api.js'; // Убедись, что путь к файлу правильный!
+import { storage, auth } from './firebase-api.js';
 
+/**
+ * DOM Elements references
+ * Посилання на елементи DOM
+ */
 const refs = {
   coverElem: document.querySelector('.js-cover'),
   titleManga: document.querySelector('.js-title'),
@@ -22,7 +27,8 @@ const refs = {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Получаем ID манги из URL (например, ?id=1)
+  // Extract Manga ID from URL parameters
+  // Отримання ID манги з параметрів URL
   const query = window.location.search;
   const urlParam = new URLSearchParams(query);
   const mangaId = urlParam.get('id');
@@ -30,13 +36,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!mangaId) {
     iziToast.error({
       title: 'Error',
-      message: `ID манґи не знайдено в URL!`,
+      message: `Manga ID not found in URL!`,
     });
     return;
   }
 
   // =====================================================================
-  // 1. ЛОГИКА ОТКРЫТИЯ/ЗАКРЫТИЯ МОДАЛКИ "ADD CHAPTER"
+  // 1. MODAL LOGIC: ADD CHAPTER
+  // Логіка модального вікна: Додати главу
   // =====================================================================
   const openModalBtn = document.getElementById('btn-open-add-chapter');
   const addChapterModal = document.getElementById('modal-add-chapter');
@@ -62,26 +69,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  /**
+   * Favorites/Liked logic
+   * Логіка додавання в обране
+   */
   if (refs.btnAddLiked) {
     refs.btnAddLiked.addEventListener('click', async e => {
-      // 1. БЛОКИРУЕМ КНОПКУ от повторных нажатий
       const btn = e.currentTarget;
       btn.disabled = true;
-      btn.style.opacity = '0.5'; // Делаем её полупрозрачной для визуала
+      btn.style.opacity = '0.5';
 
       const user = auth.currentUser;
       if (!user) {
         iziToast.warning({
-          title: 'Внимание',
-          message: 'Нужно войти в аккаунт!',
+          title: 'Attention',
+          message: 'Please sign in to your account!',
         });
-        btn.disabled = false; // разблокируем
+        btn.disabled = false;
         btn.style.opacity = '1';
         return;
       }
 
       try {
-        // 2. Проверяем базу
+        // Check if already in favorites
+        // Перевірка, чи вже є в обраному
         const checkRes = await fetch(
           `http://localhost:3000/likes?userId=${user.uid}&mangaId=${mangaId}`
         );
@@ -89,17 +100,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (checkData.length > 0) {
           iziToast.info({
-            title: 'Инфо',
-            message: 'Эта манга уже есть в вашем списке!',
+            title: 'Info',
+            message: 'This manga is already in your list!',
           });
-          return; // Кнопка останется заблокированной, если манга уже там
+          return;
         }
 
-        // 3. Добавляем в базу
-        const newLike = {
-          userId: user.uid,
-          mangaId: mangaId,
-        };
+        const newLike = { userId: user.uid, mangaId: mangaId };
 
         const response = await fetch('http://localhost:3000/likes', {
           method: 'POST',
@@ -107,23 +114,20 @@ document.addEventListener('DOMContentLoaded', async () => {
           body: JSON.stringify(newLike),
         });
 
-        if (!response.ok) throw new Error('Ошибка сервера');
+        if (!response.ok) throw new Error('Server error');
 
         iziToast.success({
-          title: 'Супер!',
-          message: 'Манга добавлена в избранное!',
+          title: 'Success!',
+          message: 'Manga added to favorites!',
         });
 
-        // Меняем текст кнопки, чтобы юзер понял, что всё успешно
         btn.textContent = 'Added ✓';
       } catch (error) {
         console.error(error);
         iziToast.error({
-          title: 'Ошибка',
-          message: 'Не удалось добавить в избранное',
+          title: 'Error',
+          message: 'Failed to add to favorites.',
         });
-
-        // Разблокируем только если произошла ошибка, чтобы можно было попробовать снова
         btn.disabled = false;
         btn.style.opacity = '1';
       }
@@ -131,19 +135,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // =====================================================================
-  // 2. ОТРИСОВКА ИНФОРМАЦИИ О МАНГЕ И СПИСКА ГЛАВ
+  // 2. RENDERING MANGA INFO AND CHAPTER LIST
+  // Отрисовка інформації про мангу та списку глав
   // =====================================================================
   try {
     const mangaData = await getMangasId(mangaId);
 
-    console.log('1. ID который мы ищем:', mangaId);
-    console.log('2. Что вернула база:', mangaData);
-
-    // Защита: если база вернула пустоту, останавливаем скрипт и выдаем понятную ошибку
     if (!mangaData) {
-      throw new Error(`Манга с ID "${mangaId}" не найдена в базе (db.json)!`);
+      throw new Error(`Manga with ID "${mangaId}" not found in database!`);
     }
 
+    // Populate UI with manga data
+    // Заповнення інтерфейсу даними манги
     refs.coverElem.src = mangaData.cover2x || mangaData.cover1x;
     refs.coverElem.alt = mangaData.alt;
     refs.titleManga.textContent = mangaData.title;
@@ -153,14 +156,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.title = `${mangaData.title}`;
 
-    if (refs.mainName) {
-      refs.mainName.textContent = mangaData.title;
-    }
+    if (refs.mainName) refs.mainName.textContent = mangaData.title;
 
+    /**
+     * Breadcrumbs navigation logic
+     * Логіка навігації (хлібні крихти)
+     */
     if (refs.navigationList) {
       const previousPage = document.referrer;
-
-      // 1. Базовое начало (Home всегда первый)
       let breadcrumbsHTML = `
         <li class="item-goe home">
           <a class="location" href="../../index.html" data-key="home_location">Home</a>
@@ -168,96 +171,55 @@ document.addEventListener('DOMContentLoaded', async () => {
       `;
 
       if (previousPage.includes('manga.html')) {
-        // Если из общего каталога
         sessionStorage.setItem('cameFromCatalog', 'true');
-        breadcrumbsHTML += `
-          <li class="item-goe home">
-            <a class="location" href="../../pages/manga/manga.html" data-key="manga">Manga</a>
-          </li>
-        `;
-      } else if (previousPage.includes('index.html') || previousPage === '') {
-        // Если с главной
-        sessionStorage.setItem('cameFromCatalog', 'false');
+        breadcrumbsHTML += `<li class="item-goe home"><a class="location" href="../../pages/manga/manga.html">Manga</a></li>`;
       } else if (previousPage.includes('admin_panel.html')) {
-        // ЕСЛИ ИЗ АДМИНКИ
-        sessionStorage.setItem('cameFromCatalog', 'false');
         breadcrumbsHTML += `
-          <li class="item-goe home">
-            <a class="location" href="../../pages/account/user_account.html" data-key="account">My Account</a>
-          </li>
-          <li class="item-goe home">
-            <a class="location" href="../../pages/admin_panel/admin_panel.html" data-key="admin">Admin Panel</a>
-          </li>
+          <li class="item-goe home"><a class="location" href="../../pages/account/user_account.html">My Account</a></li>
+          <li class="item-goe home"><a class="location" href="../../pages/admin_panel/admin_panel.html">Admin Panel</a></li>
         `;
       } else if (previousPage.includes('user_account.html')) {
-        // Если из аккаунта
-        sessionStorage.setItem('cameFromCatalog', 'false');
-        breadcrumbsHTML += `
-          <li class="item-goe home">
-            <a class="location" href="../../pages/account/user_account.html" data-key="account">My Account</a>
-          </li>
-        `;
+        breadcrumbsHTML += `<li class="item-goe home"><a class="location" href="../../pages/account/user_account.html">My Account</a></li>`;
       } else if (previousPage.includes('about_us.html')) {
-        // ==========================================
-        // НОВОЕ: Если пришли со страницы About Us
-        // ==========================================
-        sessionStorage.setItem('cameFromCatalog', 'false');
-        breadcrumbsHTML += `
-          <li class="item-goe home">
-            <a class="location" href="../../pages/about_us/about_us.html" data-key="about">About us</a>
-          </li>
-        `;
+        breadcrumbsHTML += `<li class="item-goe home"><a class="location" href="../../pages/about_us/about_us.html">About us</a></li>`;
       }
 
-      // 3. Финальная точка (название манги)
-      breadcrumbsHTML += `
-        <li class="item-goe">
-          <span class="location js-breadcrumb-name">${mangaData.title}</span>
-        </li>
-      `;
-
+      breadcrumbsHTML += `<li class="item-goe"><span class="location js-breadcrumb-name">${mangaData.title}</span></li>`;
       refs.navigationList.innerHTML = breadcrumbsHTML;
     }
 
-    const dt = `<dt class="title" data-key="title_genre">Genres:</dt>`;
-    if (Array.isArray(mangaData.genres)) {
-      const genreManga = mangaData.genres.join(', ');
-      refs.genreElems.innerHTML = dt + `<dd class="genre">${genreManga}</dd>`;
-    } else {
-      const genreManga = mangaData.genres.split(' ').join(', ');
-      refs.genreElems.innerHTML = dt + `<dd class="genre">${genreManga}</dd>`;
-    }
+    // Genres handling
+    // Обробка жанрів
+    const dt = `<dt class="title">Genres:</dt>`;
+    const genreList = Array.isArray(mangaData.genres)
+      ? mangaData.genres.join(', ')
+      : mangaData.genres.split(' ').join(', ');
+    refs.genreElems.innerHTML = dt + `<dd class="genre">${genreList}</dd>`;
 
+    // Fetch and display chapters
+    // Отримання та відображення глав
     const chaptersResponse = await fetch(
       `http://localhost:3000/chapters?mangaId=${mangaId}`
     );
-    if (!chaptersResponse.ok) throw new Error('Не удалось загрузить главы');
+    if (!chaptersResponse.ok) throw new Error('Failed to load chapters');
     const chaptersData = await chaptersResponse.json();
 
     if (chaptersData.length > 0) {
-      // 1. Сортируем главы от большего к меньшему
+      // Sort chapters descending
+      // Сортування глав за спаданням
       chaptersData.sort((a, b) => b.chapter - a.chapter);
 
-      // =======================================================
-      // ЛОГИКА КНОПКИ READ FIRST / READ LAST
-      // =======================================================
-      // Берем самую первую (в конце массива) и самую последнюю (в начале массива) главы
       const lastChapterNum = chaptersData[0].chapter;
       const firstChapterNum = chaptersData[chaptersData.length - 1].chapter;
 
-      if (refs.readFirstBtn) {
+      if (refs.readFirstBtn)
         refs.readFirstBtn.href = `../../pages/read/read.html?id=${mangaId}&chapter=${firstChapterNum}`;
-      }
-      if (refs.readLastBtn) {
+      if (refs.readLastBtn)
         refs.readLastBtn.href = `../../pages/read/read.html?id=${mangaId}&chapter=${lastChapterNum}`;
-      }
-      // =======================================================
 
-      // 2. Отрисовка списка глав
       const chaptersMarkup = chaptersData
         .map(ch => {
           const dateObj = new Date(ch.dateAdded);
-          // ИСПРАВЛЕНА ДАТА: теперь месяц будет подставляться автоматически (Jan, Feb, Mar...)
           const formattedDate = dateObj.toLocaleDateString('en-US', {
             month: 'short',
             day: 'numeric',
@@ -266,9 +228,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           return `
           <li class="item-chapter">
             <div class="wrap_item">
-              <a class="chapter_link" href="../../pages/read/read.html?id=${mangaId}&chapter=${ch.chapter}">
-                Chapter ${ch.chapter}
-              </a>
+              <a class="chapter_link" href="../../pages/read/read.html?id=${mangaId}&chapter=${ch.chapter}">Chapter ${ch.chapter}</a>
               <span class="chapter_date">${formattedDate}</span>
             </div>
           </li>
@@ -277,30 +237,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         .join('');
       refs.chaptersList.innerHTML = chaptersMarkup;
     } else {
-      // Прячем кнопки, если глав еще нет
       if (refs.readFirstBtn) refs.readFirstBtn.style.display = 'none';
       if (refs.readLastBtn) refs.readLastBtn.style.display = 'none';
-      refs.chaptersList.innerHTML = `<li style="color: #fff; font-family: var(--second-family);">No chapters added yet.</li>`;
+      refs.chaptersList.innerHTML = `<li style="color: #fff;">No chapters added yet.</li>`;
     }
   } catch (error) {
     iziToast.error({
       title: 'Error',
-      message: `Oops! Something went wrong: ${error}`,
+      message: `Something went wrong: ${error.message}`,
     });
   }
 
   // =====================================================================
-  // 3. ОТПРАВКА ДАННЫХ В FIREBASE И JSON-SERVER (МУЛЬТИ-РАЗРЕШЕНИЕ)
+  // 3. FIREBASE & JSON-SERVER DATA SUBMISSION
+  // Відправка даних у Firebase та JSON-SERVER
   // =====================================================================
   const form = document.getElementById('add-chapter-form');
 
   if (form) {
     form.addEventListener('submit', async event => {
       event.preventDefault();
-
       const chapterNumber = document.getElementById('chapter-number').value;
 
-      // 1. Получаем файлы из всех трех инпутов
       const desktopFiles = document.getElementById('pages-desktop').files;
       const tabletFiles = document.getElementById('pages-tablet').files;
       const mobileFiles = document.getElementById('pages-mobile').files;
@@ -310,26 +268,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         tabletFiles.length === 0 ||
         mobileFiles.length === 0
       ) {
-        alert(
-          'Будь ласка, завантажте файли для ВСІХ пристроїв (Desktop, Tablet, Mobile)!'
-        );
+        alert('Please upload files for ALL devices (Desktop, Tablet, Mobile)!');
         return;
       }
 
       const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.textContent = 'Завантаження... (це може зайняти час)';
+      submitBtn.textContent = 'Uploading... (this may take a while)';
       submitBtn.disabled = true;
 
       try {
-        // 2. Объединяем все файлы в один большой массив
         const allFiles = [...desktopFiles, ...tabletFiles, ...mobileFiles];
-
-        // 3. УМНАЯ СОРТИРОВКА: чтобы 'page-2' была перед 'page-10'
+        // Numeric sort for filenames
+        // Числове сортування імен файлів
         allFiles.sort((a, b) =>
           a.name.localeCompare(b.name, undefined, { numeric: true })
         );
 
-        // 4. Создаем объект для хранения готовых ссылок по категориям
         const pagesData = {
           desktop1x: [],
           desktop2x: [],
@@ -339,14 +293,16 @@ document.addEventListener('DOMContentLoaded', async () => {
           mobile2x: [],
         };
 
-        // 5. ЗАГРУЗКА В FIREBASE
+        // Upload files to Firebase Storage
+        // Завантаження файлів у сховище Firebase
         for (const file of allFiles) {
           const filePath = `Chapters/${mangaId}/chapter_${chapterNumber}/${file.name}`;
           const fileRef = ref(storage, filePath);
           const snapshot = await uploadBytes(fileRef, file);
           const downloadUrl = await getDownloadURL(snapshot.ref);
 
-          // 6. Раскидываем ссылки по массивам, читая ИМЯ файла!
+          // Assign URLs based on filename conventions
+          // Розподіл URL на основі назв файлів
           if (file.name.includes('desktop-1x'))
             pagesData.desktop1x.push(downloadUrl);
           else if (file.name.includes('desktop-2x'))
@@ -361,39 +317,32 @@ document.addEventListener('DOMContentLoaded', async () => {
             pagesData.mobile2x.push(downloadUrl);
         }
 
-        console.log('Успешно загружены ссылки:', pagesData);
-
-        // 7. ФОРМИРУЕМ JSON
         const newChapterData = {
           mangaId: mangaId,
           chapter: Number(chapterNumber),
-          pages: pagesData, // <-- Передаем весь объект с отсортированными ссылками
+          pages: pagesData,
           dateAdded: new Date().toISOString().split('T')[0],
         };
 
-        // 8. ОТПРАВКА В JSON-SERVER
         const response = await fetch('http://localhost:3000/chapters', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newChapterData),
         });
 
-        if (!response.ok) throw new Error('Помилка сервера');
+        if (!response.ok) throw new Error('Server error');
 
-        alert(`Глава ${chapterNumber} успішно додана!`);
-
+        alert(`Chapter ${chapterNumber} successfully added!`);
         form.reset();
-        document
-          .getElementById('modal-add-chapter')
-          .classList.remove('is-visible');
+        addChapterModal.classList.remove('is-visible');
         window.location.reload();
       } catch (error) {
-        console.error('Ошибка:', error);
-        alert('Сталася помилка під час завантаження.');
+        console.error('Error:', error);
+        alert('An error occurred during upload.');
       } finally {
         submitBtn.textContent = 'Add Chapter';
         submitBtn.disabled = false;
       }
     });
   }
-}); // <-- Это закрывающая скобка для DOMContentLoaded, не забудь её!
+});

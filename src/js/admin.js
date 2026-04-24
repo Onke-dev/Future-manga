@@ -22,6 +22,10 @@ import {
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+/**
+ * DOM Element references for Admin Panel operations
+ * Посилання на елементи DOM для операцій панелі адміністратора
+ */
 const refs = {
   formAdd: document.querySelector('.js-add-manga'),
   formChange: document.querySelector('.js-change-manga'),
@@ -30,6 +34,10 @@ const refs = {
   secList: document.querySelector('.sec-list'),
 };
 
+/**
+ * Initial page load: renders genres and fetches existing manga list
+ * Початкове завантаження сторінки: рендеринг жанрів та отримання списку існуючої манги
+ */
 document.addEventListener('DOMContentLoaded', async () => {
   const markupGenres = genresTemplate(mangaGenres);
   document.querySelectorAll('.js-elems-list').forEach(element => {
@@ -40,10 +48,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const newManga = await getMangas();
     if (newManga && newManga.length > 0) {
+      // Reverse order to show latest additions first
+      // Зворотний порядок, щоб показати останні додавання першими
       const reverseManga = newManga.reverse();
       const markup = mangasPanleTemplate(reverseManga);
       refs.listManga.innerHTML = markup;
-    } else {
     }
   } catch (error) {
     iziToast.error({
@@ -53,12 +62,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
+/**
+ * Handles submission for adding a new manga entry
+ * Обробка відправки форми для додавання нового запису манги
+ */
 refs.formAdd.addEventListener('submit', async e => {
   e.preventDefault();
   const formData = new FormData(e.target);
-
   const infoData = dataElems(formData);
 
+  // Validation: check for empty fields
+  // Валідація: перевірка на порожні поля
   if (Object.values(infoData).some(value => value.trim() === '')) {
     return iziToast.warning({
       title: 'Caution',
@@ -69,33 +83,28 @@ refs.formAdd.addEventListener('submit', async e => {
   const file1x = e.target.elements['cover_manga_1x'];
   const file2x = e.target.elements['cover_manga_2x'];
 
-  if (
-    !file1x.files ||
-    file1x.files.length === 0 ||
-    !file2x.files ||
-    file2x.files.length === 0
-  ) {
+  if (!file1x.files?.length || !file2x.files?.length) {
     return iziToast.warning({
       title: 'Caution',
       message: 'Please select a cover image!',
     });
   }
 
-  const uploadImg1x = file1x.files[0];
-  const uploadImg2x = file2x.files[0];
   try {
-    const coverImg1x = await uploadImgUser(uploadImg1x);
-    const coverImg2x = await uploadImgUser(uploadImg2x);
+    // Uploading images to the server/storage
+    // Завантаження зображень на сервер/у сховище
+    const coverImg1x = await uploadImgUser(file1x.files[0]);
+    const coverImg2x = await uploadImgUser(file2x.files[0]);
 
     const checkGenres = Array.from(
       e.target.querySelectorAll('input[type="checkbox"]:checked')
     ).map(checkbox => checkbox.value);
+
     const newMangaData = {
       cover1x: coverImg1x,
       cover2x: coverImg2x,
       status: formData.get('status-manga'),
       genres: checkGenres,
-
       alt: infoData.alt,
       title: infoData.title,
       author: infoData.author,
@@ -105,34 +114,39 @@ refs.formAdd.addEventListener('submit', async e => {
     const newManga = await addNewManga(newMangaData);
     const markup = mangaPanleTemplate(newManga);
     refs.listManga.insertAdjacentHTML('afterbegin', markup);
+
     iziToast.success({
       title: 'OK',
       message: 'Successfully add manga!',
     });
+    refs.formAdd.reset();
   } catch (error) {
     iziToast.error({
       title: 'Error',
       message: `Error ${error}`,
     });
   }
-
-  refs.formAdd.reset();
 });
 
+/**
+ * Handles updating an existing manga entry
+ * Обробка оновлення існуючого запису манги
+ */
 refs.formChange.addEventListener('submit', async e => {
   e.preventDefault();
   const id = e.target.dataset.id;
   const formData = new FormData(e.target);
-
   const infoData = dataElems(formData);
 
   if (Object.values(infoData).some(value => value.trim() === '')) {
     return iziToast.warning({
       title: 'Caution',
-      message: 'Please fill in all fields! Spaces only are not allowed.',
+      message: 'Please fill in all fields!',
     });
   }
 
+  // Use old covers by default unless new ones are uploaded
+  // Використання старих обкладинок за замовчуванням, якщо не завантажено нові
   let coverUrl1x = refs.formChange.dataset.oldCover1x;
   let coverUrl2x = refs.formChange.dataset.oldCover2x;
 
@@ -140,14 +154,11 @@ refs.formChange.addEventListener('submit', async e => {
   const inputElem2x = e.target.elements['cover2x_change_manga'];
 
   try {
-    if (inputElem1x.files && inputElem1x.files.length > 0) {
-      const uploadImg1x = inputElem1x.files[0];
-      coverUrl1x = await uploadImgUser(uploadImg1x);
+    if (inputElem1x.files?.length > 0) {
+      coverUrl1x = await uploadImgUser(inputElem1x.files[0]);
     }
-
-    if (inputElem2x.files && inputElem2x.files.length > 0) {
-      const uploadImg2x = inputElem2x.files[0];
-      coverUrl2x = await uploadImgUser(uploadImg2x);
+    if (inputElem2x.files?.length > 0) {
+      coverUrl2x = await uploadImgUser(inputElem2x.files[0]);
     }
   } catch (error) {
     return iziToast.error({
@@ -177,10 +188,10 @@ refs.formChange.addEventListener('submit', async e => {
     const oldCard = document
       .querySelector(`[data-id="${id}"]`)
       .closest('.manga-itemPanel');
-    oldCard.outerHTML = updatedMarkup;
 
-    refs.modalChange.classList.remove('is-open');
-    document.body.classList.remove('no-scroll');
+    oldCard.outerHTML = updatedMarkup;
+    hideModal();
+
     iziToast.success({
       title: 'OK',
       message: 'Successfully update info about manga!',
@@ -193,46 +204,53 @@ refs.formChange.addEventListener('submit', async e => {
   }
 });
 
+/**
+ * Event delegation for list actions: Delete, Change, or Show Details
+ * Делегування подій для дій у списку: Видалити, Змінити або Показати деталі
+ */
 refs.listManga.addEventListener('click', async e => {
   try {
     if (e.target.classList.contains('delete')) {
+      // Deleting manga entry
+      // Видалення запису манги
       await deleteManga(e.target.dataset.id);
-      const init = e.target.closest('.manga-itemPanel');
-      init.remove();
+      e.target.closest('.manga-itemPanel').remove();
       iziToast.success({
         title: 'OK',
         message: 'Successfully delete manga!',
       });
     } else if (e.target.classList.contains('change')) {
+      // Filling update form with existing data
+      // Заповнення форми оновлення існуючими даними
       const id = e.target.dataset.id;
+      const updateMangaData = await getMangasId(id);
 
-      const updateManga = await getMangasId(id);
-
-      refs.formChange.elements['cover1x_change_manga'].value = '';
+      // Pre-filling form fields
+      // Попереднє заповнення полів форми
       refs.formChange.dataset.oldCover1x =
-        updateManga.cover1x || updateManga.cover;
+        updateMangaData.cover1x || updateMangaData.cover;
       document.querySelector('.js-cover1x-img').src =
-        updateManga.cover1x || updateManga.cover;
+        updateMangaData.cover1x || updateMangaData.cover;
 
-      refs.formChange.elements['cover2x_change_manga'].value = '';
       refs.formChange.dataset.oldCover2x =
-        updateManga.cover2x || updateManga.cover;
+        updateMangaData.cover2x || updateMangaData.cover;
       document.querySelector('.js-cover2x-img').src =
-        updateManga.cover2x || updateManga.cover;
+        updateMangaData.cover2x || updateMangaData.cover;
 
-      refs.formChange.elements['cover_alt'].value = updateManga.alt;
-      refs.formChange.elements['name-manga'].value = updateManga.title;
-      refs.formChange.elements['status-manga'].value = updateManga.status;
-      refs.formChange.elements['name-author'].value = updateManga.author;
-      checkBoxes(updateManga);
-      refs.formChange.elements['manga-summary'].value = updateManga.summary;
+      refs.formChange.elements['cover_alt'].value = updateMangaData.alt;
+      refs.formChange.elements['name-manga'].value = updateMangaData.title;
+      refs.formChange.elements['status-manga'].value = updateMangaData.status;
+      refs.formChange.elements['name-author'].value = updateMangaData.author;
+      checkBoxes(updateMangaData);
+      refs.formChange.elements['manga-summary'].value = updateMangaData.summary;
 
       openModal();
       refs.formChange.dataset.id = id;
     } else if (e.target.classList.contains('showMore')) {
-      const btn = e.target.closest('.showMore');
-      const id = btn.dataset.id;
-      window.location.href = `../manga-deteils/manga-template.html?id=${id  }`;
+      // Navigate to detailed view
+      // Перехід до детального перегляду
+      const id = e.target.closest('.showMore').dataset.id;
+      window.location.href = `../manga-deteils/manga-template.html?id=${id}`;
     }
   } catch (error) {
     iziToast.error({
@@ -242,12 +260,20 @@ refs.listManga.addEventListener('click', async e => {
   }
 });
 
+/**
+ * Closes modal on backdrop click
+ * Закриття модального вікна при кліку на фон
+ */
 refs.modalChange.addEventListener('click', e => {
   if (e.target === e.currentTarget) {
     hideModal();
   }
 });
 
+/**
+ * Syncs checkboxes with manga genres data
+ * Синхронізація чекбоксів з даними про жанри манги
+ */
 function checkBoxes(mangaData) {
   const allCheckboxes = document.querySelectorAll('input[name="manga_genres"]');
   allCheckboxes.forEach(checkbox => {

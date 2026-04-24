@@ -14,11 +14,9 @@ import {
   deleteUser,
 } from 'firebase/auth';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase service configuration
+// Конфігурація сервісів Firebase
 const firebaseConfig = {
   apiKey: 'AIzaSyAFoelggij4rkzoeKq5twqklpQ3dd4Ycmw',
   authDomain: 'future-manga.firebaseapp.com',
@@ -29,15 +27,14 @@ const firebaseConfig = {
   measurementId: 'G-YZGBY0PE58',
 };
 
-// Initialize Firebase
+// Application and services initialization
+// Ініціалізація додатка та сервісів
 const app = initializeApp(firebaseConfig);
-
-// Экспортируем инструмент auth, чтобы другие файлы могли логинить юзеров
 export const auth = getAuth(app);
-
 const storage = getStorage(app);
 
-// Экспортируем сами функции, чтобы вызывать их при клике на кнопки
+// Public API for authentication and storage operations
+// Публічний API для операцій автентифікації та сховища
 export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -55,54 +52,62 @@ export {
   getDownloadURL,
 };
 
-async function confirmationPassword(currentPassword) {
-  const user = auth.currentUser;
-  const credential = EmailAuthProvider.credential(user.email, currentPassword);
-  return await reauthenticateWithCredential(user, credential);
-}
-// ==========================================
-// НАСТРОЙКИ АККАУНТА (USER SETTINGS)
-// ==========================================
-
-// Внутренняя функция-помощник (без export)
+/**
+ * Reauthentication with current credentials for security-sensitive tasks
+ * Повторна автентифікація з поточними даними для безпечних операцій
+ */
 async function reauthenticate(currentPassword) {
   const user = auth.currentUser;
   const credential = EmailAuthProvider.credential(user.email, currentPassword);
   return await reauthenticateWithCredential(user, credential);
 }
 
-// 2. Изменение почты
+/**
+ * Email update process with verification
+ * Процес оновлення Email із підтвердженням
+ */
 export async function changeEmail(newEmail) {
   const user = auth.currentUser;
   try {
-    await updateEmail(user, newEmail);
-    iziToast.success({ title: 'Success', message: 'Email успешно изменен!' });
+    await verifyBeforeUpdateEmail(user, newEmail);
+    iziToast.success({
+      title: 'Success',
+      message: 'Email updated successfully!',
+    });
     return true;
   } catch (error) {
     iziToast.error({
       title: 'Error',
-      message: 'Не удалось сменить email. ' + error.message,
+      message: 'Failed to update email: ' + error.message,
     });
     return false;
   }
 }
 
-// 3. Изменение пароля
+/**
+ * Password update with mandatory reauthentication
+ * Оновлення пароля з обов'язковою повторною автентифікацією
+ */
 export async function changePassword(currentPassword, newPassword) {
   const user = auth.currentUser;
   try {
     await reauthenticate(currentPassword);
     await updatePassword(user, newPassword);
-    iziToast.success({ title: 'Success', message: 'Пароль успешно изменен!' });
+    iziToast.success({
+      title: 'Success',
+      message: 'Password changed successfully!',
+    });
     return true;
   } catch (error) {
+    // Check for specific authentication errors
+    // Перевірка специфічних помилок автентифікації
     if (
       error.code === 'auth/invalid-credential' ||
       error.code === 'auth/wrong-password'
     ) {
       iziToast.error({
         title: 'Error',
-        message: 'Текущий пароль введен неверно!',
+        message: 'The current password you entered is incorrect.',
       });
     } else {
       iziToast.error({ title: 'Error', message: error.message });
@@ -111,7 +116,10 @@ export async function changePassword(currentPassword, newPassword) {
   }
 }
 
-// 4. Удаление аккаунта
+/**
+ * Permanent deletion of user profile and data
+ * Безповоротне видалення профілю та даних користувача
+ */
 export async function deleteUserAccount(currentPassword) {
   const user = auth.currentUser;
   try {
@@ -119,13 +127,13 @@ export async function deleteUserAccount(currentPassword) {
     await deleteUser(user);
     iziToast.info({
       title: 'Goodbye',
-      message: 'Ваш аккаунт навсегда удален.',
+      message: 'Your account has been permanently deleted.',
     });
     return true;
   } catch (error) {
     iziToast.error({
       title: 'Error',
-      message: 'Не удалось удалить: ' + error.message,
+      message: 'Failed to delete account: ' + error.message,
     });
     return false;
   }

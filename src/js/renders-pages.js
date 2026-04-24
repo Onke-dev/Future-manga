@@ -1,8 +1,15 @@
-// This function for Home page
+/**
+ * Global references for page elements
+ * Глобальні посилання на елементи сторінки
+ */
 const refs = {
   modalChange: document.querySelector('.modalChangeManga'),
 };
 
+/**
+ * Modal visibility controls
+ * Керування видимістю модального вікна
+ */
 export function openModal() {
   refs.modalChange.classList.add('is-open');
   document.body.classList.add('no-scroll');
@@ -13,6 +20,10 @@ export function hideModal() {
   document.body.classList.remove('no-scroll');
 }
 
+/**
+ * Normalizes form data by removing extra whitespace
+ * Нормалізація даних форми шляхом видалення зайвих пробілів
+ */
 export function dataElems(formData) {
   const infoData = {
     alt: formData.get('cover_alt').replace(/\s+/g, ' ').trim(),
@@ -23,6 +34,10 @@ export function dataElems(formData) {
   return infoData;
 }
 
+/**
+ * Extracts search parameters from the search form
+ * Вилучення параметрів пошуку з форми пошуку
+ */
 export function serarchElems(formData) {
   const infoData = {
     title: (formData.get('find-name-manga') || '').replace(/\s+/g, ' ').trim(),
@@ -31,11 +46,15 @@ export function serarchElems(formData) {
   return infoData;
 }
 
+/**
+ * HTML Template for a single manga card on the Home page
+ * HTML-шаблон для однієї картки манги на головній сторінці
+ */
 export function mangaHomeTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-item" data-id=${id}>
   <div class="manga">
-    <a href="./pages/manga-deteils/manga-template.html?id=${manga.id}">
+    <a href="./pages/manga-deteils/manga-template.html?id=${id}">
       <img
         class="manga-img"
         src="${cover1x}"
@@ -45,7 +64,7 @@ export function mangaHomeTemplate(manga) {
         alt="${alt}"
       />
     </a>
-    <a href="./pages/manga-deteils/manga-template.html?id=${manga.id}">
+    <a href="./pages/manga-deteils/manga-template.html?id=${id}">
       <h2 class="title-manga">${title}</h2>
     </a>
   </div>
@@ -56,11 +75,15 @@ export function mangasHomeTemplate(mangas) {
   return mangas.map(mangaHomeTemplate).join('');
 }
 
+/**
+ * HTML Template for a single manga card on secondary pages
+ * HTML-шаблон для однієї картки манги на другорядних сторінках
+ */
 export function mangaTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-item" data-id=${id}>
   <div class="manga">
-    <a href="../../pages/manga-deteils/manga-template.html?id=${manga.id}">
+    <a href="../../pages/manga-deteils/manga-template.html?id=${id}">
       <img
         class="manga-img"
         src="${cover1x}"
@@ -70,7 +93,7 @@ export function mangaTemplate(manga) {
         alt="${alt}"
       />
     </a>
-    <a href="../../pages/manga-deteils/manga-template.html?id=${manga.id}">
+    <a href="../../pages/manga-deteils/manga-template.html?id=${id}">
       <h2 class="title-manga">${title}</h2>
     </a>
   </div>
@@ -81,7 +104,10 @@ export function mangasTemplate(mangas) {
   return mangas.map(mangaTemplate).join('');
 }
 
-// This function for admin panel
+/**
+ * Template for manga items within the Admin Panel list
+ * Шаблон для елементів манги у списку панелі адміністратора
+ */
 export function mangaPanleTemplate(manga) {
   const { id, cover1x, cover2x, title, alt } = manga;
   return `<li class="manga-itemPanel">
@@ -106,6 +132,10 @@ export function mangasPanleTemplate(mangas) {
   return mangas.map(mangaPanleTemplate).join('');
 }
 
+/**
+ * Constant list of available manga genres
+ * Константний список доступних жанрів манги
+ */
 export const mangaGenres = [
   { value: 'action', label: 'Action' },
   { value: 'adventure', label: 'Adventure' },
@@ -135,6 +165,10 @@ export const mangaGenres = [
   { value: 'tragedy', label: 'Tragedy' },
 ];
 
+/**
+ * Template for genre checkboxes
+ * Шаблон для чекбоксів жанрів
+ */
 export function genreTemplate(item) {
   const { value, label } = item;
   return `<label class="genreManga">
@@ -146,6 +180,10 @@ export function genresTemplate(items) {
   return items.map(genreTemplate).join('');
 }
 
+/**
+ * Logic for the custom dropdown genre selection menu
+ * Логіка для випадаючого меню вибору жанрів
+ */
 export function dropDownWindow() {
   document.addEventListener('click', e => {
     const btn = e.target.closest('.js-genres-select');
@@ -164,6 +202,10 @@ export function dropDownWindow() {
   });
 }
 
+/**
+ * Template for manga search results in the header
+ * Шаблон для результатів пошуку манги в хедері
+ */
 export function searchMagaTemplate(manga) {
   const { cover1x, cover2x, alt, title, id } = manga;
   const baseUrl = import.meta.env.BASE_URL;
@@ -187,33 +229,33 @@ export function searchMagasTemplate(mangas) {
   return mangas.map(searchMagaTemplate).join('');
 }
 
+/**
+ * UI State controls: Loader and Navigation visibility
+ * Керування станом інтерфейсу: видимість лоадера та навігації
+ */
 const loader = document.querySelector('.wrap-loader');
 const navigation = document.querySelector('.geolocatio');
 
 export function showLoader() {
-  if (loader) {
-    loader.classList.remove('hidden');
-  }
+  if (loader) loader.classList.remove('hidden');
 }
 
 export function hideLoader() {
-  if (loader) {
-    loader.classList.add('hidden');
-  }
+  if (loader) loader.classList.add('hidden');
 }
 
 export function hideNavigation() {
-  if (navigation) {
-    navigation.classList.add('hidden');
-  }
+  if (navigation) navigation.classList.add('hidden');
 }
 
 export function showNavigation() {
-  if (navigation) {
-    navigation.classList.remove('hidden');
-  }
+  if (navigation) navigation.classList.remove('hidden');
 }
 
+/**
+ * Template for items in the user's favorites/liked list
+ * Шаблон для елементів у списку обраного користувача
+ */
 export function cardItemTemplate(cardItem) {
   const { id, cover1x, cover2x, title, alt } = cardItem;
   return `<li class="carditem">

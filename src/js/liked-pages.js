@@ -6,85 +6,94 @@ import { cardsItemsTemplate } from './renders-pages.js';
 
 const listLiked = document.querySelector('.list-items');
 
-// Ждем, пока Firebase проверит авторизацию
+/**
+ * Monitor authentication state to load user-specific favorites
+ * Моніторинг стану автентифікації для завантаження обраного конкретного користувача
+ */
 onAuthStateChanged(auth, async user => {
   if (!user) {
     listLiked.innerHTML =
-      '<li style="color: #fff; font-family: var(--second-family);">Пожалуйста, войдите в аккаунт, чтобы увидеть избранное.</li>';
+      '<li style="color: #fff; font-family: var(--second-family);">Please sign in to view your favorites.</li>';
     return;
   }
 
   try {
-    // 1. Получаем все лайки КОНКРЕТНОГО юзера
+    // 1. Fetch all likes associated with the specific user ID
+    // 1. Отримання всіх "лайків", пов'язаних з ID конкретного користувача
     const likesRes = await fetch(
       `http://localhost:3000/likes?userId=${user.uid}`
     );
-    if (!likesRes.ok) throw new Error('Не удалось загрузить список');
+    if (!likesRes.ok) throw new Error('Failed to load list');
     const likesData = await likesRes.json();
 
     if (likesData.length === 0) {
       listLiked.innerHTML =
-        '<li style="color: #fff; font-family: var(--second-family);">Ваш список пуст.</li>';
+        '<li style="color: #fff; font-family: var(--second-family);">Your list is empty.</li>';
       return;
     }
 
-    // 2. Получаем полные данные о каждой манге по её ID
-    // map создаст массив промисов, а Promise.all выполнит их одновременно
+    // 2. Fetch full manga details for each liked ID concurrently
+    // 2. Отримання повних даних про кожну мангу за її ID паралельно
     const mangaPromises = likesData.map(like => getMangasId(like.mangaId));
     const mangasData = await Promise.all(mangaPromises);
 
-    // 3. Рендерим карточки на страницу
+    // 3. Render cards to the page
+    // 3. Рендеринг карток на сторінку
     listLiked.innerHTML = cardsItemsTemplate(mangasData);
   } catch (error) {
     console.error(error);
     iziToast.error({
-      title: 'Ошибка',
-      message: 'Не удалось загрузить избранное',
+      title: 'Error',
+      message: 'Failed to load favorites',
     });
   }
 });
 
-// =======================================================
-// ЛОГИКА УДАЛЕНИЯ ИЗ ИЗБРАННОГО
-// =======================================================
+/**
+ * Event delegation for removing items from favorites
+ * Делегування подій для видалення елементів з обраного
+ */
 listLiked.addEventListener('click', async e => {
-  // Если кликнули по кнопке DELETE
   if (e.target.classList.contains('delete')) {
     const mangaIdToDelete = e.target.dataset.id;
     const user = auth.currentUser;
 
     try {
-      // Ищем ID самой записи "лайка" в json-server
+      // Find the specific like record ID in json-server
+      // Пошук ID конкретного запису про "лайк" у json-server
       const likeRes = await fetch(
         `http://localhost:3000/likes?userId=${user.uid}&mangaId=${mangaIdToDelete}`
       );
       const likeData = await likeRes.json();
 
       if (likeData.length > 0) {
-        const likeId = likeData[0].id; // id записи в таблице likes
+        const likeId = likeData[0].id; // Primary key in the 'likes' table
 
-        // Удаляем из базы
+        // Remove the record from the database
+        // Видалення запису з бази даних
         await fetch(`http://localhost:3000/likes/${likeId}`, {
           method: 'DELETE',
         });
 
-        // Удаляем карточку со страницы
+        // Remove the element from the DOM
+        // Видалення елемента з DOM
         e.target.closest('.carditem').remove();
 
         iziToast.success({
-          title: 'ОК',
-          message: 'Манга удалена из избранного!',
+          title: 'Success',
+          message: 'Manga removed from favorites!',
         });
 
-        // Если удалили последнюю
+        // Show empty state message if no items remain
+        // Відображення повідомлення про порожній список, якщо елементів не залишилося
         if (listLiked.children.length === 0) {
           listLiked.innerHTML =
-            '<li style="color: #fff; font-family: var(--second-family);">Ваш список пуст.</li>';
+            '<li style="color: #fff; font-family: var(--second-family);">Your list is empty.</li>';
         }
       }
     } catch (error) {
       console.error(error);
-      iziToast.error({ title: 'Ошибка', message: 'Не удалось удалить' });
+      iziToast.error({ title: 'Error', message: 'Failed to delete item' });
     }
   }
 });

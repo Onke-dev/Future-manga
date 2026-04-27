@@ -202,6 +202,8 @@
             placeholder="Write your Email"
             autocomplete="username"
             required
+            pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            title="Please use only English letters and numbers"
           />
         </fieldset>
         <fieldset class="item-regist">
@@ -214,6 +216,8 @@
             placeholder="Password"
             autocomplete="new-password"
             required
+            pattern="[a-zA-Z0-9]{6,}"
+            title="Only English letters and numbers, no spaces or special characters, minimum 6 characters"
           />
         </fieldset>
         <fieldset class="item-regist">
@@ -228,6 +232,8 @@
             placeholder="Repeat password"
             autocomplete="new-password"
             required
+            pattern="[a-zA-Z0-9]{6,}"
+            title="Only English letters and numbers, no spaces or special characters, minimum 6 characters"
           />
         </fieldset>
         <div class="wrap-btn">

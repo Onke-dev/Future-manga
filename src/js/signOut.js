@@ -134,17 +134,31 @@ if (refs.formChangeEmail) {
   refs.formChangeEmail.addEventListener('submit', async e => {
     e.preventDefault(); // Останавливаем перезагрузку страницы
 
-    // Получаем введенное имя
+    // Получаем введенный email
     const newEmail = refs.inputEmail.value.trim();
 
     // Если поле пустое, просто выходим
     if (!newEmail) return;
 
+    // =========================================================
+    // ПРОВЕРКА EMAIL (только англ. буквы, цифры и знаки почты)
+    // =========================================================
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(newEmail)) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Please use only English letters and numbers for your email.',
+        position: 'topRight',
+      });
+      return; // Зупиняємо виконання, якщо є кирилиця
+    }
+
     // Вызываем функцию из authentication.js
     const isSuccess = await changeEmail(newEmail);
 
     if (isSuccess) {
-      // НОВАЯ СТРОЧКА: Сразу обновляем placeholder на новое имя
+      // Сразу обновляем placeholder на новый email
       if (refs.inputEmail) refs.inputEmail.placeholder = newEmail;
       refs.formChangeEmail.reset();
     }
@@ -159,17 +173,42 @@ if (refs.formChangePassword) {
     const newPassord = refs.inputNewPassord.value.trim();
     const confirmPassord = refs.inputConfirmPassord.value.trim();
 
+    // 1. Проверка на пустые поля
     if (!currentPassord || !newPassord || !confirmPassord) {
       iziToast.warning({
         title: 'Warning',
         message: 'Пожалуйста, заполните все поля.',
+        position: 'topRight',
       });
       return;
     }
-    if (newPassord !== confirmPassord) {
-      iziToast.error({ title: 'Error', message: 'Новые пароли не совпадают!' });
+
+    // =========================================================
+    // 2. ПРОВЕРКА НОВОГО ПАРОЛЯ (только англ. буквы и цифры, МИНИМУМ 6 СИМВОЛОВ)
+    // =========================================================
+    const passwordRegex = /^[a-zA-Z0-9]{6,}$/;
+
+    if (!passwordRegex.test(newPassord)) {
+      iziToast.error({
+        title: 'Error',
+        message:
+          'New password must be at least 6 characters long and contain ONLY English letters and numbers.',
+        position: 'topRight',
+      });
       return;
     }
+
+    // 3. Проверка совпадения паролей
+    if (newPassord !== confirmPassord) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Новые пароли не совпадают!',
+        position: 'topRight',
+      });
+      return;
+    }
+
+    // 4. Отправка в Firebase
     const success = await changePassword(currentPassord, newPassord);
     if (success) {
       // Если всё отлично, очищаем форму

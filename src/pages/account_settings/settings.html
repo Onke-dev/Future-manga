@@ -310,6 +310,8 @@
                   type="email"
                   name="user-email"
                   required
+                  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  title="Please use only English letters and numbers"
                 />
                 <button class="save_btn" type="submit" data-key="save_button">
                   Save
@@ -356,6 +358,8 @@
                   name="new-password"
                   placeholder="New Password"
                   required
+                  pattern="[a-zA-Z0-9]{6,}"
+                  title="Only English letters and numbers, no spaces or special characters, minimum 6 characters"
                 />
               </div>
               <div class="wrap-password confirm-password">

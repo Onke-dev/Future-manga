@@ -10,16 +10,15 @@
       href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/Future-manga/assets/vendor-Nxcx92q3.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/main-Cn7ueFrf.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/authentication-CFcINmpc.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/signOut-t9845NVt.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/menu-D6LYdtPq.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/search-header-BalrNAg7.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/header-auth-bR1olKkD.js"></script>
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/main-CZrpqLgr.css">
+    <script type="module" crossorigin src="/Future-manga/assets/vendor-Dk5KRYwc.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/modal-filter-Dh90QjJ_.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/authentication-AUFy6Mo3.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/signOut-BPy6ZHB9.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/search-header-BB0Y-Q7a.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/header-auth-CE0rMzfT.js"></script>
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/modal-filter-8S5OO54s.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/user_account-fZTGqYPm.css">
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/user_account-7VXne-rw.css">
   </head>
 
   <body>
@@ -66,7 +65,7 @@
                   />
                   <button class="btn-search" type="button">
                     <svg class="magnifying-glass" width="24" height="24">
-                      <use href="./icon/icon.svg#icon-magnifier"></use>
+                      <use href="../../icon/icon.svg#icon-magnifier"></use>
                     </svg>
                   </button>
                   <ul class="header-search-list js-list-search"></ul>
@@ -80,22 +79,11 @@
                 </a>
               </li>
               <li class="function_header">
-                <button type="button" class="eyes">
+                <button type="button" class="eyes" data-backdrop-open>
                   <svg class="icon-eye" width="40" height="40">
                     <use href="../../icon/icon.svg#icon-Eye"></use>
                   </svg>
                 </button>
-              </li>
-              <li class="function_header">
-                <div class="wrap-lg">
-                  <select class="lg_func" name="language">
-                    <option class="item-lg" value="en">En</option>
-                    <option class="item-lg" value="ua">Ua</option>
-                  </select>
-                  <svg class="icon-locale" width="12" height="8">
-                    <use href="../../icon/icon.svg#icon-vector"></use>
-                  </svg>
-                </div>
               </li>
             </ul>
           </div>
@@ -159,24 +147,26 @@
                   >Account</a
                 >
               </li>
-              <li class="mob-header_item" id="eye-open">
-                <svg class="blindness" width="20" height="20">
+              <li
+                class="mob-header_item"
+                id="eye-open"
+                data-backdrop-open
+                style="cursor: pointer"
+              >
+                <svg
+                  class="blindness"
+                  width="20"
+                  height="20"
+                  style="pointer-events: none"
+                >
                   <use href="../../icon/icon.svg#icon-Eye"></use>
                 </svg>
-                <a class="mob-item" href="#" data-key="visual-impairments"
-                  >For people with visual impairments</a
+                <span
+                  class="mob-item"
+                  data-key="visual-impairments"
+                  style="pointer-events: none"
+                  >For people with visual impairments</span
                 >
-              </li>
-              <li class="mob-header_item">
-                <div class="wrap_lg">
-                  <select class="lg_func" name="language" id="language-select">
-                    <option class="item-lg" value="en">English</option>
-                    <option class="item-lg" value="ua">Ukraine</option>
-                  </select>
-                  <svg class="icon_lg" width="12" height="8">
-                    <use href="../../icon/icon.svg#icon-vector"></use>
-                  </svg>
-                </div>
               </li>
             </ul>
           </div>
@@ -236,7 +226,12 @@
           <h2 class="name-user js-profile-name"></h2>
         </div>
         <div class="user-info">
-          <a href="#" class="btn-liked" data-key="likedManga">Liked</a>
+          <a
+            href="../../pages/liked/liked.html"
+            class="btn-liked"
+            data-key="likedManga"
+            >Liked</a
+          >
           <a
             href="../../pages/admin_panel/admin_panel.html"
             class="btn-admin-panel"
@@ -311,6 +306,29 @@
       </div>
     </footer>
     <!-- #endregion footer styles -->
+
+    <!-- #region color Filter styles -->
+    <div class="backdrop">
+      <div class="modal">
+        <button class="closeModalBtn" type="button" data-modal-close>
+          <svg class="btn_icon" width="28" height="28">
+            <use href="../../icon/icon.svg#icon-menu-close"></use>
+          </svg>
+        </button>
+        <h2 class="title-filter">Кольоровий фільтр</h2>
+        <div class="item-filter">
+          <button class="defaultBtn" type="button" data-theme="default">
+            <h3>Default</h3>
+          </button>
+        </div>
+        <div class="item-filter">
+          <button class="filtertBtn" type="button" data-theme="contrast">
+            <h3>Contrast</h3>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- #endregion color Filter styles -->
 
     <!-- #region Scripts -->
     <!-- #endregion Scripts -->

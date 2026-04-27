@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in</title>
+    <title>Loading...</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Junge&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/Future-manga/sign-in.js"></script>
+    <script type="module" crossorigin src="/Future-manga/read.js"></script>
     <link rel="modulepreload" crossorigin href="/Future-manga/assets/vendor-Dk5KRYwc.js">
     <link rel="modulepreload" crossorigin href="/Future-manga/assets/modal-filter-Dh90QjJ_.js">
-    <link rel="modulepreload" crossorigin href="/Future-manga/assets/authentication-AUFy6Mo3.js">
+    <link rel="modulepreload" crossorigin href="/Future-manga/assets/search-header-BB0Y-Q7a.js">
     <link rel="modulepreload" crossorigin href="/Future-manga/assets/header-auth-CE0rMzfT.js">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/modal-filter-8S5OO54s.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/registration-BPdgS6xp.css">
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/read-CwMPwY2J.css">
   </head>
 
   <body>
@@ -42,7 +42,10 @@
                 >
               </li>
               <li class="header_item">
-                <a class="item" href="./about_us.html" data-key="about"
+                <a
+                  class="item"
+                  href="../../pages/about_us/about_us.html"
+                  data-key="about"
                   >About us</a
                 >
               </li>
@@ -53,15 +56,18 @@
               <li class="function_header">
                 <div class="wrap-search">
                   <input
-                    class="search"
+                    class="search jsHeaderSearch"
                     name="search-name"
                     type="text"
                     placeholder="Search"
                     data-key="search-placeholder"
                   />
-                  <svg class="magnifying-glass" width="24" height="24">
-                    <use href="../../icon/icon.svg#icon-magnifier"></use>
-                  </svg>
+                  <button class="btn-search" type="button">
+                    <svg class="magnifying-glass" width="24" height="24">
+                      <use href="./icon/icon.svg#icon-magnifier"></use>
+                    </svg>
+                  </button>
+                  <ul class="header-search-list js-list-search"></ul>
                 </div>
               </li>
               <li class="function_header">
@@ -106,10 +112,18 @@
                 >
               </li>
               <li class="mob-header_item">
-                <a class="mob-item" href="#" data-key="manga">Manga</a>
+                <a
+                  class="mob-item"
+                  href="../../pages/manga/manga.html"
+                  data-key="manga"
+                  >Manga</a
+                >
               </li>
               <li class="mob-header_item">
-                <a class="mob-item" href="./about_us.html" data-key="about"
+                <a
+                  class="mob-item"
+                  href="../../pages/about_us/about_us.html"
+                  data-key="about"
                   >About us</a
                 >
               </li>
@@ -130,7 +144,7 @@
               <li class="mob-header_item">
                 <a
                   class="mob-item"
-                  href="../../pages/registration/registration.html"
+                  href="./pages/registration/registration.html"
                   data-key="account"
                   >Account</a
                 >
@@ -166,26 +180,18 @@
     <!-- #region sec1 styles -->
     <section class="geolocatio">
       <div class="containerWrap">
-        <ul class="list-geo">
+        <ul class="list-geo" id="js-navigation-list">
           <li class="item-goe home">
             <a class="location" href="../../index.html" data-key="home_location"
               >Home</a
             >
           </li>
-          <li class="item-goe home">
-            <a
-              class="location"
-              href="../../pages/registration/registration.html"
-              data-key="title_location_about"
-              >Registration</a
-            >
-          </li>
           <li class="item-goe">
             <a
               class="location"
-              href="../../pages/sign-in/sign-in.html"
+              href="./about_us.html"
               data-key="title_location_about"
-              >Sign in</a
+              >About us</a
             >
           </li>
         </ul>
@@ -196,44 +202,44 @@
     <!-- #region main styles -->
     <main class="main_content container">
       <!-- #region sec2 styles -->
-      <form class="form-login">
-        <h2 class="main-title">SIGN IN</h2>
-        <fieldset class="item-regist">
-          <label for="user-email" class="text-form">Email:</label>
-          <input
-            type="email"
-            class="input-form"
-            id="user-email"
-            name="user-email"
-            placeholder="Write your Email"
-          />
-        </fieldset>
-        <fieldset class="item-regist">
-          <label for="user-password" class="text-form">Password:</label>
-          <input
-            type="password"
-            class="input-form"
-            id="user-password"
-            name="user-password"
-            placeholder="Password"
-          />
-        </fieldset>
-        <fieldset class="item-regist remember-content">
-          <div class="wrap-remember-me">
-            <input
-              type="checkbox"
-              class="remember"
-              name="remember"
-              id="remember"
-            />
-            <label for="remember" class="title-remember">Remember me</label>
-          </div>
-        </fieldset>
-        <div class="wrap-btn">
-          <button type="submit" class="btn-singIn js-go-login">Sign in</button>
+      <section class="manga-content">
+        <div class="containerWrap">
+          <h2
+            class="name-manga"
+            id="js-chapter-title"
+            data-key="chapter0-title"
+          >
+            Loading...
+          </h2>
+
+          <ul class="list-chapters" id="js-pages-list"></ul>
         </div>
-      </form>
+      </section>
       <!-- #endregion sec2 styles -->
+
+      <!-- #region sec3 styles -->
+      <div class="wrap-btn-read">
+        <a id="prev-btn" class="nav-chapter-btn" href="#">
+          <svg class="next" width="34" height="34">
+            <use href="../../icon/icon.svg#icon-left-circle"></use>
+          </svg>
+        </a>
+
+        <a id="next-btn" class="nav-chapter-btn" href="#">
+          <svg class="next" width="34" height="34">
+            <use href="../../icon/icon.svg#icon-right-circle"></use>
+          </svg>
+        </a>
+      </div>
+      <!-- #endregion sec3 styles -->
+
+      <!-- #region sec4 styles -->
+      <button class="scroll-up" aria-label="Scroll to top">
+        <svg class="up" width="25" height="25">
+          <use href="../../icon/icon.svg#icon-up"></use>
+        </svg>
+      </button>
+      <!-- #endregion sec3 styles -->
     </main>
     <!-- #endregion main styles -->
 
@@ -292,7 +298,7 @@
       <div class="modal">
         <button class="closeModalBtn" type="button" data-modal-close>
           <svg class="btn_icon" width="28" height="28">
-            <use href="./icon/icon.svg#icon-menu-close"></use>
+            <use href="../../icon/icon.svg#icon-menu-close"></use>
           </svg>
         </button>
         <h2 class="title-filter">Кольоровий фільтр</h2>
@@ -311,6 +317,7 @@
     <!-- #endregion color Filter styles -->
 
     <!-- #region Scripts -->
+
     <!-- #endregion Scripts -->
   </body>
 </html>

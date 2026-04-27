@@ -14,7 +14,7 @@
     <script type="module" crossorigin src="/Future-manga/assets/modal-filter-Dh90QjJ_.js"></script>
     <script type="module" crossorigin src="/Future-manga/assets/search-header-BB0Y-Q7a.js"></script>
     <script type="module" crossorigin src="/Future-manga/assets/authentication-AUFy6Mo3.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/signOut-BPy6ZHB9.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/signOut-Dy0xX79i.js"></script>
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/modal-filter-8S5OO54s.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/settings-B2hk9U9U.css">
@@ -307,6 +307,8 @@
                   type="email"
                   name="user-email"
                   required
+                  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  title="Please use only English letters and numbers"
                 />
                 <button class="save_btn" type="submit" data-key="save_button">
                   Save
@@ -353,6 +355,8 @@
                   name="new-password"
                   placeholder="New Password"
                   required
+                  pattern="[a-zA-Z0-9]{6,}"
+                  title="Only English letters and numbers, no spaces or special characters, minimum 6 characters"
                 />
               </div>
               <div class="wrap-password confirm-password">

@@ -153,6 +153,12 @@
 .img-card {
   border-radius: 10px;
   padding-bottom: 17px;
+  transition: filter 0.3s ease;
+}
+
+body.theme-contrast .img-card,
+body[data-theme='contrast'] .img-card {
+  filter: grayscale(100%);
 }
 
 .name-manga {

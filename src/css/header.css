@@ -737,10 +737,6 @@
     stroke: var(--hover-eye-user);
   }
 
-  .eyes:focus {
-    border: var(--focus);
-  }
-
   .eyes:active {
     background-color: transparent;
     stroke: #ffffff;

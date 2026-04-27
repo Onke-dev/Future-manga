@@ -110,11 +110,12 @@
   border-radius: 8px;
 }
 
-.read-next {
+.wrap-btn-read {
   padding-top: 25px;
   padding-bottom: 30px;
   display: flex;
   justify-content: center;
+  column-gap: 10px;
 }
 
 .next-rigth {

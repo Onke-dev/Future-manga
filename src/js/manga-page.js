@@ -6,6 +6,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 // Імпорт Firebase для операцій зі сховищем
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage, auth } from './firebase-api.js';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 /**
  * DOM Elements references
@@ -24,7 +25,30 @@ const refs = {
   readFirstBtn: document.querySelector('[data-key="readFirst"]'),
   readLastBtn: document.querySelector('[data-key="readLast"]'),
   btnAddLiked: document.querySelector('.btn_add'),
+  addChapterBtn: document.querySelector('btn_add-manga'),
 };
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    const adminEmail = 'angertina777@ukr.net';
+
+    if (user.email === adminEmail) {
+      // ИЩЕМ КНОПКУ ПРЯМО ЗДЕСЬ, а не берем из refs
+      const adminBtn = document.getElementById('btn-open-add-chapter');
+
+      if (adminBtn) {
+        adminBtn.style.display = 'block';
+        console.log('Кнопка админа успешно показана!');
+      } else {
+        console.error(
+          'Скрипт понял, что ты админ, но не смог найти кнопку в HTML! Проверь, точно ли у неё id="btn-open-add-chapter"'
+        );
+      }
+    } else {
+      console.log('Зайшов звичайний юзер. Кнопка прихована.');
+    }
+  }
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Extract Manga ID from URL parameters

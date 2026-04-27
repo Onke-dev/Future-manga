@@ -115,38 +115,53 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   /**
-   * NEXT CHAPTER BUTTON LOGIC
-   * Логіка кнопки "Наступна глава"
+   * NAVIGATION BUTTONS LOGIC (PREV & NEXT)
+   * Логіка кнопок навігації "Попередня" та "Наступна" глава
    */
-  const nextChapterBtn = document.getElementById('js-next-chapter');
 
-  if (nextChapterBtn) {
-    // Fetch all chapters to determine navigation order
-    // Запит всіх глав для визначення черговості навігації
-    const allChaptersRes = await fetch(
-      `http://localhost:3000/chapters?mangaId=${mangaId}`
-    );
-    const allChapters = await allChaptersRes.json();
+  // Отримуємо кнопки за їхніми ID (переконайся, що в read.html ти додав ці ID до тегів <a>)
+  const prevChapterBtn = document.getElementById('prev-btn');
+  const nextChapterBtn = document.getElementById('next-btn');
 
-    // Sort chapters ascending (1, 2, 3...)
-    // Сортування глав за зростанням (1, 2, 3...)
-    allChapters.sort((a, b) => a.chapter - b.chapter);
+  // Робимо запит всіх глав для цієї манги, щоб зрозуміти порядок
+  const allChaptersRes = await fetch(
+    `http://localhost:3000/chapters?mangaId=${mangaId}`
+  );
+  const allChapters = await allChaptersRes.json();
 
-    // Identify the index of the current chapter
-    // Визначення індексу поточної глави
-    const currentIndex = allChapters.findIndex(
-      ch => ch.chapter === Number(chapterNum)
-    );
+  // Сортуємо глави за зростанням (0, 1, 2...)
+  allChapters.sort((a, b) => a.chapter - b.chapter);
 
-    // Update button link if a subsequent chapter exists
-    // Оновлення посилання кнопки, якщо наступна глава існує
-    if (currentIndex !== -1 && currentIndex < allChapters.length - 1) {
-      const nextChapterNum = allChapters[currentIndex + 1].chapter;
-      nextChapterBtn.href = `?id=${mangaId}&chapter=${nextChapterNum}`;
-    } else {
-      // Hide button if current chapter is the latest
-      // Приховування кнопки, якщо поточна глава є останньою
-      nextChapterBtn.style.display = 'none';
+  // Знаходимо, якою по рахунку (індекс) є поточна глава в масиві
+  const currentIndex = allChapters.findIndex(
+    ch => ch.chapter === Number(chapterNum)
+  );
+
+  if (currentIndex !== -1) {
+    // --- 1. ЛОГІКА ДЛЯ КНОПКИ "НАЗАД" ---
+    if (prevChapterBtn) {
+      if (currentIndex > 0) {
+        // Якщо це НЕ перша глава, беремо номер попередньої і показуємо кнопку
+        const prevChapterNum = allChapters[currentIndex - 1].chapter;
+        prevChapterBtn.href = `?id=${mangaId}&chapter=${prevChapterNum}`;
+        prevChapterBtn.style.display = 'inline-block';
+      } else {
+        // Якщо це найперша глава (індекс 0), ховаємо кнопку
+        prevChapterBtn.style.display = 'none';
+      }
+    }
+
+    // --- 2. ЛОГІКА ДЛЯ КНОПКИ "ВПЕРЕД" ---
+    if (nextChapterBtn) {
+      if (currentIndex < allChapters.length - 1) {
+        // Якщо це НЕ остання глава, беремо номер наступної і показуємо кнопку
+        const nextChapterNum = allChapters[currentIndex + 1].chapter;
+        nextChapterBtn.href = `?id=${mangaId}&chapter=${nextChapterNum}`;
+        nextChapterBtn.style.display = 'inline-block';
+      } else {
+        // Якщо це остання глава, ховаємо кнопку
+        nextChapterBtn.style.display = 'none';
+      }
     }
   }
 });

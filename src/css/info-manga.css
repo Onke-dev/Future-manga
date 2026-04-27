@@ -77,6 +77,16 @@
   border-radius: 20px;
 }
 
+/* 1. Базовий стан: картинка кольорова, просто додаємо плавність для красивого переходу */
+.js-cover {
+  transition: filter 0.3s ease;
+}
+
+body.theme-contrast .js-cover,
+body[data-theme='contrast'] .js-cover {
+  filter: grayscale(100%);
+}
+
 .info-manga {
   margin: 0 auto;
   margin-bottom: 32px;
@@ -340,6 +350,24 @@
   position: relative;
 }
 
+
+.list-info-manga,
+.summary,
+.list-chapters {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+body.theme-contrast .list-info-manga,
+body.theme-contrast .summary,
+body.theme-contrast .list-chapters {
+  background-color: #1a1a1a; 
+  border: 1px solid #333; 
+}
+
+
 .list-chapters::-webkit-scrollbar {
   width: 15px;
 }
@@ -409,6 +437,7 @@
   font-size: 16px;
   color: #fff;
   cursor: pointer;
+  display: none;
 }
 
 .chapter_link {
@@ -423,6 +452,98 @@
   font-weight: 400;
   font-size: 12px;
   color: #fff;
+}
+
+.modal-add {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #989898;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 280px;
+  box-sizing: border-box;
+  padding: 60px 46px 60px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.input-chapter {
+  border-radius: 30px;
+  background-color: var(--bg-search-mob);
+  padding: 8px 22px 8px 22px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  color: #fef7ff;
+  border: var(--br-search-mob);
+}
+
+.input-chapter::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  color: #fef7ff;
+}
+
+/* .add-imgs {
+  padding: 7px 22px;
+  border-radius: 30px;
+  background-color: #000;
+
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  text-align: center;
+  color: #fff;
+} */
+
+#pages-desktop,
+#pages-tablet,
+#pages-mobile {
+  display: none;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.custom-file-btn {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.custom-file-btn:hover {
+  background-color: #333;
+}
+
+.submit-new-chapter {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: 0.3s;
 }
 
 /* #endregion main styles */
@@ -515,8 +636,13 @@
     margin-bottom: 20px;
   }
 
+  .wrap_reverse {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .list-chapters {
-    width: 533px;
+    width: 100%;
     column-gap: 113px;
     flex-wrap: wrap;
     flex-direction: row;
@@ -596,12 +722,6 @@
     margin-bottom: 30px;
     width: 1160px;
     padding: 20px 28px;
-  }
-
-  .wrap_reverse {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 
   .chapters {

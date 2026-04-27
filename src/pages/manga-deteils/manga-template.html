@@ -325,7 +325,7 @@
 
     <!-- #region Add Manga -->
     <div class="backdrop" id="modal-add-chapter">
-      <div class="modal" style="width: 400px">
+      <div class="modal-add">
         <button
           class="closeModalBtn"
           type="button"
@@ -342,6 +342,7 @@
           <div class="input-group">
             <label for="chapter-number">Chapter Number*</label>
             <input
+              class="input-chapter"
               type="number"
               id="chapter-number"
               name="chapterNumber"
@@ -354,18 +355,22 @@
           <div class="input-group" style="margin-top: 15px">
             <label>Desktop Pages (1x & 2x)*</label>
             <input
+              class="add-imgs"
               type="file"
               id="pages-desktop"
               accept="image/*"
               multiple
               required
-              style="color: #fff; margin-top: 5px"
             />
+            <label class="custom-file-btn" for="pages-desktop"
+              >Выбрать файлы</label
+            >
           </div>
 
           <div class="input-group" style="margin-top: 15px">
             <label>Tablet Pages (1x & 2x)*</label>
             <input
+              class="add-imgs"
               type="file"
               id="pages-tablet"
               accept="image/*"
@@ -373,11 +378,15 @@
               required
               style="color: #fff; margin-top: 5px"
             />
+            <label class="custom-file-btn" for="pages-tablet"
+              >Выбрать файлы</label
+            >
           </div>
 
           <div class="input-group" style="margin-top: 15px">
             <label>Mobile Pages (1x & 2x)*</label>
             <input
+              class="add-imgs"
               type="file"
               id="pages-mobile"
               accept="image/*"
@@ -385,9 +394,13 @@
               required
               style="color: #fff; margin-top: 5px"
             />
+            <label class="custom-file-btn" for="pages-mobile"
+              >Выбрать файлы</label
+            >
           </div>
 
           <button
+            class="submit-new-chapter"
             type="submit"
             class="btn-admin-panel"
             style="margin-top: 30px; width: 100%"
@@ -403,7 +416,7 @@
     <script type="module" src="../../main.js"></script>
     <script type="module" src="../../js/manga-page.js"></script>
     <script type="module" src="../../js/js-functions/menu.js"></script>
-
+    <script type="module" src="../../js/js-functions/reverse.js"></script>
     <script type="module" src="../../js/search-header.js"></script>
     <script type="module" src="../../js/js-functions/modal-filter.js"></script>
     <!-- #endregion Scripts -->

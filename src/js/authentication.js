@@ -37,7 +37,7 @@ export async function registerUser(email, password) {
 
     iziToast.success({
       title: 'Success',
-      message: 'Регистрация прошла успешно!',
+      message: 'Registration was successful!',
     });
     return user;
   } catch (error) {
@@ -56,11 +56,17 @@ export async function loginUser(email, password) {
     );
     const user = userCredential.user;
 
-    iziToast.success({ title: 'Welcome', message: 'Вы успешно вошли!' });
+    iziToast.success({
+      title: 'Welcome',
+      message: 'You have logged in successfully!',
+    });
     // Например, закрыть модалку или перекинуть в My Account
     return user;
   } catch (error) {
-    iziToast.error({ title: 'Error', message: 'Неверный email или пароль.' });
+    iziToast.error({
+      title: 'Error',
+      message: 'Incorrect email address or password.',
+    });
   }
 }
 
@@ -70,13 +76,13 @@ export async function logoutUser() {
     await signOut(auth);
     iziToast.info({
       title: 'Goodbye',
-      message: 'Вы успешно вышли из аккаунта.',
+      message: 'You have successfully logged out of your account.',
     });
     return true; // Возвращаем true, чтобы сказать "Всё прошло отлично"
   } catch (error) {
     iziToast.error({
       title: 'Error',
-      message: 'Ошибка при выходе: ' + error.message,
+      message: 'Error on exit: ' + error.message,
     });
     return false;
   }
@@ -89,16 +95,19 @@ export async function changeName(newName) {
   if (user) {
     try {
       await updateProfile(user, { displayName: newName }); // Передаем newName
-      iziToast.success({ title: 'Success', message: 'Имя успешно обновлено!' });
+      iziToast.success({
+        title: 'Success',
+        message: 'Your name has been successfully updated!',
+      });
       return true;
     } catch (error) {
-      iziToast.error({ title: 'Error', message: 'Ошибка: ' + error.message });
+      iziToast.error({ title: 'Error', message: 'Error: ' + error.message });
       return false;
     }
   } else {
     iziToast.error({
       title: 'Error',
-      message: 'Пользователь не найден. Перезайдите в аккаунт.',
+      message: 'The user cannot be found. Please log in again.',
     });
     return false;
   }
@@ -111,7 +120,7 @@ export async function changeEmail(newEmail) {
   if (!user) {
     iziToast.error({
       title: 'Error',
-      message: 'Пользователь не найден. Перезайдите в аккаунт.',
+      message: 'The user could not be found. Please log in again.',
     });
     return false;
   }
@@ -124,7 +133,7 @@ export async function changeEmail(newEmail) {
     iziToast.success({
       title: 'Check your Inbox!',
       message:
-        'Ссылка для подтверждения отправлена на новый email. Перейдите по ней, чтобы изменения вступили в силу!',
+        'A confirmation link has been sent to your new email address. Please click on it to activate the changes!',
       timeout: 6000, // Пусть повисит подольше, чтобы успел прочитать
     });
     return true;
@@ -134,10 +143,10 @@ export async function changeEmail(newEmail) {
       iziToast.warning({
         title: 'Security',
         message:
-          'Ради безопасности, пожалуйста, нажмите EXIT, войдите заново и повторите попытку.',
+          'For security reasons, please click EXIT, log in again and try again.',
       });
     } else {
-      iziToast.error({ title: 'Error', message: 'Ошибка: ' + error.message });
+      iziToast.error({ title: 'Error', message: 'Error: ' + error.message });
     }
     return false;
   }
@@ -147,7 +156,7 @@ export async function changeEmail(newEmail) {
 export async function changePassword(currentPassword, newPassword) {
   const user = auth.currentUser;
   if (!user) {
-    iziToast.error({ title: 'Error', message: 'Пользователь не найден.' });
+    iziToast.error({ title: 'Error', message: 'User not found.' });
     return false;
   }
 
@@ -158,7 +167,10 @@ export async function changePassword(currentPassword, newPassword) {
     );
     await reauthenticateWithCredential(user, credential);
     await updatePassword(user, newPassword);
-    iziToast.success({ title: 'Success', message: 'Пароль успешно изменен!' });
+    iziToast.success({
+      title: 'Success',
+      message: 'Your password has been successfully changed!',
+    });
     return true;
   } catch (error) {
     if (
@@ -167,12 +179,12 @@ export async function changePassword(currentPassword, newPassword) {
     ) {
       iziToast.error({
         title: 'Error',
-        message: 'Текущий пароль введен неверно!',
+        message: 'The current password has been entered incorrectly!',
       });
     } else if (error.code === 'auth/weak-password') {
       iziToast.error({
         title: 'Weak Password',
-        message: 'Новый пароль должен быть не менее 6 символов.',
+        message: 'Your new password must be at least 6 characters long.',
       });
     } else {
       iziToast.error({ title: 'Error', message: error.message });
@@ -193,7 +205,7 @@ export async function deleteUserAccount(currentPassword) {
   const user = auth.currentUser;
 
   if (!user) {
-    iziToast.error({ title: 'Error', message: 'Пользователь не найден.' });
+    iziToast.error({ title: 'Error', message: 'User not found.' });
     return false;
   }
 
@@ -213,7 +225,7 @@ export async function deleteUserAccount(currentPassword) {
     // Уведомление (хотя пользователь его вряд ли увидит долго, так как мы его перекинем)
     iziToast.info({
       title: 'Goodbye',
-      message: 'Ваш аккаунт навсегда удален.',
+      message: 'Your account has been permanently deleted.',
     });
     return true;
   } catch (error) {
@@ -223,7 +235,7 @@ export async function deleteUserAccount(currentPassword) {
     ) {
       iziToast.error({
         title: 'Error',
-        message: 'Текущий пароль введен неверно!',
+        message: 'The current password has been entered incorrectly!',
       });
     } else {
       iziToast.error({ title: 'Error', message: error.message });
@@ -252,7 +264,7 @@ export async function uploadAvatar(file) {
 
     iziToast.success({
       title: 'Success',
-      message: 'Аватарка успешно обновлена!',
+      message: 'Your avatar has been successfully updated!',
     });
 
     // Возвращаем ссылку, чтобы мгновенно показать её на странице
@@ -260,7 +272,7 @@ export async function uploadAvatar(file) {
   } catch (error) {
     iziToast.error({
       title: 'Error',
-      message: 'Ошибка загрузки: ' + error.message,
+      message: 'Download error: ' + error.message,
     });
     return false;
   }

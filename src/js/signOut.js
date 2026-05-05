@@ -36,6 +36,8 @@ const refs = {
   inputFile: document.querySelector('#avatar-upload'), // Наш скрытый инпут
 };
 
+let isAuthActionInProgress = false;
+
 onAuthStateChanged(auth, user => {
   console.log('Текущий email юзера:', user ? user.email : 'Гость');
 
@@ -84,21 +86,23 @@ onAuthStateChanged(auth, user => {
 
 if (refs.btnLogout) {
   refs.btnLogout.addEventListener('click', async () => {
-    // Блокируем кнопку на долю секунды, пока идет запрос
     refs.btnLogout.disabled = true;
 
-    // Вызываем нашу функцию выхода
+    // Блокуємо миттєвий редирект слухача!
+    isAuthActionInProgress = true;
+
     const isSuccess = await logoutUser();
 
     if (isSuccess) {
       localStorage.removeItem('userAvatar');
-      // Если выход прошел успешно, перекидываем юзера на главную страницу
+      // Тепер setTimeout спокійно відпрацює
       const baseUrl = import.meta.env.BASE_URL;
       setTimeout(() => {
         window.location.href = `${baseUrl}index.html`;
-      }, 1000);
+      }, 1000); // Можеш зробити 2000, якщо додаси iziToast і сюди
     } else {
-      // Если что-то пошло не так, разблокируем кнопку
+      // Якщо помилка - знімаємо блокування
+      isAuthActionInProgress = false;
       refs.btnLogout.disabled = false;
     }
   });
@@ -222,18 +226,41 @@ if (refs.formDeleteAcc) {
   refs.formDeleteAcc.addEventListener('submit', async e => {
     e.preventDefault();
     const password = refs.inputDeleteAcc.value.trim();
+
     if (!password) {
       iziToast.warning({
         title: 'Warning',
         message: 'Введите пароль для подтверждения.',
+        position: 'topRight',
       });
       return;
     }
+
+    // =========================================================
+    // ПРОВЕРКА ПАРОЛЯ (только англ. буквы и цифры, МИНИМУМ 6 СИМВОЛОВ)
+    // =========================================================
+    const passwordRegex = /^[a-zA-Z0-9]{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      iziToast.error({
+        title: 'Error',
+        message:
+          'Password must be at least 6 characters long and contain ONLY English letters and numbers.',
+        position: 'topRight',
+      });
+      return;
+    }
+
+    // Если валидация пройдена, спрашиваем подтверждение
     const isConfirmed = confirm(
-      'Вы уверены? Это действие навсегда удалит ваш аккаунт и все данные без возможности восстановления.'
+      'Are you sure? This action will permanently delete your account and all your data, with no possibility of recovery.'
     );
+
     if (!isConfirmed) return;
+
+    // Передаем пароль в функцию удаления (где должна быть логика ре-аутентификации Firebase)
     const success = await deleteUserAccount(password);
+
     if (success) {
       const baseUrl = import.meta.env.BASE_URL;
       window.location.replace(`${baseUrl}index.html`);

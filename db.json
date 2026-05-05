@@ -1,16 +1,6 @@
 {
   "likes": [
     {
-      "id": "a055",
-      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
-      "mangaId": "998b"
-    },
-    {
-      "id": "7da6",
-      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
-      "mangaId": null
-    },
-    {
       "id": "8e1f",
       "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
       "mangaId": "51f3"
@@ -48,6 +38,11 @@
     {
       "id": "f0cb",
       "userId": "0W5fB3KHxmU9RxJYT1NY7Hs98zu1",
+      "mangaId": "998b"
+    },
+    {
+      "id": "61cd",
+      "userId": "yhj9DHX2ytZ0uiuL07aBiEqa7Ke2",
       "mangaId": "998b"
     }
   ],

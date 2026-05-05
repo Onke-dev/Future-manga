@@ -34,12 +34,17 @@ onAuthStateChanged(auth, async user => {
 
     // 2. Fetch full manga details for each liked ID concurrently
     // 2. Отримання повних даних про кожну мангу за її ID паралельно
-    const mangaPromises = likesData.map(like => getMangasId(like.mangaId));
+    const validLikes = likesData.filter(like => like.mangaId);
+
+
+    const mangaPromises = validLikes.map(like => getMangasId(like.mangaId));
     const mangasData = await Promise.all(mangaPromises);
 
+    const validMangasData = mangasData.filter(manga => manga !== null);
+
     // 3. Render cards to the page
-    // 3. Рендеринг карток на сторінку
-    listLiked.innerHTML = cardsItemsTemplate(mangasData);
+    // 3. Рендеринг карток на сторінку (передаємо відфільтрований масив)
+    listLiked.innerHTML = cardsItemsTemplate(validMangasData);
   } catch (error) {
     console.error(error);
     iziToast.error({

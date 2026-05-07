@@ -252,6 +252,7 @@
   .wrap-img-user {
     padding-right: 35px;
     row-gap: 15px;
+    max-width: 235px;
   }
 
   .user-info {

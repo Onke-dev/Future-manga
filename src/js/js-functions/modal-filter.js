@@ -1,3 +1,6 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 1. ЛОГИКА ОТКРЫТИЯ/ЗАКРЫТИЯ ОКНА ФИЛЬТРА
@@ -13,12 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Вешаем клик на все кнопки с глазиком
   openModalBtns.forEach(btn => {
     btn.addEventListener('click', toggleModal);
   });
 
-  // Вешаем клик на крестик в модальном окне
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', toggleModal);
   }
@@ -30,39 +31,62 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeButtons = document.querySelectorAll('[data-theme]');
 
   function applyTheme(themeName) {
-    document.body.classList.remove('theme-contrast');
+    try {
+      document.body.classList.remove('theme-contrast');
 
-    if (themeName !== 'default') {
-      document.body.classList.add(`theme-${themeName}`);
+      if (themeName !== 'default') {
+        document.body.classList.add(`theme-${themeName}`);
+      }
+
+      // Саме тут може статися збій, якщо браузер блокує пам'ять
+      localStorage.setItem('siteTheme', themeName);
+    } catch (error) {
+      console.error('Theme save error:', error);
+      iziToast.error({
+        title: 'Error',
+        message:
+          'We were unable to save your settings. Please check your browser permissions.',
+        position: 'topRight',
+      });
     }
-
-    localStorage.setItem('siteTheme', themeName);
   }
 
-  const savedTheme = localStorage.getItem('siteTheme');
-  if (savedTheme) {
-    applyTheme(savedTheme);
+  // Завантаження теми при старті
+  try {
+    const savedTheme = localStorage.getItem('siteTheme');
+    if (savedTheme) {
+      applyTheme(savedTheme);
+    }
+  } catch (error) {
+    console.error('Theme load error:', error);
   }
 
+  // Обробка кліку по кнопках теми
   themeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const selectedTheme = btn.getAttribute('data-theme');
+      try {
+        const selectedTheme = btn.getAttribute('data-theme');
 
-      // 1. Применяем выбранную тему
-      applyTheme(selectedTheme);
+        // 1. Применяем выбранную тему
+        applyTheme(selectedTheme);
 
-      // 2. Закрываем саму модалку фильтра
-      toggleModal();
+        // 2. Закрываем саму модалку фильтра
+        toggleModal();
 
-      // 3. УМНОЕ ЗАКРЫТИЕ МОБИЛЬНОГО МЕНЮ
-      // Ищем меню и его кнопку-крестик
-      const mobMenu = document.querySelector('[data-menu]');
-      const closeMenuBtn = document.querySelector('[data-menu-close]');
+        // 3. УМНОЕ ЗАКРЫТИЕ МОБИЛЬНОГО МЕНЮ
+        const mobMenu = document.querySelector('[data-menu]');
+        const closeMenuBtn = document.querySelector('[data-menu-close]');
 
-      // Если мы на мобилке, меню существует И оно сейчас открыто
-      if (mobMenu && mobMenu.classList.contains('is-open') && closeMenuBtn) {
-        // Виртуально "нажимаем" на крестик мобильного меню
-        closeMenuBtn.click();
+        if (mobMenu && mobMenu.classList.contains('is-open') && closeMenuBtn) {
+          closeMenuBtn.click();
+        }
+      } catch (error) {
+        console.error('Filter click error:', error);
+        iziToast.error({
+          title: 'Error',
+          message: 'An error occurred when applying the filter.',
+          position: 'topRight',
+        });
       }
     });
   });

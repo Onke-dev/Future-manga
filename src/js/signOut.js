@@ -56,7 +56,7 @@ onAuthStateChanged(auth, user => {
 
     // 3. Ставим плейсхолдер в инпут (ОТДЕЛЬНЫЙ БЛОК)
     if (refs.inputNewName) {
-      console.log('Инпут найден, ставлю плейсхолдер:', displayName); // <-- Добавил проверку
+      console.log('Input found, adding a placeholder:', displayName); // <-- Добавил проверку
       refs.inputNewName.placeholder = displayName;
     }
 
@@ -119,6 +119,18 @@ if (refs.formChangeName) {
     // Если поле пустое, просто выходим
     if (!newName) return;
 
+    // ==========================================
+    // ПЕРЕВІРКА НА ДОВЖИНУ (МАКСИМУМ 20 СИМВОЛІВ)
+    // ==========================================
+    if (newName.length > 20) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Your name cannot exceed 20 characters.',
+        position: 'topRight',
+      });
+      return; // Зупиняємо відправку
+    }
+
     // Вызываем функцию из authentication.js
     const isSuccess = await changeName(newName);
 
@@ -126,7 +138,7 @@ if (refs.formChangeName) {
       // Обновляем текст под аватаркой
       if (refs.profileName) refs.profileName.textContent = newName;
 
-      // НОВАЯ СТРОЧКА: Сразу обновляем placeholder на новое имя
+      // Сразу обновляем placeholder на новое имя
       if (refs.inputNewName) refs.inputNewName.placeholder = newName;
       refs.formChangeName.reset(); // Очищаем поле, если всё прошло успешно
     }
@@ -136,36 +148,67 @@ if (refs.formChangeName) {
 // --- ИЗМЕНЕНИЕ EMAIL ---
 if (refs.formChangeEmail) {
   refs.formChangeEmail.addEventListener('submit', async e => {
-    e.preventDefault(); // Останавливаем перезагрузку страницы
+    e.preventDefault();
 
-    // Получаем введенный email
     const newEmail = refs.inputEmail.value.trim();
 
-    // Если поле пустое, просто выходим
     if (!newEmail) return;
 
     // =========================================================
-    // ПРОВЕРКА EMAIL (только англ. буквы, цифры и знаки почты)
+    // 1. ПРОВЕРКА: ЭТО УЖЕ ТЕКУЩИЙ EMAIL?
+    // =========================================================
+    if (
+      auth.currentUser &&
+      newEmail.toLowerCase() === auth.currentUser.email.toLowerCase()
+    ) {
+      iziToast.warning({
+        title: 'Warning',
+        message: 'You are already using this email.',
+        position: 'topRight',
+      });
+      return; // Сразу обрываем функцию
+    }
+
+    // =========================================================
+    // 2. ПРОВЕРКА НА ДЛИНУ (Дополнительная защита скриптом)
+    // =========================================================
+    if (newEmail.length > 50) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Email cannot exceed 50 characters.',
+        position: 'topRight',
+      });
+      return;
+    }
+
+    // =========================================================
+    // 3. ПРОВЕРКА ФОРМАТА (только англ. буквы, цифры и знаки)
     // =========================================================
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(newEmail)) {
       iziToast.error({
         title: 'Error',
-        message: 'Please use only English letters and numbers for your email.',
+        message:
+          'Please use only valid English letters and numbers for your email.',
         position: 'topRight',
       });
-      return; // Зупиняємо виконання, якщо є кирилиця
+      return;
     }
+
+    // Блокируем кнопку, чтобы юзер не спамил кликами (опционально, но желательно)
+    const submitBtn = refs.formChangeEmail.querySelector('.save_btn');
+    if (submitBtn) submitBtn.disabled = true;
 
     // Вызываем функцию из authentication.js
     const isSuccess = await changeEmail(newEmail);
 
     if (isSuccess) {
-      // Сразу обновляем placeholder на новый email
       if (refs.inputEmail) refs.inputEmail.placeholder = newEmail;
       refs.formChangeEmail.reset();
     }
+
+    if (submitBtn) submitBtn.disabled = false;
   });
 }
 
@@ -230,7 +273,7 @@ if (refs.formDeleteAcc) {
     if (!password) {
       iziToast.warning({
         title: 'Warning',
-        message: 'Введите пароль для подтверждения.',
+        message: 'Please enter your password to confirm.',
         position: 'topRight',
       });
       return;
@@ -283,8 +326,26 @@ if (refs.btnTriggerLoad && refs.inputFile) {
 // 2. Когда файл выбран — делаем предпросмотр
 if (refs.inputFile) {
   refs.inputFile.addEventListener('change', e => {
-    selectedFile = e.target.files[0];
-    if (!selectedFile) return;
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // ==========================================
+    // ЖОРСТКА ПЕРЕВІРКА НА ТИП ФАЙЛУ
+    // ==========================================
+    // Перевіряємо, чи починається MIME-тип файлу зі слова 'image/'
+    if (!file.type.startsWith('image/')) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Please select a valid image file (JPG, PNG, WEBP, etc.).',
+        position: 'topRight',
+      });
+      refs.inputFile.value = ''; // Очищаємо інпут
+      selectedFile = null; // Скидаємо змінну
+      return; // Зупиняємо подальше виконання
+    }
+
+    // Якщо все добре, зберігаємо файл
+    selectedFile = file;
 
     // Создаем временную ссылку на картинку прямо в браузере (без интернета)
     const previewUrl = URL.createObjectURL(selectedFile);
@@ -309,7 +370,7 @@ if (refs.formPhoto) {
     if (!selectedFile) {
       iziToast.info({
         title: 'Info',
-        message: 'Сначала выберите новое фото с помощью иконки!',
+        message: 'First, select a new photo!',
       });
       return;
     }

@@ -249,7 +249,7 @@
                 <input
                   type="file"
                   id="avatar-upload"
-                  accept="image/*"
+                  accept="image/png, image/jpeg, image/webp"
                   style="display: none"
                 />
                 <button type="button" class="load">
@@ -293,15 +293,15 @@
             </div>
           </fieldset>
         </form>
-        <form class="main-form js-email">
+        <form class="main-form js-email" novalidate>
           <fieldset class="form-settings">
             <legend class="change-email" data-key="change_email_user">
               Change your Email
             </legend>
             <div class="sec">
-              <label for="user-email" class="user-email" data-key="user_email"
-                >Your Email</label
-              >
+              <label for="user-email" class="user-email" data-key="user_email">
+                Your Email
+              </label>
               <div class="wrap-elems">
                 <input
                   class="input-data"
@@ -309,6 +309,7 @@
                   id="user-email"
                   type="email"
                   name="user-email"
+                  maxlength="50"
                   required
                   pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                   title="Please use only English letters and numbers"
@@ -477,7 +478,7 @@
             <use href="../../icon/icon.svg#icon-menu-close"></use>
           </svg>
         </button>
-        <h2 class="title-filter">Кольоровий фільтр</h2>
+        <h2 class="title-filter">Colour filter</h2>
         <div class="item-filter">
           <button class="defaultBtn" type="button" data-theme="default">
             <h3>Default</h3>

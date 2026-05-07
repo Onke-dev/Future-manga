@@ -212,29 +212,38 @@ if (refs.formChangeEmail) {
   });
 }
 
-// --- ИЗМЕНЕНИЕ PASSWORD ---
 if (refs.formChangePassword) {
+  // Не забуваємо додати novalidate у HTML для цієї форми!
   refs.formChangePassword.addEventListener('submit', async e => {
     e.preventDefault();
-    const currentPassord = refs.inputCurrentPassord.value.trim();
-    const newPassord = refs.inputNewPassord.value.trim();
-    const confirmPassord = refs.inputConfirmPassord.value.trim();
 
-    // 1. Проверка на пустые поля
+    // ПРИБИРАЄМО .trim() ДЛЯ ПАРОЛІВ
+    const currentPassord = refs.inputCurrentPassord.value;
+    const newPassord = refs.inputNewPassord.value;
+    const confirmPassord = refs.inputConfirmPassord.value;
+
+    // 1. Перевірка на порожні поля (тепер без trim, тому перевіряємо просто length)
     if (!currentPassord || !newPassord || !confirmPassord) {
       iziToast.warning({
         title: 'Warning',
-        message: 'Пожалуйста, заполните все поля.',
+        message: 'Please fill in all the fields.',
         position: 'topRight',
       });
       return;
     }
 
-    // =========================================================
-    // 2. ПРОВЕРКА НОВОГО ПАРОЛЯ (только англ. буквы и цифры, МИНИМУМ 6 СИМВОЛОВ)
-    // =========================================================
-    const passwordRegex = /^[a-zA-Z0-9]{6,}$/;
+    // 2. Чи новий пароль не такий самий, як старий?
+    if (currentPassord === newPassord) {
+      iziToast.warning({
+        title: 'Warning',
+        message: 'The new password cannot be the same as your current one.',
+        position: 'topRight',
+      });
+      return;
+    }
 
+    // 3. Регулярний вираз (твоя логіка правильна)
+    const passwordRegex = /^[a-zA-Z0-9]{6,}$/;
     if (!passwordRegex.test(newPassord)) {
       iziToast.error({
         title: 'Error',
@@ -245,20 +254,19 @@ if (refs.formChangePassword) {
       return;
     }
 
-    // 3. Проверка совпадения паролей
+    // 4. Перевірка збігу
     if (newPassord !== confirmPassord) {
       iziToast.error({
         title: 'Error',
-        message: 'Новые пароли не совпадают!',
+        message: 'The new passwords do not match!',
         position: 'topRight',
       });
       return;
     }
 
-    // 4. Отправка в Firebase
+    // 5. Відправка
     const success = await changePassword(currentPassord, newPassord);
     if (success) {
-      // Если всё отлично, очищаем форму
       refs.formChangePassword.reset();
     }
   });

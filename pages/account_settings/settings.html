@@ -11,11 +11,11 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/Future-manga/assets/vendor-Dk5KRYwc.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/modal-filter-Dh90QjJ_.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/modal-filter-DWqc8YiZ.js"></script>
     <script type="module" crossorigin src="/Future-manga/assets/search-header-BB0Y-Q7a.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/authentication-ChLomcNb.js"></script>
-    <script type="module" crossorigin src="/Future-manga/assets/signOut-Ek8AHvlb.js"></script>
-    <link rel="stylesheet" crossorigin href="/Future-manga/assets/modal-filter-8S5OO54s.css">
+    <script type="module" crossorigin src="/Future-manga/assets/authentication-BB0sUjqU.js"></script>
+    <script type="module" crossorigin src="/Future-manga/assets/signOut-sJZ7xJ2k.js"></script>
+    <link rel="stylesheet" crossorigin href="/Future-manga/assets/modal-filter-CWSWw-Q6.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/vendor-DnveWo0P.css">
     <link rel="stylesheet" crossorigin href="/Future-manga/assets/settings-B2hk9U9U.css">
   </head>
@@ -246,7 +246,7 @@
                 <input
                   type="file"
                   id="avatar-upload"
-                  accept="image/*"
+                  accept="image/png, image/jpeg, image/webp"
                   style="display: none"
                 />
                 <button type="button" class="load">
@@ -290,15 +290,15 @@
             </div>
           </fieldset>
         </form>
-        <form class="main-form js-email">
+        <form class="main-form js-email" novalidate>
           <fieldset class="form-settings">
             <legend class="change-email" data-key="change_email_user">
               Change your Email
             </legend>
             <div class="sec">
-              <label for="user-email" class="user-email" data-key="user_email"
-                >Your Email</label
-              >
+              <label for="user-email" class="user-email" data-key="user_email">
+                Your Email
+              </label>
               <div class="wrap-elems">
                 <input
                   class="input-data"
@@ -306,6 +306,7 @@
                   id="user-email"
                   type="email"
                   name="user-email"
+                  maxlength="50"
                   required
                   pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                   title="Please use only English letters and numbers"
@@ -474,7 +475,7 @@
             <use href="../../icon/icon.svg#icon-menu-close"></use>
           </svg>
         </button>
-        <h2 class="title-filter">Кольоровий фільтр</h2>
+        <h2 class="title-filter">Colour filter</h2>
         <div class="item-filter">
           <button class="defaultBtn" type="button" data-theme="default">
             <h3>Default</h3>

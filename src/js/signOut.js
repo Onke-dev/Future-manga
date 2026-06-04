@@ -38,49 +38,23 @@ const refs = {
 
 let isAuthActionInProgress = false;
 
+// ==========================================
+// ВІДОБРАЖЕННЯ ДАНИХ ЮЗЕРА ПРИ ЗАВАНТАЖЕННІ
+// ==========================================
 onAuthStateChanged(auth, user => {
-  console.log('Текущий email юзера:', user ? user.email : 'Гость');
-
   if (user) {
-    // 1. Получаем имя один раз для всего
-    const displayName = user.displayName || user.email.split('@')[0];
-
-    // 2. Ставим имя под аватарку (отдельный блок)
+    // Обов'язково перевіряємо, чи є елемент на ПОТОЧНІЙ сторінці!
     if (refs.profileName) {
-      refs.profileName.textContent = displayName;
+      refs.profileName.textContent = user.displayName || 'Reader';
+    }
+
+    if (refs.inputNewName) {
+      refs.inputNewName.placeholder = user.displayName || 'Your Name';
     }
 
     if (refs.inputEmail) {
-      refs.inputEmail.placeholder = user.email;
+      refs.inputEmail.placeholder = user.email || 'Your Email';
     }
-
-    // 3. Ставим плейсхолдер в инпут (ОТДЕЛЬНЫЙ БЛОК)
-    if (refs.inputNewName) {
-      console.log('Input found, adding a placeholder:', displayName); // <-- Добавил проверку
-      refs.inputNewName.placeholder = displayName;
-    }
-
-    // 4. Логика для админ-панели
-    if (user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
-      if (refs.btnPanel) {
-        refs.btnPanel.style.display = 'flex';
-        refs.btnPanel.style.visibility = 'visible';
-      }
-    } else {
-      if (refs.btnPanel) refs.btnPanel.style.display = 'none';
-    }
-
-    if (refs.imgAvatar && user.photoURL) {
-      refs.imgAvatar.src = user.photoURL;
-      // Удаляем дефолтные адаптивные заглушки, чтобы они не перебивали кастомную фотку
-      if (refs.sourcesAvatar) {
-        refs.sourcesAvatar.forEach(source => source.remove());
-      }
-    }
-  } else {
-    const baseUrl = import.meta.env.BASE_URL;
-
-    window.location.replace(`${baseUrl}index.html`);
   }
 });
 

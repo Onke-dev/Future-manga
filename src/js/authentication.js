@@ -14,39 +14,56 @@ import {
   ref,
   uploadBytes,
   getDownloadURL,
+  deleteObject,
 } from './firebase-api.js';
+import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 // --- РЕГИСТРАЦИЯ ---
 export async function registerUser(email, password) {
   try {
+    // 1. Создаем пользователя в Firebase
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
     const user = userCredential.user;
-
     const defaultName = email.split('@')[0];
 
-    await updateProfile(user, {
-      displayName: defaultName,
-      // photoURL: 'тут_можно_ссылку_на_стандартную_аватарку.png'
-    });
+    await updateProfile(user, { displayName: defaultName });
 
-    iziToast.success({
-      title: 'Success',
-      message: 'Registration was successful!',
-    });
-    return user;
+    // 2. Пытаемся записать пользователя в json-server
+    try {
+      await axios.post('http://localhost:3000/users', {
+        id: user.uid,
+        email: user.email,
+        name: defaultName,
+        role: 'reader',
+        photo: '',
+      });
+
+      iziToast.success({
+        title: 'Success',
+        message: 'Registration was successful!',
+      });
+      return user;
+    } catch (dbError) {
+      // 3. ROLLBACK: БД лежит. Удаляем созданный аккаунт из Firebase!
+      await user.delete();
+      throw new Error(
+        'Database server is unavailable. Registration cancelled.'
+      );
+    }
   } catch (error) {
-    // Firebase сам понимает, если пароль слабый или email уже занят
-    iziToast.error({ title: 'Error', message: error.message });
+    // КРИТИЧЕСКИ ВАЖНО: прокидываем ошибку дальше, чтобы её поймала форма!
+    throw error;
   }
 }
 
 // --- ВХОД ---
+// Файл: authentication.js
 export async function loginUser(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -56,16 +73,20 @@ export async function loginUser(email, password) {
     );
     const user = userCredential.user;
 
-    iziToast.success({
-      title: 'Welcome',
-      message: 'You have logged in successfully!',
-    });
-    // Например, закрыть модалку или перекинуть в My Account
-    return user;
+    try {
+      // Запит до локальної БД
+      await axios.get(`http://localhost:3000/users/${user.uid}`);
+      return user;
+    } catch (dbError) {
+      // Сервер БД лежить. Кидаємо кастомну помилку!
+      await signOut(auth);
+      throw new Error('Database server is unavailable. Login cancelled.');
+    }
   } catch (error) {
     iziToast.error({
       title: 'Error',
-      message: 'Incorrect email address or password.',
+      message: error.message || 'Incorrect email address or password.',
+      position: 'topRight',
     });
   }
 }
@@ -249,30 +270,43 @@ export async function uploadAvatar(file) {
   const user = auth.currentUser;
   if (!user) return false;
 
+  // 1. Формуємо УНІКАЛЬНЕ ім'я файлу (додаємо timestamp), щоб не затерти стару картинку завчасно!
+  const uniqueFileName = `${user.uid}_${Date.now()}`;
+  const fileRef = ref(storage, `avatars/${uniqueFileName}`);
+
   try {
-    // 1. Создаем путь: папка 'avatars' / уникальный ID юзера
-    const fileRef = ref(storage, `avatars/${user.uid}`);
-
-    // 2. Загружаем файл в Firebase
+    // 2. Завантажуємо НОВУ картинку у Firebase Storage
     await uploadBytes(fileRef, file);
+    const newPhotoURL = await getDownloadURL(fileRef);
 
-    // 3. Получаем публичную ссылку на загруженную картинку
-    const photoURL = await getDownloadURL(fileRef);
+    try {
+      // 3. Стукаємо у локальну базу db.json
+      await axios.patch(`http://localhost:3000/users/${user.uid}`, {
+        photo: newPhotoURL,
+      });
+    } catch (dbError) {
+      // 4. ROLLBACK (Відкат): База вимкнена!
+      // Видаляємо щойно завантажену нову картинку з Firebase Storage, бо БД лежить
+      await deleteObject(fileRef);
+      throw new Error(
+        'Database server is unavailable. Avatar update cancelled.'
+      );
+    }
 
-    // 4. Сохраняем эту ссылку в профиль пользователя
-    await updateProfile(user, { photoURL: photoURL });
+    // 5. ТІЛЬКИ ЯКЩО БАЗА ОНОВИЛАСЯ – оновлюємо профіль у Firebase Auth
+    await updateProfile(user, { photoURL: newPhotoURL });
 
     iziToast.success({
       title: 'Success',
-      message: 'Your avatar has been successfully updated!',
+      message: 'Photo updated successfully!',
     });
 
-    // Возвращаем ссылку, чтобы мгновенно показать её на странице
-    return photoURL;
+    return newPhotoURL;
   } catch (error) {
+    console.error('Photo upload error:', error);
     iziToast.error({
       title: 'Error',
-      message: 'Download error: ' + error.message,
+      message: error.message || 'Failed to update photo.',
     });
     return false;
   }

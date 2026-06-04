@@ -17,25 +17,30 @@ if (refs.loginForm) {
     const emailValue = refs.email.value.trim();
     const passwordValue = refs.password.value.trim();
 
-    // Блокируем кнопку, чтобы юзер не кликал 100 раз подряд
     const submitBtn = refs.loginForm.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Loading...';
 
-    // Вызываем функцию входа из твоего сервиса
-    const user = await loginUser(emailValue, passwordValue);
+    try {
+      // Пытаемся войти. Если сервер лежит, код прыгнет в блок catch
+      const user = await loginUser(emailValue, passwordValue);
 
-    if (user) {
-      // УСПЕХ: Очищаем форму
-      refs.loginForm.reset();
-
-      // Перекидываем на главную через секунду (чтобы юзер успел прочитать тост "Welcome!")
-      setTimeout(() => {
-        const baseUrl = import.meta.env.BASE_URL;
-        window.location.href = `${baseUrl}index.html`;
-      }, 1000);
-    } else {
-      // ОШИБКА: Разблокируем кнопку, чтобы юзер мог попробовать ввести пароль еще раз
+      if (user) {
+        refs.loginForm.reset();
+        setTimeout(() => {
+          const baseUrl = import.meta.env.BASE_URL;
+          window.location.href = `${baseUrl}index.html`;
+        }, 1000);
+      }
+    } catch (error) {
+      // Ловим ошибку и выводим её пользователю
+      iziToast.error({
+        title: 'Error',
+        message: error.message || 'Incorrect email address or password.',
+        position: 'topRight',
+      });
+    } finally {
+      // Блок finally выполнится В ЛЮБОМ СЛУЧАЕ, кнопка разблокируется
       submitBtn.disabled = false;
       submitBtn.textContent = 'Sign in';
     }

@@ -1,6 +1,7 @@
 import { getMangasId } from './api.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import axios from 'axios';
 
 // Firebase imports for storage operations
 // Імпорт Firebase для операцій зі сховищем
@@ -117,28 +118,24 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         // Check if already in favorites
         // Перевірка, чи вже є в обраному
-        const checkRes = await fetch(
+        const checkRes = await axios.get(
           `http://localhost:3000/likes?userId=${user.uid}&mangaId=${mangaId}`
         );
-        const checkData = await checkRes.json();
 
-        if (checkData.length > 0) {
+        // Axios кладет ответ в свойство .data
+        if (checkRes.data.length > 0) {
           iziToast.info({
             title: 'Info',
             message: 'This manga is already in your list!',
           });
+          btn.disabled = false;
+          btn.style.opacity = '1';
           return;
         }
 
         const newLike = { userId: user.uid, mangaId: mangaId };
 
-        const response = await fetch('http://localhost:3000/likes', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newLike),
-        });
-
-        if (!response.ok) throw new Error('Server error');
+        await axios.post('http://localhost:3000/likes', newLike);
 
         iziToast.success({
           title: 'Success!',
@@ -147,10 +144,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         btn.textContent = 'Added ✓';
       } catch (error) {
-        console.error(error);
+        console.error('Add to favorites error:', error);
         iziToast.error({
           title: 'Error',
-          message: 'Failed to add to favorites.',
+          message:
+            'Failed to add to favorites. Database server is unavailable.',
         });
         btn.disabled = false;
         btn.style.opacity = '1';

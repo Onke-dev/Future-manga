@@ -12,8 +12,14 @@ import {
   EmailAuthProvider,
   reauthenticateWithCredential,
   deleteUser,
-} from 'firebase/auth';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+} from 'firebase/auth'; // ВИДАЛЕНО помилковий deleteObject звідси
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject, // ТУТ ВІН МАЄ БУТИ (Firebase Storage)
+} from 'firebase/storage';
 
 // Firebase service configuration
 // Конфігурація сервісів Firebase
@@ -50,6 +56,7 @@ export {
   ref,
   uploadBytes,
   getDownloadURL,
+  deleteObject, // ДОДАНО СЮДИ, щоб authentication.js міг його використовувати!
 };
 
 /**

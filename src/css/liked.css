@@ -166,7 +166,7 @@ body[data-theme='contrast'] .img-card {
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  color: #000;
+  color: var(--text-name-manga);
   padding-bottom: 25px;
 }
 

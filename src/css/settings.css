@@ -169,7 +169,7 @@ body[data-theme='contrast'] .img-settings {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
-  color: #000;
+  color: var(--text-name-manga);
   cursor: pointer;
 }
 
@@ -183,7 +183,7 @@ body[data-theme='contrast'] .img-settings {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 14px;
-  color: #000;
+  color: var(--text-name-manga);
 }
 
 .input-data {
@@ -206,7 +206,7 @@ body[data-theme='contrast'] .img-settings {
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  color: #000;
+  color: var(--text-name-manga);
   cursor: pointer;
 }
 
@@ -252,7 +252,7 @@ body[data-theme='contrast'] .img-settings {
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  color: #000;
+  color: var(--text-name-manga);
   cursor: pointer;
 }
 

@@ -84,9 +84,9 @@
   text-align: center;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(93, 93, 93, 0.48) 50%,
-    rgba(0, 0, 0, 0.7) 100%
+    var(--grad-start) 0%,
+    var(--grad-mid) 50%,
+    var(--grad-end) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -125,8 +125,7 @@
 }
 
 .next {
-  stroke: #1e1e1e;
-
+  stroke: var(--pagin-chap);
   fill: transparent;
 }
 
@@ -138,9 +137,7 @@
   height: 25px;
   border-radius: 10px;
   cursor: pointer;
-
   background-color: #000000;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -152,6 +149,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  border: var(--br-search);
 }
 
 /* #endregion main styles */

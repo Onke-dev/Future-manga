@@ -5,7 +5,7 @@
       "email": "fdvewsdvsv@gmail.com",
       "name": "fdvewsdvsv",
       "role": "reader",
-      "photo": "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/avatars%2F8VzyFYrEXtXJbw8ZKIsaxzhlAvj1?alt=media&token=12b40ed3-ba72-44ea-ae76-0add249968e7"
+      "photo": "https://firebasestorage.googleapis.com/v0/b/future-manga.firebasestorage.app/o/avatars%2F8VzyFYrEXtXJbw8ZKIsaxzhlAvj1_1780601324844?alt=media&token=4b172699-2dc1-4675-8335-f158fb0e3dc0"
     }
   ],
   "likes": [
@@ -60,19 +60,14 @@
       "mangaId": "51f3"
     },
     {
-      "id": "c245",
-      "userId": "8VzyFYrEXtXJbw8ZKIsaxzhlAvj1",
-      "mangaId": "998b"
-    },
-    {
-      "id": "2ceb",
-      "userId": "8VzyFYrEXtXJbw8ZKIsaxzhlAvj1",
-      "mangaId": "998b"
-    },
-    {
       "id": "d249",
       "userId": "8VzyFYrEXtXJbw8ZKIsaxzhlAvj1",
       "mangaId": "d8e4"
+    },
+    {
+      "id": "fc23",
+      "userId": "8VzyFYrEXtXJbw8ZKIsaxzhlAvj1",
+      "mangaId": "998b"
     }
   ],
   "mangas": [

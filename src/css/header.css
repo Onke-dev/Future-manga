@@ -143,6 +143,38 @@
   width: 268px;
 }
 
+.wrap-mob-search {
+  position: relative;
+}
+
+/* Сам випадаючий список */
+.mob-search-dropdown {
+  position: absolute !important; /* Відриваємо від потоку, щоб не зсувало меню */
+  top: 100%; /* Розташовуємо рівно під інпутом */
+  left: 0;
+  max-height: 50vh; /* Обмежуємо висоту (50% екрану), щоб не вилазило за межі */
+  overflow-y: auto; /* Додаємо скрол, якщо манг багато */
+  z-index: 999; /* Робимо так, щоб список був ПОВЕРХ усіх кнопок меню */
+  background-color: rgba(
+    14,
+    14,
+    14,
+    0.98
+  ); /* Темний фон, щоб текст не зливався */
+  border-radius: 8px;
+  margin-top: 8px; /* Невеликий відступ від інпуту для краси */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); /* Тінь для об'єму */
+}
+
+/* Кастомізація скролбару для мобільного списку (щоб виглядав акуратно) */
+.mob-search-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+.mob-search-dropdown::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
 .search_mob {
   border-radius: 30px;
   width: 268px;
@@ -157,9 +189,13 @@
   border: var(--br-search-mob);
 }
 
-.search_mob:hover,
-.search_mob:focus {
+.search_mob:hover {
   border: none;
+  outline: none;
+}
+
+.search_mob:focus {
+  border: var(--br-search);
   outline: none;
 }
 
@@ -172,12 +208,31 @@
   color: #fef7ff;
 }
 
+.header-search-title {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 2.22;
+  text-align: center;
+  color: #ffffff;
+}
+
 .icon_search {
   position: absolute;
   top: 50%;
   right: 22px;
   fill: #ffffff;
   transform: translateY(-50%);
+}
+
+.no-results {
+  padding: 10px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2.22;
+  color: #ffffff;
+  text-align: center;
 }
 
 #eye-open {

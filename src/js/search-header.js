@@ -5,11 +5,9 @@ import { searchMagasTemplate } from './renders-pages.js';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-const refs = {
-  inputHeader: document.querySelector('.jsHeaderSearch'),
-  listElems: document.querySelector('.js-list-search'),
-  btnSearch: document.querySelector('.btn-search'),
-};
+// Шукаємо ВСІ інпути та ВСІ списки результатів (і для ПК, і для мобілки)
+const searchInputs = document.querySelectorAll('.jsHeaderSearch');
+const resultLists = document.querySelectorAll('.js-list-search');
 
 let allMangasData = [];
 
@@ -24,49 +22,43 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-refs.inputHeader.addEventListener('input', e => {
-  const query = e.target.value.trim().toLowerCase();
+// Проходимося циклом по кожному знайденому інпуту
+searchInputs.forEach((inputHeader, index) => {
+  // Беремо відповідний список для поточного інпуту (ПК до ПК, мобайл до мобайлу)
+  const listElems = resultLists[index];
 
-  if (query.length < 2) {
-    refs.listElems.innerHTML = '';
-    refs.listElems.style.display = 'none';
-    return;
-  }
+  inputHeader.addEventListener('input', e => {
+    const query = e.target.value.trim().toLowerCase();
 
-  const mangaFilter = allMangasData.filter(manga =>
-    manga.title.toLowerCase().includes(query)
-  );
+    if (query.length < 2) {
+      listElems.innerHTML = '';
+      listElems.style.display = 'none';
+      return;
+    }
 
-  if (mangaFilter.length === 0) {
-    refs.listElems.innerHTML = '<li class="no-results">Mangas not found</li>';
-    refs.listElems.style.display = 'block';
-  } else {
-    const topMangas = mangaFilter.slice(0, 5);
-    refs.listElems.innerHTML = searchMagasTemplate(topMangas);
-    refs.listElems.style.display = 'block';
-  }
+    const mangaFilter = allMangasData.filter(manga =>
+      manga.title.toLowerCase().includes(query)
+    );
+
+    if (mangaFilter.length === 0) {
+      listElems.innerHTML = '<li class="no-results">Mangas not found</li>';
+      listElems.style.display = 'block';
+    } else {
+      const topMangas = mangaFilter.slice(0, 5);
+      listElems.innerHTML = searchMagasTemplate(topMangas);
+      listElems.style.display = 'block';
+    }
+  });
 });
 
+// Закриття списку при кліку поза його межами (для всіх пошуків)
 document.addEventListener('click', e => {
-  if (
-    !refs.inputHeader.contains(e.target) &&
-    !refs.listElems.contains(e.target)
-  ) {
-    refs.listElems.style.display = 'none';
-  }
-});
-
-refs.btnSearch.addEventListener('click', e => {
-  const query = refs.inputHeader.value.trim();
-
-  if (query) {
-    window.location.href = `${baseUrl}pages/manga-deteils/manga-template.html?title=${query}`;
-  }
-});
-
-refs.inputHeader.addEventListener('keypress', e => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    refs.btnSearch.click();
-  }
+  searchInputs.forEach((inputHeader, index) => {
+    const listElems = resultLists[index];
+    if (!inputHeader.contains(e.target) && !listElems.contains(e.target)) {
+      listElems.innerHTML = '';
+      listElems.style.display = 'none';
+      inputHeader.value = ''; // Очищаємо інпут при закритті
+    }
+  });
 });

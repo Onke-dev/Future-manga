@@ -325,7 +325,7 @@ body[data-theme='contrast'] .js-cover {
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 24px;
-  color: #000;
+  color: var(--text-name-manga);
   margin-bottom: 15px;
 }
 
@@ -350,7 +350,6 @@ body[data-theme='contrast'] .js-cover {
   position: relative;
 }
 
-
 .list-info-manga,
 .summary,
 .list-chapters {
@@ -359,14 +358,12 @@ body[data-theme='contrast'] .js-cover {
     border-color 0.3s ease;
 }
 
-
 body.theme-contrast .list-info-manga,
 body.theme-contrast .summary,
 body.theme-contrast .list-chapters {
-  background-color: #1a1a1a; 
-  border: 1px solid #333; 
+  background-color: #1a1a1a;
+  border: 1px solid #333;
 }
-
 
 .list-chapters::-webkit-scrollbar {
   width: 15px;

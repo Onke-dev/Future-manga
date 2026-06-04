@@ -158,7 +158,7 @@
 }
 
 .setting-icon {
-  fill: #000000;
+  fill: var(--text-name-manga);
 }
 
 .setting-icon:active {
